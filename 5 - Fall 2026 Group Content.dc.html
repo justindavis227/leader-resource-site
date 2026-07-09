@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#d6d2c4;padding:48px 0;font-family:var(--font-body);--font-display:'Anton','Arial Narrow',sans-serif;overflow-x:hidden}
+  a{color:var(--ember);text-decoration:none}
+  a:hover{color:var(--accent-press)}
+  @page{size:8in 8in;margin:0}
+  @media print{
+    body{background:#fff;padding:0}
+    .viewbar,#libnav{display:none!important}
+    .book{gap:0!important}
+    .spread{gap:0!important}
+    .pg{box-shadow:none!important}
+  }
+</style>
+</helmet>
+<nav id="libnav" style="position:fixed;top:16px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)"><a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a></nav>
+<div class="viewbar" style="position:fixed;top:16px;right:16px;z-index:50;display:flex;gap:4px;background:var(--pitch);border-radius:999px;padding:4px;box-shadow:0 6px 18px rgba(14,18,21,.28)">
+  <button onClick="{{ selectSingle }}" style="{{ singleBtnStyle }}">Single</button>
+  <button onClick="{{ selectSpread }}" style="{{ spreadBtnStyle }}">Spread</button>
+</div>
+<div class="se-stage" style="position:relative;width:100%;overflow:hidden">
+<div class="book" style="display:flex;flex-direction:column;align-items:center;gap:40px">
+
+  <!-- ============ COVER ============ -->
+  <section class="pg" data-screen-label="Cover" style="width:768px;height:768px;background:var(--pitch);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--slate)">
+    <img src="assets/photos/head-blue.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.96) 8%,rgba(12,14,16,.62) 30%,rgba(12,14,16,.05) 56%,rgba(12,14,16,0) 100%)"></div>
+    <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students" style="position:absolute;top:52px;left:64px;height:40px;width:auto">
+    <div style="position:absolute;top:56px;right:64px;max-width:270px;text-align:right;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;line-height:1.8;color:var(--solar)">One at a Time · Churchy Words · Beyond Boring · At the Table</div>
+    <div style="position:absolute;left:64px;right:64px;bottom:60px">
+      <div style="width:64px;height:5px;background:#01b7ff;margin-bottom:22px"></div>
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:rgba(255,254,249,.82);margin-bottom:10px">SMALL-GROUP CONTENT · LEADER EDITION</div>
+      <h1 style="font-family:var(--font-display);text-transform:uppercase;font-size:128px;line-height:.86;letter-spacing:.01em;color:var(--slate);margin:0">Fall<br>2026</h1>
+      <div style="font-size:15px;color:rgba(255,254,249,.84);max-width:440px;margin-top:20px;line-height:1.55">Four teaching series to walk students through the vision of our church, the fight of spiritual warfare, a faith that’s anything but boring, and a table wide enough for everyone.</div>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#01b7ff 0 20px,transparent 20px 40px)"></div>
+  </section>
+
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:#01b7ff">
+  <!-- ============ HOW TO USE ============ -->
+  <section class="pg" data-screen-label="Using This Guide" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:56px 64px 92px;display:flex;flex-direction:column">
+    <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">For Small-Group Leaders</div>
+    <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:52px;line-height:1;margin:8px 0 0">Using This Guide</h2>
+    <div style="height:1px;background:var(--hairline);margin:18px 0 4px"></div>
+    <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:12px 0 0">Every week follows the same rhythm. The left page is your <b style="color:var(--fg1)">prep</b> — know it before group. The right page is your <b style="color:var(--fg1)">discussion</b> — keep it open and work through it together.</p>
+    <div style="margin-top:20px;display:flex;flex-direction:column">
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--hairline)"><div style="font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--ember);padding-top:2px">Passage</div><div style="font-size:13.5px;color:var(--fg2);line-height:1.5">The week’s Scripture. Read it together before you dig in.</div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--hairline)"><div style="font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--ember);padding-top:2px">Key Takeaway</div><div style="font-size:13.5px;color:var(--fg2);line-height:1.5">The one idea students should leave with. Aim everything here.</div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--hairline)"><div style="font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--ember);padding-top:2px">Call to Action</div><div style="font-size:13.5px;color:var(--fg2);line-height:1.5">The response you’re guiding them toward this week.</div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--hairline)"><div style="font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--ember);padding-top:2px">Questions</div><div style="font-size:13.5px;color:var(--fg2);line-height:1.5"><b style="color: var(--fg1);">Personal</b> warms them up.<br><b style="color: var(--fg1);">Biblical</b> digs into the text.<br><b style="color: var(--fg1);">Applicable</b> brings it home.</div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--hairline)"><div style="font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--ember);padding-top:2px">Prayer Prompt</div><div style="font-size:13.5px;color:var(--fg2);line-height:1.5">Pray it as written, or put it in your own words.</div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--hairline)"><div style="font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--ember);padding-top:2px">Personal Challenge</div><div style="font-size:13.5px;color:var(--fg2);line-height:1.5">A step for students to carry through the week.</div></div>
+    </div>
+    <div style="margin-top:auto;background:var(--pitch);border-radius:10px;padding:18px 24px;display:flex;align-items:center;gap:18px">
+      <div style="font-family:var(--font-display);font-size:40px;color:var(--solar);line-height:.8;white-space:nowrap">01</div>
+      <div style="width:1px;align-self:stretch;background:rgba(255,254,249,.16)"></div>
+      <div style="font-size:13px;color:var(--fg2-d);line-height:1.5">Facilitate, don’t teach. Use more question marks than periods, leave room for silence, and follow up with your students through the week.<span style="display:inline-block;font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;color:var(--solar);background:rgba(232,209,54,.16);padding:2px 8px;border-radius:999px;margin-left:8px;white-space:nowrap;vertical-align:middle">#leadertip</span></div>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">Southeast Students</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">Fall 2026</span></div>
+  </section>
+
+  <!-- ============ CONTENTS ============ -->
+  <section class="pg" data-screen-label="Contents" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:56px 64px 92px;display:flex;flex-direction:column">
+    <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">Fall 2026</div>
+    <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:60px;line-height:1;margin:8px 0 0">Contents</h2>
+    <div style="height:1px;background:var(--hairline);margin:20px 0 4px"></div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <sc-for list="{{ series }}" as="s" hint-placeholder-count="0">
+        <div style="display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;gap:18px;padding:20px 0;border-bottom:1px solid var(--hairline)">
+          <div style="font-family:var(--font-mono);font-weight:700;font-size:16px;color:var(--ember)">{{ s.tnum }}</div>
+          <div>
+            <div style="font-family:var(--font-display);text-transform:uppercase;font-size:30px;line-height:.98;color:var(--fg1)">{{ s.title }}</div>
+            <div style="font-family:var(--font-mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:6px">{{ s.meta }}</div>
+          </div>
+          <div style="font-family:var(--font-mono);font-weight:600;font-size:14px;color:var(--fg2)">{{ s.range }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">Contents</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">Southeast Students</span></div>
+  </section>
+
+  </div>
+  <!-- ============ SERIES LOOP ============ -->
+  <sc-for list="{{ series }}" as="s" hint-placeholder-count="0">
+
+    <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember: {{ s.accent }}">
+    <!-- SERIES DIVIDER -->
+    <section class="pg" data-screen-label="Series Divider" style="width:768px;height:768px;position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);background: {{ s.dividerBg }};color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end">
+      <div aria-hidden="true" style="position:absolute;bottom:-30px;right:-24px;width:470px;height:470px;background-image:url({{ s.illo }});background-size:contain;background-repeat:no-repeat;background-position:center;filter:brightness(0) invert(1);opacity:.09;pointer-events:none;z-index:0"></div>
+      <div style="position:relative;z-index:1;padding:0 64px 84px">
+        <div style="font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.26em;color: {{ s.accentText }}">SERIES {{ s.no }}</div>
+        <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:82px;line-height:.94;color:var(--slate);margin:14px 0 0">{{ s.title }}</h2>
+        <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:rgba(255,254,249,.72);margin-top:22px">{{ s.meta }}</div>
+        <div style="width:64px;height:6px;background: {{ s.accentText }};margin-top:26px"></div>
+        <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:rgba(255,254,249,.5);margin-top:22px">Series Dates <span style="display:inline-block;min-width:210px;border-bottom:1px solid rgba(255,254,249,.34);margin-left:10px">&nbsp;</span></div>
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px;z-index:1"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:rgba(255,254,249,.55)">{{ s.short }}</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:rgba(255,254,249,.8);letter-spacing:.04em">{{ s.dividerPage }}</span></div>
+    </section>
+
+    <!-- SERIES OVERVIEW -->
+    <section class="pg" data-screen-label="Series Overview" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:54px 64px 92px;display:flex;flex-direction:column">
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">Series Overview</div>
+      <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:44px;line-height:1;margin:8px 0 0">{{ s.title }}</h2>
+      <div style="height:1px;background:var(--hairline);margin:16px 0 0"></div>
+      <p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:14px 0 0">{{ s.synopsis }}</p>
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);font-weight:600;margin:20px 0 4px">Series Outline</div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ s.weeks }}" as="w" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:78px 1fr auto;gap:16px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--hairline)">
+            <div style="font-family:var(--font-mono);font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--ember);text-transform:uppercase">Week {{ w.n }}</div>
+            <div style="font-weight:700;font-size:14px;color:var(--fg1)">{{ w.title }}</div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--fg3)">{{ w.passage }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:auto;background:var(--pitch);border-radius:10px;padding:16px 22px;display:flex;align-items:center;gap:18px">
+        <div style="font-family:var(--font-display);font-size:38px;color:var(--solar);line-height:.8;white-space:nowrap">{{ s.tipNo }}</div>
+        <div style="width:1px;align-self:stretch;background:rgba(255,254,249,.16)"></div>
+        <div style="font-size:12.5px;color:var(--fg2-d);line-height:1.5">{{ s.tip }}<span style="display:inline-block;font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;color:var(--solar);background:rgba(232,209,54,.16);padding:2px 8px;border-radius:999px;margin-left:8px;white-space:nowrap;vertical-align:middle">#leadertip</span></div>
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">{{ s.short }}</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ s.overviewPage }}</span></div>
+    </section>
+
+    </div>
+    <!-- WEEKLY SPREADS -->
+    <sc-for list="{{ s.weeks }}" as="w" hint-placeholder-count="4">
+      <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember: {{ s.accent }}">
+
+        <!-- LEFT: THE FRAME -->
+        <section class="pg" data-screen-label="Lesson — Frame" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:flex-start;gap:22px">
+            <div style="font-family:var(--font-display);font-size:66px;line-height:.78;color:var(--ember)">{{ w.idx }}</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--fg3)">{{ s.short }}</div>
+              <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1;margin:5px 0 0">{{ w.title }}</h2>
+            </div>
+          </div>
+          <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;margin-top:18px;background:var(--pitch);border-radius:999px;padding:7px 16px">
+            <span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:9px;color:var(--fg3-d)">Passage</span>
+            <span style="font-family:var(--font-mono);font-weight:600;font-size:12.5px;color:var(--slate);letter-spacing:.02em">{{ w.passage }}</span>
+          </div>
+          <div style="margin-top:24px">
+            <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember)">Key Takeaway</div>
+            <div style="font-size:14.5px;line-height:1.5;color:var(--fg2);margin-top:7px">{{ w.takeaway }}</div>
+          </div>
+          <div style="margin-top:22px">
+            <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember)">Call to Action</div>
+            <div style="font-size:14.5px;line-height:1.5;color:var(--fg2);margin-top:7px">{{ w.cta }}</div>
+          </div>
+          <div style="margin-top:26px;display:flex;flex-direction:column;flex:1;min-height:0">
+            <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:12px">Leader Notes</div>
+            <div style="flex:1;background-image:repeating-linear-gradient(to bottom, transparent 0 31px, var(--hairline) 31px 32px)"></div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">{{ s.short }} · Week {{ w.n }}</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ w.pageL }}</span></div>
+        </section>
+
+        <!-- RIGHT: THE DISCUSSION -->
+        <section class="pg" data-screen-label="Lesson — Discussion" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
+          <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--fg3)">Week {{ w.n }} · Discussion</div>
+          <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1;margin:5px 0 0">Questions</h2>
+
+          <div style="margin-top:20px">
+            <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;font-weight:700;color:var(--ember);padding-bottom:5px;border-bottom:2px solid var(--ember)">Personal</div>
+            <sc-for list="{{ w.personal }}" as="q" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div><div style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.t }}</div></div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:11px">
+            <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;font-weight:700;color:var(--ember);padding-bottom:5px;border-bottom:2px solid var(--ember)">Biblical</div>
+            <sc-for list="{{ w.biblical }}" as="q" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0">
+                <div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div>
+                <div>
+                  <div style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.q }}</div>
+                  <sc-for list="{{ q.sub }}" as="sb" hint-placeholder-count="0">
+                    <div style="font-size:11.5px;color:var(--fg3);line-height:1.4;padding-left:14px;position:relative;margin-top:4px">—&nbsp;{{ sb }}</div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:11px">
+            <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;font-weight:700;color:var(--ember);padding-bottom:5px;border-bottom:2px solid var(--ember)">Applicable</div>
+            <sc-for list="{{ w.applicable }}" as="q" hint-placeholder-count="2">
+              <div style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div><div style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.t }}</div></div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:auto;display:flex;flex-direction:column;gap:18px;padding-top:24px">
+            <div style="background:var(--ember);border-radius:10px;padding:14px 18px">
+              <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:9.5px;color:rgba(255,254,249,.75);margin-bottom:7px">Prayer Prompt</div>
+              <div style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--slate)">“{{ w.prayer }}”</div>
+            </div>
+            <div style="border-left:3px solid var(--ember);padding:2px 0 2px 16px">
+              <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:9.5px;font-weight:700;color:var(--ember);margin-bottom:5px">Personal Challenge</div>
+              <div style="font-size:12.5px;line-height:1.5;color:var(--fg2)">{{ w.challenge }}</div>
+            </div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">{{ s.short }} · Week {{ w.n }}</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ w.pageR }}</span></div>
+        </section>
+
+      </div>
+    </sc-for>
+
+  </sc-for>
+
+  <!-- ============ NOTES ============ -->
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center">
+    <section class="pg" data-screen-label="Notes" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1)">
+      <div style="position:absolute;top:54px;left:64px;right:64px"><div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">For Your Group</div><h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:56px;line-height:1;margin:8px 0 0">Notes</h2></div>
+      <div style="position:absolute;left:64px;right:64px;top:150px;bottom:92px;background-image:repeating-linear-gradient(to bottom, transparent 0 29px, var(--hairline) 29px 30px)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">Notes</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ notesA }}</span></div>
+    </section>
+    <section class="pg" data-screen-label="Notes" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1)">
+      <div style="position:absolute;left:64px;right:64px;top:150px;bottom:92px;background-image:repeating-linear-gradient(to bottom, transparent 0 29px, var(--hairline) 29px 30px)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">Notes</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ notesB }}</span></div>
+    </section>
+  </div>
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center">
+    <section class="pg" data-screen-label="Notes" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1)">
+      <div style="position:absolute;left:64px;right:64px;top:150px;bottom:92px;background-image:repeating-linear-gradient(to bottom, transparent 0 29px, var(--hairline) 29px 30px)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">Notes</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ notesC }}</span></div>
+    </section>
+    <section class="pg" data-screen-label="Notes" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1)">
+      <div style="position:absolute;left:64px;right:64px;top:150px;bottom:92px;background-image:repeating-linear-gradient(to bottom, transparent 0 29px, var(--hairline) 29px 30px)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">Notes</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ notesD }}</span></div>
+    </section>
+  </div>
+
+  <!-- ============ BACK COVER ============ -->
+  <section class="pg" data-screen-label="Back Cover" style="width:768px;height:768px;background:var(--pitch);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--slate)">
+    <img src="assets/photos/head-blue.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;transform:scaleX(-1)">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.96) 10%,rgba(12,14,16,.62) 32%,rgba(12,14,16,.05) 58%,rgba(12,14,16,0) 100%)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:74px;display:flex;flex-direction:column;align-items:center">
+      <div style="font-family:var(--font-display);text-transform:uppercase;font-size:38px;letter-spacing:.02em;color:var(--slate)">One at a Time</div>
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.66);margin-top:12px">Leaving the 99 for the 1</div>
+      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students" style="height:30px;width:auto;opacity:.92;margin-top:26px">
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#01b7ff 0 20px,transparent 20px 40px)"></div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { view: 'spread' };
+
+  componentDidMount() {
+    try {
+      const v = localStorage.getItem('fall26-view');
+      if (v === 'single' || v === 'spread') this.setState({ view: v });
+    } catch (e) {}
+    this._scale = () => this.applyScale();
+    window.addEventListener('resize', this._scale);
+    window.addEventListener('load', this._scale);
+    setTimeout(this._scale, 0);
+    setTimeout(this._scale, 300);
+  }
+
+  componentDidUpdate() { this.applyScale(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._scale);
+    window.removeEventListener('load', this._scale);
+  }
+
+  applyScale() {
+    const stage = document.querySelector('.se-stage');
+    const book = document.querySelector('.book');
+    if (!stage || !book) return;
+    const contentW = this.state.view === 'spread' ? 1552 : 768;
+    const sw = stage.clientWidth;
+    const scale = Math.min(1, (sw - 32) / contentW);
+    book.style.transformOrigin = 'top center';
+    book.style.transform = 'scale(' + scale + ')';
+    stage.style.height = (book.offsetHeight * scale) + 'px';
+  }
+
+  setView(v) {
+    this.setState({ view: v });
+    try { localStorage.setItem('fall26-view', v); } catch (e) {}
+  }
+
+  renderVals() {
+    const READSUB = [
+      `What words, ideas, or phrases stick out to you from these verses?`,
+      `What questions do you have about these verses?`
+    ];
+    const WORD = ['One','Two','Three','Four','Five','Six'];
+
+    const raw = [
+      {
+        no: 'One', title: 'One at a Time', short: 'One at a Time',
+        theme: 'Church Vision & the Gospels', length: '6 Weeks',
+        dividerBg: 'var(--pitch)', accentText: 'var(--ember)',
+        illo: 'assets/icons/circle-one.png',
+        synopsis: `We all want to be used to change the world. We don't want to spend our lives being time-wasters, or space-takers, or binge-watchers, or game-players. We want to be difference-makers. But it's easy to get caught up in the everyday stuff of life until the years slowly go by, and with each passing year the question gets louder: "Am I making any difference in this world?" Without a doubt, Jesus is the person who has made the biggest difference in all of history. So how did He do it? If we study His life in the Gospels, one particular phrase captures how Jesus had such an impact, and it's how He wants to use us: one at a time. Making a difference isn't measured by a viral post or a name on a building. It isn't a following or a fan base or a bank account. Want to make a difference? Focus on the one. That's the secret of the way of Jesus. One at a time.`,
+        weeks: [
+          { t:`The Vision of Our Church`, p:`Mark 5:21-43`,
+            k:`Jesus loved people one at a time \u2014 so should we.`,
+            c:`Find one person you know who is far from Jesus and commit to loving them.`,
+            pe:[`Have you ever been so focused on a task that nothing could stop you from doing it?`,`What is something you would drop anything, no matter how important, to do?`],
+            bi:[`Read Mark 5:21-43.`,`Reread Mark 5:21-24. Jesus is surrounded by people, but He chooses to help Jairus. Why just one person?`,`Reread Mark 5:24-34. Jesus let Himself be interrupted by stopping here. Why do you think this is?`],
+            ap:[`Can you think of one person to commit to loving so they can better know Jesus? Who is it?`,`How can you take intentional steps toward loving people one at a time?`],
+            pr:`God, thank you for loving me. Give me the eyes to see one person that doesn't know you and help me to love them.`,
+            ch:`Pray every day for the next week for God to give you one person to intentionally love.` },
+          { t:`One Party at a Time`, p:`Luke 14:12-24`,
+            k:`Jesus invites everyone to the party \u2014 it's up to us to extend the invitation.`,
+            c:`Make room in community to invite the lost in and let them be loved.`,
+            pe:[`What is your favorite birthday party you had growing up?`,`How would you have felt if nobody you had invited had shown up?`],
+            bi:[`Read Luke 14:12-24.`,`Reread Luke 14:16-20. Why were people rejecting the invitation to the feast?`,`Reread Luke 14:21-24. Who does Jesus say should be invited instead?`],
+            ap:[`What are some excuses you might be using to avoid God's invitation?`,`Who is someone you could make the effort to reach out to and invite to the party?`],
+            pr:`God, thank you for inviting me to your great party. Help me see the people who don't know they are invited and extend the invite to them.`,
+            ch:`Plan a hang-out as a group and invite someone who doesn't yet know Jesus.` },
+          { t:`One Prayer at a Time`, p:`Luke 18:1-8`,
+            k:`We can love people one at a time by persistently praying for them.`,
+            c:`Pray consistently and intentionally that those who are lost come to know Jesus.`,
+            pe:[`How do you feel when you think of prayer?`,`Why do you think God sometimes waits longer to answer prayers?`],
+            bi:[`Read Luke 18:1-8.`,`Reread Luke 18:1. What does this say this parable means?`,`Reread Luke 18:6-8. How does this say that God will answer prayers?`],
+            ap:[`Who is one person you can commit to praying for?`,`How can you build better prayer rhythms to bring your requests to God more often?`],
+            pr:`God, thank you for hearing my prayers. Listen as I call out to you, and reveal yourself to my One.`,
+            ch:`Set a reminder to pray for your One every day.` },
+          { t:`One Conversation at a Time`, p:`John 4:1-45`,
+            k:`We can love people one at a time by having out-of-the-ordinary conversations.`,
+            c:`Be willing to talk with those you normally avoid, and make room to tell them about Jesus.`,
+            pe:[`Why is it difficult to talk to people outside of our circle?`,`What kind of people do we typically avoid talking to?`],
+            bi:[`Read John 4:1-45.`,`Reread John 4:7-9. Why would Jesus go out of His way to talk to someone He was supposed to avoid?`,`Reread John 4:25-26. This is the first time Jesus told anyone He was the Messiah. Why might He have told a Samaritan woman of all people?`],
+            ap:[`Who is one person you can reach out to and share the good news of Jesus?`,`How can you cross borders and break down barriers that might prevent people from hearing about Jesus?`],
+            pr:`God, thank you for being willing to reach me with your love. Help me to reach those who don't know you, even if it means getting uncomfortable. Amen.`,
+            ch:`Have one conversation that might be outside your comfort zone with someone who does not know Jesus.` },
+          { t:`One Meal at a Time`, p:`Luke 19:1-10`,
+            k:`Intimate, intentional gatherings set the stage for redemption.`,
+            c:`Open up your table and time to meet with someone and share the love of Jesus.`,
+            pe:[`If you could share a meal with any person throughout history, who would it be?`,`Why do you think some of the best conversations happen when sharing a meal?`],
+            bi:[`Read Luke 19:1-10.`,`Reread Luke 19:5-6. How did Zacchaeus react to Jesus inviting Himself over? How did the crowd react? Why do you think this is?`,`Read Acts 2:42-47. The early church shared many meals together. What effect did this have on people who witnessed them?`],
+            ap:[`Who are some people you wouldn't normally share a meal with? How can you go out of your way to open a table to them?`,`It's easy to make excuses for not sharing a meal with someone. What excuses can you surrender to God so you can love people better?`],
+            pr:`God, thank you for intentionally meeting me wherever I am. Be with me as I create intentional, intimate spaces to meet with people around tables.`,
+            ch:`One day this week, look for someone sitting alone at lunch. Go sit with them, or invite them to your table.` },
+          { t:`One Need at a Time`, p:`Matthew 4:23-25`,
+            k:`We can love people one at a time by meeting their needs.`,
+            c:`Find ways to meet needs.`,
+            pe:[`If you could solve one problem in the world with a snap of your fingers, what would it be?`,`What are some things you might be cautious or scared of asking for help with?`],
+            bi:[`Read Matthew 4:23-25.`,`Reread Matthew 4:23-25. What sorts of needs does Jesus meet? What does this tell you about the kingdom of heaven?`,`Read Matthew 15:29-31. This wasn't the only time Jesus did this. What does it tell you about Jesus' ministry?`],
+            ap:[`What normally keeps you from helping meet the needs of others?`,`What are some ways you have been gifted to help meet the needs of others?`],
+            pr:`God, thank you for meeting my greatest need of all in Jesus. Strengthen me to meet the needs of others wherever I see them.`,
+            ch:`Look for one need around home and figure out a way to help out.` }
+        ]
+      },
+      {
+        no: 'Two', title: 'Churchy Words', short: 'Churchy Words',
+        theme: 'Spiritual Warfare & Doctrine', length: '4 Weeks',
+        dividerBg: 'var(--fire)', accentText: 'var(--solar)',
+        illo: 'assets/illos/volcano.png',
+        synopsis: `Churchy Words is the series we bring back every so often to dive deeper with our students on important subjects in the Bible. The word "trinity" doesn't appear in the Bible, but it helps us capture the mystery of who God is as three persons. Similarly, the "Unholy Trinity" isn't in Scripture, but it names the counterfeit triad the New Testament describes as forces opposing the church. In this series we walk through the book of James to expose the three enemies that constantly war against the life God is forming in us: the flesh, the world, and the devil. James shows us that spiritual warfare isn't just "out there" in obvious darkness \u2014 it shows up in our desires, our words, our pride, and the way we drift toward the values around us. The world pressures us from outside, the flesh pulls from inside, and the devil works to deceive, accuse, and divide. But James doesn't just diagnose the battle; he calls us to a faith that is active, surrendered, humble, and whole. Our prayer is that students would recognize the fight they're in, resist the lies they believe, and submit every part of their lives to Jesus \u2014 knowing victory isn't found in trying harder, but in drawing near to God, who gives more grace.`,
+        weeks: [
+          { t:`The Flesh`, p:`James 1:13-15; Galatians 5:16-17`,
+            k:`Our biggest enemy is often our own desires \u2014 but the Spirit gives us power to win the fight.`,
+            c:`Name one sinful desire you keep giving in to, and this week practice walking away from it in step with the Spirit.`,
+            pe:[`Have you ever done something that felt good in the moment but ended up not being good for you? Give an example.`,`Does it ever feel like you are fighting yourself for what you want to do?`],
+            bi:[`Read James 1:13-15.`,`If our desires can give birth to sin, how do we prevent ungodly desires from growing?`,`Read Galatians 5:16-17. How does this say we can keep from doing what we don't want to do?`],
+            ap:[`Where are you holding on to ungodly desires?`,`What are some ways to walk in step with the Spirit?`],
+            pr:`God, thank you for saving me from myself. Help me to always walk in step with you.`,
+            ch:`Pray every day for the Holy Spirit's help to walk away from sinful desires.` },
+          { t:`The World`, p:`James 4:1-10; 1 John 2:15-17`,
+            k:`You can't be best friends with the world and with God \u2014 choose God.`,
+            c:`Identify one way you've been chasing the world's approval and trade it for a habit that draws you closer to God.`,
+            pe:[`What is a hot take you have that your friends would disagree with?`,`Have you ever known the right thing to do but felt pressure to do the opposite? Explain.`],
+            bi:[`Read James 4:1-10.`,`Reread James 4:4. What does this say about how we relate to God?`,`Reread James 4:10. Instead of being friends of the world, how do we become friends with God?`],
+            ap:[`Can you name any areas where you are a friend of the world?`,`What is a way you can grow in friendship with God?`],
+            pr:`God, thank you for not leaving me alone in this broken world. Help me to live as your friend in everything I do.`,
+            ch:`Examine your habits and identify one way you might be living for the world.` },
+          { t:`The Devil`, p:`James 4:7-8; Ephesians 6:10-18`,
+            k:`The devil is real, but when we submit to God and resist him, he flees.`,
+            c:`Pick the piece of God's armor you're weakest in, and ask God to strengthen you there this week.`,
+            pe:[`When you think of the devil, what comes to mind?`,`Where do you struggle resisting temptation?`],
+            bi:[`Read James 4:7-8.`,`How does this say we should react when the devil tempts us?`,`Read Ephesians 6:13-18. What tools do we have from God to defend ourselves against attacks from the devil?`],
+            ap:[`What is an area of your life you need to submit to God?`,`Which part of the "armor of God" do you need to grow in?`],
+            pr:`God, thank you for giving me what I need to resist the devil. Give me strength to keep resisting temptation, and to live for you always.`,
+            ch:`Read James 4:7 and pray for the strength to submit to God and resist the devil.` },
+          { t:`Heaven & Hell`, p:`James 1:12-15; John 5:25-29; Matthew 13:47-50`,
+            k:`Eternity is real, and God is inviting you \u2014 and the people around you \u2014 into life with Him forever.`,
+            c:`Respond to God's invitation for yourself, then start one conversation with someone who needs to hear it.`,
+            pe:[`When you think of forever, what do you think of?`,`How does talking about heaven and hell make you feel?`],
+            bi:[`Read James 1:12-15.`,`Reread James 1:12. What does God promise to those who love Him?`,`Jesus tells a story about judgement in Matthew 13:47-50. What kind of picture does this paint?`],
+            ap:[`Do you need to respond to the invitation to the kingdom of heaven?`,`Do you know anyone who needs to hear this news? How can you start that conversation?`],
+            pr:`God, thank you for making a way for me to be with you. Help me live a life that points others toward you so they can also experience eternal life.`,
+            ch:`Set a timer for 10 minutes and talk to God. Honestly evaluate your standing with Him and explore what it might look like to move deeper into life with Him.` }
+        ]
+      },
+      {
+        no: 'Three', title: 'Beyond Boring', short: 'Beyond Boring',
+        theme: 'Faith & the Book of Joshua', length: '4 Weeks',
+        dividerBg: 'var(--blue-rasp)', accentText: 'var(--solar)',
+        illo: 'assets/illos/tornado.png',
+        synopsis: `[ Series overview to be added. ]`,
+        weeks: [
+          { t:`All In`, p:`Joshua 1:1-18`,
+            k:`A faith that trusts God completely is anything but boring.`,
+            c:`Name one obstacle keeping your faith "boring" and take one concrete step to trust God with it this week.`,
+            pe:[`How do you react when you feel bored?`,`How would you categorize your relationship with God: boring or beyond boring? Why?`],
+            bi:[`Read Joshua 1:1-18.`,`What are some of the promises God makes Israel?`,`Reread Joshua 1:16. How did Israel react when they heard the promises of God?`],
+            ap:[`What are some obstacles keeping you from living a faith that is beyond boring?`,`What are some ways God may be calling you to put your faith in Him and trust Him more completely?`],
+            pr:`God, thank you for calling me to deeper faith. Be with me as I step out in faith and learn to trust you more.`,
+            ch:`Schedule a time this week to evaluate your relationship with God. Ask God where you need to trust Him more.` },
+          { t:`Remember`, p:`Joshua 3:1-17`,
+            k:`Remembering what God has already done gives us faith to step into what He'll do next.`,
+            c:`Write down three times God showed up for you, and let them push you into one new step of faith.`,
+            pe:[`When you are bored, what is your favorite thing to do to break the boredom?`,`If you were trapped in a room without those options, how would you pass the time?`],
+            bi:[`Read Joshua 3:1-17.`,`How do you think the Israelites reacted when they crossed the river on dry ground?`,`How do you think it impacted how they thought about what God could do?`],
+            ap:[`What does it look like for you to have a faith that is beyond boring?`,`What is a way you can actively step into that this week?`],
+            pr:`God, thank you for the amazing ways you have worked in my life. As I remember what you have done, inspire me to greater faith.`,
+            ch:`Set a timer for 3 minutes and write out times you can remember God showing up for you. Then write ways you can respond to His actions.` },
+          { t:`Stand Out`, p:`Joshua 6:1-20`,
+            k:`Following God will sometimes make you stand out \u2014 and that's exactly the point.`,
+            c:`Do one thing this week that shows your faith even if it feels weird \u2014 like inviting someone new to church.`,
+            pe:[`What is something you do that other people think is weird?`,`Does that ever impact how you act?`],
+            bi:[`Read Joshua 6:1-20.`,`Reread Joshua 6:2-5. What does God command Joshua?`,`Why would God command something that might not make sense?`],
+            ap:[`What is one way your faith in Jesus might cause you to stand out among your peers?`,`How does it help knowing that you aren't alone?`],
+            pr:`God, thank you for putting people around me to strengthen my faith. As I grow in community, help me grow in confidence and boldness.`,
+            ch:`Even though it might feel weird, invite one new person to church.` },
+          { t:`Make It Yours`, p:`Joshua 24:11-24`,
+            k:`Don't settle for a borrowed faith \u2014 choose today to make it your own.`,
+            c:`Decide one area where you'll personally follow Jesus, and name the legacy of faith you want to leave.`,
+            pe:[`Are there any values, traditions, or principles your parents or grandparents have passed on to you?`,`How has this influenced how you have lived your life?`],
+            bi:[`Read Joshua 24:11-24.`,`Joshua reminds Israel what the Lord had done up to this point. How can remembering help when we look forward?`,`Reread Joshua 24:19. Joshua says "You are not able to serve the Lord." What do you think he means?`],
+            ap:[`What kind of legacy do you want to leave? What influence and impact do you want to have? How does your faith play into this?`,`What steps do you need to take to work toward that? What do you need to surrender? Have you decided to personally follow Jesus?`],
+            pr:`God, thank you for showing me your faithfulness. As I own my faith, help me not settle for a boring faith, but walk in one that is active and fulfilling.`,
+            ch:`Read Hebrews 11:1-12:2. Examine the stories of lasting faith, and ask God to show you how you can grow toward that kind of faith.` }
+        ]
+      },
+      {
+        no: 'Four', title: 'At the Table', short: 'At the Table',
+        theme: 'Loving Others & the Book of Acts', length: '3 Weeks',
+        dividerBg: 'var(--pitch)', accentText: '#d1a017',
+        illo: 'assets/illos/kite-anchor.png',
+        synopsis: `[ Series overview to be added. ]`,
+        weeks: [
+          { t:`People Who Hate God`, p:`Acts 8:4-13`,
+            k:`God loved us while we were still far from Him \u2014 so we can love people who are far from Him too.`,
+            c:`Think of someone who doesn't love God and find one specific way to show them His love this week.`,
+            pe:[`What are some of your biggest pet-peeves that drive you crazy?`,`What are some things that you do that drive other people crazy?`],
+            bi:[`Read Acts 8:4-13.`,`What do you think Simon the Sorcerer cared about most \u2014 God or the world?`,`Read 1 John 2:15. What does the Bible say about people who love the world?`],
+            ap:[`How does God feel about people who hate Him? (Hint: read Romans 5:8.)`,`How does that change the way you view, treat, speak to, encourage, and reach people far from God?`],
+            pr:`God, thank you for loving me even when I don't deserve it. Help me to be a loving presence and to show others \u2014 even those who hate you \u2014 your love.`,
+            ch:`Think of someone you know who does not love God. Find one way to show them the love of God this week.` },
+          { t:`People Who Hate Me`, p:`Acts 9:1-19`,
+            k:`The people who reject you today could be God's chosen instruments tomorrow.`,
+            c:`Pray each day this week for someone who's been unkind to you, and look for a way to love them.`,
+            pe:[`Have you ever started to like a specific food you used to hate? What was it?`,`What did it take for you to try it again?`],
+            bi:[`Read Acts 9:1-19.`,`Reread Acts 9:15. What do you think God meant by "chosen instrument"?`,`How would our view of people change if we saw them as God's chosen instruments?`],
+            ap:[`Is there anyone you need to reframe in your mind as a "chosen instrument"?`,`How can you react in a loving way to people who don't accept you?`],
+            pr:`God, thank you for loving me. Help me to walk blamelessly and to lovingly reach out to those who may hate me.`,
+            ch:`Set a reminder each day this week to pray for the opportunity to love those who may hate you.` },
+          { t:`People I Hate`, p:`Acts 10:34-48`,
+            k:`God shows no favoritism \u2014 so we don't get to pick and choose who we love.`,
+            c:`List the people you struggle to get along with, and next to each name write one way you'll love them.`,
+            pe:[`Have you ever had a family member, friend, or classmate you have a hard time getting along with?`,`How does this impact how you treat them?`],
+            bi:[`Read Acts 10:34-48.`,`Reread Acts 10:34. What does it mean that "God shows no favoritism"?`,`How does knowing that change the way we interact with people, especially those we dislike?`],
+            ap:[`Why do you think Jesus calls us to love people we don't like?`,`How can we begin to love people who are hard for us to love?`],
+            pr:`God, thank you for showing me your love even though I don't deserve it. Help me to love everyone, even when I don't feel like it.`,
+            ch:`Write out a list of people you don't get along with. Beside each name, write one way you can love them.` }
+        ]
+      }
+    ];
+
+    let p = 1;
+    const series = raw.map((s, si) => {
+      const weeks = s.weeks.map((w, i) => ({
+        n: i + 1,
+        idx: (i + 1 < 10 ? '0' : '') + (i + 1),
+        title: w.t,
+        passage: w.p,
+        takeaway: w.k,
+        cta: w.c,
+        prayer: w.pr,
+        challenge: w.ch,
+        personal: w.pe.map((t, j) => ({ n: j + 1, t, bb: j === w.pe.length - 1 ? 'none' : '1px solid var(--hairline)' })),
+        applicable: w.ap.map((t, j) => ({ n: j + 1, t, bb: j === w.ap.length - 1 ? 'none' : '1px solid var(--hairline)' })),
+        biblical: w.bi.map((q, j) => ({ n: j + 1, q, sub: j === 0 ? READSUB : [], bb: j === w.bi.length - 1 ? 'none' : '1px solid var(--hairline)' }))
+      }));
+      return {
+        no: s.no.toUpperCase(),
+        tnum: '0' + (si + 1),
+        title: s.title,
+        short: s.short,
+        meta: s.theme + '  ·  ' + s.length,
+        synopsis: s.synopsis,
+        dividerBg: s.dividerBg,
+        accentText: s.accentText,
+        accent: ['#eb6424', 'var(--fire)', 'var(--blue-rasp)', '#d1a017'][si],
+        tipNo: '0' + (si + 2),
+        tip: [
+          `Follow up during the week. Students need someone to walk with them, not talk at them \u2014 a relationship carried past group can change a life.`,
+          `Don't read off the curriculum. Know the passage ahead of time and ask in your own words; the less you look down, the more it feels like a real conversation.`,
+          `Get visual. A big sticky pad and a few markers pull everyone in \u2014 drawing or writing answers out makes the points stick.`,
+          `Involve every student. Ask a question for everyone to answer. Don't rush to fill the silence or answer the question. Ask questions of their questions.`
+        ][si],
+        illo: s.illo,
+        weeks
+      };
+    });
+
+    series.forEach((s) => {
+      s.dividerPage = p++;
+      s.overviewPage = p++;
+      s.weeks.forEach((w) => { w.pageL = p; w.pageR = p + 1; p += 2; });
+      s.range = s.dividerPage + '\u2013' + (p - 1);
+    });
+
+    const view = this.state.view;
+    const sdir = view === 'spread' ? 'row' : 'column';
+    const sgap = view === 'spread' ? 16 : 40;
+    const baseBtn = 'font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:600;border:none;cursor:pointer;padding:8px 16px;border-radius:999px;transition:background .12s;';
+    const onStyle = 'background:var(--ember);color:var(--slate);';
+    const offStyle = 'background:transparent;color:var(--fg2-d);';
+
+    return {
+      series,
+      notesA: p,
+      notesB: p + 1,
+      notesC: p + 2,
+      notesD: p + 3,
+      sdir,
+      sgap,
+      singleBtnStyle: baseBtn + (view === 'single' ? onStyle : offStyle),
+      spreadBtnStyle: baseBtn + (view === 'spread' ? onStyle : offStyle),
+      selectSingle: () => this.setView('single'),
+      selectSpread: () => this.setView('spread')
+    };
+  }
+}
+</script>
+</body>
+</html>

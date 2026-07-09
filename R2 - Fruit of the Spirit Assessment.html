@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fruit of the Spirit Assessment—Southeast Students</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;justify-content:center;
+       --font-display:'Anton','Arial Narrow',sans-serif}
+  a{color:var(--fire)} a:hover{color:var(--ember)}
+
+  .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:#cc3f36;--sa-ghost:#efb3ae}
+
+  .hero{background:var(--pitch);padding:46px 64px 0;position:relative}
+  .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:48px;line-height:1.06;margin:12px 0 16px;letter-spacing:.01em}
+  .hero p{font-size:12.5px;line-height:1.55;color:var(--fg2-d);max-width:620px;margin:0 0 22px}
+  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -64px}
+
+  .body{padding:26px 64px 0}
+
+  /* shared legend */
+  .legend{display:flex;flex-wrap:wrap;gap:9px 26px;margin-bottom:16px}
+  .legend .lk{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.05em;font-size:10px;color:var(--fg2)}
+  .legend .lk .num{font-family:var(--font-mono);font-weight:700;font-size:11px;color:var(--sa)}
+
+  /* two self/other sections side by side */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  .shead{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .cols .shead{display:grid;grid-template-columns:1fr repeat(4,26px);column-gap:5px;align-items:end;border-bottom:2px solid var(--sa);padding-bottom:8px;margin-bottom:2px}
+  .cols .stitle{display:flex;align-items:center;gap:10px}
+  .cols .cnum{font-family:var(--font-mono);font-weight:700;font-size:10px;color:var(--sa);text-align:center}
+  .shead .sn{width:24px;height:24px;border-radius:50%;background:var(--sa);color:#fffef9;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:13px}
+  .shead .st{font-family:var(--font-display);text-transform:uppercase;font-size:19px;line-height:1;color:var(--fg1)}
+  .shead .sx{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:9px;color:var(--fg3);margin-left:auto}
+
+  .fmx{display:grid;grid-template-columns:1fr repeat(4,26px);column-gap:5px;padding-top:8px}
+  .fmx .colh{font-family:var(--font-mono);font-weight:700;font-size:10px;color:var(--sa);text-align:center;padding-bottom:6px}
+  .fmx .corner{}
+  .fmx .colh.hh{}
+  .fmx .fname{font-family:var(--font-display);text-transform:uppercase;font-size:14px;color:var(--fg1);display:flex;align-items:center;
+              height:34px;border-bottom:1px solid var(--hairline);white-space:nowrap}
+  .fmx .cell{height:34px;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:center}
+  .fmx .cell .box{width:22px;height:22px;border:1.4px solid var(--hairline);border-radius:5px;background:#fffdf6}
+
+  /* five-people frequency grid */
+  .sec3{margin-top:24px;padding-top:4px}
+  .sec3 .shead{margin-bottom:4px}
+  .sec3 p{font-size:12px;line-height:1.5;color:var(--fg2);margin:0 0 14px;max-width:640px}
+  table.frq{width:100%;border-collapse:collapse;table-layout:fixed}
+  .frq col.name{width:230px}
+  .frq th,.frq td{border:1px solid var(--hairline);text-align:center}
+  .frq thead th{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:10px;color:var(--fg1);padding:9px 4px}
+  .frq tbody th{text-align:left;font-family:var(--font-display);text-transform:uppercase;font-size:14px;color:var(--fg1);padding:0 12px;height:38px;line-height:1.05}
+  .frq tbody td{height:38px;background:#fffdf6}
+
+  .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:20px 64px}
+  .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .rfoot .lg{height:22px;opacity:.82}
+
+  @media print{ body{background:#fff;padding:0} .rpage{box-shadow:none} }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}</style>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
+    <rect x="450" y="170" width="300" height="120" rx="10" fill="#14171a"/>
+    <rect x="480" y="330" width="240" height="14" rx="4" fill="#b3ad99"/>
+    <rect x="480" y="362" width="240" height="14" rx="4" fill="#b3ad99"/>
+    <rect x="480" y="394" width="180" height="14" rx="4" fill="#b3ad99"/>
+  </svg>
+</template>
+  <div class="rpage">
+    <div class="hero">
+      <div class="eyebrow">Southeast Students &middot; Further Resource</div>
+      <h1>Fruit of the Spirit<br>Assessment</h1>
+      <p>The fruit of the Spirit is the evidence of a life walking with Jesus. Rate yourself honestly, then invite someone who knows you well to do the same. Growth begins where the two views meet.</p>
+      <div class="hz"></div>
+    </div>
+
+    <div class="body">
+      <div class="legend">
+        <span class="lk"><span class="num">KEY: 1</span>Strong</span>
+        <span class="lk"><span class="num">2</span>OK</span>
+        <span class="lk"><span class="num">3</span>Needs Work</span>
+        <span class="lk"><span class="num">4</span>Needs a Lot of Work</span>
+      </div>
+
+      <div class="cols">
+        <!-- SELF -->
+        <div class="sec">
+          <div class="shead"><div class="stitle"><span class="sn">1</span><span class="st">Evaluate Yourself</span></div><span class="cnum">1</span><span class="cnum">2</span><span class="cnum">3</span><span class="cnum">4</span></div>
+          <div class="fmx">
+            <div class="fname">Love</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Joy</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Peace</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Patience</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Kindness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Goodness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Faithfulness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Gentleness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Self-Control</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+          </div>
+        </div>
+
+        <!-- OTHERS -->
+        <div class="sec">
+          <div class="shead"><div class="stitle"><span class="sn">2</span><span class="st">Ask Spouse or Friend</span></div><span class="cnum">1</span><span class="cnum">2</span><span class="cnum">3</span><span class="cnum">4</span></div>
+          <div class="fmx">
+            <div class="fname">Love</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Joy</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Peace</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Patience</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Kindness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Goodness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Faithfulness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Gentleness</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+            <div class="fname">Self-Control</div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div><div class="cell"><span class="box"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec3">
+        <div class="shead"><span class="sn">3</span><span class="st">More Feedback</span></div>
+        <p>Ask five people for an honest evaluation of the following. Let them know you&rsquo;ve been tasked with this to sharpen your character and grow as a follower of Christ.</p>
+        <table class="frq">
+          <colgroup><col class="name"><col><col><col><col></colgroup>
+          <thead>
+            <tr><th style="border:none"></th><th>Very Seldom</th><th>Sometimes</th><th>Often</th><th>All the Time</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>General Joyful Attitude</th><td></td><td></td><td></td><td></td></tr>
+            <tr><th>General Love for Others</th><td></td><td></td><td></td><td></td></tr>
+            <tr><th>Passion for Student Ministry</th><td></td><td></td><td></td><td></td></tr>
+            <tr><th>General Support of Others</th><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="rfoot"><span class="sec">Further Resources &middot; Personal Assessment</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  </div>
+<script src="print-marks.js"></script>
+</body>
+</html>

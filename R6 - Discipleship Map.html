@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discipleship Map—Southeast Students</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;justify-content:center;
+       --font-display:'Anton','Arial Narrow',sans-serif}
+  a{color:var(--fire)} a:hover{color:var(--ember)}
+
+  .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:#cc3f36;--sa-ghost:#efb3ae}
+
+  .hero{background:var(--pitch);padding:46px 64px 0;position:relative}
+  .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:56px;line-height:1.04;margin:12px 0 14px;letter-spacing:.01em}
+  .herotop{display:flex;align-items:stretch;gap:34px;padding-bottom:30px}
+  .heroleft{flex:1}
+  .hero p{font-size:13px;line-height:1.6;color:var(--fg2-d);max-width:600px;margin:0}
+  .heroscr{flex:none;width:236px;border-left:3px solid var(--sa);padding-left:22px;display:flex;flex-direction:column;justify-content:center}
+  .heroscr blockquote{font-style:italic;font-size:14px;color:var(--slate);line-height:1.5;margin:0}
+  .heroscr .ref{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:var(--sa);margin-top:12px}
+  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -64px}
+
+  .body{padding:30px 64px 0}
+  .howto{display:flex;align-items:center;gap:16px;background:var(--sa-ghost);border-radius:8px;padding:14px 18px;margin:14px 0 30px}
+  .howto .n{font-family:var(--font-mono);font-weight:700;font-size:16px;letter-spacing:.14em;color:var(--sa);padding-right:16px;border-right:2px solid var(--sa);white-space:nowrap}
+  .howto p{margin:0;font-size:12.5px;line-height:1.5;color:var(--fg1)}
+  .howto b{color:var(--sa)}
+
+  .dmap{width:100%;border-collapse:collapse;table-layout:fixed}
+  .dmap col.yr{width:74px}
+  .dmap thead th{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:10px;color:var(--fg1);
+                 text-align:left;padding:0 13px 11px;border-bottom:2px solid var(--sa);vertical-align:bottom;line-height:1.25}
+  .dmap thead th .step{display:block;font-weight:700;font-size:9px;color:var(--sa);letter-spacing:.1em;margin-bottom:5px}
+  .dmap thead th.arrowcol{color:var(--fg2)}
+  .dmap thead th.arrowcol .step{color:var(--sa)}
+  .dmap th+th,.dmap td+td{border-left:1px solid var(--hairline)}
+  .dmap tbody td{height:56px;padding:0 13px;border-bottom:1px solid var(--hairline);background:#fffdf6}
+  .dmap tbody tr:first-child td{border-top:1px solid var(--hairline)}
+  .dmap tbody td.arrowcol{background:#fffdf6}
+  .dmap .yrc{font-family:var(--font-mono);font-size:11px;color:var(--fg3)}
+
+  .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 64px}
+  .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .rfoot .lg{height:22px;opacity:.82}
+
+  @media print{ body{background:#fff;padding:0} .rpage{box-shadow:none} }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}</style>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
+    <rect x="450" y="170" width="300" height="120" rx="10" fill="#14171a"/>
+    <rect x="480" y="330" width="240" height="14" rx="4" fill="#b3ad99"/>
+    <rect x="480" y="362" width="240" height="14" rx="4" fill="#b3ad99"/>
+    <rect x="480" y="394" width="180" height="14" rx="4" fill="#b3ad99"/>
+  </svg>
+</template>
+  <div class="rpage">
+    <div class="hero">
+      <div class="herotop">
+        <div class="heroleft">
+          <div class="eyebrow">Southeast Students &middot; Further Resource</div>
+          <h1>Discipleship Map</h1>
+          <p>Disciple-making is generational. Map the moments and people God used to grow you&mdash;then trace one more step back to see the tree of investment you&rsquo;re standing in.</p>
+        </div>
+        <div class="heroscr">
+          <blockquote>&ldquo;What you have heard from me&hellip; entrust to faithful men, who will be able to teach others also.&rdquo;</blockquote>
+          <div class="ref">2 Timothy 2:2</div>
+        </div>
+      </div>
+      <div class="hz"></div>
+    </div>
+
+    <div class="body">
+      <div class="howto">
+        <span class="n">HOW</span>
+        <p>For each row, write the <b>year</b>, the <b>significant event or time</b>, the <b>person who influenced you</b> there&mdash;and, if you know it, <b>who influenced them.</b></p>
+      </div>
+
+      <table class="dmap">
+        <colgroup><col class="yr"><col><col><col class="arrowcol"></colgroup>
+        <thead>
+          <tr>
+            <th><span class="step">01</span>Year</th>
+            <th><span class="step">02</span>Significant event / time</th>
+            <th><span class="step">03</span>Person who influenced you</th>
+            <th class="arrowcol"><span class="step">04</span>&hellip;and who influenced them?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+          <tr><td class="yrc"></td><td></td><td></td><td class="arrowcol"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rfoot"><span class="sec">Further Resources &middot; Discipleship Map</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  </div>
+<script src="print-marks.js"></script>
+</body>
+</html>

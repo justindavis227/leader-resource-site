@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solitary Retreat—Eremos Place—Southeast Students</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{--font-display:'Anton','Arial Narrow',sans-serif}
+  body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;flex-direction:column;align-items:center;gap:34px}
+  a{color:var(--fire)} a:hover{color:var(--ember)}
+
+  .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:#1a9cd6;--sa-ghost:#cfe9f8}
+
+  .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -64px}
+
+  /* ---- page 1 cover ---- */
+  .hero{background:var(--pitch);padding:56px 64px 0;position:relative}
+  .herotop{display:flex;justify-content:space-between;align-items:flex-end;gap:44px;margin:0 0 30px}
+  .htitle{flex:1;min-width:0}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:52px;line-height:1.02;margin:16px 0 6px;letter-spacing:.005em}
+  .hero .kick{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.26em;font-size:13px;color:var(--fg2-d);margin:0}
+  .defs{display:flex;flex-direction:column;gap:15px;margin:0;flex:none;width:284px;border-left:2px solid var(--sa);padding:2px 0 3px 22px}
+  .def{max-width:100%}
+  .def .w{font-family:var(--font-body);font-style:italic;font-size:14px;color:var(--slate)}
+  .def .d{font-size:12px;color:var(--fg2-d);line-height:1.45;margin-top:4px;padding-left:14px;position:relative}
+  .def .d::before{content:'\203A';position:absolute;left:0;color:var(--sa)}
+
+  .body{padding:34px 64px 0}
+  .body p{font-size:13px;line-height:1.62;color:var(--fg2);margin:0 0 14px}
+  .body p b{color:var(--fg1)}
+  .sub{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--sa);margin:22px 0 12px}
+  .guides{margin:0 0 0 28px;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  .guides li{display:grid;grid-template-columns:26px 1fr;gap:10px;font-size:13px;line-height:1.5;color:var(--fg2)}
+  .guides li b{font-family:var(--font-mono);font-weight:700;color:var(--sa);font-size:13px}
+
+  .invite{background:var(--pitch);border-radius:10px;padding:24px 28px;margin-top:0}
+  .invite .scr{font-family:var(--font-body);font-style:italic;font-size:13.5px;line-height:1.5;color:var(--slate)}
+  .invite .ref{display:block;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:var(--sa);margin-top:8px}
+  .callmid{font-family:var(--font-body);text-transform:none;font-size:13px;line-height:1.62;color:var(--fg2);text-align:left;margin:16px 0}
+  .invite .scr+.scr{margin-top:16px}
+
+  /* ---- pages 2-3 ---- */
+  .rhead{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:40px 64px 18px;border-bottom:1px solid var(--hairline)}
+  .rhead .eyebrow{white-space:nowrap}
+  .rhead .t{font-family:var(--font-display);text-transform:uppercase;font-size:26px;color:var(--fg1);letter-spacing:.005em}
+  .rhead .t em{color:var(--sa);font-style:normal}
+  .rbody{padding:26px 64px 0}
+
+  .tsec{margin-bottom:20px}
+  .thead{display:flex;align-items:center;gap:14px;margin-bottom:11px}
+  .thead .word{font-family:var(--font-display);text-transform:uppercase;font-size:30px;line-height:1;color:var(--fg1)}
+  .thead .min{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#fffef9;background:var(--sa);border-radius:5px;padding:5px 10px;white-space:nowrap}
+  .tsec p{font-size:13px;line-height:1.55;color:var(--fg2);margin:0 0 9px}
+  .tsec p b{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11.5px;color:var(--sa)}
+  .tsec .q{font-size:13px;line-height:1.55;color:var(--fg1);margin:0 0 8px;padding-left:15px;position:relative}
+  .tsec .q::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--sa)}
+  .scr-in{border-left:3px solid var(--sa);padding:2px 0 2px 16px;margin:10px 0}
+  .scr-in em{font-style:italic;font-size:13.5px;color:var(--fg1);line-height:1.5}
+  .scr-in span{display:block;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--sa);margin-top:6px}
+
+  .nextsteps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .nextsteps li{display:grid;grid-template-columns:26px 1fr;gap:10px;font-size:13px;line-height:1.5;color:var(--fg2)}
+  .nextsteps li b{font-family:var(--font-mono);font-weight:700;color:var(--sa)}
+  .further{background:var(--sa-ghost);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:12.5px;color:var(--fg1);line-height:1.5}
+  .further b{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;color:var(--sa);display:block;margin-bottom:3px}
+
+  .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 64px}
+  .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .rfoot .pn{font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2)}
+  .rfoot .lg{height:20px;opacity:.82}
+  .rfoot.dark .sec{color:var(--fg3-d)} .rfoot.dark .pn{color:var(--fg2-d)}
+
+  @media print{ body{background:#fff;padding:0;gap:0} .rpage{box-shadow:none;page-break-after:always} }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}</style>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#d6d2c4"/>
+    <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
+    <rect x="490" y="230" width="180" height="14" fill="#0e1215"/>
+    <rect x="490" y="270" width="220" height="8" fill="#1a9cd6"/>
+  </svg>
+</template>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="rpage">
+    <div class="hero">
+      <div class="herotop">
+        <div class="htitle">
+          <div class="eyebrow">Southeast Students &middot; Further Resource</div>
+          <h1>Solitary Retreat</h1>
+          <div class="kick">Eremos Place</div>
+        </div>
+        <div class="defs">
+          <div class="def"><div class="w">sol&middot;i&middot;tar&middot;y &nbsp;|&nbsp; <span style="color:var(--fg3-d)">s&auml;l&#601; ter&#275;</span></div><div class="d">done or existing alone</div></div>
+          <div class="def"><div class="w">re&middot;treat &nbsp;|&nbsp; <span style="color:var(--fg3-d)">r&#601; tr&#275;t</span></div><div class="d">withdraw to a quiet or secluded place</div></div>
+        </div>
+      </div>
+      <div class="hz"></div>
+    </div>
+    <div class="body">
+      <p><b>Before you is a gift&mdash;the gift of solitude.</b> Have you ever spent two hours in a solitary place? Here is the challenge: get a Bible, get a journal, and get alone. This guide was made to take you on a two-hour journey of quiet time alone with God. If you finish early, re-read some of the passages for deeper reflection&mdash;or if you go over, even better.</p>
+      <p>Make this time your own. It&rsquo;s your relationship with Christ. Consider using this guide to catapult you into even more extended quiet time&mdash;bring a book you&rsquo;ve wanted to start, curate a playlist, or build off the rhythm of Bible reading, prayer and silence through other passages.</p>
+
+      <div class="sub">A few guidelines to set up your time</div>
+      <ul class="guides">
+        <li><b>1</b><span>Find a quiet, uninterruptible place.</span></li>
+        <li><b>2</b><span>Leave your technology in an unreachable place. If you need a phone, put it on silent or airplane mode.</span></li>
+        <li><b>3</b><span>This is not a guide you need to <i>get</i> <em>through</em>, but a guide to help you <i>lean in</i> and hear from the Lord.</span></li>
+        <li><b>4</b><span>The Holy Spirit is your guide. Let Him lead your thoughts, prayers, journaling, Bible reading, and silence.</span></li>
+        <li><b>5</b><span>Success is not determined by what you receive from God, but by the disciplined obedience of getting time alone with Him.</span></li>
+      </ul>
+
+      <p style="margin-top:22px">I pray that&mdash;however much time you can carve out&mdash;this experience lets you taste what God&rsquo;s people have tasted for generations: that it is good to be near God.</p>
+
+      <div class="invite" style="margin-top:22px">
+        <div class="scr">&ldquo;But as for me, it is good to be near God.&rdquo;<span class="ref">Psalm 73:28</span></div>
+      </div>
+      <div class="callmid">Hear Jesus&rsquo; call. He is inviting you. Come rest.</div>
+      <div class="invite">
+        <div class="scr">&ldquo;Come with me by yourselves to a quiet place and get some rest.&rsquo; So they went away by themselves in a boat to a solitary place.&rdquo;<span class="ref">Mark 6:31&ndash;32</span></div>
+      </div>
+    </div>
+    <div class="rfoot"><span class="sec">Further Resources &middot; Solitary Retreat</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="rpage">
+    <div class="rhead"><div class="t"><em>Eremos</em> Place</div><span class="eyebrow">Two-Hour Journey &middot; Part 1</span></div>
+    <div class="rbody">
+      <div class="tsec">
+        <div class="thead"><span class="word">Rest</span><span class="min">30 Minutes</span></div>
+        <p><b>Prepare</b> your time by journaling your thoughts. Write down your worries, your to-do&rsquo;s, your wants, your desires&mdash;anything that comes to mind. You are emptying your mind to receive from the Holy Spirit today.</p>
+        <p><b>Rest</b> your mind by praying to God. Ask Him to prepare your heart and mind.</p>
+      </div>
+
+      <div class="tsec">
+        <div class="thead"><span class="word">Read</span><span class="min">15 Minutes</span></div>
+        <p><b>Read</b> Luke 5:16, Luke 4:1, and Mark 6:31&ndash;32.</p>
+        <p class="q">What do you observe? Journal your thoughts.</p>
+      </div>
+
+      <div class="tsec">
+        <div class="thead"><span class="word">Reflect</span><span class="min">30 Minutes</span></div>
+        <p><b>Write</b> out Luke 5:16, Luke 4:1, and Mark 6:31&ndash;32, taking note of every word. What do you see?</p>
+        <p>Luke 5:16 says, &ldquo;Jesus often withdrew to lonely places and prayed.&rdquo; The Greek word translated <em>lonely</em> is <b style="display:inline">Eremos</b>&mdash;the same word translated <em>wilderness</em> or <em>desert</em> in Luke 4:1, and the same word used in Mark 6:31 when, after a busy day of ministry, Jesus invites His disciples to &ldquo;come with me by yourselves to a quiet place (eremos) and get some rest.&rdquo;</p>
+        <p>Lonely, desert&mdash;most of us exert a lot of energy avoiding these places, but here you are in a quiet place. All of these passages have this one word in common: <em>eremos.</em> Jesus got away often to spend quiet time with God alone, and in some cases invited His disciples to join Him.</p>
+        <p class="q">What do Jesus&rsquo; habits in Luke 5:16 teach us?</p>
+        <p class="q">How might this inform your walk with Christ?</p>
+        <p><b>Read</b> Mark 1:35&ndash;37. Where did the disciples find Jesus? Now read Mark 1:32&ndash;34&mdash;what was Jesus up to the night before? We can make a lot of excuses when it comes to prayer, but for Jesus it was a way of life. Communicating with His Father was a priority.</p>
+      </div>
+    </div>
+    <div class="rfoot"><span class="sec">Further Resources &middot; Solitary Retreat</span><span class="pn">2</span></div>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="rpage">
+    <div class="rhead"><div class="t"><em>Eremos</em> Place</div><span class="eyebrow">Two-Hour Journey &middot; Part 2</span></div>
+    <div class="rbody">
+      <div class="tsec">
+        <div class="thead"><span class="word">Reflect</span><span class="min">Continued</span></div>
+        <p><b>Read</b> Psalm 5:3. The Psalmist writes of the benefits of spending daily quiet time with the Lord. What does this verse tell us we should do? What does it suggest God does in response?</p>
+      </div>
+
+      <div class="tsec">
+        <div class="thead"><span class="word">Revere</span><span class="min">15 Minutes</span></div>
+        <p><b>Silence.</b> Hopefully you are somewhere silent. Take your earbuds out. If you aren&rsquo;t used to getting silent before the Lord this could feel strange&mdash;embrace it. Let your reverence of God lead you to worship. Take the next 15 minutes and be still.</p>
+        <div class="scr-in"><em>&ldquo;Be still, and know that I am God.&rdquo;</em><span>Psalm 46:10</span></div>
+      </div>
+
+      <div class="tsec">
+        <div class="thead"><span class="word">Respond</span><span class="min">30 Minutes</span></div>
+        <p><b>Prayerfully</b> consider the following. Jesus often withdrew in order to submit to His Father&rsquo;s timing, direction and will (Luke 6:12, Luke 22:39&ndash;46).</p>
+        <p class="q">What would it look like in your life if, like Jesus, you made it a priority to slip away often for extended prayer? Describe it in practical terms.</p>
+        <p class="q">What distracts you from having eremos time with God?</p>
+        <p class="q">How could you create a daily eremos place&mdash;&ldquo;your spot&rdquo; to meet with the Lord?</p>
+      </div>
+
+      <div class="further"><b>Further Reading</b>Psalm 119 &nbsp;&middot;&nbsp; Luke 9:18&ndash;27 &nbsp;&middot;&nbsp; Luke 11:1&ndash;13 &nbsp;&middot;&nbsp; Luke 22:39&ndash;46</div>
+
+      <div class="sub" style="color:var(--sa);margin-top:4px">Next Steps</div>
+      <ul class="nextsteps">
+        <li><b>1</b><span>Set a reminder a few days from now to reflect back over your journaled thoughts. Following up on what God teaches us is how we learn best.</span></li>
+        <li><b>2</b><span>Pick a date and time on the calendar for your next solitary retreat. If you don&rsquo;t plan it, life will once again rush by.</span></li>
+        <li><b>3</b><span>Be intentional with what the Lord spoke to you today. Find at least one meaningful way this will change your day-to-day life.</span></li>
+      </ul>
+    </div>
+    <div class="rfoot"><span class="sec">Further Resources &middot; Solitary Retreat</span><span class="pn">3</span></div>
+  </div>
+
+<script src="print-marks.js"></script>
+</body>
+</html>
