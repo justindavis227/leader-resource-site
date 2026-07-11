@@ -707,6 +707,10 @@
   .stack.spread .pair{display:flex;flex-direction:row;width:1536px;justify-content:center;align-items:flex-start}
   .stack.spread .pair.lead{justify-content:flex-end}
 
+  @media (max-width:640px){
+    body{overflow-x:hidden}
+    .toolbar{top:auto;bottom:14px;left:50%;right:auto;transform:translateX(-50%);z-index:9998}
+  }
   @media print{
     @page{size:8in 8in;margin:0}
     body{background:#fff;padding:0}.stack{gap:0}
@@ -1672,10 +1676,13 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
   const btnPages=document.getElementById('btnPages');
   const btnSpread=document.getElementById('btnSpread');
   function applyScale(){
-    if(!stack.classList.contains('spread')){stack.style.transform='';stage.style.height='';return;}
+    const spread=stack.classList.contains('spread');
     const sw=stage.clientWidth;
-    const scale=Math.min(1,(sw-32)/1536);
-    const tx=(sw-1536*scale)/2;
+    const base=spread?1536:768;
+    const scale=Math.min(1,(sw-32)/base);
+    if(!spread&&scale>=1){stack.style.transform='';stack.style.width='';stage.style.height='';return;}
+    stack.style.width=spread?'':'768px';
+    const tx=(sw-base*scale)/2;
     stack.style.transformOrigin='top left';
     stack.style.transform='translateX('+tx+'px) scale('+scale+')';
     stage.style.height=(stack.offsetHeight*scale)+'px';

@@ -33,7 +33,7 @@
 
   /* ---- COVER / BACK ---- */
   .cover{color:var(--slate)}
-  .cover .cph,.back .cph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
+  .cover .cph,.back .cph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
   .cover.span2 .cph{width:200%;max-width:none;left:auto;right:0}
   .back.span2 .cph{width:200%;max-width:none;right:auto;left:0}
   .cover .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.48) 32%,rgba(12,14,16,.10) 60%,rgba(12,14,16,.34) 100%)}
@@ -299,6 +299,10 @@
   .stack.spread .pair{display:flex;flex-direction:row;width:1536px;justify-content:center;align-items:flex-start}
   .stack.spread .pair.lead{justify-content:flex-end}
 
+  @media (max-width:640px){
+    body{overflow-x:hidden}
+    .toolbar{top:auto;bottom:14px;left:50%;right:auto;transform:translateX(-50%);z-index:9998}
+  }
   @media print{
     body{background:none;padding:0}
     .stack,.stack.spread{gap:0;transform:none!important;width:auto!important;margin:0!important}
@@ -373,7 +377,7 @@
 
   <!-- COVER -->
   <section class="page cover span2" data-screen-label="Cover">
-    <img class="cph" src="assets/photos/campfire-community.jpg" alt="Students gathered around a fire at night">
+    <img class="cph" src="assets/photos/worship-bw.jpg" alt="Students worshipping with hands raised in low light">
     <div class="cgrad"></div>
     <div class="ctop"><div class="ctag">Southeast Students<br>Connecting people to Jesus &amp; one another</div></div>
     <div class="cbody">
@@ -1645,7 +1649,7 @@
 
   <!-- BACK COVER -->
   <section class="page back span2" data-screen-label="Back cover">
-    <img class="cph" src="assets/photos/campfire-community.jpg" alt="Students gathered around a fire (continues from front cover)">
+    <img class="cph" src="assets/photos/worship-bw.jpg" alt="Students worshipping with hands raised (continues from front cover)">
     <div class="cgrad"></div>
     <div class="wm"><img src="assets/logos/logo-primary.png" alt="Southeast Students"><div class="tl">Leader Huddles &middot; Vol. 04</div></div>
     <div class="chz"></div>
@@ -1660,7 +1664,7 @@
   function mk(cls){const d=document.createElement('div');d.className='pair'+(cls?' '+cls:'');return d;}
   if(pages.length){const frag=document.createDocumentFragment();const lead=mk('lead');lead.appendChild(pages[0]);frag.appendChild(lead);for(let i=1;i<pages.length;i+=2){const p=mk();p.appendChild(pages[i]);if(pages[i+1])p.appendChild(pages[i+1]);frag.appendChild(p);}stack.appendChild(frag);}
   const btnPages=document.getElementById('btnPages');const btnSpread=document.getElementById('btnSpread');
-  function applyScale(){if(!stack.classList.contains('spread')){stack.style.transform='';stage.style.height='';return;}const sw=stage.clientWidth;const scale=Math.min(1,(sw-32)/1536);const tx=(sw-1536*scale)/2;stack.style.transformOrigin='top left';stack.style.transform='translateX('+tx+'px) scale('+scale+')';stage.style.height=(stack.offsetHeight*scale)+'px';}
+  function applyScale(){const spread=stack.classList.contains('spread');const sw=stage.clientWidth;const base=spread?1536:768;const scale=Math.min(1,(sw-32)/base);if(!spread&&scale>=1){stack.style.transform='';stack.style.width='';stage.style.height='';return;}stack.style.width=spread?'':'768px';const tx=(sw-base*scale)/2;stack.style.transformOrigin='top left';stack.style.transform='translateX('+tx+'px) scale('+scale+')';stage.style.height=(stack.offsetHeight*scale)+'px';}
   function setView(v){const spread=v==='spread';stack.classList.toggle('spread',spread);btnSpread.classList.toggle('on',spread);btnPages.classList.toggle('on',!spread);try{localStorage.setItem('huddle-view',v);}catch(e){}applyScale();}
   btnPages.onclick=function(){setView('pages');};btnSpread.onclick=function(){setView('spread');};
   let init='spread';try{init=localStorage.getItem('huddle-view')||'spread';}catch(e){}
