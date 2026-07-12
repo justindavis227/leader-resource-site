@@ -47,7 +47,7 @@
   .back{color:var(--slate)}
   .back .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.72),rgba(12,14,16,.14) 45%,rgba(12,14,16,.30))}
   .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
-  .back .wm img{height:54px;filter:brightness(0) invert(1);opacity:.96}
+  .back .wm img{height:54px;opacity:.96}
   .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.85)}
 
   /* ---- COPYRIGHT ---- */
@@ -110,7 +110,7 @@
   .scripture .sref{font-family:var(--font-mono);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--sa)}
   .scripture .sverse{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:9px;font-style:italic}
 
-  /* mission + vision — "i"-line columns */
+  /* mission + vision—"i"-line columns */
   .mv{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin-top:18px}
   .mvcol{display:flex;flex-direction:column}
   .mvword{display:flex;justify-content:center;font-family:var(--font-display);font-size:40px;line-height:1;text-transform:uppercase}
@@ -132,7 +132,7 @@
   .mtxt{margin:9px 0 0 118px}
   .mtxt p{margin:0;font-size:13px;color:var(--fg2);line-height:1.6}
   .mtxt i{text-decoration:underline;text-underline-offset:2px}
-  /* rhythm arrow bars — quote + tool tags under each */
+  /* rhythm arrow bars—quote + tool tags under each */
   .rq2{font-style:italic;color:var(--fg2)}
   .rtools{display:flex;flex-wrap:wrap;gap:5px 18px;margin-top:5px}
   .rtools span{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10px;color:var(--fg1);font-weight:600;padding-left:14px;position:relative}
@@ -152,7 +152,7 @@
   .mband .mline{font-size:13px;color:var(--fg2);line-height:1.4;margin-top:7px}
   .mband .mval{font-size:12px;color:var(--fg3);font-style:italic;margin-top:3px}
   .mband .mval b{color:var(--sa);font-style:normal;font-weight:600}
-  /* mantra questions page — icon + question list */
+  /* mantra questions page—icon + question list */
   .mband.mq{flex-direction:row;align-items:center;gap:12px;padding:4px 0}
   .mband.mq .micon{flex:none;width:44px;display:flex;align-items:center;justify-content:center;color:var(--sa)}
   .mband.mq .micon svg{width:40px;height:40px;stroke-width:2.1;overflow:visible}
@@ -317,7 +317,7 @@
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail" data-bg-color="#0e1215">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -338,13 +338,12 @@
     <img class="cph" src="assets/photos/cover-topography.jpg" alt="Dark topographic contour lines">
     <div class="cgrad"></div>
     <div class="ctop">
-      <div class="ctag">Southeast Students<br>Team Leader Resource</div>
     </div>
     <div class="cbody">
       <div class="rule"></div>
       <h1>Team<br>Leaders</h1>
-      <span class="csub">A year of key conversations, team dialogues, and resources for leading your team like Jesus.</span>
-      <span class="yr">VOL. 03 &middot; 2026&ndash;2027</span>
+      <span class="csub">Team Leader Manual &middot; Southeast Students</span>
+      <span class="yr">2026&ndash;2027</span>
     </div>
     <div class="chz"></div>
   </section>
@@ -373,7 +372,7 @@
   </section>
 
   <!-- ============ 01 · MISSION + MANTRAS ============ -->
-  <section class="page divider s1" data-screen-label="Divider — Mission + Mantras">
+  <section class="page divider s1" data-screen-label="Divider—Mission + Mantras">
     <div class="ghost disp">01</div>
     <div class="inner">
       <div class="secno">SECTION 01</div>
@@ -384,7 +383,7 @@
     <div class="foot dark"><span class="sec">01 &middot; Mission + Mantras</span><span class="pn">03</span></div>
   </section>
 
-  <section class="page content s1 sintro" data-screen-label="Mission — Who We Are">
+  <section class="page content s1 sintro" data-screen-label="Mission—Who We Are">
     <div>
       <div class="eyebrow">Mission + Mantras</div>
       <h2 class="disp">Who We Are</h2>
@@ -490,7 +489,7 @@
   </section>
 
   <!-- ============ 02 · TEAM LEADERS ============ -->
-  <section class="page divider s2" data-screen-label="Divider — Team Leaders">
+  <section class="page divider s2" data-screen-label="Divider—Team Leaders">
     <div class="ghost disp">02</div>
     <div class="inner">
       <div class="secno">SECTION 02</div>
@@ -501,7 +500,7 @@
     <div class="foot dark"><span class="sec">02 &middot; Team Leaders</span><span class="pn">07</span></div>
   </section>
 
-  <section class="page content s2 sintro" data-screen-label="Team Leader — The Heart of a Shepherd">
+  <section class="page content s2 sintro" data-screen-label="Team Leader—The Heart of a Shepherd">
     <div>
       <div class="eyebrow">Team Leaders</div>
       <h2 class="disp">The Heart of a <span class="hib">Shepherd</span></h2>
@@ -516,7 +515,7 @@
     <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">08</span></div>
   </section>
 
-  <section class="page content s2" data-screen-label="If Jesus Was a Team Leader — Rhythms">
+  <section class="page content s2" data-screen-label="If Jesus Was a Team Leader—Rhythms">
     <div class="rhead">
       <div class="rhead-l">
         <div class="eyebrow">If Jesus Was a Team Leader</div>
@@ -748,7 +747,7 @@
     <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">13</span></div>
   </section>
 
-  <section class="page quote s2" data-screen-label="Quote — Eric Geiger">
+  <section class="page quote s2" data-screen-label="Quote—Eric Geiger">
     <div class="qmark">&ldquo;</div>
     <div class="qt" style="font-size:44px">If we believe the command to <span style="color:var(--sa)">&lsquo;make disciples&rsquo;</span> is bigger and more beautiful than merely making converts and calling people to &lsquo;make a decision,&rsquo; then we understand the essential role of the church is maturing people in Christ.</div>
     <div class="qa">&mdash; Eric Geiger</div>
@@ -756,7 +755,7 @@
   </section>
 
   <!-- ============ 03 · KEY CONVERSATIONS ============ -->
-  <section class="page divider s3" data-screen-label="Divider — Key Conversations">
+  <section class="page divider s3" data-screen-label="Divider—Key Conversations">
     <div class="ghost disp">03</div>
     <div class="inner">
       <div class="secno">SECTION 03</div>
@@ -767,7 +766,7 @@
     <div class="foot dark"><span class="sec">03 &middot; Key Convos</span><span class="pn">15</span></div>
   </section>
 
-  <section class="page content s3 sintro" data-screen-label="Key Conversations — Intro">
+  <section class="page content s3 sintro" data-screen-label="Key Conversations—Intro">
     <div>
       <div class="eyebrow">1-on-1s with Your Team</div>
       <h2 class="disp">Key Conversations</h2>
@@ -782,7 +781,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">16</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Aug: Spiritual Inventory">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Aug: Spiritual Inventory">
     <div class="kchead"><span class="mchip">Aug</span><h2 class="disp">Spiritual Inventory</h2><span class="kn">Convo 01/10</span></div>
     <div class="hr"></div>
     <div class="vline">Send the <b>Spiritual Disciplines Evaluation</b> to your leaders before you meet up. Use it as a base for conversation around how they are doing spiritually.</div>
@@ -805,7 +804,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">17</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Sept: 4 Chairs">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Sept: 4 Chairs">
     <div class="kchead"><span class="mchip">Sept</span><h2 class="disp">4 Chairs</h2><span class="kn">Convo 02/10</span></div>
     <div class="hr"></div>
     <ul class="qs">
@@ -823,7 +822,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">18</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Oct: Small Group">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Oct: Small Group">
     <div class="kchead"><span class="mchip">Oct</span><h2 class="disp">Small Group</h2><span class="kn">Convo 03/10</span></div>
     <div class="hr"></div>
     <ul class="qs" style="flex:none">
@@ -849,7 +848,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">19</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Nov: Your Few">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Nov: Your Few">
     <div class="kchead"><span class="mchip">Nov</span><h2 class="disp">Your Few</h2><span class="kn">Convo 04/10</span></div>
     <div class="hr"></div>
     <ul class="qs">
@@ -869,7 +868,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">20</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Dec: Unleashed Life">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Dec: Unleashed Life">
     <div class="kchead"><span class="mchip">Dec</span><h2 class="disp">Unleashed Life</h2><span class="kn">Convo 05/10</span></div>
     <div class="hr"></div>
     <ul class="qs" style="flex:none">
@@ -895,7 +894,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">21</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Jan: Be the Branch">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Jan: Be the Branch">
     <div class="kchead"><span class="mchip">Jan</span><h2 class="disp">Be the Branch</h2><span class="kn">Convo 06/10</span></div>
     <div class="hr"></div>
     <div class="vline">At Southeast we value <b>connection over production</b>. Your connectedness to the Vine is more important than the ministry you offer or what you strive to produce.</div>
@@ -914,7 +913,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">22</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Feb: Catch the Wind">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Feb: Catch the Wind">
     <div class="kchead"><span class="mchip">Feb</span><h2 class="disp">Catch the Wind</h2><span class="kn">Convo 07/10</span></div>
     <div class="hr"></div>
     <div class="vline">At Southeast we value <b>risk over comfort</b>. Risk doesn&rsquo;t mean unwise actions&mdash;it means allowing the Holy Spirit to do what only He can do. To the world it might be risky; to us it&rsquo;s faith.</div>
@@ -933,7 +932,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">23</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Mar: Wreck the Roof">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Mar: Wreck the Roof">
     <div class="kchead"><span class="mchip">Mar</span><h2 class="disp">Wreck the Roof</h2><span class="kn">Convo 08/10</span></div>
     <div class="hr"></div>
     <div class="vline">At Southeast we value <b>innovation over tradition</b>. We want to dream about ways we can reach one more person with the gospel. We will stop at nothing for the Kingdom of God to expand here on earth.</div>
@@ -952,7 +951,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">24</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — Apr: Grip the Plow">
+  <section class="page content s3 kc" data-screen-label="Key Convo—Apr: Grip the Plow">
     <div class="kchead"><span class="mchip">Apr</span><h2 class="disp">Grip the Plow</h2><span class="kn">Convo 09/10</span></div>
     <div class="hr"></div>
     <div class="vline">At Southeast we value <b>personal engagement over attendance</b>. As a harvest worker it requires us to &ldquo;grip the plow&rdquo; of ministry.</div>
@@ -970,7 +969,7 @@
     <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">25</span></div>
   </section>
 
-  <section class="page content s3 kc" data-screen-label="Key Convo — May: Empty the Jar">
+  <section class="page content s3 kc" data-screen-label="Key Convo—May: Empty the Jar">
     <div class="kchead"><span class="mchip">May</span><h2 class="disp">Empty the Jar</h2><span class="kn">Convo 10/10</span></div>
     <div class="hr"></div>
     <div class="vline">At Southeast we value <b>expressive worship over religious rituals</b>. We give Jesus our everything because He gave His everything for us. In Christ alone we find our worth.</div>
@@ -989,7 +988,7 @@
   </section>
 
   <!-- ============ 04 · TEAM DIALOGUES ============ -->
-  <section class="page divider s4" data-screen-label="Divider — Team Dialogues">
+  <section class="page divider s4" data-screen-label="Divider—Team Dialogues">
     <div class="ghost disp">04</div>
     <div class="inner">
       <div class="secno">SECTION 04</div>
@@ -1000,7 +999,7 @@
     <div class="foot dark"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">27</span></div>
   </section>
 
-  <section class="page content s4 sintro" data-screen-label="Team Dialogues — Intro">
+  <section class="page content s4 sintro" data-screen-label="Team Dialogues—Intro">
     <div>
       <div class="eyebrow">Monthly Team Meetings</div>
       <h2 class="disp">Team Dialogues</h2>
@@ -1015,7 +1014,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">28</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Aug: Semester Planning">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Aug: Semester Planning">
     <div class="kchead"><span class="mchip">Aug</span><h2 class="disp">Semester Planning</h2><span class="kn">Dialogue 01/10</span></div>
     <div class="hr"></div>
     <div class="vline">Do the hard work up front so everyone knows what to expect during the semester.</div>
@@ -1033,7 +1032,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">29</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Sep: Organizing Groups">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Sep: Organizing Groups">
     <div class="kchead"><span class="mchip">Sep</span><h2 class="disp">Organizing Groups</h2><span class="kn">Dialogue 02/10</span></div>
     <div class="hr"></div>
     <ul class="qs">
@@ -1049,7 +1048,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">30</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Oct: Recruiting Friends">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Oct: Recruiting Friends">
     <div class="kchead"><span class="mchip">Oct</span><h2 class="disp">Recruiting Friends</h2><span class="kn">Dialogue 03/10</span></div>
     <div class="hr"></div>
     <ul class="qs">
@@ -1066,7 +1065,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">31</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Nov: Comm(unity)">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Nov: Comm(unity)">
     <div class="kchead"><span class="mchip">Nov</span><h2 class="disp">Comm(unity)</h2><span class="kn">Dialogue 04/10</span></div>
     <div class="hr"></div>
     <div class="vline">Read <b>Acts 2:42&ndash;47</b> together. There is nothing more powerful than a community on mission&mdash;the early church was a force for Kingdom advancement simply because of the gravitational pull their community had on the lost world around them.</div>
@@ -1084,7 +1083,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">32</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Dec: Semester Evaluation">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Dec: Semester Evaluation">
     <div class="kchead"><span class="mchip">Dec</span><h2 class="disp">Semester Evaluation</h2><span class="kn">Dialogue 05/10</span></div>
     <div class="hr"></div>
     <div class="vline">Have each team member fill out the <b>Fall Semester Ministry Evaluation</b> privately, tally their scores, and share the team average. Generate discussion around your team&rsquo;s findings.</div>
@@ -1102,7 +1101,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">33</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Jan: Semester Planning">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Jan: Semester Planning">
     <div class="kchead"><span class="mchip">Jan</span><h2 class="disp">Semester Planning</h2><span class="kn">Dialogue 06/10</span></div>
     <div class="hr"></div>
     <div class="vline">Same drill as the fall: do the hard work up front so everyone knows what to expect this spring.</div>
@@ -1120,7 +1119,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">34</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Feb: Mobilizing Groups">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Feb: Mobilizing Groups">
     <div class="kchead"><span class="mchip">Feb</span><h2 class="disp">Mobilizing Groups</h2><span class="kn">Dialogue 07/10</span></div>
     <div class="hr"></div>
     <div class="vline">How do we get our groups moving <b>out</b>?</div>
@@ -1138,7 +1137,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">35</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Mar: Recruiting Students">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Mar: Recruiting Students">
     <div class="kchead"><span class="mchip">Mar</span><h2 class="disp">Recruiting Students</h2><span class="kn">Dialogue 08/10</span></div>
     <div class="hr"></div>
     <div class="vline">Jesus was always recruiting&mdash;He knew the Gospel would never reach the whole world if it didn&rsquo;t first impact those around Him. He trained His disciples to share His Good News with a hurting world.</div>
@@ -1156,7 +1155,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">36</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — Apr: Student Leadership">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—Apr: Student Leadership">
     <div class="kchead"><span class="mchip">Apr</span><h2 class="disp">Student Leadership</h2><span class="kn">Dialogue 09/10</span></div>
     <div class="hr"></div>
     <div class="vline">Growth should be expected&mdash;and can be overwhelming. This is the perfect time to establish leadership in some of your core students: they can set the pace for reaching their friends and take ownership of the group alongside you.</div>
@@ -1172,7 +1171,7 @@
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">37</span></div>
   </section>
 
-  <section class="page content s4 kc" data-screen-label="Team Dialogue — May: Semester Evaluation">
+  <section class="page content s4 kc" data-screen-label="Team Dialogue—May: Semester Evaluation">
     <div class="kchead"><span class="mchip">May</span><h2 class="disp">Semester Evaluation</h2><span class="kn">Dialogue 10/10</span></div>
     <div class="hr"></div>
     <div class="vline">Have each team member fill out the <b>Spring Semester Ministry Evaluation</b> privately, tally scores, and share the team average. Discuss the findings together.</div>
@@ -1190,7 +1189,7 @@
   </section>
 
   <!-- ============ 05 · BIG THREE ============ -->
-  <section class="page divider s5" data-screen-label="Divider — Big Three">
+  <section class="page divider s5" data-screen-label="Divider—Big Three">
     <div class="ghost disp">05</div>
     <div class="inner">
       <div class="secno">SECTION 05</div>
@@ -1201,7 +1200,7 @@
     <div class="foot dark"><span class="sec">05 &middot; Big Three</span><span class="pn">39</span></div>
   </section>
 
-  <section class="page content s5 sintro" data-screen-label="Big Three — Overview">
+  <section class="page content s5 sintro" data-screen-label="Big Three—Overview">
     <div>
       <div class="eyebrow">All Leaders &middot; Three Times a Year</div>
       <h2 class="disp">The Big Three</h2>
@@ -1215,7 +1214,7 @@
     <div class="foot"><span class="sec">05 &middot; Big Three</span><span class="pn">40</span></div>
   </section>
 
-  <section class="page content s5" data-screen-label="Big Three — Events & Tips">
+  <section class="page content s5" data-screen-label="Big Three—Events & Tips">
     <div>
       <div class="eyebrow">The Big Three</div>
       <h2 class="disp">Events <span class="hib">+</span> Tips</h2>
@@ -1247,7 +1246,7 @@
     <div class="foot"><span class="sec">05 &middot; Big Three</span><span class="pn">41</span></div>
   </section>
 
-  <section class="page content s5" data-screen-label="Unleashed Leaders — All Year">
+  <section class="page content s5" data-screen-label="Unleashed Leaders—All Year">
     <div>
       <div class="eyebrow">Preceding Each of the Big Three</div>
       <h2 class="disp">Unleashed Leaders <span class="hib">(All Year)</span></h2>
@@ -1263,7 +1262,7 @@
   </section>
 
   <!-- ============ 06 · FURTHER RESOURCES ============ -->
-  <section class="page divider s6" data-screen-label="Divider — Further Resources">
+  <section class="page divider s6" data-screen-label="Divider—Further Resources">
     <div class="ghost disp">06</div>
     <div class="inner">
       <div class="secno">SECTION 06</div>
@@ -1274,7 +1273,7 @@
     <div class="foot dark"><span class="sec">06 &middot; Further Resources</span><span class="pn">43</span></div>
   </section>
 
-  <section class="page content s6 sintro" data-screen-label="Further Resources — Intro">
+  <section class="page content s6 sintro" data-screen-label="Further Resources—Intro">
     <div>
       <div class="eyebrow">Equipped for the Role</div>
       <h2 class="disp">We Believe in You</h2>
@@ -1288,7 +1287,7 @@
     <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">44</span></div>
   </section>
 
-  <section class="page content s6" data-screen-label="Connecting New Leaders — Pipeline">
+  <section class="page content s6" data-screen-label="Connecting New Leaders—Pipeline">
     <div>
       <div class="eyebrow">Connecting New Leaders</div>
       <h2 class="disp">First Steps</h2>
@@ -1306,7 +1305,7 @@
     <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">45</span></div>
   </section>
 
-  <section class="page content s6" data-screen-label="New Leaders — Strengths">
+  <section class="page content s6" data-screen-label="New Leaders—Strengths">
     <div>
       <div class="eyebrow">Building Your Bench</div>
       <h2 class="disp">New Leaders</h2>
@@ -1405,7 +1404,7 @@
     <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">48</span></div>
   </section>
 
-  <!-- MANTRA GLYPHS (monoline set — shared symbol source, from Unleashed Leaders booklet) -->
+  <!-- MANTRA GLYPHS (monoline set—shared symbol source, from Unleashed Leaders booklet) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
     <symbol id="ic-branch" viewBox="0 0 64 64">
       <path d="M13 53 C26 47 31 34 35 21 C37 15 41 10 51 9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1545,7 +1544,7 @@
     <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">50</span></div>
   </section>
 
-  <section class="page quote s6" data-screen-label="Quote — Kevin DeYoung">
+  <section class="page quote s6" data-screen-label="Quote—Kevin DeYoung">
     <div class="qmark">&ldquo;</div>
     <div class="qt" style="font-size:44px">Busyness does not mean you are a faithful or fruitful Christian. It only means you are busy, just like everyone else. And like everyone else, your joy, your heart and your soul are in danger.</div>
     <div class="qa">&mdash; Kevin DeYoung</div>
@@ -1574,7 +1573,7 @@
   </section>
 
   <!-- NOTES -->
-  <section class="page content s6" data-screen-label="Notes — Lined">
+  <section class="page content s6" data-screen-label="Notes—Lined">
     <div>
       <div class="eyebrow">Space to Think</div>
       <h2 class="disp">Notes</h2>
@@ -1598,7 +1597,7 @@
     <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">53</span></div>
   </section>
 
-  <section class="page content s6" data-screen-label="Notes — Lined">
+  <section class="page content s6" data-screen-label="Notes—Lined">
     <div style="height:117px"></div>
     <div class="rows" style="margin-top:14px">
       <div class="noteline"></div>
@@ -1619,7 +1618,7 @@
     <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">54</span></div>
   </section>
 
-  <section class="page content s6" data-screen-label="Notes — Lined">
+  <section class="page content s6" data-screen-label="Notes—Lined">
     <div>
       <div class="eyebrow">Space to Think</div>
       <h2 class="disp">Notes</h2>
@@ -1643,7 +1642,7 @@
     <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">55</span></div>
   </section>
 
-  <section class="page content s6" data-screen-label="Notes — Lined">
+  <section class="page content s6" data-screen-label="Notes—Lined">
     <div style="height:117px"></div>
     <div class="rows" style="margin-top:14px">
       <div class="noteline"></div>
@@ -1685,8 +1684,8 @@
     <img class="cph" src="assets/photos/cover-topography.jpg" alt="Dark topographic contour lines (continues from front cover)">
     <div class="cgrad"></div>
     <div class="wm">
-      <img src="assets/logos/logo-primary.png" alt="Southeast Students">
-      <div class="tl">Team Leader Manual &middot; Vol. 03</div>
+      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students">
+      <div class="tl">Team Leaders</div>
     </div>
     <div class="chz"></div>
   </section>

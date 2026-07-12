@@ -48,7 +48,7 @@
   .back .cph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .back .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.7),rgba(12,14,16,.12) 45%,rgba(12,14,16,.35))}
   .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
-  .back .wm img{height:54px;filter:brightness(0) invert(1);opacity:.96}
+  .back .wm img{height:54px;opacity:.96}
   .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.8)}
   .back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
 
@@ -110,13 +110,13 @@
   .row .b{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:4px}
   .ref{font-family:var(--font-mono);font-size:11px;color:var(--ember);letter-spacing:.04em;margin-left:6px;font-weight:500}
 
-  /* 5 keys — key-shaped number icon (solid-chip fob, matches mantra glyphs) */
+  /* 5 keys—key-shaped number icon (solid-chip fob, matches mantra glyphs) */
   .keyrows .row{grid-template-columns:78px 1fr}
   .keyico{position:relative;width:76px;height:42px;margin-top:1px}
   .keyico svg{width:76px;height:42px;color:var(--ember);fill:none;stroke-width:2.7;overflow:visible;display:block}
   .keyico .kn{position:absolute;top:0;left:3px;width:34px;height:42px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:13.5px;color:#fff;letter-spacing:0}
 
-  /* role overview — Your Role hierarchy spine */
+  /* role overview—Your Role hierarchy spine */
   .roleovr .rows{display:flex;flex-direction:column;margin-top:2px}
   .roleovr .roleov{flex:1;display:grid;grid-template-rows:repeat(4,1fr);position:relative}
   .roleovr .roleov::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--hairline)}
@@ -133,7 +133,7 @@
   .rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
   .rolb li .ref{margin-left:6px}
 
-  /* the toolbox — stoplight conversations guide */
+  /* the toolbox—stoplight conversations guide */
   .toolbox .tbhead{display:flex;justify-content:space-between;align-items:flex-start;gap:28px}
   .toolbox .tbhead .lead{max-width:520px}
   .stoplight{flex:none;width:46px;height:120px;background:var(--pitch);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:9px 0;margin-top:4px}
@@ -157,7 +157,7 @@
   .lane li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%}
   .lane.green li::before{background:#319a4d}.lane.yellow li::before{background:#e0a52b}.lane.red li::before{background:#cc3f36}
 
-  /* mission page — tweakable spacing + indent */
+  /* mission page—tweakable spacing + indent */
   .content.mission .rows{display:flex;flex-direction:column;gap:var(--mission-gap,14px)}
   .content.mission .rows > *{margin-top:0!important;margin-bottom:0!important}
   .content.mission .scrow{margin-left:var(--scrow-indent,0px)}
@@ -205,7 +205,7 @@
   .mrow .mu small::before{content:" // ";color:var(--fg3)}
   .mrow .mu{text-wrap:nowrap}
 
-  /* model page — tweakable column spacing + dividers */
+  /* model page—tweakable column spacing + dividers */
   .content.model .modelhead,
   .content.model .mrow{column-gap:var(--model-colgap,14px)}
   .content.model.dividers .modelhead > span:not(:first-child),
@@ -283,7 +283,7 @@
   .chair .rf{font-family:var(--font-mono);font-size:10px;color:var(--ember);margin-top:3px}
   .chair .seg+.seg{border-top:1px solid var(--hairline)}
 
-  /* four chairs — challenge / movement matrix */
+  /* four chairs—challenge / movement matrix */
   .fourmx{display:grid;grid-template-columns:138px repeat(4,1fr);column-gap:14px;row-gap:14px;margin-top:22px}
   .fourmx .fxnum{height:50px;background:var(--pitch);color:var(--slate);border-radius:8px;font-family:var(--font-mono);font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center}
   .fourmx .fxcorner{display:flex;align-items:flex-end;padding:0 0 5px 2px}
@@ -373,7 +373,7 @@
   .mspread .rows{display:flex;flex-direction:column;margin-top:0}
   .mbands{flex:1;display:grid;grid-template-rows:repeat(5,1fr)}
 
-  /* left page — the five mantras, QR to the video hinged toward the gutter */
+  /* left page—the five mantras, QR to the video hinged toward the gutter */
   .mband{position:relative;display:grid;grid-template-columns:1fr 76px;gap:18px;align-items:center;
     padding:8px 0;border-top:1px solid var(--hairline)}
   .mband:last-child{border-bottom:1px solid var(--hairline)}
@@ -387,7 +387,7 @@
   .mband .mqr img{width:70px;height:70px;display:block;border:1px solid var(--hairline);border-radius:4px;background:#fff}
   .mband .mqr .qcap{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:8px;color:var(--ember);font-weight:600;white-space:nowrap}
 
-  /* right page — questions, tied back by the echoed (outlined) number */
+  /* right page—questions, tied back by the echoed (outlined) number */
   .mbq{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center;padding:8px 0;border-top:1px solid var(--hairline)}
   .mbq:last-child{border-bottom:1px solid var(--hairline)}
   .mbq .ghn{font-family:var(--font-display);font-size:52px;line-height:.76;letter-spacing:.01em;color:#f3c3a6}
@@ -396,10 +396,10 @@
   .mbq li+li{margin-top:1px}
   .mbq li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
 
-  /* ===== BAPTISM GUIDE — faithful rebuild from source PDF ===== */
+  /* ===== BAPTISM GUIDE—faithful rebuild from source PDF ===== */
   .bspread{--bblue:#33adcc;--bblue-dk:#1d829c}
 
-  /* header banner — main block + circle-bite parens + end cap */
+  /* header banner—main block + circle-bite parens + end cap */
   .bbanner{display:flex;align-items:stretch;height:84px;margin-bottom:17px;flex:none}
   .bbanner .bmain{flex:1;min-width:0;background:radial-gradient(circle 45px at calc(100% + 34px) 50%, transparent 44.5px, var(--bblue) 45px);border-radius:16px 0 0 16px;display:flex;align-items:center;padding:0 46px 0 30px}
   .bbanner h2{font-family:var(--font-display);color:#fff;font-size:52px;line-height:.9;letter-spacing:.012em;margin:0;text-transform:uppercase;white-space:nowrap}
@@ -433,18 +433,18 @@
   .gtab .gr{font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--fg1);text-align:right;white-space:nowrap}
   .gtab .gd{font-size:14px;color:var(--fg1);line-height:1.4}
 
-  /* right-page verse — quiet left-rule treatment, height-matched to the left page's banner+purpose */
+  /* right-page verse—quiet left-rule treatment, height-matched to the left page's banner+purpose */
   .bpv{flex:none;height:84px;margin-bottom:77px;display:flex;flex-direction:column;justify-content:center;gap:8px;border-left:4px solid var(--bblue);padding:4px 10px 4px 22px}
   .bpv p{margin:0;color:var(--fg1);font-size:14px;line-height:1.55;font-style:italic;font-weight:500}
   .bpv p b{color:var(--bblue-dk);font-weight:700;font-style:normal}
   .bpv .bref{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--bblue-dk);font-weight:700}
-  /* baptism symbol — two callout boxes */
+  /* baptism symbol—two callout boxes */
   .bsym{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:11px 0 11px 0}
   .bsym .sy{background:rgba(51,173,204,.10);border:1.5px solid var(--bblue);border-radius:12px;padding:12px 16px;font-size:13.5px;color:var(--fg1);line-height:1.45}
   .bsym .sy small{display:block;font-size:11.5px;color:var(--fg2);font-style:italic;margin-top:2px;font-weight:400}
   .bsym b{color:var(--bblue);font-weight:800}
 
-  /* ===== THE BRIDGE — numbered rows with cut-out illustrations ===== */
+  /* ===== THE BRIDGE—numbered rows with cut-out illustrations ===== */
   .bridge-rows{display:flex;flex-direction:column;flex:1;margin-top:6px}
   .brow{display:grid;align-items:center;gap:18px;padding:11px 0}
   .brow + .brow{border-top:2px dotted #c5cace}
@@ -459,7 +459,7 @@
   .bp b{font-weight:700;color:var(--fg1)}
   .bdiag img{width:100%;height:auto;display:block}
 
-  /* ===== FOUR CHAIRS — NEEDS & QUESTIONS (further resources) ===== */
+  /* ===== FOUR CHAIRS—NEEDS & QUESTIONS (further resources) ===== */
   .cspread .chd h2{margin:6px 0 0}
   .cspread .chd .hr{height:2px;background:var(--fg1);margin:13px 0 0}
   .cspread .chd .lead{font-size:12.5px;color:var(--fg2);line-height:1.46;margin:12px 0 0}
@@ -514,7 +514,7 @@
   .blk .ans{color:transparent;font-weight:600;font-size:.92em;white-space:nowrap}
   .stack.answers .blk .ans{color:var(--ember)}
 
-  /* our model — vertical timeline */
+  /* our model—vertical timeline */
   .fbtl{display:flex;flex-direction:column;flex:1}
   .fbtl .tlrow{display:grid;grid-template-columns:24px 132px 1fr;gap:16px;align-items:center;flex:1;border-top:1px solid var(--hairline)}
   .fbtl .tlrow:first-child{border-top:none}
@@ -525,7 +525,7 @@
   .fbnote{margin-top:18px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;color:var(--fg1);text-align:right}
   .fbnote b{color:var(--ember);font-weight:700}
 
-  /* chair cards — vertical, two side-by-side per page */
+  /* chair cards—vertical, two side-by-side per page */
   .fbchairs2{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;margin-top:6px}
   .fbchair2{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
   .fbc-illo{display:flex;flex-direction:column;align-items:center;gap:12px}
@@ -619,7 +619,7 @@
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -681,7 +681,7 @@
   <section class="page" data-screen-label="Blank"></section>
 
   <!-- 2c · WELCOME LETTER -->
-  <section class="page content" data-screen-label="Welcome — Let's Get to Work">
+  <section class="page content" data-screen-label="Welcome—Let's Get to Work">
     <div>
       <div class="eyebrow">Welcome, New Leader</div>
       <h2 class="disp">Let&rsquo;s get to work</h2>
@@ -703,7 +703,7 @@
   </section>
 
   <!-- 3 · DIV 01 THE MISSION -->
-  <section class="page divider gl" data-screen-label="Divider — The Mission">
+  <section class="page divider gl" data-screen-label="Divider—The Mission">
     <div class="ghost disp">01</div>
     <div class="inner">
       <div class="secno">SECTION 01</div>
@@ -715,7 +715,7 @@
   </section>
 
   <!-- 4 · MISSION CONTENT -->
-  <section class="page content mission gl" data-screen-label="The Mission — Why We Exist">
+  <section class="page content mission gl" data-screen-label="The Mission—Why We Exist">
     <div>
       <div class="eyebrow">The Mission</div>
       <h2 class="disp">Why We Exist</h2>
@@ -744,8 +744,8 @@
     <div class="foot"><span class="sec">The Mission</span><span class="pn">06</span></div>
   </section>
 
-<!-- · THE MISSION — FOUR QUESTIONS (ported) -->
-  <section class="page content" data-screen-label="The Mission — Four Questions">
+<!-- · THE MISSION—FOUR QUESTIONS (ported) -->
+  <section class="page content" data-screen-label="The Mission—Four Questions">
     <div>
       <div class="eyebrow">The Mission</div>
       <h2 class="disp">Four Questions</h2>
@@ -762,7 +762,7 @@
   </section>
 
 <!-- · DIV 02 YOUR GROUP -->
-  <section class="page divider gl" data-screen-label="Divider — Your Group">
+  <section class="page divider gl" data-screen-label="Divider—Your Group">
     <div class="ghost disp">02</div>
     <div class="inner">
       <div class="secno">SECTION 02</div>
@@ -773,8 +773,8 @@
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">08</span></div>
   </section>
 
-<!-- · YOUR ROLE — THE BASICS (ported) -->
-  <section class="page content" data-screen-label="Your Role — The Basics">
+<!-- · YOUR ROLE—THE BASICS (ported) -->
+  <section class="page content" data-screen-label="Your Role—The Basics">
     <div>
       <div class="eyebrow">Commitments &amp; Expectations</div>
       <h2 class="disp">The Basics</h2>
@@ -790,8 +790,8 @@
     <div class="foot"><span class="sec">Your Group</span><span class="pn">09</span></div>
   </section>
 
-<!-- · YOUR ROLE — THREE WINS (ported) -->
-  <section class="page content" data-screen-label="Your Role — Three Wins">
+<!-- · YOUR ROLE—THREE WINS (ported) -->
+  <section class="page content" data-screen-label="Your Role—Three Wins">
     <div>
       <div class="eyebrow">3 Wins for Student Groups</div>
       <h2 class="disp">Three Wins</h2>
@@ -807,7 +807,7 @@
   </section>
 
 <!-- · DIV 03 LEADING WELL -->
-  <section class="page divider gl" data-screen-label="Divider — Leading Well">
+  <section class="page divider gl" data-screen-label="Divider—Leading Well">
     <div class="ghost disp">03</div>
     <div class="inner">
       <div class="secno">SECTION 03</div>
@@ -818,8 +818,8 @@
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">11</span></div>
   </section>
 
-<!-- · YOUR ROLE — 5 KEYS (ported) -->
-  <section class="page content" data-screen-label="Your Role — 5 Keys">
+<!-- · YOUR ROLE—5 KEYS (ported) -->
+  <section class="page content" data-screen-label="Your Role—5 Keys">
     <div>
       <div class="eyebrow">Leading a Group</div>
       <h2 class="disp">5 Keys</h2>
@@ -844,8 +844,8 @@
     <div class="foot"><span class="sec">Leading Well</span><span class="pn">12</span></div>
   </section>
 
-<!-- · YOUR ROLE — GETTING UNSTUCK (ported) -->
-  <section class="page content" data-screen-label="Your Role — Getting Unstuck">
+<!-- · YOUR ROLE—GETTING UNSTUCK (ported) -->
+  <section class="page content" data-screen-label="Your Role—Getting Unstuck">
     <div>
       <div class="eyebrow">When a Group Stalls</div>
       <h2 class="disp">Getting Unstuck</h2>
@@ -862,7 +862,7 @@
   </section>
 
 <!-- · DIV 04 SHEPHERDING STUDENTS -->
-  <section class="page divider gl" data-screen-label="Divider — Shepherding Students">
+  <section class="page divider gl" data-screen-label="Divider—Shepherding Students">
     <div class="ghost disp">04</div>
     <div class="inner">
       <div class="secno">SECTION 04</div>
@@ -873,8 +873,8 @@
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">14</span></div>
   </section>
 
-<!-- 21c · FOUR CHAIRS — NEEDS & QUESTIONS (flat-lay spread — left) -->
-  <section class="page content cspread cspread-l" data-screen-label="Further Resources — Four Chairs (Needs &amp; Questions)">
+<!-- 21c · FOUR CHAIRS—NEEDS & QUESTIONS (flat-lay spread—left) -->
+  <section class="page content cspread cspread-l" data-screen-label="Further Resources—Four Chairs (Needs &amp; Questions)">
     <div class="chd">
       <div class="eyebrow">MEET STUDENTS WHERE THEY ARE</div>
       <h2 class="disp">WHAT STUDENTS NEED</h2>
@@ -916,8 +916,8 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">15</span></div>
   </section>
 
-<!-- 21d · FOUR CHAIRS — NEEDS & QUESTIONS (flat-lay spread — right) -->
-  <section class="page content cspread cspread-r" data-screen-label="Further Resources — Four Chairs (Chairs 3 &amp; 4)">
+<!-- 21d · FOUR CHAIRS—NEEDS & QUESTIONS (flat-lay spread—right) -->
+  <section class="page content cspread cspread-r" data-screen-label="Further Resources—Four Chairs (Chairs 3 &amp; 4)">
     <div class="chd">
       <div class="eyebrow" style="visibility:hidden" aria-hidden="true">MEET STUDENTS WHERE THEY ARE</div>
       <h2 class="disp" style="visibility:hidden" aria-hidden="true">WHAT STUDENTS NEED</h2>
@@ -953,8 +953,8 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">16</span></div>
   </section>
 
-<!-- · MAKE DISCIPLES — IWTFC (ported) -->
-  <section class="page content" data-screen-label="Make Disciples — I.W.T.F.C.">
+<!-- · MAKE DISCIPLES—IWTFC (ported) -->
+  <section class="page content" data-screen-label="Make Disciples—I.W.T.F.C.">
     <div>
       <div class="eyebrow">Helping Chair 2 Grow Deep Roots</div>
       <h2 class="disp"><b class="hib">I</b> <b class="hib">W</b>ant <b class="hib">t</b>o <b class="hib">F</b>ollow <b class="hib">C</b>hrist</h2>
@@ -972,7 +972,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
   </section>
 
 <!-- · DIV 05 DECISION GUIDE -->
-  <section class="page divider gl" data-screen-label="Divider — Decision Guide">
+  <section class="page divider gl" data-screen-label="Divider—Decision Guide">
     <div class="ghost disp">05</div>
     <div class="inner">
       <div class="secno">SECTION 05</div>
@@ -983,8 +983,8 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">18</span></div>
   </section>
 
-<!-- 19b · BAPTISM (full spread — left) -->
-  <section class="page content bspread bspread-l" data-screen-label="Further Resources — Baptism Guide (Left)">
+<!-- 19b · BAPTISM (full spread—left) -->
+  <section class="page content bspread bspread-l" data-screen-label="Further Resources—Baptism Guide (Left)">
     <div class="bbanner">
       <div class="bmain"><h2 class="disp">Baptism</h2></div>
       <span class="bgap"><img src="assets/illos/baptism-drop.png" alt="water drop"></span>
@@ -1016,8 +1016,8 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot"><span class="sec">Decision Guide</span><span class="pn">19</span></div>
   </section>
 
-<!-- 19b2 · BAPTISM (full spread — right) -->
-  <section class="page content bspread bspread-r" data-screen-label="Further Resources — Baptism Guide (Right)">
+<!-- 19b2 · BAPTISM (full spread—right) -->
+  <section class="page content bspread bspread-r" data-screen-label="Further Resources—Baptism Guide (Right)">
     <div class="bpv">
       <span class="bref">Romans 6:4</span>
       <p>&ldquo;We were therefore buried with him through baptism into death in order that, just as Christ was raised from the dead through the glory of the Father, we too may live a new life.&rdquo;</p>
@@ -1048,8 +1048,8 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot"><span class="sec">Decision Guide</span><span class="pn">20</span></div>
   </section>
 
-<!-- 19c · THE BRIDGE (flat-lay spread — right) -->
-  <section class="page content bspread bspread-r" data-screen-label="Further Resources — The Bridge">
+<!-- 19c · THE BRIDGE (flat-lay spread—right) -->
+  <section class="page content bspread bspread-r" data-screen-label="Further Resources—The Bridge">
     <div class="bbanner">
       <div class="bmain"><h2 class="disp">The Bridge</h2></div>
       <span class="bgap"><img src="assets/illos/bridge-mark.png" alt="bridge"></span>
@@ -1067,7 +1067,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
           <p class="bp"><b>Genesis 3</b> describes how our relationship with God was broken by humanity&rsquo;s disobedience.</p>
           <p class="bp">We call this disobedience &ldquo;sin.&rdquo; God can have nothing to do with sin. Read <b>Romans 3:23</b>.</p>
         </div>
-        <div class="bdiag"><img src="assets/illos/bridge-d2.png" alt="Us and God separated by sin — fallen short"></div>
+        <div class="bdiag"><img src="assets/illos/bridge-d2.png" alt="Us and God separated by sin—fallen short"></div>
       </div>
       <div class="brow diagl">
         <div class="bnum">3</div>
@@ -1087,7 +1087,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
   </section>
 
 <!-- · DIV 06 FURTHER RESOURCES -->
-  <section class="page divider gl" data-screen-label="Divider — Further Resources">
+  <section class="page divider gl" data-screen-label="Divider—Further Resources">
     <div class="ghost disp">06</div>
     <div class="inner">
       <div class="secno">SECTION 06</div>
@@ -1098,8 +1098,8 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">22</span></div>
   </section>
 
-<!-- 21b · THE TOOLBOX — STOPLIGHT CONVERSATIONS GUIDE -->
-  <section class="page content toolbox" data-screen-label="The Toolbox — Conversations Guide">
+<!-- 21b · THE TOOLBOX—STOPLIGHT CONVERSATIONS GUIDE -->
+  <section class="page content toolbox" data-screen-label="The Toolbox—Conversations Guide">
     <div class="tbhead">
       <div>
         <div class="eyebrow">The Toolbox</div>
@@ -1238,7 +1238,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <img class="cph" src="assets/photos/campfire-community.jpg" alt="Group gathered around a campfire (continues from front cover)">
     <div class="cgrad"></div>
     <div class="wm">
-      <img src="assets/logos/logo-knockout.png" alt="Southeast Students">
+      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students">
       <div class="tl">Connecting people to Jesus &amp; one another</div>
     </div>
     <div class="chz"></div>

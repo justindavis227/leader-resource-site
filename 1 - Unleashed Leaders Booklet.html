@@ -41,7 +41,7 @@
   .back .cph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .back .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.7),rgba(12,14,16,.12) 45%,rgba(12,14,16,.35))}
   .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
-  .back .wm img{height:54px;filter:brightness(0) invert(1);opacity:.96}
+  .back .wm img{height:54px;opacity:.96}
   .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.8)}
   .back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
 
@@ -88,7 +88,7 @@
   .divider .sub{font-size:17px;color:var(--fg2-d);max-width:430px;margin-top:22px;line-height:1.5}
   .divider .tab{width:64px;height:6px;background:var(--ember);margin-top:32px}
   .divider .foot .sec{color:var(--fg3-d)} .divider .foot .pn{color:var(--fg2-d)}
-  /* ember divider — marks the Further Resources section */
+  /* ember divider—marks the Further Resources section */
   .divider.ember{background:var(--ember)}
   .divider.ember .ghost{color:rgba(255,254,249,.13)}
   .divider.ember .secno{color:var(--slate)}
@@ -125,7 +125,7 @@
   .row .b{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:4px}
   .ref{font-family:var(--font-mono);font-size:11px;color:var(--ember);letter-spacing:.04em;margin-left:6px;font-weight:500}
 
-  /* role overview — Your Role hierarchy spine */
+  /* role overview—Your Role hierarchy spine */
   .roleovr .rows{display:flex;flex-direction:column;margin-top:2px}
   .roleovr .roleov{flex:1;display:grid;grid-template-rows:repeat(4,1fr);position:relative}
   .roleovr .roleov::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--hairline)}
@@ -141,7 +141,7 @@
   .rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
   .rolb li .ref{margin-left:6px}
 
-  /* the toolbox — stoplight conversations guide */
+  /* the toolbox—stoplight conversations guide */
   .toolbox .tbhead{display:flex;justify-content:space-between;align-items:flex-start;gap:28px}
   .toolbox .tbhead .lead{max-width:520px}
   .stoplight{flex:none;width:46px;height:120px;background:var(--pitch);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:9px 0;margin-top:4px}
@@ -165,7 +165,7 @@
   .lane li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%}
   .lane.green li::before{background:#319a4d}.lane.yellow li::before{background:#e0a52b}.lane.red li::before{background:#cc3f36}
 
-  /* mission page — tweakable spacing + indent */
+  /* mission page—tweakable spacing + indent */
   .content.mission .rows{display:flex;flex-direction:column;gap:var(--mission-gap,14px)}
   .content.mission .rows > *{margin-top:0!important;margin-bottom:0!important}
   .content.mission .scrow{margin-left:var(--scrow-indent,0px)}
@@ -213,7 +213,7 @@
   .mrow .mu small::before{content:" // ";color:var(--fg3)}
   .mrow .mu{text-wrap:nowrap}
 
-  /* model page — tweakable column spacing + dividers */
+  /* model page—tweakable column spacing + dividers */
   .content.model .modelhead,
   .content.model .mrow{column-gap:var(--model-colgap,14px);grid-template-columns:var(--model-col1,104px) var(--model-col2,1fr) var(--model-col3,1.5fr)}
   .content.model.dividers .modelhead > span:not(:first-child),
@@ -270,7 +270,7 @@
   /* center loop */
   .loop{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:284px;height:284px;z-index:3;pointer-events:none}
   .loop svg{width:100%;height:100%;display:block;overflow:visible}
-  /* organic variant — peel-off arrows pointing out */
+  /* organic variant—peel-off arrows pointing out */
   .cycle.organic .qnum{background:transparent;color:var(--ember);border:1.5px solid var(--ember)}
   .cycle.organic .qitems{gap:5px}
   .cycle.organic .qitems span{text-transform:none;font-style:italic;letter-spacing:.005em;font-size:12px;color:var(--fg2);white-space:nowrap}
@@ -278,7 +278,7 @@
   .cycle.organic .q.tr .qitems span::before,.cycle.organic .q.br .qitems span::before{margin-right:0;margin-left:7px;order:2}
   .cycle.organic .q.tr .qitems span,.cycle.organic .q.br .qitems span{display:flex;align-items:center;justify-content:flex-end}
 
-  /* organic variant — 2x2 quadrant matrix (page 14) */
+  /* organic variant—2x2 quadrant matrix (page 14) */
   .qmatrix{position:relative;flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;border:1px solid var(--hairline);border-radius:12px;overflow:hidden;background:#fffdf5}
   .qmatrix .mq{display:flex;flex-direction:column;padding:22px 24px;border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
   .qmatrix .mq:nth-child(2n){border-right:none}
@@ -320,7 +320,7 @@
   .chair .rf{font-family:var(--font-mono);font-size:10px;color:var(--ember);margin-top:3px}
   .chair .seg+.seg{border-top:1px solid var(--hairline)}
 
-  /* four chairs — challenge / movement matrix */
+  /* four chairs—challenge / movement matrix */
   .fourmx{display:grid;grid-template-columns:138px repeat(4,1fr);column-gap:14px;row-gap:14px;margin-top:22px}
   .fourmx .fxnum{height:50px;background:var(--pitch);color:var(--slate);border-radius:8px;font-family:var(--font-mono);font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center}
   .fourmx .fxcorner{display:flex;align-items:flex-end;padding:0 0 5px 2px}
@@ -415,7 +415,7 @@
   .mspread .rows{display:flex;flex-direction:column;margin-top:0}
   .mbands{flex:1;display:grid;grid-template-rows:repeat(5,1fr)}
 
-  /* left page — the five mantras, QR to the video hinged toward the gutter */
+  /* left page—the five mantras, QR to the video hinged toward the gutter */
   .mband{position:relative;display:grid;grid-template-columns:46px 1fr 76px;gap:18px;align-items:center;
     padding:6px 0;border-top:1px solid var(--hairline)}
   .mband .micon{display:flex;align-items:center;justify-content:center}
@@ -431,7 +431,7 @@
   .mband .mqr img{width:60px;height:60px;display:block;border:1px solid var(--hairline);border-radius:4px;background:#fff}
   .mband .mqr .qcap{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:8px;color:var(--ember);font-weight:600;white-space:nowrap}
 
-  /* right page — questions, tied back by the echoed (outlined) number */
+  /* right page—questions, tied back by the echoed (outlined) number */
   .mbq{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center;padding:8px 0;border-top:1px solid var(--hairline)}
   .mbq:last-child{border-bottom:1px solid var(--hairline)}
   .mbq .ghn{font-family:var(--font-display);font-size:52px;line-height:.76;letter-spacing:.01em;color:#f3c3a6}
@@ -440,7 +440,7 @@
   .mbq li+li{margin-top:1px}
   .mbq li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
 
-  /* ===== BAPTISM GUIDE — faithful rebuild from source PDF ===== */
+  /* ===== BAPTISM GUIDE—faithful rebuild from source PDF ===== */
   .bspread{--bblue:#33adcc;--bblue-dk:#1d829c}
   .bspread.bspread-l{padding-right:46px}
   .bspread.bspread-r{padding-left:46px}
@@ -483,7 +483,7 @@
   .bsym div{font-size:12.5px;color:var(--fg1);line-height:1.32}
   .bsym b{color:var(--bblue-dk);font-weight:700}
 
-  /* ===== THE BRIDGE — numbered rows with cut-out illustrations ===== */
+  /* ===== THE BRIDGE—numbered rows with cut-out illustrations ===== */
   .bridge-rows{display:flex;flex-direction:column;flex:1;margin-top:6px}
   .brow{display:grid;align-items:center;gap:18px;padding:11px 0}
   .brow + .brow{border-top:2px dotted #c5cace}
@@ -498,7 +498,7 @@
   .bp b{font-weight:700;color:var(--fg1)}
   .bdiag img{width:100%;height:auto;display:block}
 
-  /* ===== FOUR CHAIRS — NEEDS & QUESTIONS (further resources) ===== */
+  /* ===== FOUR CHAIRS—NEEDS & QUESTIONS (further resources) ===== */
   .cspread.cspread-l{padding-right:18px}
   .cspread.cspread-r{padding-left:18px}
   .cspread .chd h2{margin:6px 0 0}
@@ -556,14 +556,14 @@
   .blk.xl{min-width:200px}
   .blk .ans{color:transparent;font-weight:600;font-size:.92em;white-space:nowrap}
   .stack.answers .blk .ans{color:var(--ember)}
-  /* page 28 (recap test) — thinner, lighter blanks; uniform width sized to longest */
+  /* page 28 (recap test)—thinner, lighter blanks; uniform width sized to longest */
   .tbpage .blk{border-bottom-width:1px;border-bottom-color:#cfc9b7}
   .tbpage .tbline .blk,.tbpage .tbline .blk.lg{min-width:92px;padding:0 4px;margin:0 2px}
   .tbpage .tbcol .txt{font-size:12px;white-space:nowrap}
   .tbpage .tbcol .above,.tbpage .tbcol .below{padding:0 2px}
   .tbpage .tbcol .txt .blk .ans{font-size:12.88px}
 
-  /* our model — vertical timeline */
+  /* our model—vertical timeline */
   .fbtl{display:flex;flex-direction:column;flex:1}
   .fbtl .tlrow{display:grid;grid-template-columns:24px 132px 1fr;gap:16px;align-items:center;flex:1;border-top:1px solid var(--hairline)}
   .fbtl .tlrow:first-child{border-top:none}
@@ -574,7 +574,7 @@
   .fbnote{margin-top:18px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;color:var(--fg1);text-align:right}
   .fbnote b{color:var(--ember);font-weight:700}
 
-  /* chair cards — vertical, two side-by-side per page */
+  /* chair cards—vertical, two side-by-side per page */
   .fbchairs2{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;margin-top:6px}
   .fbchair2{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
   .fbc-illo{display:flex;flex-direction:column;align-items:center;gap:12px}
@@ -672,7 +672,7 @@
   .wsbox .wsfield .blk{border:none;min-width:0;margin:0;text-align:left;white-space:nowrap}
   .wsbox .wsfield .ans{font-family:var(--font-display);text-transform:uppercase;font-size:13px;letter-spacing:.01em;font-weight:400}
 
-  /* page-29 scripture band — 1 John 2:6 */
+  /* page-29 scripture band—1 John 2:6 */
   .wsverse{position:relative;overflow:hidden;background:var(--pitch);border-radius:16px;padding:34px 42px;flex:1;display:flex;flex-direction:column;justify-content:center}
   .wsverse .wsbg{position:absolute;inset:0;background:url('assets/photos/field-house.jpg') center 66%/cover;z-index:0}
   .wsverse .wsscrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,11,13,.92) 0%,rgba(9,11,13,.82) 50%,rgba(9,11,13,.60) 100%);z-index:1}
@@ -683,7 +683,7 @@
   .wsverse .vq em{font-style:normal;font-weight:800;color:var(--ember)}
   .wsverse .vref{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--fg2-d);margin-top:22px;position:relative;z-index:3}
 
-  /* box-title tabs — charcoal fill with knockout (white) text */
+  /* box-title tabs—charcoal fill with knockout (white) text */
   .tbsec-lbl span,.tbmodel-lbl span,.tbisjesus span,.chbox-lbl span{color:var(--slate)}
   .tbsec-lbl span,.tbmodel-lbl span,.tbisjesus span{background:var(--ember);border-color:var(--ember)}
 
@@ -726,7 +726,7 @@
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -783,7 +783,7 @@
   </section>
 
   <!-- 2b · FULL-BLEED FIELD IMAGE (p.3) -->
-  <section class="page fieldpg" data-screen-label="Fields — Opening Image">
+  <section class="page fieldpg" data-screen-label="Fields—Opening Image">
     <img class="cph" src="assets/photos/fields-aerial.jpg" alt="Aerial view of a plowed field meeting a green growing field">
     <div class="fbscrim"></div>
     <div class="fbinner">
@@ -795,7 +795,7 @@
   </section>
 
   <!-- 2c · WELCOME LETTER -->
-  <section class="page content" data-screen-label="Welcome — Let's Get to Work">
+  <section class="page content" data-screen-label="Welcome—Let's Get to Work">
     <div>
       <div class="eyebrow">Welcome, New Leader</div>
       <h2 class="disp">Let&rsquo;s get to work</h2>
@@ -817,7 +817,7 @@
   </section>
 
   <!-- 3 · DIV 01 THE MISSION -->
-  <section class="page divider" data-screen-label="Divider — The Mission">
+  <section class="page divider" data-screen-label="Divider—The Mission">
     <div class="ghost disp">01</div>
     <div class="inner">
       <div class="secno">SECTION 01</div>
@@ -829,7 +829,7 @@
   </section>
 
   <!-- 4 · MISSION CONTENT -->
-  <section class="page content mission" data-screen-label="The Mission — Why We Exist">
+  <section class="page content mission" data-screen-label="The Mission—Why We Exist">
     <div>
       <div class="eyebrow">The Mission</div>
       <h2 class="disp">Why We Exist</h2>
@@ -859,7 +859,7 @@
   </section>
 
   <!-- 5 · DIV 02 THE VISION -->
-  <section class="page divider visionmap" data-screen-label="Divider — The Vision">
+  <section class="page divider visionmap" data-screen-label="Divider—The Vision">
     <div class="vmap" id="vmap-l"></div>
     <div class="ghost disp">02</div>
     <div class="inner">
@@ -872,7 +872,7 @@
   </section>
 
   <!-- 6 · VISION STATEMENT (campus map) -->
-  <section class="page vision visionmap" data-screen-label="The Vision — Statement">
+  <section class="page vision visionmap" data-screen-label="The Vision—Statement">
     <div class="vmap" id="vmap-r"></div>
     <div class="vbscrim"></div>
     <div class="vstmt">
@@ -886,7 +886,7 @@
   </section>
 
   <!-- 7 · DIV 03 OUR MODEL -->
-  <section class="page divider" data-screen-label="Divider — Our Model">
+  <section class="page divider" data-screen-label="Divider—Our Model">
     <div class="ghost disp">03</div>
     <div class="inner">
       <div class="secno">SECTION 03</div>
@@ -898,7 +898,7 @@
   </section>
 
   <!-- 8 · MODEL CONTENT -->
-  <section class="page content model" data-screen-label="Our Model — How Jesus Did It">
+  <section class="page content model" data-screen-label="Our Model—How Jesus Did It">
     <div>
       <div class="eyebrow">Our Model</div>
       <h2 class="disp">How Jesus Did It</h2>
@@ -919,7 +919,7 @@
   </section>
 
   <!-- 9 · DIV 04 OUR TOOLS -->
-  <section class="page divider" data-screen-label="Divider — Our Tools">
+  <section class="page divider" data-screen-label="Divider—Our Tools">
     <div class="ghost disp">04</div>
     <div class="inner">
       <div class="secno">SECTION 04</div>
@@ -930,8 +930,8 @@
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">11</span></div>
   </section>
 
-  <!-- 10 · TOOLS — LEADER RHYTHMS -->
-  <section class="page content" data-screen-label="Our Tools — Leader Rhythms">
+  <!-- 10 · TOOLS—LEADER RHYTHMS -->
+  <section class="page content" data-screen-label="Our Tools—Leader Rhythms">
     <div>
       <div class="eyebrow">OUR RHYTHMS</div>
       <h2 class="disp">LEADER RHYTHMS</h2>
@@ -978,8 +978,8 @@
     <div class="foot"><span class="sec">Our Tools</span><span class="pn">12</span></div>
   </section>
 
-  <!-- 11 · TOOLS — THE CYCLE -->
-  <section class="page content" data-screen-label="Our Tools — The Cycle">
+  <!-- 11 · TOOLS—THE CYCLE -->
+  <section class="page content" data-screen-label="Our Tools—The Cycle">
     <div>
       <div class="eyebrow">Our Tools</div>
       <h2 class="disp">ORGANIZED MOMENTS</h2>
@@ -1025,8 +1025,8 @@
     <div class="foot"><span class="sec">Our Tools</span><span class="pn">13</span></div>
   </section>
 
-  <!-- 11b · TOOLS — ORGANIC MOMENTS -->
-  <section class="page content" data-screen-label="Our Tools — Organic Moments">
+  <!-- 11b · TOOLS—ORGANIC MOMENTS -->
+  <section class="page content" data-screen-label="Our Tools—Organic Moments">
     <div>
       <div class="eyebrow">Our Tools</div>
       <h2 class="disp">Organic Moments</h2>
@@ -1067,7 +1067,7 @@
   </section>
 
   <!-- 12 · DIV 05 YOUR ROLE -->
-  <section class="page divider" data-screen-label="Divider — Your Role">
+  <section class="page divider" data-screen-label="Divider—Your Role">
     <div class="ghost disp">05</div>
     <div class="inner">
       <div class="secno">SECTION 05</div>
@@ -1078,8 +1078,8 @@
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">15</span></div>
   </section>
 
-  <!-- 12b · YOUR ROLE — ROLE OVERVIEW -->
-  <section class="page content roleovr" data-screen-label="Your Role — Role Overview">
+  <!-- 12b · YOUR ROLE—ROLE OVERVIEW -->
+  <section class="page content roleovr" data-screen-label="Your Role—Role Overview">
     <div>
       <div class="eyebrow">Student Ministry</div>
       <h2 class="disp">Role Overview</h2>
@@ -1130,7 +1130,7 @@
   </section>
 
   <!-- 13 · YOUR ROLE CONTENT -->
-  <section class="page content role" data-screen-label="Your Role — Cadence">
+  <section class="page content role" data-screen-label="Your Role—Cadence">
     <div>
       <div class="eyebrow">Your Role</div>
       <h2 class="disp">You Win When&hellip;</h2>
@@ -1183,7 +1183,7 @@
   </section>
 
   <!-- 13b · FULL-BLEED VERSE -->
-  <section class="page versepage" data-screen-label="Verse — 1 Thessalonians 2:8">
+  <section class="page versepage" data-screen-label="Verse—1 Thessalonians 2:8">
     <img class="cph" src="assets/photos/harvest-together.jpg" alt="Two people working side by side in a field below the mountains">
     <div class="vpscrim"></div>
     <div class="vpghost" aria-hidden="true">&ldquo;</div>
@@ -1197,7 +1197,7 @@
   </section>
 
   <!-- 14 · DIV 06 MAKE DISCIPLES -->
-  <section class="page divider" data-screen-label="Divider — Make Disciples">
+  <section class="page divider" data-screen-label="Divider—Make Disciples">
     <div class="ghost disp">06</div>
     <div class="inner">
       <div class="secno">SECTION 06</div>
@@ -1209,7 +1209,7 @@
   </section>
 
   <!-- 15 · FOUR CHAIRS -->
-  <section class="page content fourchairs" data-screen-label="Make Disciples — Four Chairs">
+  <section class="page content fourchairs" data-screen-label="Make Disciples—Four Chairs">
     <div>
       <div class="eyebrow">Make Disciples</div>
       <div class="optahead">
@@ -1256,8 +1256,8 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <div class="foot"><span class="sec">Make Disciples</span><span class="pn">20</span></div>
   </section>
 
-  <!-- 16 · INVENTORY 1 (flat-lay spread — left) -->
-  <section class="page content invspread invspread-l" data-screen-label="4-Chair Inventory — Chairs 1 & 2">
+  <!-- 16 · INVENTORY 1 (flat-lay spread—left) -->
+  <section class="page content invspread invspread-l" data-screen-label="4-Chair Inventory—Chairs 1 & 2">
     <div class="invhd">
       <div class="eyebrow">4-Chair Personal Inventory</div>
       <h2 class="disp">Where Am I?</h2>
@@ -1302,8 +1302,8 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <div class="foot"><span class="sec">Make Disciples</span><span class="pn">21</span></div>
   </section>
 
-  <!-- 17 · INVENTORY 2 (flat-lay spread — right) -->
-  <section class="page content invspread invspread-r" data-screen-label="4-Chair Inventory — Chairs 3 & 4">
+  <!-- 17 · INVENTORY 2 (flat-lay spread—right) -->
+  <section class="page content invspread invspread-r" data-screen-label="4-Chair Inventory—Chairs 3 & 4">
     <div class="invhd invhd-r">
       <p class="lead">This inventory is a simple tool for you to consider where you are and get vision for your own spiritual growth. Answer honestly&mdash;score each statement, then total each chair in the box at the bottom.</p>
       <div class="sgpanel">
@@ -1350,7 +1350,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
   </section>
 
   <!-- 18 · DIV 07 FURTHER RESOURCES -->
-  <section class="page divider ember" data-screen-label="Divider — Further Resources">
+  <section class="page divider ember" data-screen-label="Divider—Further Resources">
     <div class="ghost disp">07</div>
     <div class="inner">
       <div class="secno">SECTION 07</div>
@@ -1362,7 +1362,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
   </section>
 
   <!-- 19 · DASHBOARDS -->
-  <section class="page content" data-screen-label="Further Resources — Dashboards">
+  <section class="page content" data-screen-label="Further Resources—Dashboards">
     <div>
       <div class="eyebrow">Further Resources</div>
       <h2 class="disp">Dashboards</h2>
@@ -1376,7 +1376,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">24</span></div>
   </section>
 
-  <!-- MANTRA GLYPHS (monoline set — shared symbol source) -->
+  <!-- MANTRA GLYPHS (monoline set—shared symbol source) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
     <symbol id="ic-branch" viewBox="0 0 64 64">
       <path d="M13 53 C26 47 31 34 35 21 C37 15 41 10 51 9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1418,8 +1418,8 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     </symbol>
   </defs></svg>
 
-  <!-- 20 · MANTRAS (flat-lay spread — left) -->
-  <section class="page content mspread mspread-l" data-screen-label="Further Resources — Mantras">
+  <!-- 20 · MANTRAS (flat-lay spread—left) -->
+  <section class="page content mspread mspread-l" data-screen-label="Further Resources—Mantras">
     <div class="mhd">
       <div class="eyebrow">Mission + Mantras</div>
       <h2 class="disp">MANTRAS</h2>
@@ -1436,8 +1436,8 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">25</span></div>
   </section>
 
-  <!-- 21 · MANTRA QUESTIONS (flat-lay spread — right) -->
-  <section class="page content mspread mspread-r" data-screen-label="Further Resources — Mantra Questions">
+  <!-- 21 · MANTRA QUESTIONS (flat-lay spread—right) -->
+  <section class="page content mspread mspread-r" data-screen-label="Further Resources—Mantra Questions">
     <div class="mhd mhd-r">
       <div class="mframe">
         <div class="fk">Sit With These</div>
@@ -1457,15 +1457,15 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
   </section>
 
   <!-- 21i · REVIEW · SECTION TITLE -->
-  <section class="page rvtitle" data-screen-label="Further Resources — Unleashed Leaders Review (Title)">
+  <section class="page rvtitle" data-screen-label="Further Resources—Unleashed Leaders Review (Title)">
     <div class="rvt-rule"></div>
     <div class="rvt-tag">How We Reach The Next Generation</div>
     <h1 class="disp">Unleashed<br>Leaders<br>Review</h1>
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">27</span></div>
   </section>
 
-  <!-- 21j · FILL-IN RECAP · TEST BUILD · SPREAD RIGHT — Model -->
-  <section class="page tbpage" data-screen-label="Further Resources — Recap Test (Model)">
+  <!-- 21j · FILL-IN RECAP · TEST BUILD · SPREAD RIGHT—Model -->
+  <section class="page tbpage" data-screen-label="Further Resources—Recap Test (Model)">
     <div class="tbsec">
       <div class="tbsec-lbl"><span>Jesus&rsquo; Mission</span></div>
       <div class="tbline"><span class="ref">Luke 19:10</span><span class="arr">&rarr;</span>To <span class="blk"><span class="ans">seek</span></span> and <span class="blk"><span class="ans">save</span></span> the lost.</div>
@@ -1513,7 +1513,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
   </section>
 
   <!-- 21k · ONE-PAGER BACK · WHO SITS + CHALLENGE 1 -->
-  <section class="page chpage" data-screen-label="Further Resources — Who Sits / Challenge 1">
+  <section class="page chpage" data-screen-label="Further Resources—Who Sits / Challenge 1">
     <div class="chbox wsbox">
       <div class="chbox-lbl"><span>Who Sits In Each</span></div>
       <div class="wschairs">
@@ -1536,7 +1536,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
   </section>
 
   <!-- 21l · ONE-PAGER BACK · CHALLENGES 2–4 -->
-  <section class="page chpage" data-screen-label="Further Resources — Challenges 1–4">
+  <section class="page chpage" data-screen-label="Further Resources—Challenges 1–4">
     <div class="chrow">
       <div class="chcell chphrase">
         <div class="chbox-lbl"><span>Challenge #1</span></div>
@@ -1588,7 +1588,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <div class="foot"><span class="sec">SE Students</span><span class="pn">31</span></div>
   </section>
 
-  <!-- 23 · NOTES (header omitted — shares spread header with p.31) -->
+  <!-- 23 · NOTES (header omitted—shares spread header with p.31) -->
   <section class="page content" data-screen-label="Notes">
     <div style="height:117px"></div>
     <div class="rows" style="margin-top:14px">
@@ -1617,7 +1617,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <div class="foot"><span class="sec">SE Students</span><span class="pn">33</span></div>
   </section>
 
-  <!-- 23c · NOTES (header omitted — shares spread header with p.33) -->
+  <!-- 23c · NOTES (header omitted—shares spread header with p.33) -->
   <section class="page content" data-screen-label="Notes">
     <div style="height:117px"></div>
     <div class="rows" style="margin-top:14px">
@@ -1640,7 +1640,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <div class="foot"><span class="sec">SE Students</span><span class="pn">35</span></div>
   </section>
 
-  <!-- 23e · SKETCH (header omitted — shares spread header with p.35) -->
+  <!-- 23e · SKETCH (header omitted—shares spread header with p.35) -->
   <section class="page content" data-screen-label="Sketch">
     <div style="height:117px"></div>
     <div class="dotgrid"></div>
@@ -1652,7 +1652,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <img class="cph" src="assets/photos/harvest.jpg" alt="Harvest field">
     <div class="cgrad"></div>
     <div class="wm">
-      <img src="assets/logos/logo-knockout.png" alt="Southeast Students">
+      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students">
       <div class="tl">Connecting people to Jesus &amp; one another</div>
     </div>
     <div class="chz"></div>
@@ -1851,11 +1851,11 @@ function MissionTweaks() {
       <TweakSection label="Our Model page" />
       <TweakSlider label="Column spacing" value={t.modelColGap} min={8} max={52} step={2} unit="px"
                    onChange={(v) => setTweak('modelColGap', v)} />
-      <TweakSlider label="Col 1 width — Look at Jesus" value={t.modelCol1} min={70} max={220} step={2} unit="px"
+      <TweakSlider label="Col 1 width—Look at Jesus" value={t.modelCol1} min={70} max={220} step={2} unit="px"
                    onChange={(v) => setTweak('modelCol1', v)} />
-      <TweakSlider label="Col 2 width — How He did it" value={t.modelCol2} min={0.5} max={3} step={0.1} unit="fr"
+      <TweakSlider label="Col 2 width—How He did it" value={t.modelCol2} min={0.5} max={3} step={0.1} unit="fr"
                    onChange={(v) => setTweak('modelCol2', v)} />
-      <TweakSlider label="Col 3 width — How we do it" value={t.modelCol3} min={0.5} max={3} step={0.1} unit="fr"
+      <TweakSlider label="Col 3 width—How we do it" value={t.modelCol3} min={0.5} max={3} step={0.1} unit="fr"
                    onChange={(v) => setTweak('modelCol3', v)} />
       <TweakToggle label="Column dividers" value={t.modelDividers}
                    onChange={(v) => setTweak('modelDividers', v)} />
