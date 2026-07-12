@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Southeast Students—Team Leader Manual</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);--font-display:'Anton','Arial Narrow',sans-serif}
+  .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
+
+  /* page frame: 8in @96dpi */
+  .page{width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);--sa:var(--ember);--sa-ghost:#f3c3a6}
+  .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:13px}
+  .disp{font-family:var(--font-display);text-transform:uppercase;line-height:1.0;letter-spacing:.005em}
+
+  /* ---- SECTION ACCENTS (one color per section) ---- */
+  .page.s1{--sa:#cc3f36;--sa-ghost:#efb3ae}   /* mission + mantras · fire   */
+  .page.s2{--sa:#cc3f36;--sa-ghost:#efb3ae}   /* team leaders · fire        */
+  .page.s3{--sa:#1a9cd6;--sa-ghost:#a5dbf2}   /* key convos · blue rasp     */
+  .page.s4{--sa:#b8891b;--sa-ghost:#ecd489}   /* team dialogues · gold      */
+  .page.s5{--sa:#eb6424;--sa-ghost:#f3c3a6}   /* big three · ember          */
+  .page.s6{--sa:#1a9cd6;--sa-ghost:#a5dbf2}   /* further resources · blue   */
+
+  /* footer / page numbers */
+  .foot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 64px}
+  .foot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .foot .pn{font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--fg2);letter-spacing:.04em}
+  .foot.dark .sec{color:var(--fg3-d)} .foot.dark .pn{color:var(--fg2-d)}
+
+  /* ---- COVER / BACK ---- */
+  .cover{color:var(--slate)}
+  .cover .cph,.back .cph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
+  .cover.span2 .cph{width:200%;max-width:none;left:auto;right:0}
+  .back.span2 .cph{width:200%;max-width:none;right:auto;left:0}
+  .cover .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.48) 32%,rgba(12,14,16,.10) 60%,rgba(12,14,16,.34) 100%)}
+  .cover .ctop{position:absolute;top:56px;left:64px;right:64px;display:flex;align-items:flex-start;justify-content:flex-end}
+  .cover .ctag{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#ffd9c2;text-shadow:0 1px 12px rgba(12,14,16,.85);max-width:300px;text-align:right;line-height:1.7}
+  .cover .cbody{position:absolute;left:64px;right:64px;bottom:56px}
+  .cover .rule{width:64px;height:5px;background:var(--ember);margin-bottom:20px}
+  .cover h1{font-size:104px;color:var(--slate);line-height:.9;margin:0;font-family:var(--font-display);text-transform:uppercase}
+  .cover .csub{display:block;font-size:15px;color:rgba(255,254,249,.85);max-width:430px;margin-top:18px;line-height:1.5}
+  .cover .yr{display:block;font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px}
+  .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
+  .back{color:var(--slate)}
+  .back .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.72),rgba(12,14,16,.14) 45%,rgba(12,14,16,.30))}
+  .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
+  .back .wm img{height:54px;filter:brightness(0) invert(1);opacity:.96}
+  .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.85)}
+
+  /* ---- COPYRIGHT ---- */
+  .page.copyright{display:flex;align-items:flex-end;padding:0 64px 96px}
+  .copyblock{max-width:560px}
+  .copyblock p{margin:0;font-size:14px;line-height:1.65;color:var(--fg2)}
+  .copyblock p+p{margin-top:18px}
+  .copyblock a{color:var(--fg2);text-decoration:none}
+
+  /* ---- CONTENTS ---- */
+  .toc{padding:64px 66px 90px;display:flex;flex-direction:column}
+  .toc .eyebrow{color:var(--ember)} .toc h2{font-size:60px;margin:10px 0 6px}
+  .trow{display:grid;grid-template-columns:42px 1fr auto;align-items:baseline;gap:16px;padding:15px 0;border-bottom:1px solid var(--hairline)}
+  .trow .tn{font-family:var(--font-mono);font-weight:700;font-size:15px}
+  .trow .tt{font-weight:700;font-size:19px;color:var(--fg1)}
+  .trow .tt small{display:block;font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:3px}
+  .trow .tp{font-family:var(--font-mono);font-weight:600;font-size:14px;color:var(--fg2)}
+
+  /* ---- SECTION DIVIDER ---- */
+  .divider{background:linear-gradient(rgba(9,11,13,.45),rgba(9,11,13,.55)),url('assets/photos/cover-topography.jpg') center/cover,var(--pitch);color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end}
+  .page.sintro::before{content:'';position:absolute;inset:0;background:url('assets/photos/cover-topography.jpg') center/cover;opacity:.09;pointer-events:none}
+  .divider .ghost{position:absolute;top:-96px;right:-24px;font-family:var(--font-display);font-size:460px;line-height:1;color:#171b1f;letter-spacing:-.02em;z-index:0;pointer-events:none}
+  .divider .inner{padding:0 66px 104px;position:relative;z-index:1}
+  .divider .secno{font-family:var(--font-mono);font-weight:700;font-size:14px;letter-spacing:.24em;color:var(--sa)}
+  .divider h2{font-size:80px;color:var(--slate);margin:16px 0 0}
+  .divider .sub{font-size:17px;color:var(--fg2-d);max-width:440px;margin-top:22px;line-height:1.5}
+  .divider .tab{width:64px;height:6px;background:var(--sa);margin-top:32px}
+  .divider .foot .sec{color:var(--fg3-d)} .divider .foot .pn{color:var(--fg2-d)}
+
+  /* ---- CONTENT (generic) ---- */
+  .content{padding:54px 64px 92px;display:flex;flex-direction:column}
+  .content .eyebrow{color:var(--sa)} .content h2{font-size:50px;margin-top:8px}
+  .content h2 .hib{color:var(--sa);font-weight:inherit}
+  .content .hr{height:1px;background:var(--hairline);margin:18px 0 2px}
+  .lead{font-size:15px;color:var(--fg2);line-height:1.55;margin-top:12px}
+  .lead.big{font-size:17px;color:var(--fg1)}
+  .lead b{color:var(--fg1)}
+  .rows{margin-top:6px;flex:1}
+  .row{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid var(--hairline);align-items:start}
+  .row:last-child{border-bottom:none}
+  .row .k{font-family:var(--font-mono);font-weight:700;font-size:20px;color:var(--sa);line-height:1.18}
+  .row .k.sm{font-size:14px;letter-spacing:.04em;padding-top:3px}
+  .row .kic{align-self:center;justify-self:center;display:flex;align-items:center;justify-content:center;color:var(--sa)}
+  .row .kic svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .row .t{font-weight:700;font-size:15.5px;color:var(--fg1);line-height:1.22}
+  .row .b{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:4px}
+  .ref{font-family:var(--font-mono);font-size:11px;color:var(--sa);letter-spacing:.04em;margin-left:6px;font-weight:500}
+  .row ul.subs{margin:7px 0 0;padding:0;list-style:none;display:grid;gap:4px}
+  .row ul.subs li{font-size:12.5px;color:var(--fg2);line-height:1.42;padding-left:15px;position:relative}
+  .row ul.subs li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--sa)}
+
+  /* mission statement declaration */
+  .declare{background:var(--pitch);border-radius:10px;padding:26px 30px;margin:18px 0 0}
+  .declare .dq{font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1.02;color:var(--slate)}
+  .declare .dq em{color:var(--sa);font-style:normal}
+  .declare .dl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--fg3-d);margin-bottom:10px}
+
+  /* scripture card */
+  .scripture{background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:16px 20px;margin-top:14px}
+  .scripture .sref{font-family:var(--font-mono);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--sa)}
+  .scripture .sverse{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:9px;font-style:italic}
+
+  /* mission + vision — "i"-line columns */
+  .mv{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin-top:18px}
+  .mvcol{display:flex;flex-direction:column}
+  .mvword{display:flex;justify-content:center;font-family:var(--font-display);font-size:40px;line-height:1;text-transform:uppercase}
+  .mvword.lt{color:var(--sa)} .mvword.dk{color:var(--fg1)}
+  .istem{position:relative;width:13px}
+  .istem::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:4px;border-radius:2px;background:var(--sa);top:-18px;height:114px;z-index:0}
+  .stem-r::before{display:none}
+  .stem-r::after{content:'';position:absolute;left:calc(50% - 2px);top:-18px;height:466px;width:520px;border-left:4px solid var(--sa);border-bottom:4px solid var(--sa);border-bottom-left-radius:28px;z-index:0}
+  .mvstack{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+  .mvbox{position:relative;z-index:1;height:62px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);text-transform:uppercase;font-size:25px;letter-spacing:.01em}
+  .mvbox.lt{background:var(--sa);color:#fffef9}
+  .mvbox.dk{background:var(--charcoal);color:var(--slate)}
+
+  /* mantra arrow bars */
+  .marrows{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:4px}
+  .mbar{display:flex;align-items:center;background:rgba(14,18,21,.07);border-radius:8px;height:46px;overflow:hidden}
+  .mchipA{height:46px;display:flex;align-items:center;background:var(--sa);color:#fffef9;font-family:var(--font-display);text-transform:uppercase;font-size:19px;letter-spacing:.02em;padding:0 34px 0 22px;clip-path:polygon(0 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,0 100%);flex:none}
+  .mrefx{font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--fg1);margin-left:16px;text-transform:uppercase;white-space:nowrap}
+  .mtxt{margin:9px 0 0 118px}
+  .mtxt p{margin:0;font-size:13px;color:var(--fg2);line-height:1.6}
+  .mtxt i{text-decoration:underline;text-underline-offset:2px}
+  /* rhythm arrow bars — quote + tool tags under each */
+  .rq2{font-style:italic;color:var(--fg2)}
+  .rtools{display:flex;flex-wrap:wrap;gap:5px 18px;margin-top:5px}
+  .rtools span{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10px;color:var(--fg1);font-weight:600;padding-left:14px;position:relative}
+  .rtools span::before{content:'\2192';position:absolute;left:0;color:var(--sa)}
+  .rwchip{align-self:center;width:calc(100% - 13px);height:42px;display:flex;align-items:center;background:var(--sa);color:#fffef9;font-family:var(--font-display);text-transform:uppercase;font-size:19px;px;letter-spacing:.02em;padding:0 8px 0 14px;border-radius:8px 0 0 8px;position:relative}
+  .rwchip::after{content:'';position:absolute;left:100%;top:0;width:13px;height:100%;background:var(--sa);clip-path:polygon(0 0,100% 50%,0 100%)}
+  .marrow{position:relative;z-index:1}
+  .mline6{position:absolute;left:0;top:126px;bottom:128px;width:100px;border-right:4px solid var(--sa);border-bottom:4px solid var(--sa);border-bottom-right-radius:28px;z-index:0;pointer-events:none}
+
+  /* mantra bands */
+  .mbands{flex:1;display:grid;grid-template-rows:repeat(5,1fr);margin-top:8px}
+  .mband{display:flex;flex-direction:column;justify-content:center;padding:8px 0;border-top:1px solid var(--hairline)}
+  .mband:last-child{border-bottom:1px solid var(--hairline)}
+  .mband:first-child{border-top:none}  /* title .hr serves as the top break line */
+  .mband .mname{font-family:var(--font-display);text-transform:uppercase;font-size:31px;line-height:.94;color:var(--fg1)}
+  .mband .mname .ref{display:inline-block;font-size:10.5px;vertical-align:4px;margin-left:9px;text-transform:none}
+  .mband .mline{font-size:13px;color:var(--fg2);line-height:1.4;margin-top:7px}
+  .mband .mval{font-size:12px;color:var(--fg3);font-style:italic;margin-top:3px}
+  .mband .mval b{color:var(--sa);font-style:normal;font-weight:600}
+  /* mantra questions page — icon + question list */
+  .mband.mq{flex-direction:row;align-items:center;gap:12px;padding:4px 0}
+  .mband.mq .micon{flex:none;width:44px;display:flex;align-items:center;justify-content:center;color:var(--sa)}
+  .mband.mq .micon svg{width:40px;height:40px;stroke-width:2.1;overflow:visible}
+  .mband.mq .mtxt{flex:1;margin:0}
+  .mqs{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+  .mqs li{font-size:15px;color:var(--fg2);line-height:1.35;padding-left:15px;position:relative}
+  .mqs li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:1.5px;background:var(--sa)}
+
+  /* Luke 9 rhythms table */
+  .rhead{display:flex;align-items:stretch;gap:24px;border-bottom:1px solid var(--hairline);padding-bottom:16px}
+  .rhead-l{flex:none}
+  .rhead-r{border-left:3px solid var(--sa);padding-left:22px;display:flex;align-items:center;max-width:330px}
+  .rhead-r p{margin:0;font-size:13px;line-height:1.5;color:var(--fg2)}
+  .rhy{flex:1;display:grid;grid-template-rows:repeat(5,1fr);margin-top:10px}
+  .rhyrow{display:grid;grid-template-columns:168px 1fr 208px;gap:20px;align-items:center;border-top:1px solid var(--hairline);padding:6px 0}
+  .rhyrow:first-child{border-top:none}
+  .rhyrow:last-child{border-bottom:1px solid var(--hairline)}
+  .rhyrow .rw{font-family:var(--font-display);text-transform:uppercase;font-size:26px;line-height:.94;color:var(--fg1)}
+  .rhyrow .rq{font-size:13px;color:var(--fg2);font-style:italic;line-height:1.5}
+  .rhyrow .rq b{font-style:normal;font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--sa);letter-spacing:.05em;display:block;margin-top:5px}
+  .rhyrow .rt{display:flex;flex-direction:column;gap:5px}
+  .rhyrow .rt span{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--fg1);font-weight:600;padding-left:17px;position:relative}
+  .rhyrow .rt span::before{content:'→';position:absolute;left:0;color:var(--sa)}
+
+  /* role overview spine */
+  .roleov{flex:1;display:grid;grid-template-rows:repeat(4,1fr);position:relative;margin-top:2px}
+  .roleov::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--hairline)}
+  .rolb{position:relative;display:grid;grid-template-columns:16px 196px 1fr;gap:0 22px;align-items:center;padding:10px 0}
+  .rolb::before{content:'';position:absolute;left:7px;right:0;top:0;height:1px;background:var(--hairline)}
+  .rolb:last-child::after{content:'';position:absolute;left:7px;right:0;bottom:0;height:1px;background:var(--hairline)}
+  .rolb .rail{position:relative;align-self:stretch}
+  .rolb .rail i{position:absolute;left:7px;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--sa)}
+  .rolb .rtier{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--sa);font-weight:600;margin-bottom:7px}
+  .rolb .rname{font-family:var(--font-display);text-transform:uppercase;font-size:27px;line-height:.9;color:var(--fg1)}
+  .rolb ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;align-content:center}
+  .rolb li{font-size:13px;color:var(--fg2);line-height:1.4;padding-left:16px;position:relative}
+  .rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--sa)}
+
+  /* quote pages */
+  .quote{background:var(--pitch);display:flex;flex-direction:column;justify-content:center;padding:0 84px}
+  .quote .qmark{font-family:var(--font-display);font-size:150px;line-height:.4;color:var(--sa);margin-bottom:20px}
+  .quote .qt{font-family:var(--font-display);text-transform:uppercase;font-size:37px;line-height:1.14;color:var(--slate);letter-spacing:.01em}
+  .quote .qa{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--sa);margin-top:30px}
+
+  /* ---- CONVO / DIALOGUE TEMPLATE ---- */
+  .kc .kchead{display:flex;align-items:center;gap:16px}
+  .kc .mchip{flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.1em;color:#fffef9;background:var(--sa);border-radius:7px;padding:7px 12px;text-transform:uppercase}
+  .kc .mchip.dkx{color:var(--pitch)}
+  .kc .kchead h2{font-size:42px;margin:0}
+  .kc .kn{font-family:var(--font-mono);font-size:11px;color:var(--fg3);letter-spacing:.08em;text-transform:uppercase;margin-left:auto}
+  .kc .vline{font-size:13.5px;color:var(--fg2);line-height:1.5;font-style:italic;margin-top:14px}
+  .kc .vline b{font-style:normal;color:var(--fg1)}
+  .kc .qs li::before{content:'';position:absolute;left:0;top:19px;width:7px;height:7px;border-radius:50%;background:var(--sa)}
+  .kc .qs{margin:12px 0 0;padding:0;list-style:none;flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+  .kc .qs li{font-size:14.5px;color:var(--fg1);line-height:1.5;padding:10px 0 10px 20px;position:relative}
+  .kc .qs li small{display:block;font-size:12px;color:var(--fg3);font-style:italic;margin-top:3px}
+  .kc .qs li .writein{display:flex;gap:14px;margin-top:9px}
+  .kc .writein span{flex:1;height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05)}
+  .la{background:rgba(14,18,21,.035);border-left:4px solid var(--sa);border-radius:0 8px 8px 0;padding:14px 20px;margin-top:14px}
+  .la .lak{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--sa);font-weight:700;margin-bottom:6px}
+  .la p{margin:0;font-size:12.5px;color:var(--fg2);line-height:1.5}
+  .la p b{color:var(--fg1)}
+  .kfoot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+  .kfoot .scref{font-family:var(--font-mono);font-weight:600;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sa)}
+  .kfoot .scref b{color:var(--fg3);font-weight:500;margin-right:8px}
+
+  /* fill-in ladders + chair eval */
+  .ladder{display:grid;gap:8px;margin-top:8px}
+  .lrow{display:grid;grid-template-columns:46px 176px 216px;gap:16px;align-items:center;padding:7px 0}
+  .lrow .meter{display:flex;gap:3px;align-items:flex-end;height:15px}
+  .lrow .meter i{width:6px;height:15px;border-radius:2px;background:var(--sa-ghost)}
+  .lrow .meter i.on{background:var(--sa)}
+  .lrow .lline{height:27px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05)}
+  .lrow .llab{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;color:var(--fg2);text-transform:uppercase;white-space:nowrap}
+  .cheval{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .chcol{background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:13px 13px 15px;display:flex;flex-direction:column}
+  .chcol .chtop{display:flex;align-items:center;gap:8px}
+  .chcol .chnum{width:26px;height:26px;border-radius:50%;background:var(--sa);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;flex:none}
+  .chcol .chlab{font-family:var(--font-mono);font-weight:700;font-size:11px;letter-spacing:.02em;text-transform:uppercase;color:var(--fg2);line-height:1.15;white-space:nowrap}
+  .chcol .chpct{position:relative;margin-top:11px;height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05);display:flex;align-items:center;justify-content:flex-end;padding:0 11px}
+  .chcol .chpct b{font-family:var(--font-display);font-size:18px;line-height:1;color:var(--sa);opacity:.5}
+  .chcol .chnl{font-family:var(--font-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--fg3);margin:13px 0 6px}
+  .chcol .nline{height:23px;border-bottom:1px solid var(--hairline)}
+
+  /* QR rows */
+  .qrwrap{position:relative;width:84px;height:84px;flex:none}
+  .qr{width:84px;height:84px;border:1px solid var(--hairline);border-radius:8px;background:
+      repeating-linear-gradient(0deg,#0e1215 0 6px,transparent 6px 12px),
+      repeating-linear-gradient(90deg,#0e1215 0 6px,transparent 6px 12px);
+      background-size:24px 24px;background-color:#fffdf5;opacity:.18}
+  .qrwrap .qlab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.08em;color:var(--fg3);text-transform:uppercase;text-align:center;padding:6px}
+  .qrrow{display:flex;gap:20px;align-items:center;margin-top:14px;border:1px solid var(--hairline);border-radius:10px;padding:14px 18px;background:#fffdf5}
+  .qrrow .rh{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--fg1)}
+  .qrrow .rb{font-size:12.5px;color:var(--fg2);line-height:1.45;margin-top:4px}
+
+  /* big three event stack */
+  .b3{flex:1;display:grid;grid-template-rows:repeat(3,1fr);margin-top:8px}
+  .b3row{display:grid;grid-template-columns:315px 250px;gap:30px;justify-content:start;align-items:center;border-top:1px solid var(--hairline);padding:10px 0}
+  .b3row:last-child{border-bottom:1px solid var(--hairline)}
+  .b3row:first-child{border-top:none}  /* title .hr serves as the top break line */
+  .b3row .bn{font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:.94;color:var(--fg1)}
+  .b3row .bn .ref{display:block;margin-left:0;font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:.9;letter-spacing:normal;color:var(--sa);vertical-align:baseline;margin-bottom:1px}
+  .b3row .bd{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:8px}
+  .b3row .tip{border-left:3px solid var(--sa);padding:2px 0 2px 14px}
+  .b3row .tip .tk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--sa);font-weight:700;margin-bottom:5px}
+  .b3row .tip p{margin:0;font-size:13px;color:var(--fg2);line-height:1.45}
+
+  /* new-leader pipeline */
+  .pipe{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:6px;position:relative;counter-reset:pstep}
+  .pipe::before{content:'';position:absolute;left:17px;top:26px;bottom:26px;width:2px;background:var(--sa-ghost)}
+  .prow{display:grid;grid-template-columns:36px 1fr;gap:0 24px;align-items:center;padding:6px 0;position:relative}
+  .prow .rail{position:relative;justify-self:center}
+  .prow .rail i{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--sa);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:13px;box-shadow:0 0 0 4px var(--slate)}
+  .prow .rail i::before{counter-increment:pstep;content:counter(pstep,decimal-leading-zero)}
+  .prow .pname{font-family:var(--font-display);text-transform:uppercase;font-size:31px;line-height:.9;color:var(--fg1)}
+  .prow .pdesc{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.09em;font-size:11px;color:var(--fg2);margin-top:4px}
+  .prow-invite::after{content:'';position:absolute;top:50%;left:212px;right:298px;height:0;border-top:2px dashed var(--sa-ghost)}
+  .prow-invite .qrpop{position:absolute;right:0;top:50%;transform:translateY(-50%);width:298px;display:flex;gap:14px;align-items:center;background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:12px 15px;box-shadow:0 12px 30px rgba(14,18,21,.16);z-index:2}
+  .prow-invite .qrpop::before{content:'';position:absolute;left:-7px;top:50%;width:13px;height:13px;transform:translateY(-50%) rotate(45deg);background:#fffdf5;border-left:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+  .prow-invite .qrpop .qrwrap,.prow-invite .qrpop .qr{width:66px;height:66px}
+  .prow-invite .qrpop .rh{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11.5px;color:var(--fg1)}
+  .prow-invite .qrpop .rb{font-size:11.5px;color:var(--fg2);line-height:1.42;margin-top:4px}
+
+  /* five steps */
+  .steps{flex:1;display:grid;grid-template-rows:repeat(5,1fr);margin-top:4px}
+  .strow{display:grid;grid-template-columns:52px 138px 1fr;gap:14px;align-items:center;border-top:1px solid var(--hairline);padding:3px 0}
+  .strow:last-child{border-bottom:1px solid var(--hairline)}
+  .strow .sn{font-family:var(--font-display);font-size:32px;color:var(--sa-ghost);line-height:.8}
+  .strow .sname{font-family:var(--font-display);text-transform:uppercase;font-size:19px;line-height:1.02;color:var(--fg1)}
+  .strow .sdesc{font-size:15px;color:var(--fg2);line-height:1.38}
+
+  /* notes */
+  .noteline{height:34px;border-bottom:1px solid var(--hairline)}
+  .dotgrid{flex:1;margin-top:6px;border-radius:2px;background-image:radial-gradient(var(--hairline) 1.4px,transparent 1.5px);background-size:26px 26px;background-position:3px 8px}
+
+  /* ---- view toolbar + spread ---- */
+  .toolbar{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.30)}
+  .toolbar button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 15px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
+  .toolbar button.on{background:var(--ember);color:var(--slate)}
+  .stage{width:100%}
+  .pair{display:contents}
+  .stack.spread{width:1536px;margin:0;gap:46px}
+  .stack.spread .pair{display:flex;flex-direction:row;width:1536px;justify-content:center;align-items:flex-start}
+  .stack.spread .pair.lead{justify-content:flex-end}
+
+  @media (max-width:640px){
+    body{overflow-x:hidden}
+    .toolbar{top:auto;bottom:14px;left:50%;right:auto;transform:translateX(-50%);z-index:9998}
+  }
+  @media print{
+    body{background:none;padding:0}
+    .stack,.stack.spread{gap:0;transform:none!important;width:auto!important;margin:0!important}
+    .pair{display:contents!important}
+    .stage{height:auto!important}
+    .toolbar{display:none!important}
+    .page{box-shadow:none;break-after:page;width:8in;height:8in}
+    @page{size:8in 8in;margin:0}
+  }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}</style>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#0e1215">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0e1215"/>
+    <rect x="500" y="470" width="120" height="10" fill="#eb6424"/>
+    <text x="600" y="440" font-family="Anton, 'Arial Narrow', sans-serif" font-size="150" fill="#fffef9" text-anchor="middle">03</text>
+  </svg>
+</template>
+<div class="toolbar">
+  <button id="btnPages" type="button">Pages</button>
+  <button id="btnSpread" type="button">Spreads</button>
+</div>
+<div class="stage" id="stage">
+<div class="stack" id="stack">
+
+  <!-- COVER -->
+  <section class="page cover span2" data-screen-label="Cover">
+    <img class="cph" src="assets/photos/cover-topography.jpg" alt="Dark topographic contour lines">
+    <div class="cgrad"></div>
+    <div class="ctop">
+      <div class="ctag">Southeast Students<br>Team Leader Resource</div>
+    </div>
+    <div class="cbody">
+      <div class="rule"></div>
+      <h1>Team<br>Leaders</h1>
+      <span class="csub">A year of key conversations, team dialogues, and resources for leading your team like Jesus.</span>
+      <span class="yr">VOL. 03 &middot; 2026&ndash;2027</span>
+    </div>
+    <div class="chz"></div>
+  </section>
+
+  <!-- INSIDE FRONT · COPYRIGHT -->
+  <section class="page copyright" data-screen-label="Copyright">
+    <div class="copyblock">
+      <p>&copy; 2026 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
+      <p>For permissions contact:<br>Justin Davis &middot; <a href="mailto:jdavis@secc.org">jdavis@secc.org</a></p>
+    </div>
+  </section>
+
+  <!-- CONTENTS -->
+  <section class="page toc" data-screen-label="Contents">
+    <div class="eyebrow">What&rsquo;s Inside</div>
+    <h2 class="disp">Contents</h2>
+    <div class="rows">
+      <div class="trow"><span class="tn" style="color:#eb6424">01</span><span class="tt">Mission + Mantras<small>Who we are</small></span><span class="tp">03</span></div>
+      <div class="trow"><span class="tn" style="color:#cc3f36">02</span><span class="tt">Team Leaders<small>What we do</small></span><span class="tp">07</span></div>
+      <div class="trow"><span class="tn" style="color:#1a9cd6">03</span><span class="tt">Key Conversations<small>1-ON-1 CONVOS</small></span><span class="tp">15</span></div>
+      <div class="trow"><span class="tn" style="color:#b8891b">04</span><span class="tt">Team Dialogues<small>TEAM MEETINGS</small></span><span class="tp">27</span></div>
+      <div class="trow"><span class="tn" style="color:#eb6424">05</span><span class="tt">Big Three<small>MSM + HSM</small></span><span class="tp">39</span></div>
+      <div class="trow"><span class="tn" style="color:#1a9cd6">06</span><span class="tt">Further Resources<small>Learn more</small></span><span class="tp">43</span></div>
+    </div>
+    <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">02</span></div>
+  </section>
+
+  <!-- ============ 01 · MISSION + MANTRAS ============ -->
+  <section class="page divider s1" data-screen-label="Divider — Mission + Mantras">
+    <div class="ghost disp">01</div>
+    <div class="inner">
+      <div class="secno">SECTION 01</div>
+      <h2 class="disp">Mission +<br>Mantras</h2>
+      <div class="sub">The GPS that keeps every ministry effort on course.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">01 &middot; Mission + Mantras</span><span class="pn">03</span></div>
+  </section>
+
+  <section class="page content s1 sintro" data-screen-label="Mission — Who We Are">
+    <div>
+      <div class="eyebrow">Mission + Mantras</div>
+      <h2 class="disp">Who We Are</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead" style="color:#080909">As members of the body of Christ, we seek Great Commission and Great Commandment living <span class="ref">(Matt. 22:37&ndash;40 &middot; Matt. 28:18&ndash;20).</span></p>
+      <p class="lead">As members of this local body of Christ called Southeast, we seek to live this way through connecting people to Jesus and one another, utilizing some metaphors based on the life of Christ to keep us focused.</p>
+      <p class="lead"><b>You, as a Team Leader over a Student Ministry team, are the culture carrier of our Mission and Mantras.</b> You should frequently use them as a GPS to keep our ministry efforts focused on accomplishing Great Commission and Great Commandment living.</p>
+    </div>
+    <div class="foot"><span class="sec">01 &middot; Mission + Mantras</span><span class="pn">04</span></div>
+  </section>
+
+  <section class="page content s1" data-screen-label="Mission + Vision Statements">
+    <div>
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="disp">Mission <span class="hib">+</span> Mantras</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="mv">
+      <div class="mvcol">
+        <div class="mvword lt"><span>M</span><span class="istem stem-l"></span><span>SSION</span></div>
+        <div class="mvstack">
+          <div class="mvbox lt">Connecting</div>
+          <div class="mvbox lt">People</div>
+          <div class="mvbox lt">To Jesus</div>
+          <div class="mvbox lt">And</div>
+          <div class="mvbox lt">One Another</div>
+        </div>
+      </div>
+      <div class="mvcol">
+        <div class="mvword dk"><span>V</span><span class="istem stem-r"></span><span>SION</span></div>
+        <div class="mvstack">
+          <div class="mvbox dk">To Unleash</div>
+          <div class="mvbox dk">The Full Force</div>
+          <div class="mvbox dk">Of the Church</div>
+          <div class="mvbox dk">To Love People</div>
+          <div class="mvbox dk">One at a Time</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">01 &middot; Mission + Mantras</span><span class="pn">05</span></div>
+  </section>
+
+  <section class="page content s1" data-screen-label="The Five Mantras">
+    <div class="mline6" style="width:99px;height:517px"></div>
+    <div>
+      <div class="eyebrow">Metaphors from the Life of Christ</div>
+    </div>
+    <div class="marrows">
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Be the Branch</div>
+          <div class="mrefx">( John 15:1&ndash;17 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We connect in community.</p>
+          <p>We value connection <i>to</i> Jesus over production <i>for</i> Jesus.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Catch the Wind</div>
+          <div class="mrefx">( John 3:1&ndash;8 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We connect the full force of the church with the Holy Spirit.</p>
+          <p>We value risk and adventure over safety and comfort.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Wreck the Roof</div>
+          <div class="mrefx">( Luke 5:18&ndash;25 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We will radically love people one at a time.</p>
+          <p>We value innovation over tradition.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Grip the Plow</div>
+          <div class="mrefx">( Luke 9:57&ndash;62 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We serve with intentional and focused effort.</p>
+          <p>We value personal engagement over attendance.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Empty the Jar</div>
+          <div class="mrefx">( Luke 7:36&ndash;50 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We connect through sacrificial generosity.</p>
+          <p>We value expressive worship over religious rituals.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">01 &middot; Mission + Mantras</span><span class="pn">06</span></div>
+  </section>
+
+  <!-- ============ 02 · TEAM LEADERS ============ -->
+  <section class="page divider s2" data-screen-label="Divider — Team Leaders">
+    <div class="ghost disp">02</div>
+    <div class="inner">
+      <div class="secno">SECTION 02</div>
+      <h2 class="disp">Team<br>Leaders</h2>
+      <div class="sub">A leader of leaders&mdash;a shepherd.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">02 &middot; Team Leaders</span><span class="pn">07</span></div>
+  </section>
+
+  <section class="page content s2 sintro" data-screen-label="Team Leader — The Heart of a Shepherd">
+    <div>
+      <div class="eyebrow">Team Leaders</div>
+      <h2 class="disp">The Heart of a <span class="hib">Shepherd</span></h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead"><b>You win when your team feels cared for, knows where they are going, and accomplishes the mission God has given us.</b> Keep the heart of a shepherd at the forefront of everything you do.</p>
+      <p class="lead">The primary reason you have this manual is to help you better shepherd your team over time. In this section are key resources around expectations, building teams, developing others, and helping new leaders.</p>
+      <p class="lead">In further sections, you&rsquo;ll be teed up for <b>Key Conversations</b> with the individuals on your team&mdash;a mix of planned and &ldquo;as you go&rdquo; conversations. To help unify the individuals you lead, there is also a section dedicated to facilitating <b>Team Dialogues</b>.</p>
+      <p class="lead">Both are there for your support. You are free to add for your team&rsquo;s context, but this is the minimum we expect you to follow!</p>
+    </div>
+    <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">08</span></div>
+  </section>
+
+  <section class="page content s2" data-screen-label="If Jesus Was a Team Leader — Rhythms">
+    <div class="rhead">
+      <div class="rhead-l">
+        <div class="eyebrow">If Jesus Was a Team Leader</div>
+        <h2 class="disp">Luke 9 Rhythms</h2>
+      </div>
+      <div class="rhead-r" style="width:298px;height:72px">
+        <p>Five rhythms for leader culture, and the tools we use to live them based on the<br>Luke 9 ministry team.</p>
+      </div>
+    </div>
+    <div class="rhy">
+      <div class="rhyrow">
+        <div class="rwchip">Community</div>
+        <div class="rq">&ldquo;Jesus called the twelve together&hellip;&rdquo;<b>Luke 9:1a</b></div>
+        <div class="rt"><span>Hangouts</span><span>Huddles</span><span>Team Meetings</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Equipping</div>
+        <div class="rq">&ldquo;He gave them power and authority&hellip;&rdquo;<b>Luke 9:1b</b></div>
+        <div class="rt"><span>Unleashed Leaders</span><span>Big 3</span><span>Trainings</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Mission</div>
+        <div class="rq">&ldquo;He sent them out&hellip;&rdquo;<b>Luke 9:2</b></div>
+        <div class="rt"><span>School Engagement</span><span>Community Engagement</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Care</div>
+        <div class="rq">&ldquo;They all ate and were satisfied&hellip;&rdquo;<b>Luke 9:17</b></div>
+        <div class="rt"><span>Team Leaders</span><span>Shepherding</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Retreat</div>
+        <div class="rq">&ldquo;Jesus was praying in private and his disciples were with him&hellip;&rdquo;<b>Luke 9:18</b></div>
+        <div class="rt"><span>Overnights</span><span>Celebrations</span></div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">09</span></div>
+  </section>
+
+  <section class="page content s2" data-screen-label="Student Ministry Role Overview">
+    <div>
+      <div class="eyebrow">Student Ministry</div>
+      <h2 class="disp">Role Overview</h2>
+    </div>
+    <div class="rows">
+      <div class="roleov">
+      <div class="rolb" style="width:643px;height:125px">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Staff</div></div>
+        <ul>
+          <li>Shepherding Team Leaders</li>
+          <li>Keeping the whole ministry on mission</li>
+          <li>Being examples to the flock<span class="ref">1 Peter 5:2&ndash;4</span></li>
+          <li>Equipping Team Leaders</li>
+        </ul>
+      </div>
+      <div class="rolb">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Team Leader</div></div>
+        <ul>
+          <li>Shepherding a team of leaders</li>
+          <li>Keeping your team focused on the mission</li>
+          <li>Setting the pace for your teams</li>
+          <li>Leading by example for your team<span class="ref">1 Cor. 11:1</span></li>
+        </ul>
+      </div>
+      <div class="rolb">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Leader</div></div>
+        <ul>
+          <li>Shepherding students</li>
+          <li>Initiating investment in a few</li>
+          <li>Living out your spiritual gifts in the context of<br>your team and the ministry in which you serve</li>
+        </ul>
+      </div>
+      <div class="rolb">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Support Leader</div></div>
+        <ul>
+          <li>Plugging new and unconnected students in</li>
+          <li>Supporting ministry efforts</li>
+          <li>Engaging students and families</li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">10</span></div>
+  </section>
+
+  <section class="page content s2" data-screen-label="Expectations 1–3">
+    <div>
+      <div class="eyebrow">A High Calling</div>
+      <h2 class="disp">Expectations <span class="hib">1&ndash;3</span></h2>
+      <div class="hr"></div>
+      <p class="lead" style="margin-top:10px">Team Leaders play a vital role in ensuring we have effective teams mobilized to multiply disciples all around the cities of every SE Campus.</p>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="k">01</span>
+        <div>
+          <div class="t">Live the Mission</div>
+          <ul class="subs">
+            <li>You set the pace for how your team uniquely lives the mission to your students.</li>
+            <li>If you are passive, your leaders will be passive, therefore making students passive.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="k">02</span>
+        <div>
+          <div class="t">Meet with Leaders</div>
+          <div class="b">Pray for, care for and coach leaders on your team.</div>
+          <ul class="subs">
+            <li>Ask them how their walk with Christ is going</li>
+            <li>Ask them about their life&mdash;family, work, school, hobbies</li>
+            <li>Ask them about their ministry using the Key Conversations</li>
+            <li>Pray together // Call to action</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="k">03</span>
+        <div>
+          <div class="t">Own Student Connections for Your Team</div>
+          <ul class="subs">
+            <li>Ensure students are being invited regularly</li>
+            <li>In partnership with Guest Experience, have a plan for connecting new students into the right group with the right leader</li>
+            <li>Know and understand the different groups represented within your team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">11</span></div>
+  </section>
+
+  <section class="page content s2" data-screen-label="Expectations 4–7">
+    <div>
+      <div class="eyebrow">A High Calling</div>
+      <h2 class="disp">Expectations <span class="hib">4&ndash;7</span></h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="k">04</span>
+        <div>
+          <div class="t">Lead Team Meetings</div>
+          <ul class="subs">
+            <li>Lead spiritually&mdash;bring God&rsquo;s Word, the life of Christ, 4 Chairs, our mission and values into conversations often</li>
+            <li>Organize calendar dates and important information for the team</li>
+            <li>Lead the Semester Planning meeting (2x / year)</li>
+            <li>Pray, Plan, Prepare, Pursue</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="k">05</span>
+        <div>
+          <div class="t">Live the Mantras</div>
+          <ul class="subs">
+            <li>Ensure you and the team are embodying our mantras</li>
+            <li>Set measurable goals and hold the team accountable</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="k">06</span>
+        <div>
+          <div class="t">Encourage Investment in a Few</div>
+          <ul class="subs">
+            <li>Lead by example on investing in a few</li>
+            <li>Hold the team accountable to identifying and discipling a few students</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="k">07</span>
+        <div>
+          <div class="t">Know Your Camp Strategy</div>
+          <ul class="subs">
+            <li>Lead your team&rsquo;s strategy for &ldquo;who&rsquo;s your one?&rdquo;</li>
+            <li>Prepare your team for next steps and follow up post camp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">12</span></div>
+  </section>
+
+  <section class="page content s2" data-screen-label="Expectations 8–10">
+    <div>
+      <div class="eyebrow">A High Calling</div>
+      <h2 class="disp">Expectations <span class="hib">8&ndash;10</span></h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="k">08</span>
+        <div>
+          <div class="t">Parent &amp; Community Partnerships</div>
+          <ul class="subs">
+            <li>Maintain relationships with parents and other community partners</li>
+            <li>Know the schools your students attend and identify partners within those schools</li>
+            <li>Always seek new leaders through these relationships</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="k">09</span>
+        <div>
+          <div class="t">Evaluate with Your Team Each Semester</div>
+          <ul class="subs">
+            <li>Look for where God is moving and praise Him</li>
+            <li>Identify areas of improvement or need for course corrections</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="k">10</span>
+        <div>
+          <div class="t">Culture Carrier</div>
+          <div class="b">You set the temperature for your team. You bring the urgency.</div>
+          <ul class="subs">
+            <li>Be an example worth following</li>
+            <li>Be a branch that is connected to the vine<span class="ref">John 15</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">02 &middot; Team Leaders</span><span class="pn">13</span></div>
+  </section>
+
+  <section class="page quote s2" data-screen-label="Quote — Eric Geiger">
+    <div class="qmark">&ldquo;</div>
+    <div class="qt" style="font-size:44px">If we believe the command to <span style="color:var(--sa)">&lsquo;make disciples&rsquo;</span> is bigger and more beautiful than merely making converts and calling people to &lsquo;make a decision,&rsquo; then we understand the essential role of the church is maturing people in Christ.</div>
+    <div class="qa">&mdash; Eric Geiger</div>
+    <div class="foot dark"><span class="sec">02 &middot; Team Leaders</span><span class="pn">14</span></div>
+  </section>
+
+  <!-- ============ 03 · KEY CONVERSATIONS ============ -->
+  <section class="page divider s3" data-screen-label="Divider — Key Conversations">
+    <div class="ghost disp">03</div>
+    <div class="inner">
+      <div class="secno">SECTION 03</div>
+      <h2 class="disp">Key<br>Convos</h2>
+      <div class="sub">Monthly coaching conversations with individuals on your team to help you shepherd wholisticly.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">03 &middot; Key Convos</span><span class="pn">15</span></div>
+  </section>
+
+  <section class="page content s3 sintro" data-screen-label="Key Conversations — Intro">
+    <div>
+      <div class="eyebrow">1-on-1s with Your Team</div>
+      <h2 class="disp">Key Conversations</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead">Throughout the semester you&rsquo;ll have plenty of side conversations, hall conversations, random, text and phone conversations with your team.</p>
+      <p class="lead"><b>However, a shepherd doesn&rsquo;t randomly walk with his sheep. A shepherd has a plan for where he is taking his sheep.</b></p>
+      <p class="lead">The following pages are Key Conversations to have with individuals on your team, meant to be led one-on-one or, if necessary, one-on-a-few. The reason is simple: honesty and vulnerability can be hard to achieve in group settings. Pulling teammates aside for these conversations over time will be fruitful.</p>
+      <p class="lead">Depending on the size of your team, you might need more or less time. They will require you to intentionally put days and times on the calendar. Our prayer is that these conversations grow your friendships with your teammates, as well as set you up to lead them like Jesus.</p>
+    </div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">16</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Aug: Spiritual Inventory">
+    <div class="kchead"><span class="mchip">Aug</span><h2 class="disp">Spiritual Inventory</h2><span class="kn">Convo 01/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Send the <b>Spiritual Disciplines Evaluation</b> to your leaders before you meet up. Use it as a base for conversation around how they are doing spiritually.</div>
+    <ul class="qs">
+      <li>Entering into this school year, where is your spiritual health?</li>
+      <li>How has your quiet time with Jesus been? How regularly are you spending time alone with God?</li>
+      <li>What have you been praying about?</li>
+      <li>Where has God been growing you? What would you like God to grow you in this year?</li>
+      <li>How do you think you can best contribute to our team this year? What can you uniquely bring to the table?</li>
+      <li>What do you need from me to help you succeed as a leader?</li>
+    </ul>
+    <div class="qrrow">
+      <div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; 4-Chair Inventory</div></div>
+      <div>
+        <div class="rh">Before Next Time</div>
+        <div class="rb">Have them take the <b>4 Chair Disciple Making Personal Inventory</b> (scan the code) before your next meet up&mdash;you&rsquo;ll discuss the results together.</div>
+      </div>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>Hebrews 12:11</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">17</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Sept: 4 Chairs">
+    <div class="kchead"><span class="mchip">Sept</span><h2 class="disp">4 Chairs</h2><span class="kn">Convo 02/10</span></div>
+    <div class="hr"></div>
+    <ul class="qs">
+      <li>What challenge from Jesus goes with Chair 1? Chair 2? Chair 3? Chair 4?</li>
+      <li>Based on the 4 Chair Disciple Making Inventory, what chair do you sit in? Do you agree or disagree? Why?</li>
+      <li>What rhythm could you add, or change, in your life to help you get to the next chair?</li>
+      <li>Read John 15. What level of fruitfulness are you currently experiencing? No fruit, Fruit, More Fruit or Much Fruit?</li>
+      <li>How could you use the 4 Challenges of Jesus to better understand where students are and how to help them move to the next seat?</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>As you form relationships with students in your grade, begin thinking about which chair each of them might be sitting in. The purpose is not to judge where someone is, but to <b>identify how you might help them take their next step!</b></p>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>1 John 2:6</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">18</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Oct: Small Group">
+    <div class="kchead"><span class="mchip">Oct</span><h2 class="disp">Small Group</h2><span class="kn">Convo 03/10</span></div>
+    <div class="hr"></div>
+    <ul class="qs" style="flex:none">
+      <li>How has small group started off for you?</li>
+      <li>Do you know the names of your students? Do they know each other&rsquo;s names?</li>
+      <li>Have you been able to connect with some of your students outside of group time?</li>
+      <li>What is your plan for helping students get to the next seat spiritually?</li>
+    </ul>
+    <div class="rows" style="flex:1;display:flex;flex-direction:column;justify-content:center;width:642px;height:252px">
+      <div class="eyebrow" style="font-size:11px">Group Evaluation &middot; Four Chairs</div>
+      <p class="lead" style="margin-top:8px;font-size:13px">What percentage of the students in your group are in each chair? List a few names in each.</p>
+      <div class="cheval">
+        <div class="chcol"><div class="chtop"><span class="chnum">1</span><span class="chlab">Come &amp; See</span></div><div class="chpct"><b>%</b></div><div class="chnl">Names</div><div class="nline"></div><div class="nline"></div><div class="nline"></div></div>
+        <div class="chcol"><div class="chtop"><span class="chnum">2</span><span class="chlab">Come &amp; Follow</span></div><div class="chpct"><b>%</b></div><div class="chnl">Names</div><div class="nline"></div><div class="nline"></div><div class="nline"></div></div>
+        <div class="chcol"><div class="chtop"><span class="chnum">3</span><span class="chlab">Be With Me</span></div><div class="chpct"><b>%</b></div><div class="chnl">Names</div><div class="nline"></div><div class="nline"></div><div class="nline"></div></div>
+        <div class="chcol"><div class="chtop"><span class="chnum">4</span><span class="chlab">Remain In Me</span></div><div class="chpct"><b>%</b></div><div class="chnl">Names</div><div class="nline"></div><div class="nline"></div><div class="nline"></div></div>
+      </div>
+    </div>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Next month we&rsquo;ll talk about your few. Bring <b>3 names of students</b> you are personally investing in.</p>
+    </div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">19</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Nov: Your Few">
+    <div class="kchead"><span class="mchip">Nov</span><h2 class="disp">Your Few</h2><span class="kn">Convo 04/10</span></div>
+    <div class="hr"></div>
+    <ul class="qs">
+      <li>Who are your few?
+        <span class="writein"><span></span><span></span><span></span></span>
+      </li>
+      <li>How are you intentionally walking with them?</li>
+      <li>What would it look like for you to ask your few to commit to a set time period to meet up for a Bible study?</li>
+      <li>Who are you and your few praying for that doesn&rsquo;t know Jesus?</li>
+      <li>How could you lead your few in getting their friends in front of the gospel?</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>An unleashed life is what Jesus calls us to. If we aren&rsquo;t actively pursuing students in their world, we give them a shallow example of God&rsquo;s love. <b>Jesus came to us&mdash;that is why we go to students.</b> Next time we&rsquo;ll look at our commitment to live an unleashed life together.</p>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>Matthew 17:1&ndash;14</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">20</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Dec: Unleashed Life">
+    <div class="kchead"><span class="mchip">Dec</span><h2 class="disp">Unleashed Life</h2><span class="kn">Convo 05/10</span></div>
+    <div class="hr"></div>
+    <ul class="qs" style="flex:none">
+      <li>Do you have a regular plan for meeting students in their world?</li>
+      <li>Unleashed living requires complete dependence on God. How is being unleashed growing you personally?</li>
+      <li>How would you rate yourself on living unleashed? What ideas did you try this semester&mdash;what worked, what didn&rsquo;t?</li>
+      <li>Who is someone new you met that you are praying for?</li>
+    </ul>
+    <div class="rows" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <div class="hr" style="margin-bottom:22px"></div>
+      <div class="eyebrow" style="font-size:11px">Name a student for each level of relationship</div>
+      <div class="ladder" style="margin-top:12px">
+        <div class="lrow"><span class="meter"><i class="on"></i><i></i><i></i><i></i></span><span class="llab">No relationship with you</span><span class="lline"></span></div>
+        <div class="lrow"><span class="meter"><i class="on"></i><i class="on"></i><i></i><i></i></span><span class="llab">Acquaintance of you</span><span class="lline"></span></div>
+        <div class="lrow"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="llab">Friendship with you</span><span class="lline"></span></div>
+        <div class="lrow"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="llab">Being discipled by you</span><span class="lline"></span></div>
+      </div>
+    </div>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Some of the best ministry moments happen over holidays and breaks&mdash;students are available and so are we! <b>Make your plan now</b> for how you will get into the lives of students next semester.</p>
+    </div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">21</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Jan: Be the Branch">
+    <div class="kchead"><span class="mchip">Jan</span><h2 class="disp">Be the Branch</h2><span class="kn">Convo 06/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">At Southeast we value <b>connection over production</b>. Your connectedness to the Vine is more important than the ministry you offer or what you strive to produce.</div>
+    <ul class="qs">
+      <li>Would you consider yourself to be leading from a place of &ldquo;connection to Jesus&rdquo; or &ldquo;production for Jesus?&rdquo;</li>
+      <li>Do you feel like a connected and valued member of our student ministry? Explain.</li>
+      <li>Do you feel like a connected and valued member of our church? Explain.</li>
+      <li>Rate your group&rsquo;s connectedness from 1&ndash;10.</li>
+      <li>Rate the connectedness of your few from 1&ndash;10.</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Sometimes we need a reset. Use this new year, not to make glamorous promises, but to grow your leadership by <b>remaining connected to the Vine</b>. Next month we talk about the Holy Spirit&mdash;the one who can help you be a better leader and follower of Jesus.</p>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>John 15:1&ndash;7</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">22</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Feb: Catch the Wind">
+    <div class="kchead"><span class="mchip">Feb</span><h2 class="disp">Catch the Wind</h2><span class="kn">Convo 07/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">At Southeast we value <b>risk over comfort</b>. Risk doesn&rsquo;t mean unwise actions&mdash;it means allowing the Holy Spirit to do what only He can do. To the world it might be risky; to us it&rsquo;s faith.</div>
+    <ul class="qs">
+      <li>What&rsquo;s your relationship with the Holy Spirit like?</li>
+      <li>How would you rate your dependence on the Holy Spirit for you to lead students?</li>
+      <li>At this point in the year, how would you rate your comfort in leading your group?<small>If comfort leads to &ldquo;going through the motions,&rdquo; it&rsquo;s wise to evaluate your soul.</small></li>
+      <li>What kind of risk could you take before the end of the school year to grow your dependence on the Holy Spirit&rsquo;s power?</li>
+      <li>What&rsquo;s your big prayer? <small>A prayer that only gets answered if God shows up.</small></li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Around here we don&rsquo;t hinge our faith on numbers, but obedience. Next month we look at &ldquo;Wreck the Roof.&rdquo; <b>Do you have someone you are actively seeking to share Jesus with?</b></p>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>John 3:1&ndash;8</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">23</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Mar: Wreck the Roof">
+    <div class="kchead"><span class="mchip">Mar</span><h2 class="disp">Wreck the Roof</h2><span class="kn">Convo 08/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">At Southeast we value <b>innovation over tradition</b>. We want to dream about ways we can reach one more person with the gospel. We will stop at nothing for the Kingdom of God to expand here on earth.</div>
+    <ul class="qs">
+      <li>Share a one-at-a-time story with me about someone in your group &ldquo;wrecking the roof.&rdquo;</li>
+      <li>Walk me through the students in your group who have taken seriously the call to reach their friends for Christ. How is it going?</li>
+      <li>Let&rsquo;s dream for a moment: any ideas for how we could better reach lost students?</li>
+      <li>This year, how can your group leverage camp to reach lost students? <small>Set a goal here.</small></li>
+      <li>Outside of student ministry, has God put anyone in your path that doesn&rsquo;t know Jesus? <small>Ask more questions; pray for their one.</small></li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>It cost something for the four friends to bring their lame friend to Jesus. Next month we look at gripping the plow. Ministry can be hard, but it is always worth it. <b>Who on your team can you encourage this month to keep running the race?</b></p>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>Luke 5:18&ndash;25</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">24</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — Apr: Grip the Plow">
+    <div class="kchead"><span class="mchip">Apr</span><h2 class="disp">Grip the Plow</h2><span class="kn">Convo 09/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">At Southeast we value <b>personal engagement over attendance</b>. As a harvest worker it requires us to &ldquo;grip the plow&rdquo; of ministry.</div>
+    <ul class="qs">
+      <li>Share some hardships you&rsquo;ve experienced throughout this year in your ministry to students.</li>
+      <li>Where have intentional efforts with people made things messy in your life?</li>
+      <li>Are there any areas in your life where you are &ldquo;looking back&rdquo; instead of &ldquo;plowing ahead&rdquo; in your ministry and walk with Christ?</li>
+      <li>Who comes to mind that best models a life of gripping the plow? How might you get some time with them to learn more?</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>How much would you pay to gift eternal life to someone you love? We have the privilege of knowing where to find it&mdash;and it&rsquo;s free. <b>Next month we discuss how to express our worship for the free gift we&rsquo;ve been given.</b></p>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>Luke 9:57&ndash;62</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">25</span></div>
+  </section>
+
+  <section class="page content s3 kc" data-screen-label="Key Convo — May: Empty the Jar">
+    <div class="kchead"><span class="mchip">May</span><h2 class="disp">Empty the Jar</h2><span class="kn">Convo 10/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">At Southeast we value <b>expressive worship over religious rituals</b>. We give Jesus our everything because He gave His everything for us. In Christ alone we find our worth.</div>
+    <ul class="qs">
+      <li>Share a time where being generous cost you something.</li>
+      <li>In what ways do you express your love for Jesus? <small>Likely obvious, but worth saying out loud.</small></li>
+      <li>How would you rate your generosity with time? With relationships? With finances?</li>
+      <li>Do you have anything in your jar that is still needing to be emptied?</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>With summer approaching, what are some ways you can continue developing as a leader over the next two months? <b>Let&rsquo;s make a plan so we don&rsquo;t return the same in the fall!</b></p>
+    </div>
+    <div class="kfoot"><span class="scref"><b>Scripture</b>Luke 7:36&ndash;50</span></div>
+    <div class="foot"><span class="sec">03 &middot; Key Convos</span><span class="pn">26</span></div>
+  </section>
+
+  <!-- ============ 04 · TEAM DIALOGUES ============ -->
+  <section class="page divider s4" data-screen-label="Divider — Team Dialogues">
+    <div class="ghost disp">04</div>
+    <div class="inner">
+      <div class="secno">SECTION 04</div>
+      <h2 class="disp">Team<br>Dialogues</h2>
+      <div class="sub">Monthly meeting agendas for you to keep you team on the same page and moving forward together.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">27</span></div>
+  </section>
+
+  <section class="page content s4 sintro" data-screen-label="Team Dialogues — Intro">
+    <div>
+      <div class="eyebrow">Monthly Team Meetings</div>
+      <h2 class="disp">Team Dialogues</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead">Each month, pull your team together to dialogue about important details of your ministry. These meetings should be planned, preferably at a recurring time, for the best turnout. Identify with your team the best day and time for everyone.</p>
+      <p class="lead">At times these meetings will require sacrifice for some teammates. If good friendships are building, over time you&rsquo;ll find a rhythm and people will naturally make it a priority to spend time together as a team.</p>
+      <p class="lead"><b>Never cancel your standing meeting</b>&mdash;you may do more harm than good to the culture of consistency. If someone can&rsquo;t make it, relay the important details.</p>
+      <p class="lead">These monthly subjects don&rsquo;t need your entire time together. We hope you share meals, hang out, and enjoy one another as part of these times!</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">28</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Aug: Semester Planning">
+    <div class="kchead"><span class="mchip">Aug</span><h2 class="disp">Semester Planning</h2><span class="kn">Dialogue 01/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Do the hard work up front so everyone knows what to expect during the semester.</div>
+    <ul class="qs">
+      <li>Have everyone come prepared with their notable calendar dates.<small>Vacations &middot; celebrations &amp; family birthdays &middot; any time they expect to be unable to lead</small></li>
+      <li>Walk through the Ministry Calendar&mdash;leader dates, events, and fixed calendar items. Encourage your team to flag conflicts; note their dates for later.</li>
+      <li>Map out your Team Meeting dates that go beyond our Leader Huddles.</li>
+      <li>If your team can plan extra student events beyond program time, leave this meeting with those dates locked in.</li>
+      <li>Move things around during the semester as needed, but do so as a team.</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Next month we will look at organizing your groups for the semester ahead.</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">29</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Sep: Organizing Groups">
+    <div class="kchead"><span class="mchip">Sep</span><h2 class="disp">Organizing Groups</h2><span class="kn">Dialogue 02/10</span></div>
+    <div class="hr"></div>
+    <ul class="qs">
+      <li>Looking at our groups from last year, plus incoming students, what adjustments do we need to make for this year?</li>
+      <li>Do our groups have space to grow as they invite friends in? Where can new students connect into our ministry?</li>
+      <li>One size doesn&rsquo;t fit all. What creative ideas could make groups the best possible experience?<small><b>Ideas:</b> Start with large group before breaking out. Do one large group per month. Strategic large group dates, primarily small groups.</small></li>
+      <li>The advantage of a large group of your whole grade: students become familiar with all the leaders&mdash;displaying what a team looks like enhances community among your grade.</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Start thinking of and <b>praying for future co-laborers</b> who God might bring onto your team.</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">30</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Oct: Recruiting Friends">
+    <div class="kchead"><span class="mchip">Oct</span><h2 class="disp">Recruiting Friends</h2><span class="kn">Dialogue 03/10</span></div>
+    <div class="hr"></div>
+    <ul class="qs">
+      <li>How would we say our team relationships are going? If we invited someone to join our team, what kind of environment would they be walking into?</li>
+      <li>Who are some friends of ours who are not actively serving in any capacity?</li>
+      <li>Who are some parents of our students who might be willing to join our mission?</li>
+      <li>Who are some community partners who might join us or support us?</li>
+      <li><b>Praying for coworkers:</b> take the names above and pray as a team for God to bring co-laborers to join your team and mission.</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Next month, plan to do something fun as a team&mdash;backyard fire, movie night, go-karting, axe throwing, dinner party, board game night, church together&hellip; Get it on the calendar soon, and <b>consider inviting those you are recruiting</b> to check out the community they could join!</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">31</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Nov: Comm(unity)">
+    <div class="kchead"><span class="mchip">Nov</span><h2 class="disp">Comm(unity)</h2><span class="kn">Dialogue 04/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Read <b>Acts 2:42&ndash;47</b> together. There is nothing more powerful than a community on mission&mdash;the early church was a force for Kingdom advancement simply because of the gravitational pull their community had on the lost world around them.</div>
+    <ul class="qs">
+      <li>What were the key markers of early church believers?</li>
+      <li>Where does our team look like this kind of community? Where does it differ?</li>
+      <li>The early church didn&rsquo;t separate adults, adolescents and children into micro communities. Do we consider our team &ldquo;in community&rdquo; with the students we minister to?</li>
+      <li>Are we partnering with our students in the mission to reach their one?</li>
+      <li>What changes do we need to make to enhance our community on mission together?</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Next month we will evaluate our fall semester together.</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">32</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Dec: Semester Evaluation">
+    <div class="kchead"><span class="mchip">Dec</span><h2 class="disp">Semester Evaluation</h2><span class="kn">Dialogue 05/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Have each team member fill out the <b>Fall Semester Ministry Evaluation</b> privately, tally their scores, and share the team average. Generate discussion around your team&rsquo;s findings.</div>
+    <ul class="qs">
+      <li>How is our overall <b>community of students</b>? Are they for one another? Actively on mission? Looking to connect their friends to Jesus and one another?</li>
+      <li>How is our overall <b>community as a team</b>? Are we for one another? Actively on mission?</li>
+      <li>How are we doing at seeing new students joining our student ministry family?</li>
+      <li>How is our team doing at living unleashed lives? With our few?</li>
+      <li>The goal is not to convince the team of what you think, but to <b>observe and learn</b>&mdash;you&rsquo;ll gain unique insights that help you lead into the future.</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Christmas Break Planning</div>
+      <p>Christmas and New Year&rsquo;s offer a rhythm of rest after a long ministry sprint. Enjoy it&mdash;but relationships don&rsquo;t stop. <b>Take advantage of organic opportunities</b> to spend time with one another and with students!</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">33</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Jan: Semester Planning">
+    <div class="kchead"><span class="mchip">Jan</span><h2 class="disp">Semester Planning</h2><span class="kn">Dialogue 06/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Same drill as the fall: do the hard work up front so everyone knows what to expect this spring.</div>
+    <ul class="qs">
+      <li>Have everyone come prepared with their notable calendar dates for the semester.<small>Vacations &middot; celebrations &amp; family birthdays &middot; any time they expect to be unable to lead</small></li>
+      <li>Walk through the Ministry Calendar covering leader dates, events, and other fixed items. Note conflicts as you go.</li>
+      <li>Map out Team Meeting dates beyond the Leader Huddles.</li>
+      <li>Lock in any extra student events your team can plan beyond program time.</li>
+      <li>Adjust over the semester as needed&mdash;but as a team, so everyone can see what&rsquo;s upcoming.</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Next month we will look to mobilize groups beyond our regular ministry time.</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">34</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Feb: Mobilizing Groups">
+    <div class="kchead"><span class="mchip">Feb</span><h2 class="disp">Mobilizing Groups</h2><span class="kn">Dialogue 07/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">How do we get our groups moving <b>out</b>?</div>
+    <ul class="qs">
+      <li>Out to serving opportunities?</li>
+      <li>Out to loving their peers one at a time?</li>
+      <li>Out to loving their schools?</li>
+      <li>Out to serving the church?</li>
+      <li>Summer Camp is an incredible way to get lost students in front of Jesus. Jesus built friendships first&mdash;then challenged them to more. Pray and discuss how we can challenge students to live with purpose toward their friends at school, in hopes lost students find their way in front of Jesus at camp (or before)!</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Compile a list of our core students building friendships with purpose. By next meeting, <b>ask those students for names of friends to pray for</b>&mdash;in hopes they would come to camp.</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">35</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Mar: Recruiting Students">
+    <div class="kchead"><span class="mchip">Mar</span><h2 class="disp">Recruiting Students</h2><span class="kn">Dialogue 08/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Jesus was always recruiting&mdash;He knew the Gospel would never reach the whole world if it didn&rsquo;t first impact those around Him. He trained His disciples to share His Good News with a hurting world.</div>
+    <ul class="qs">
+      <li>How can we &ldquo;recruit&rdquo; students to join the mission with us?</li>
+      <li>What do our students need training on to become everyday missionaries?</li>
+      <li>How do we help students get to the next level missionally?</li>
+      <li>Do our students understand the tools of our ministry and how to use them?<small>Camp &middot; retreats &middot; events &middot; program &middot; group</small></li>
+      <li>Who is one student you could take on a &ldquo;fishing trip&rdquo; and show them how to fish for people? Make a plan.</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>The best teacher is experience. Let&rsquo;s commit to <b>showing our students how to live like Jesus</b>, not just talking about it.</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">36</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — Apr: Student Leadership">
+    <div class="kchead"><span class="mchip">Apr</span><h2 class="disp">Student Leadership</h2><span class="kn">Dialogue 09/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Growth should be expected&mdash;and can be overwhelming. This is the perfect time to establish leadership in some of your core students: they can set the pace for reaching their friends and take ownership of the group alongside you.</div>
+    <ul class="qs">
+      <li>What investment now will set us up to have student leaders later?</li>
+      <li>How can we set up our student leaders to attend camp, not for themselves, but for those coming for the first time?</li>
+      <li>Where in our church could our students grow their leadership capabilities?<small>Serve teams &middot; SE!Kids &middot; classes</small></li>
+    </ul>
+    <div class="la">
+      <div class="lak">Looking Ahead</div>
+      <p>Next month we evaluate our semester and map out a summer plan. <b>Come ready to discuss</b> anything you feel is important, plus ideas for staying connected over the summer.</p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">37</span></div>
+  </section>
+
+  <section class="page content s4 kc" data-screen-label="Team Dialogue — May: Semester Evaluation">
+    <div class="kchead"><span class="mchip">May</span><h2 class="disp">Semester Evaluation</h2><span class="kn">Dialogue 10/10</span></div>
+    <div class="hr"></div>
+    <div class="vline">Have each team member fill out the <b>Spring Semester Ministry Evaluation</b> privately, tally scores, and share the team average. Discuss the findings together.</div>
+    <ul class="qs">
+      <li>How is our overall <b>community of students</b>? For one another? Actively on mission? Connecting friends to Jesus and one another?</li>
+      <li>How is our overall <b>community as a team</b>?</li>
+      <li>How are we doing at seeing new students join our student ministry family?</li>
+      <li>How is our team doing at living unleashed lives? With our few?</li>
+    </ul>
+    <div class="la">
+      <div class="lak">Summer Planning</div>
+      <p>Sync up and plan the summer so your team knows what to expect. Summer rhythms are less regular, but that doesn&rsquo;t mean we take off. <b>Find intentional ways to invest through the summer!</b></p>
+    </div>
+    <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">38</span></div>
+  </section>
+
+  <!-- ============ 05 · BIG THREE ============ -->
+  <section class="page divider s5" data-screen-label="Divider — Big Three">
+    <div class="ghost disp">05</div>
+    <div class="inner">
+      <div class="secno">SECTION 05</div>
+      <h2 class="disp">Big<br>Three</h2>
+      <div class="sub">MSM + HSM. Three times a year we gather all our Student Ministry leaders together.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">05 &middot; Big Three</span><span class="pn">39</span></div>
+  </section>
+
+  <section class="page content s5 sintro" data-screen-label="Big Three — Overview">
+    <div>
+      <div class="eyebrow">All Leaders &middot; Three Times a Year</div>
+      <h2 class="disp">The Big Three</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead"><b>These are high priority events for our ministry. We expect you and your team to be fully present.</b></p>
+      <p class="lead">The Big Three are also a pivotal part of our onboarding process for new leaders. Connected to each one, we host an <b>Unleashed Leader Training</b> for all new and potential leaders to on-ramp into our ministry&mdash;with flexibility for onboarding when we aren&rsquo;t near one of those planned starting points.</p>
+      <p class="lead">Your participation at each of these keystone moments is vital. We believe these moments together as a Student Ministry are foundational to keeping us aligned. <b>Be in tune with these dates each year&mdash;we need you to champion them to your teams!</b></p>
+    </div>
+    <div class="foot"><span class="sec">05 &middot; Big Three</span><span class="pn">40</span></div>
+  </section>
+
+  <section class="page content s5" data-screen-label="Big Three — Events & Tips">
+    <div>
+      <div class="eyebrow">The Big Three</div>
+      <h2 class="disp">Events <span class="hib">+</span> Tips</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="b3">
+      <div class="b3row">
+        <div>
+          <div class="bn"><span class="ref">August</span>Leader Launch</div>
+          <div class="bd">Vision cast + launch into the new school year.</div>
+        </div>
+        <div class="tip"><div class="tk">Tip</div><p>The time to consider Leader Launch is May. Recruit to camp = recruit to fall.</p></div>
+      </div>
+      <div class="b3row">
+        <div>
+          <div class="bn"><span class="ref">January</span>Leader Night</div>
+          <div class="bd">Reset + halftime speech for second semester.</div>
+        </div>
+        <div class="tip"><div class="tk">Tip</div><p>The time to consider Leader Night is August. Get it on your leaders&rsquo; calendars early and remind them.</p></div>
+      </div>
+      <div class="b3row">
+        <div>
+          <div class="bn"><span class="ref">May</span>Leader Celebration</div>
+          <div class="bd">Celebrate all that God has done.</div>
+        </div>
+        <div class="tip"><div class="tk">Tip</div><p>The time to consider Leader Celebration is January. It might be a starting point for some new leaders going to camp.</p></div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">05 &middot; Big Three</span><span class="pn">41</span></div>
+  </section>
+
+  <section class="page content s5" data-screen-label="Unleashed Leaders — All Year">
+    <div>
+      <div class="eyebrow">Preceding Each of the Big Three</div>
+      <h2 class="disp">Unleashed Leaders <span class="hib">(All Year)</span></h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead"><b>Unleashed Leaders is a deep dive into our &ldquo;why&rdquo;</b>&mdash;a training we expect every new leader to go through.</p>
+      <p class="lead">It sets up new leaders to learn who we are as a Student Ministry. Whether someone joins to lead a group or serve at check-in, they need to know our primary aim is to make disciples. We look at the life of Christ and allow it to inform how we approach ministry.</p>
+      <p class="lead">Since Jesus himself continually raised the bar for his disciples, we inform those joining us about the cost of following Jesus up front, so later they aren&rsquo;t surprised by what we ask of them. In some ways it can appear we are talking people out of doing ministry. In actuality, we are just echoing Jesus&rsquo; call to make disciples&mdash;even some who heard it straight from Jesus&rsquo; mouth chose not to follow.</p>
+      <p class="lead">We know things happen&mdash;but being up front about the commitment pays dividends when leaders know what they are signing up for and stick it out. <b>We love the community of leaders God has blessed us with. We get to fulfill Jesus&rsquo; mission together!</b></p>
+    </div>
+    <div class="foot"><span class="sec">05 &middot; Big Three</span><span class="pn">42</span></div>
+  </section>
+
+  <!-- ============ 06 · FURTHER RESOURCES ============ -->
+  <section class="page divider s6" data-screen-label="Divider — Further Resources">
+    <div class="ghost disp">06</div>
+    <div class="inner">
+      <div class="secno">SECTION 06</div>
+      <h2 class="disp">Further<br>Resources</h2>
+      <div class="sub">Learn more. A compilation of resources to be used &agrave; la carte&mdash;explore at your own pace.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">06 &middot; Further Resources</span><span class="pn">43</span></div>
+  </section>
+
+  <section class="page content s6 sintro" data-screen-label="Further Resources — Intro">
+    <div>
+      <div class="eyebrow">Equipped for the Role</div>
+      <h2 class="disp">We Believe in You</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead"><b>As a leader leading other leaders, your role is vital to our ministry to students.</b> We desire to equip you spiritually just as much as we desire to equip you with ministry resources.</p>
+      <p class="lead">That is why you have this booklet in the first place. Mixed throughout it are resources we hope you find valuable personally and in your Team Leader role.</p>
+      <p class="lead">The rest of this booklet is a compilation of resources to be used &agrave; la carte. We might reference these during our Team Leader Meetings at times, but they are there for you to explore and use at your own desire and pace.</p>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">44</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Connecting New Leaders — Pipeline">
+    <div>
+      <div class="eyebrow">Connecting New Leaders</div>
+      <h2 class="disp">First Steps</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="pipe">
+      <div class="prow"><div class="rail"><i></i></div><div class="ptext"><div class="pname">Pray</div><div class="pdesc">For harvest workers</div></div></div>
+      <div class="prow"><div class="rail"><i></i></div><div class="ptext"><div class="pname">Identify</div><div class="pdesc">Potential leaders</div></div></div>
+      <div class="prow prow-invite"><div class="rail"><i></i></div><div class="ptext"><div class="pname">Invite</div><div class="pdesc">secc.org/serve</div></div><div class="qrpop"><div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; Interest Form</div></div><div><div class="rh">secc.org/serve</div><div class="rb">Potential leaders fill out the interest form&mdash;it notifies staff and starts onboarding.</div></div></div></div>
+      <div class="prow"><div class="rail"><i></i></div><div class="ptext"><div class="pname">Interview</div><div class="pdesc">Clearing process</div></div></div>
+      <div class="prow"><div class="rail"><i></i></div><div class="ptext"><div class="pname">Shadow</div><div class="pdesc">A leader</div></div></div>
+      <div class="prow"><div class="rail"><i></i></div><div class="ptext"><div class="pname">Train</div><div class="pdesc">Ministry + specifics</div></div></div>
+      <div class="prow"><div class="rail"><i></i></div><div class="ptext"><div class="pname">Introduce</div><div class="pdesc">To students</div></div></div>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">45</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="New Leaders — Strengths">
+    <div>
+      <div class="eyebrow">Building Your Bench</div>
+      <h2 class="disp">New Leaders</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead">Over time you will add new leaders onto your team. Leaders can come from a lot of places and at different times throughout the year, and we want to make sure they join our ministry well. Staff will work with Team Leaders in various ways to create the best experience possible for a potential leader joining our ministry.</p>
+      <p class="lead"><b>Once a leader is placed onto your team, identifying their gifting early on helps you understand what they bring.</b> We recommend taking them through the High5test to identify strengths they might bring to the team.</p>
+      <p class="lead">Looking at the strengths of each of your teammates helps you lead them to take ownership over different aspects of your ministry to students. It is your job to help your team play to their strengths, offering their gifts in service to God&rsquo;s Kingdom.</p>
+      <div class="qrrow">
+        <div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; High5test</div></div>
+        <div>
+          <div class="rh">High5test</div>
+          <div class="rb">A free strengths assessment&mdash;have every new teammate take it and discuss the results together.</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">46</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Case Study of an Effective Team">
+    <div>
+      <div class="eyebrow">Jesus + The Twelve</div>
+      <h2 class="disp">Case Study: <span class="hib">Effective Team</span></h2>
+      <div class="hr"></div>
+      <p class="lead" style="margin-top:10px">Jesus had a team of 12 &ldquo;called out&rdquo; ones. This team functioned like any other ministry team&mdash;serving others together, sharing the gospel, going to unreached places, loving those who came their way.</p>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="k sm">READ</span>
+        <div><div class="t">Luke 9:46&ndash;50</div><div class="b">What were the disciples arguing about?</div></div>
+      </div>
+      <div class="row">
+        <span class="k sm">READ</span>
+        <div><div class="t">Luke 22:24&ndash;27</div><div class="b">What is different about this confrontation?</div></div>
+      </div>
+      <div class="row">
+        <span class="k sm">READ</span>
+        <div><div class="t">Matthew 20:20&ndash;28</div><div class="b">How did Jesus address this issue?</div></div>
+      </div>
+      <div class="row">
+        <span class="k sm">THINK</span>
+        <div><div class="t">What would have happened if Jesus didn&rsquo;t address this issue?</div></div>
+      </div>
+    </div>
+    <div class="la">
+      <div class="lak">You Are the Unifier</div>
+      <p>Disagreements, misunderstandings, or flat-out ignorance will take place&mdash;at times you might be the source. Jesus wasn&rsquo;t just full of grace and truth; <b>Jesus led from grace and truth</b>. Your team needs you to lead like Jesus, willing to speak hard truths full of grace, before disunity arises.</p>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">47</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Building an Effective Team">
+    <div>
+      <div class="eyebrow">Five Things to Define</div>
+      <h2 class="disp">Building an <span class="hib">Effective Team</span></h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <span class="kic"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="21"/><circle cx="32" cy="32" r="11"/><circle cx="32" cy="32" r="2"/></svg></span>
+        <div>
+          <div class="t">Define Goals &amp; Purpose Up Front <span class="ref">Teams that lack direction usually fizzle out</span></div>
+          <ul class="subs"><li>How will your team practically live on mission?</li><li>Can you rally around a common goal?</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="kic"><svg viewBox="0 0 64 64"><rect x="11" y="11" width="18" height="18" rx="3"/><rect x="35" y="11" width="18" height="18" rx="3"/><rect x="11" y="35" width="18" height="18" rx="3"/><rect x="35" y="35" width="18" height="18" rx="3"/></svg></span>
+        <div>
+          <div class="t">Define Framework <span class="ref">Structure to operate within</span></div>
+          <ul class="subs"><li>How does your team share responsibilities?</li><li>Does your team understand how things are supposed to work?</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="kic"><svg viewBox="0 0 64 64"><path d="M12 14 H52 V44 H30 L18 54 V44 H12 Z"/><path d="M22 24 H42"/><path d="M22 33 H36"/></svg></span>
+        <div>
+          <div class="t">Define Communication <span class="ref">The thread that keeps everyone in the know</span></div>
+          <ul class="subs"><li>What is your method(s) of communication?</li><li>How / when will 1-on-1s and team meetings be accomplished?</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="kic"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="21"/><path d="M22 33 L29 40 L43 25"/></svg></span>
+        <div>
+          <div class="t">Define Accountability <span class="ref">Creates trust, deepens commitment</span></div>
+          <ul class="subs"><li>As the team leader, do you allow yourself to be held accountable?</li><li>How is your team accountable to one another?</li></ul>
+        </div>
+      </div>
+      <div class="row">
+        <span class="kic"><svg viewBox="0 0 64 64"><circle cx="24" cy="32" r="14"/><circle cx="40" cy="32" r="14"/></svg></span>
+        <div>
+          <div class="t">Define Unity <span class="ref">The fruit of deep commitment to one another</span></div>
+          <ul class="subs"><li>When frustration develops on the team, how do we handle it?</li><li>Can your team disagree and still feel valued and loved?</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">48</span></div>
+  </section>
+
+  <!-- MANTRA GLYPHS (monoline set — shared symbol source, from Unleashed Leaders booklet) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <symbol id="ic-branch" viewBox="0 0 64 64">
+      <path d="M13 53 C26 47 31 34 35 21 C37 15 41 10 51 9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M35 22 C41 15 49 15 53 20 C47 25 39 25 35 22 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 35 C22 31 21 22 26 17 C31 22 33 31 28 35 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 46 C28 41 37 42 41 47 C34 52 26 51 22 46 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ic-wind" viewBox="0 0 64 64">
+      <path d="M8 24 H38 a7 7 0 1 0 -7 -7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 34 H47 a7 7 0 1 1 -7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 45 H31 a6 6 0 1 0 -6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ic-roof" viewBox="0 0 64 64">
+      <path d="M15 53 V35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M49 35 V53" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11 55 H53" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9 37 L32 16 L55 37" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 35 L27 27 L32 24 L35 29 L39 30 L36 36 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M39 22 L46 20 L47 25 L40 27 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ic-plow" viewBox="0 0 64 64">
+      <circle cx="14" cy="46" r="6.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 43 L33 39" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M33 39 C43 41 46 51 35 54 L24 49 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M33 39 L50 25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M36 41 L53 27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50 25 L53 27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6 57 C22 54 40 55 58 54" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ic-jar" viewBox="0 0 64 64">
+      <g transform="rotate(34 30 36)">
+        <path d="M25 12 H37" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 12 C26 16 25 18 24 20 C19 23 16 29 16 37 C16 47 22 53 31 53 C40 53 46 47 46 37 C46 29 43 23 38 20 C37 18 36 16 36 12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 21 C31 24 32 24 38 21" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <path d="M45 24 C49 27 51 31 51 35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M53 39 C55 41 55 44 53 46 C51 44 51 41 53 39 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 47 C49 49 49 51 48 53 C47 51 47 49 48 47 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs></svg>
+
+  <section class="page content s6" data-screen-label="Mantra Questions">
+    <div>
+      <div class="eyebrow">For You &amp; Your Team</div>
+      <h2 class="disp">Mantra Questions</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="mbands">
+      <div class="mband mq">
+        <div class="micon"><svg viewBox="0 0 64 64"><use href="#ic-branch"></use></svg></div>
+        <div class="mtxt">
+          <div class="mname" style="font-size:20px">Be the Branch<span class="ref">John 15:1&ndash;17</span></div>
+          <ul class="mqs">
+            <li>How is my connection to the vine? My team&rsquo;s?</li>
+            <li>How could I encourage my team to stay connected?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mband mq">
+        <div class="micon"><svg viewBox="0 0 64 64"><use href="#ic-wind"></use></svg></div>
+        <div class="mtxt">
+          <div class="mname" style="font-size:20px">Catch the Wind<span class="ref">John 3:1&ndash;8</span></div>
+          <ul class="mqs">
+            <li>Where is the Spirit moving in our church and community that we could join?</li>
+            <li>What risk will we take that causes us to truly depend on God to move?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mband mq">
+        <div class="micon"><svg viewBox="0 0 64 64"><use href="#ic-roof"></use></svg></div>
+        <div class="mtxt">
+          <div class="mname" style="font-size:20px">Wreck the Roof<span class="ref">Luke 5:18&ndash;25</span></div>
+          <ul class="mqs">
+            <li>How could we reach more students in this city?</li>
+            <li>Who is my one? Who are my students&rsquo; ones?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mband mq">
+        <div class="micon"><svg viewBox="0 0 64 64"><use href="#ic-plow"></use></svg></div>
+        <div class="mtxt">
+          <div class="mname" style="font-size:20px">Grip the Plow<span class="ref">Luke 9:57&ndash;62</span></div>
+          <ul class="mqs">
+            <li>Where do I find myself making excuses to avoid ministry?</li>
+            <li>Where might God be asking me to focus my ministry efforts?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mband mq">
+        <div class="micon"><svg viewBox="0 0 64 64"><use href="#ic-jar"></use></svg></div>
+        <div class="mtxt">
+          <div class="mname" style="font-size:20px">Empty the Jar<span class="ref">Luke 7:36&ndash;50 &middot; 2 Cor. 12:15</span></div>
+          <ul class="mqs">
+            <li>Where can I spend and be spent for others to know Christ?</li>
+            <li>Am I generous with my time and availability? Where could I sacrifice more?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">49</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Five Steps to Developing Leaders">
+    <div>
+      <div class="eyebrow">Leadership Is Caught, Not Taught</div>
+      <h2 class="disp">Developing Leaders</h2>
+      <div class="hr"></div>
+      <p class="lead" style="margin-top:10px">Leadership is more often caught through watching qualified people than through your own individuality. Debrief each phase with three questions: <b>What worked? What didn&rsquo;t? How can we improve?</b></p>
+    </div>
+    <div class="steps">
+      <div class="strow">
+        <div class="sn">01</div>
+        <div class="sname">I do. You watch.<br>We talk.</div>
+        <div class="sdesc">The new leader shadows an experienced leader a few times, then they meet to debrief what was observed.</div>
+      </div>
+      <div class="strow">
+        <div class="sn">02</div>
+        <div class="sname">I do. You help.<br>We talk.</div>
+        <div class="sdesc">The new leader helps lead a particular area&mdash;announcements and prayer, say, while the experienced leader leads the talk. Follow up one-on-one.</div>
+      </div>
+      <div class="strow">
+        <div class="sn">03</div>
+        <div class="sname">You do. I help.<br>We talk.</div>
+        <div class="sdesc">The new leader transitions from supporting to taking leadership responsibilities. The experienced leader follows up to debrief.</div>
+      </div>
+      <div class="strow">
+        <div class="sn">04</div>
+        <div class="sname">You do. I watch.<br>We talk.</div>
+        <div class="sdesc">The new leader fulfills all the functions of leadership, with the experienced leader now looking on.</div>
+      </div>
+      <div class="strow">
+        <div class="sn">05</div>
+        <div class="sname">You do.</div>
+        <div class="sdesc">The new leader is successfully leading in our ministry and is placed on your team.</div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">50</span></div>
+  </section>
+
+  <section class="page quote s6" data-screen-label="Quote — Kevin DeYoung">
+    <div class="qmark">&ldquo;</div>
+    <div class="qt" style="font-size:44px">Busyness does not mean you are a faithful or fruitful Christian. It only means you are busy, just like everyone else. And like everyone else, your joy, your heart and your soul are in danger.</div>
+    <div class="qa">&mdash; Kevin DeYoung</div>
+    <div class="foot dark"><span class="sec">06 &middot; Further Resources</span><span class="pn">51</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Rest">
+    <div>
+      <div class="eyebrow">The Neglected Priority</div>
+      <h2 class="disp">Rest</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead">Rest might be one of the most important, yet often neglected priorities in our relationship with God. Think about the last time you heard&mdash;or said: <i>&ldquo;I&rsquo;m good, I&rsquo;m just tired.&rdquo; &middot; &ldquo;I just need a vacation soon.&rdquo; &middot; &ldquo;I feel burnt out.&rdquo; &middot; &ldquo;Just need more hours in the day.&rdquo;</i></p>
+      <p class="lead"><b>Our ability to lead people often hinges on our ability to rest well.</b></p>
+      <p class="lead">Jesus provides a solution to our hurried living. He modeled a life of rest amidst the demands of everyday life&mdash;in tune with his deep need to connect to the Father. Rest reveals a posture of the heart that is deeply dependent upon God. We must continually check ourselves: how much stock do I put in my <b>production for Christ</b> over my <b>connectedness to Christ</b>?</p>
+      <div class="qrrow">
+        <div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; Eremos Place</div></div>
+        <div>
+          <div class="rh">&ldquo;Eremos Place&rdquo; Solitary Retreat Guide</div>
+          <div class="rb">If you find yourself weary, do this yourself before you try to lead others into it. Whether for you or your team, this guide helps get you reconnected to the Vine.</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">06 &middot; Further Resources</span><span class="pn">52</span></div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="page content s6" data-screen-label="Notes — Lined">
+    <div>
+      <div class="eyebrow">Space to Think</div>
+      <h2 class="disp">Notes</h2>
+    </div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+    </div>
+    <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">53</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Notes — Lined">
+    <div style="height:117px"></div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+    </div>
+    <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">54</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Notes — Lined">
+    <div>
+      <div class="eyebrow">Space to Think</div>
+      <h2 class="disp">Notes</h2>
+    </div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+    </div>
+    <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">55</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Notes — Lined">
+    <div style="height:117px"></div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+      <div class="noteline"></div>
+    </div>
+    <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">56</span></div>
+  </section>
+
+  <!-- SKETCH · DOT GRID -->
+  <section class="page content s6" data-screen-label="Sketch">
+    <div>
+      <div class="eyebrow">Space to Draw</div>
+      <h2 class="disp">Sketch</h2>
+    </div>
+    <div class="dotgrid"></div>
+    <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">57</span></div>
+  </section>
+
+  <section class="page content s6" data-screen-label="Sketch">
+    <div style="height:117px"></div>
+    <div class="dotgrid"></div>
+    <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">58</span></div>
+  </section>
+
+  <!-- BACK COVER -->
+  <section class="page back span2" data-screen-label="Back cover">
+    <img class="cph" src="assets/photos/cover-topography.jpg" alt="Dark topographic contour lines (continues from front cover)">
+    <div class="cgrad"></div>
+    <div class="wm">
+      <img src="assets/logos/logo-primary.png" alt="Southeast Students">
+      <div class="tl">Team Leader Manual &middot; Vol. 03</div>
+    </div>
+    <div class="chz"></div>
+  </section>
+
+</div>
+</div>
+<script>
+(function(){
+  const stack=document.getElementById('stack');
+  const stage=document.getElementById('stage');
+  const pages=[...stack.querySelectorAll(':scope > .page')];
+  function mk(cls){const d=document.createElement('div');d.className='pair'+(cls?' '+cls:'');return d;}
+  if(pages.length){
+    const frag=document.createDocumentFragment();
+    const lead=mk('lead');lead.appendChild(pages[0]);frag.appendChild(lead);
+    for(let i=1;i<pages.length;i+=2){const p=mk();p.appendChild(pages[i]);if(pages[i+1])p.appendChild(pages[i+1]);frag.appendChild(p);}
+    stack.appendChild(frag);
+  }
+  const btnPages=document.getElementById('btnPages');
+  const btnSpread=document.getElementById('btnSpread');
+  function applyScale(){
+    const spread=stack.classList.contains('spread');
+    const sw=stage.clientWidth;
+    const base=spread?1536:768;
+    const scale=Math.min(1,(sw-32)/base);
+    if(!spread&&scale>=1){stack.style.transform='';stack.style.width='';stage.style.height='';return;}
+    stack.style.width=spread?'':'768px';
+    const tx=(sw-base*scale)/2;
+    stack.style.transformOrigin='top left';
+    stack.style.transform='translateX('+tx+'px) scale('+scale+')';
+    stage.style.height=(stack.offsetHeight*scale)+'px';
+  }
+  function setView(v){
+    const spread=v==='spread';
+    stack.classList.toggle('spread',spread);
+    btnSpread.classList.toggle('on',spread);
+    btnPages.classList.toggle('on',!spread);
+    try{localStorage.setItem('tlm-view',v);}catch(e){}
+    applyScale();
+  }
+  btnPages.onclick=function(){setView('pages');};
+  btnSpread.onclick=function(){setView('spread');};
+  let init='spread';try{init=localStorage.getItem('tlm-view')||'spread';}catch(e){}
+  setView(init);
+  window.addEventListener('resize',applyScale);
+  window.addEventListener('load',applyScale);
+})();
+</script>
+<script src="print-marks.js"></script>
+</body>
+</html>
