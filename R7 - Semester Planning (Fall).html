@@ -16,6 +16,8 @@
          box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:#b8891b;--sa-ghost:#f0e0ad}
 
   .hero{background:var(--pitch);padding:30px 64px 0;position:relative}
+  .rtags{display:flex;justify-content:space-between;gap:8px;margin:6px 0 18px;position:relative;z-index:3}
+  .rtag{font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.09em;font-size:10px;color:var(--pitch);background:var(--sa-ghost);border-radius:999px;padding:5px 12px;white-space:nowrap}
   .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
   .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:42px;line-height:1.1;margin:10px 0 12px;letter-spacing:.005em}
   .hero h1 em{color:var(--sa);font-style:normal}
@@ -24,12 +26,13 @@
 
   .body{padding:16px 64px 0}
   .instr{display:block;width:fit-content;max-width:100%;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:11px;color:var(--fg1);
-         background:var(--sa-ghost);border-radius:6px;padding:7px 13px;margin-bottom:10px}
+         background:var(--sa-ghost);border-radius:6px;padding:7px 13px;margin-bottom:10px;position:relative;z-index:3}
 
-  .rrow{display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:baseline;padding:4px 0;border-top:1px solid var(--hairline)}
+  .rrow{display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:baseline;padding:7px 0;border-top:1px solid var(--hairline);position:relative;z-index:3}
   .rrow .rn{font-family:var(--font-display);text-transform:uppercase;font-size:16px;line-height:1;color:var(--sa);white-space:nowrap}
   .rrow .rt{font-size:13px;line-height:1.4;color:var(--fg1)}
-  .rrow .tag{font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.09em;font-size:10px;color:var(--fg2);background:var(--sa-ghost);border-radius:999px;padding:4px 11px;white-space:nowrap}
+  .rrow .rdot{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--sa);box-shadow:0 0 0 3px color-mix(in srgb,var(--sa) 18%,transparent);transform:translate(50%,-50%)}
+  .connectors{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
 
   .leadin{font-size:13px;line-height:1.5;color:var(--fg2);margin:10px 0 0}
   .leadin b{color:var(--fg1)}
@@ -47,9 +50,10 @@
 
   .goals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
   .gcard{border:1px solid var(--hairline);border-radius:10px;background:#fffdf5;padding:11px 14px 12px}
-  .gcard .gt{font-family:var(--font-display);text-transform:uppercase;font-size:17px;line-height:1;color:var(--sa);margin-bottom:4px}
-  .gcard .gq{font-size:11.5px;line-height:1.35;color:var(--fg2);margin-top:5px}
-  .gcard .gl{height:18px;border-bottom:1.5px solid var(--sa-ghost);margin-top:2px}
+  .gcard .gt{font-family:var(--font-display);text-transform:uppercase;font-size:17px;line-height:1;color:var(--sa);margin-bottom:8px}
+  .gcard .gq{font-size:12px;line-height:1.4;color:var(--fg2);padding-left:14px;position:relative}
+  .gcard .gq + .gq{margin-top:8px}
+  .gcard .gq::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--sa-ghost)}
 
   .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 64px}
   .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
@@ -59,7 +63,8 @@
 </style>
 </head>
 <body>
-<style>@media print{#libnav{display:none!important}}</style>
+<style>@media print{#libnav{display:none!important}}html.is-embedded #libnav{display:none!important}</style>
+<script>if(window.self!==window.top)document.documentElement.className+=' is-embedded';</script>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
 <a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
@@ -73,26 +78,34 @@
   </svg>
 </template>
   <div class="rpage">
+    <svg class="connectors" viewBox="0 0 816 1056" preserveAspectRatio="none" aria-hidden="true"></svg>
     <div class="hero">
       <div class="eyebrow">Southeast Students &middot; Luke 9 Ministry Team</div>
       <h1><em>Fall</em> Semester Planning</h1>
       <p>The culture of our ministry to students starts with you, our leaders, living like Jesus.<br>We simply want to do what He did and allow His life to inform our ministry decisions and direction.</p>
+      <div class="rtags">
+        <span class="rtag" data-r="1">Community</span>
+        <span class="rtag" data-r="2">Equipping</span>
+        <span class="rtag" data-r="3">Mission</span>
+        <span class="rtag" data-r="4">Care</span>
+        <span class="rtag" data-r="5">Retreat</span>
+      </div>
       <div class="hz"></div>
     </div>
 
     <div class="body">
       <div class="instr">Luke 9 &nbsp;&middot;&nbsp; The intentional rhythms of Jesus&rsquo; ministry</div>
 
-      <div class="rrow"><span class="rn">Rhythm 1</span><span class="rt">Jesus called the Twelve together.</span><span class="tag">Community</span></div>
-      <div class="rrow"><span class="rn">Rhythm 2</span><span class="rt">Jesus equipped them with power and authority.</span><span class="tag">Equipping</span></div>
-      <div class="rrow"><span class="rn">Rhythm 3</span><span class="rt">Jesus sent them out to go from town to town.</span><span class="tag">Mission</span></div>
-      <div class="rrow"><span class="rn">Rhythm 4</span><span class="rt">Jesus invited his disciples to care for the crowd.</span><span class="tag">Care</span></div>
-      <div class="rrow"><span class="rn">Rhythm 5</span><span class="rt">Jesus retreated with his disciples to pray.</span><span class="tag">Retreat</span></div>
+      <div class="rrow" data-r="1" style="border-top:none"><span class="rn">Rhythm 1</span><span class="rt">Jesus called the Twelve together.</span><span class="rdot" style="right:150px"></span></div>
+      <div class="rrow" data-r="2"><span class="rn">Rhythm 2</span><span class="rt">Jesus equipped them with power and authority.</span><span class="rdot" style="right:113px"></span></div>
+      <div class="rrow" data-r="3"><span class="rn">Rhythm 3</span><span class="rt">Jesus sent them out to go from town to town.</span><span class="rdot" style="right:76px"></span></div>
+      <div class="rrow" data-r="4"><span class="rn">Rhythm 4</span><span class="rt">Jesus invited his disciples to care for the crowd.</span><span class="rdot" style="right:39px"></span></div>
+      <div class="rrow" data-r="5"><span class="rn">Rhythm 5</span><span class="rt">Jesus retreated with his disciples to pray.</span><span class="rdot" style="right:2px"></span></div>
 
       <p class="leadin">With Luke 9 in mind, <b>let&rsquo;s make some intentional plans for our ministry to students this semester:</b></p>
 
       <div class="shead"><span class="sn">Calendar</span></div>
-      <div class="crow"><span class="cn">Ministry Dates &rarr;</span><span class="cd">Review our calendar.</span></div>
+      <div class="crow" style="border-top:none"><span class="cn">Ministry Dates &rarr;</span><span class="cd">Review our calendar.</span></div>
       <div class="crow"><span class="cn">Team Hangouts &rarr;</span><span class="cd">Set up some time(s) to be together.</span></div>
       <div class="crow"><span class="cn">Team Meetings &rarr;</span><span class="cd">Plan our monthly team meetings.</span></div>
       <div class="crow"><span class="cn">Small Groups &rarr;</span><span class="cd">Anything outside of regular ministry time.</span></div>
@@ -102,30 +115,22 @@
         <div class="gcard">
           <div class="gt">New Students</div>
           <div class="gq">How many new students do we want to see in our ministry?</div>
-          <div class="gl"></div>
           <div class="gq">What is our follow up plan for new students?</div>
-          <div class="gl"></div>
         </div>
         <div class="gcard">
           <div class="gt">Camp</div>
           <div class="gq">How many unconnected students are we praying for at camp?</div>
-          <div class="gl"></div>
           <div class="gq">Who are our student leaders and how could we set them up to lead with us?</div>
-          <div class="gl"></div>
         </div>
         <div class="gcard">
           <div class="gt">Students Serving</div>
           <div class="gq">How many students do we have currently serving in some capacity?</div>
-          <div class="gl"></div>
           <div class="gq">How many of our students are ready to serve, but aren&rsquo;t currently?</div>
-          <div class="gl"></div>
         </div>
         <div class="gcard">
           <div class="gt">Baptism</div>
           <div class="gq">How many students baptizing their friends are we praying for?</div>
-          <div class="gl"></div>
           <div class="gq">How could we keep track of our students&rsquo; &ldquo;ones&rdquo; and be praying for them?</div>
-          <div class="gl"></div>
         </div>
       </div>
     </div>
@@ -133,5 +138,33 @@
     <div class="rfoot"><span class="sec">Further Resources &middot; Semester Planning &middot; Fall</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
   </div>
 <script src="print-marks.js"></script>
+<script>
+(function(){
+  function draw(){
+    var page=document.querySelector('.rpage'), svg=document.querySelector('.connectors');
+    if(!page||!svg) return;
+    var pr=page.getBoundingClientRect(), sx=816/pr.width, sy=1056/pr.height;
+    function pt(el){var r=el.getBoundingClientRect();return {l:(r.left-pr.left)*sx,r:(r.right-pr.left)*sx,t:(r.top-pr.top)*sy,b:(r.bottom-pr.top)*sy,cx:(r.left+r.right)/2-pr.left,cy:(r.top+r.bottom)/2-pr.top};}
+    var d='';
+    for(var i=1;i<=5;i++){
+      var tag=document.querySelector('.rtag[data-r="'+i+'"]');
+      var dot=document.querySelector('.rrow[data-r="'+i+'"] .rdot');
+      if(!tag||!dot) continue;
+      var a=tag.getBoundingClientRect(), b=dot.getBoundingClientRect();
+      var ax=(a.left+a.right)/2-pr.left, ay=(a.bottom-pr.top);
+      var bx=(b.left+b.right)/2-pr.left, by=(b.top+b.bottom)/2-pr.top;
+      ax*=sx; ay*=sy; bx*=sx; by*=sy;
+      var m1=ay+(by-ay)*0.42, m2=ay+(by-ay)*0.62;
+      d+='M'+ax.toFixed(1)+' '+(ay+2).toFixed(1)+'C'+ax.toFixed(1)+' '+m1.toFixed(1)+' '+bx.toFixed(1)+' '+m2.toFixed(1)+' '+bx.toFixed(1)+' '+(by-2).toFixed(1)+' ';
+    }
+    svg.innerHTML='<path d="'+d+'" fill="none" stroke="#b8891b" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="0.1 5" vector-effect="non-scaling-stroke"/>';
+  }
+  function go(){draw();}
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(go);}
+  window.addEventListener('load',go);
+  window.addEventListener('resize',function(){clearTimeout(window.__cdt);window.__cdt=setTimeout(draw,80);});
+  setTimeout(go,120);
+})();
+</script>
 </body>
 </html>
