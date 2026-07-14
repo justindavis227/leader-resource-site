@@ -23,7 +23,7 @@
   // ?print= query, leaving the served page without its required token).
   if (!/[?&]print(=|&|$)/.test(location.search) && !/(^|[#&])print($|&|=)/.test(location.hash)) return;
 
-  var isBooklet = !!document.querySelector('.page');
+  var isBooklet = false; // decided once the document's pages exist (DC booklets mount late)
   var wrapped = [];
 
   function injectStyle() {
@@ -35,14 +35,14 @@
         // 8in design + 0.2in margin all round for the trim marks
         '@page{size:8.4in 8.4in;margin:0}' +
         'html,body{background:#fff!important;margin:0!important;padding:0!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}' +
-        '#libnav,.toolbar,#tweak-root{display:none!important}' +
+        '#libnav,.toolbar,.viewbar,#tweak-root{display:none!important}' +
         // collapse the Spreads machinery: linear block flow, no scaling
-        '.stage{display:block!important;width:auto!important;height:auto!important;transform:none!important}' +
-        '.stack,.stack.spread{display:block!important;width:auto!important;margin:0!important;gap:0!important;transform:none!important}' +
+        '.stage,.se-stage{display:block!important;width:auto!important;height:auto!important;transform:none!important;overflow:visible!important}' +
+        '.stack,.stack.spread,.book,.spread{display:block!important;width:auto!important;margin:0!important;gap:0!important;transform:none!important}' +
         '.pair,.stack.spread .pair,.stack.spread .pair.lead{display:contents!important;width:auto!important;transform:none!important}' +
         // artwork at true size — no scale, no bleed
-        '.page{width:8in!important;height:8in!important;box-shadow:none!important;border-radius:0!important;transform:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}' +
-        '.page *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}' +
+        '.page,.pg{width:8in!important;height:8in!important;box-shadow:none!important;border-radius:0!important;transform:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}' +
+        '.page *,.pg *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}' +
         // freeze every entrance animation at its finished frame (campus map etc.)
         '[class$="-arc"]{stroke-dashoffset:0!important;animation:none!important}' +
         '[class$="-node"]{opacity:1!important;transform:none!important;animation:none!important}' +
@@ -81,7 +81,7 @@
       ['0', NEG, T, L], [BR, NEG, T, L],
       ['0', FAR, T, L], [BR, FAR, T, L]
     ];
-    var pages = [].slice.call(document.querySelectorAll('.page'));
+    var pages = [].slice.call(document.querySelectorAll('.page,.pg'));
     pages.forEach(function (p) {
       var sheet = document.createElement('div');
       sheet.className = 'cropsheet';
@@ -111,9 +111,24 @@
   window.addEventListener('beforeprint', build);
   window.addEventListener('afterprint', teardown);
 
-  window.addEventListener('load', function () {
-    injectStyle();
-    // give React / the campus-map SVG a beat to mount before printing
-    setTimeout(function () { window.print(); }, 900);
-  });
+  // Wait until the page frames actually exist before sizing the sheet.
+  // DC-runtime booklets mount their .page sections well after load; deciding
+  // early sent them down the letter (8.5x11) path with blank margins.
+  function start() {
+    var tries = 0;
+    (function poll() {
+      var pg = document.querySelector('.page,.pg');
+      var rp = document.querySelector('.rpage');
+      if (pg || rp) {
+        isBooklet = !!pg;
+        injectStyle();
+        // give React / the campus-map SVG a beat to settle before printing
+        setTimeout(function () { window.print(); }, 900);
+        return;
+      }
+      if (++tries < 100) setTimeout(poll, 150); // keep trying ~15s
+    })();
+  }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
 })();

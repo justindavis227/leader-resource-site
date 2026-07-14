@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semester Planning—Fall—Southeast Students</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{--font-display:'Anton','Arial Narrow',sans-serif}
+  body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;justify-content:center}
+  a{color:var(--fire)} a:hover{color:var(--ember)}
+
+  .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:#b8891b;--sa-ghost:#f0e0ad}
+
+  .hero{background:var(--pitch);padding:30px 64px 0;position:relative}
+  .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:42px;line-height:1.1;margin:10px 0 12px;letter-spacing:.005em}
+  .hero h1 em{color:var(--sa);font-style:normal}
+  .hero p{font-size:12.5px;line-height:1.5;color:var(--fg2-d);max-width:640px;margin:0 0 14px}
+  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -64px}
+
+  .body{padding:16px 64px 0}
+  .instr{display:block;width:fit-content;max-width:100%;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:11px;color:var(--fg1);
+         background:var(--sa-ghost);border-radius:6px;padding:7px 13px;margin-bottom:10px}
+
+  .rrow{display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:baseline;padding:4px 0;border-top:1px solid var(--hairline)}
+  .rrow .rn{font-family:var(--font-display);text-transform:uppercase;font-size:16px;line-height:1;color:var(--sa);white-space:nowrap}
+  .rrow .rt{font-size:13px;line-height:1.4;color:var(--fg1)}
+  .rrow .tag{font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.09em;font-size:10px;color:var(--fg2);background:var(--sa-ghost);border-radius:999px;padding:4px 11px;white-space:nowrap}
+
+  .leadin{font-size:13px;line-height:1.5;color:var(--fg2);margin:10px 0 0}
+  .leadin b{color:var(--fg1)}
+
+  .shead{display:flex;align-items:baseline;gap:12px;margin:12px 0 0}
+  .shead .sn{font-family:var(--font-display);text-transform:uppercase;font-size:22px;line-height:1;color:var(--fg1)}
+  .shead .sd{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--fg3)}
+  .shead::after{content:'';flex:1;height:1px;background:var(--hairline);align-self:center}
+
+  .crow{display:grid;grid-template-columns:172px 1fr;gap:14px;align-items:center;padding:8px 0;border-top:1px solid var(--hairline)}
+  .crow:first-of-type{border-top:none}
+  .crow .cn{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11px;color:var(--fg1)}
+  .crow .cd{font-size:12.5px;line-height:1.35;color:var(--fg2)}
+  .crow .wl{height:24px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:color-mix(in srgb,var(--sa) 5%,transparent)}
+
+  .goals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  .gcard{border:1px solid var(--hairline);border-radius:10px;background:#fffdf5;padding:11px 14px 12px}
+  .gcard .gt{font-family:var(--font-display);text-transform:uppercase;font-size:17px;line-height:1;color:var(--sa);margin-bottom:4px}
+  .gcard .gq{font-size:11.5px;line-height:1.35;color:var(--fg2);margin-top:5px}
+  .gcard .gl{height:18px;border-bottom:1.5px solid var(--sa-ghost);margin-top:2px}
+
+  .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 64px}
+  .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .rfoot .lg{height:22px;opacity:.82}
+
+  @media print{ body{background:#fff;padding:0} .rpage{box-shadow:none} }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}</style>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#d6d2c4"/>
+    <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
+    <rect x="490" y="230" width="180" height="14" fill="#0e1215"/>
+    <rect x="490" y="270" width="220" height="8" fill="#b8891b"/>
+  </svg>
+</template>
+  <div class="rpage">
+    <div class="hero">
+      <div class="eyebrow">Southeast Students &middot; Luke 9 Ministry Team</div>
+      <h1><em>Fall</em> Semester Planning</h1>
+      <p>The culture of our ministry to students starts with you, our leaders, living like Jesus.<br>We simply want to do what He did and allow His life to inform our ministry decisions and direction.</p>
+      <div class="hz"></div>
+    </div>
+
+    <div class="body">
+      <div class="instr">Luke 9 &nbsp;&middot;&nbsp; The intentional rhythms of Jesus&rsquo; ministry</div>
+
+      <div class="rrow"><span class="rn">Rhythm 1</span><span class="rt">Jesus called the Twelve together.</span><span class="tag">Community</span></div>
+      <div class="rrow"><span class="rn">Rhythm 2</span><span class="rt">Jesus equipped them with power and authority.</span><span class="tag">Equipping</span></div>
+      <div class="rrow"><span class="rn">Rhythm 3</span><span class="rt">Jesus sent them out to go from town to town.</span><span class="tag">Mission</span></div>
+      <div class="rrow"><span class="rn">Rhythm 4</span><span class="rt">Jesus invited his disciples to care for the crowd.</span><span class="tag">Care</span></div>
+      <div class="rrow"><span class="rn">Rhythm 5</span><span class="rt">Jesus retreated with his disciples to pray.</span><span class="tag">Retreat</span></div>
+
+      <p class="leadin">With Luke 9 in mind, <b>let&rsquo;s make some intentional plans for our ministry to students this semester:</b></p>
+
+      <div class="shead"><span class="sn">Calendar</span></div>
+      <div class="crow"><span class="cn">Ministry Dates &rarr;</span><span class="cd">Review our calendar.</span></div>
+      <div class="crow"><span class="cn">Team Hangouts &rarr;</span><span class="cd">Set up some time(s) to be together.</span></div>
+      <div class="crow"><span class="cn">Team Meetings &rarr;</span><span class="cd">Plan our monthly team meetings.</span></div>
+      <div class="crow"><span class="cn">Small Groups &rarr;</span><span class="cd">Anything outside of regular ministry time.</span></div>
+
+      <div class="shead"><span class="sn">Goal Planning</span></div>
+      <div class="goals">
+        <div class="gcard">
+          <div class="gt">New Students</div>
+          <div class="gq">How many new students do we want to see in our ministry?</div>
+          <div class="gl"></div>
+          <div class="gq">What is our follow up plan for new students?</div>
+          <div class="gl"></div>
+        </div>
+        <div class="gcard">
+          <div class="gt">Camp</div>
+          <div class="gq">How many unconnected students are we praying for at camp?</div>
+          <div class="gl"></div>
+          <div class="gq">Who are our student leaders and how could we set them up to lead with us?</div>
+          <div class="gl"></div>
+        </div>
+        <div class="gcard">
+          <div class="gt">Students Serving</div>
+          <div class="gq">How many students do we have currently serving in some capacity?</div>
+          <div class="gl"></div>
+          <div class="gq">How many of our students are ready to serve, but aren&rsquo;t currently?</div>
+          <div class="gl"></div>
+        </div>
+        <div class="gcard">
+          <div class="gt">Baptism</div>
+          <div class="gq">How many students baptizing their friends are we praying for?</div>
+          <div class="gl"></div>
+          <div class="gq">How could we keep track of our students&rsquo; &ldquo;ones&rdquo; and be praying for them?</div>
+          <div class="gl"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rfoot"><span class="sec">Further Resources &middot; Semester Planning &middot; Fall</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  </div>
+<script src="print-marks.js"></script>
+</body>
+</html>

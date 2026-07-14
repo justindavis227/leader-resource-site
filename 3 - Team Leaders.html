@@ -209,6 +209,9 @@
   .kc .qs{margin:12px 0 0;padding:0;list-style:none;flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
   .kc .qs li{font-size:14.5px;color:var(--fg1);line-height:1.5;padding:10px 0 10px 20px;position:relative}
   .kc .qs li small{display:block;font-size:12px;color:var(--fg3);font-style:italic;margin-top:3px}
+  .kc .qs li.note{padding-left:0;font-size:13.5px;color:var(--fg2)}
+  .kc .qs li.note::before{display:none}
+  .kc .qs li.note b{color:var(--fg1)}
   .kc .qs li .writein{display:flex;gap:14px;margin-top:9px}
   .kc .writein span{flex:1;height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05)}
   .la{background:rgba(14,18,21,.035);border-left:4px solid var(--sa);border-radius:0 8px 8px 0;padding:14px 20px;margin-top:14px}
@@ -221,11 +224,11 @@
 
   /* fill-in ladders + chair eval */
   .ladder{display:grid;gap:8px;margin-top:8px}
-  .lrow{display:grid;grid-template-columns:46px 176px 216px;gap:16px;align-items:center;padding:7px 0}
+  .lrow{display:grid;grid-template-columns:46px 176px 1fr;gap:16px;align-items:center;padding:7px 0}
   .lrow .meter{display:flex;gap:3px;align-items:flex-end;height:15px}
   .lrow .meter i{width:6px;height:15px;border-radius:2px;background:var(--sa-ghost)}
   .lrow .meter i.on{background:var(--sa)}
-  .lrow .lline{height:27px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05)}
+  .lrow .lline{height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05)}
   .lrow .llab{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;color:var(--fg2);text-transform:uppercase;white-space:nowrap}
   .cheval{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
   .chcol{background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:13px 13px 15px;display:flex;flex-direction:column}
@@ -245,6 +248,9 @@
       background-size:24px 24px;background-color:#fffdf5;opacity:.18}
   .qrwrap .qlab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.08em;color:var(--fg3);text-transform:uppercase;text-align:center;padding:6px}
   .qrrow{display:flex;gap:20px;align-items:center;margin-top:14px;border:1px solid var(--hairline);border-radius:10px;padding:14px 18px;background:#fffdf5}
+  .qrla{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch;margin-top:14px}
+  .qrla .qrrow{margin-top:0;gap:14px;padding:14px 16px}
+  .qrla .la{margin-top:0;display:flex;flex-direction:column;justify-content:center}
   .qrrow .rh{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--fg1)}
   .qrrow .rb{font-size:12.5px;color:var(--fg2);line-height:1.45;margin-top:4px}
 
@@ -607,7 +613,7 @@
 
   <section class="page content s2" data-screen-label="Expectations 1–3">
     <div>
-      <div class="eyebrow">A High Calling</div>
+      <div class="eyebrow">Team Leader</div>
       <h2 class="disp">Expectations <span class="hib">1&ndash;3</span></h2>
       <div class="hr"></div>
       <p class="lead" style="margin-top:10px">Team Leaders play a vital role in ensuring we have effective teams mobilized to multiply disciples all around the cities of every SE Campus.</p>
@@ -653,7 +659,7 @@
 
   <section class="page content s2" data-screen-label="Expectations 4–7">
     <div>
-      <div class="eyebrow">A High Calling</div>
+      <div class="eyebrow">Team Leader</div>
       <h2 class="disp">Expectations <span class="hib">4&ndash;7</span></h2>
       <div class="hr"></div>
     </div>
@@ -706,7 +712,7 @@
 
   <section class="page content s2" data-screen-label="Expectations 8–10">
     <div>
-      <div class="eyebrow">A High Calling</div>
+      <div class="eyebrow">Team Leader</div>
       <h2 class="disp">Expectations <span class="hib">8&ndash;10</span></h2>
       <div class="hr"></div>
     </div>
@@ -1025,9 +1031,18 @@
       <li>If your team can plan extra student events beyond program time, leave this meeting with those dates locked in.</li>
       <li>Move things around during the semester as needed, but do so as a team.</li>
     </ul>
+    <div class="qrla">
     <div class="la">
       <div class="lak">Looking Ahead</div>
       <p>Next month we will look at organizing your groups for the semester ahead.</p>
+    </div>
+    <div class="qrrow">
+      <div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; Fall Planning</div></div>
+      <div>
+        <div class="rh">Fall Semester Planning Sheet</div>
+        <div class="rb">Scan to download &amp; print for this meeting.</div>
+      </div>
+    </div>
     </div>
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">29</span></div>
   </section>
@@ -1039,7 +1054,7 @@
       <li>Looking at our groups from last year, plus incoming students, what adjustments do we need to make for this year?</li>
       <li>Do our groups have space to grow as they invite friends in? Where can new students connect into our ministry?</li>
       <li>One size doesn&rsquo;t fit all. What creative ideas could make groups the best possible experience?<small><b>Ideas:</b> Start with large group before breaking out. Do one large group per month. Strategic large group dates, primarily small groups.</small></li>
-      <li>The advantage of a large group of your whole grade: students become familiar with all the leaders&mdash;displaying what a team looks like enhances community among your grade.</li>
+      <li class="note" style="font-size:14.5px">The advantage of a large group of your whole grade: students become familiar with all the leaders&mdash;displaying what a team looks like enhances community among your grade.</li>
     </ul>
     <div class="la">
       <div class="lak">Looking Ahead</div>
@@ -1056,7 +1071,7 @@
       <li>Who are some friends of ours who are not actively serving in any capacity?</li>
       <li>Who are some parents of our students who might be willing to join our mission?</li>
       <li>Who are some community partners who might join us or support us?</li>
-      <li><b>Praying for coworkers:</b> take the names above and pray as a team for God to bring co-laborers to join your team and mission.</li>
+      <li class="note" style="font-size:14.5px"><b>Praying for coworkers:</b> take the names above and pray as a team for God to bring co-laborers to join your team and mission.</li>
     </ul>
     <div class="la">
       <div class="lak">Looking Ahead</div>
@@ -1092,11 +1107,20 @@
       <li>How is our overall <b>community as a team</b>? Are we for one another? Actively on mission?</li>
       <li>How are we doing at seeing new students joining our student ministry family?</li>
       <li>How is our team doing at living unleashed lives? With our few?</li>
-      <li>The goal is not to convince the team of what you think, but to <b>observe and learn</b>&mdash;you&rsquo;ll gain unique insights that help you lead into the future.</li>
+      <li class="note" style="font-size:14.5px">The goal is not to convince the team of what you think, but to <b>observe and learn</b>&mdash;you&rsquo;ll gain unique insights that help you lead into the future.</li>
     </ul>
+    <div class="qrla">
     <div class="la">
       <div class="lak">Christmas Break Planning</div>
       <p>Christmas and New Year&rsquo;s offer a rhythm of rest after a long ministry sprint. Enjoy it&mdash;but relationships don&rsquo;t stop. <b>Take advantage of organic opportunities</b> to spend time with one another and with students!</p>
+    </div>
+    <div class="qrrow">
+      <div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; Fall Evaluation</div></div>
+      <div>
+        <div class="rh">Fall Ministry Evaluation</div>
+        <div class="rb">Scan to download &amp; print one copy per team member.</div>
+      </div>
+    </div>
     </div>
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">33</span></div>
   </section>
@@ -1112,9 +1136,18 @@
       <li>Lock in any extra student events your team can plan beyond program time.</li>
       <li>Adjust over the semester as needed&mdash;but as a team, so everyone can see what&rsquo;s upcoming.</li>
     </ul>
+    <div class="qrla">
     <div class="la">
       <div class="lak">Looking Ahead</div>
       <p>Next month we will look to mobilize groups beyond our regular ministry time.</p>
+    </div>
+    <div class="qrrow">
+      <div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; Spring Planning</div></div>
+      <div>
+        <div class="rh">Spring Semester Planning Sheet</div>
+        <div class="rb">Scan to download &amp; print for this meeting.</div>
+      </div>
+    </div>
     </div>
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">34</span></div>
   </section>
@@ -1128,7 +1161,7 @@
       <li>Out to loving their peers one at a time?</li>
       <li>Out to loving their schools?</li>
       <li>Out to serving the church?</li>
-      <li>Summer Camp is an incredible way to get lost students in front of Jesus. Jesus built friendships first&mdash;then challenged them to more. Pray and discuss how we can challenge students to live with purpose toward their friends at school, in hopes lost students find their way in front of Jesus at camp (or before)!</li>
+      <li class="note" style="font-size:14.5px">Summer Camp is an incredible way to get lost students in front of Jesus. Jesus built friendships first&mdash;then challenged them to more.<br><br><b>Pray</b> and <b>discuss</b> how we can challenge students to live with purpose toward their friends at school, in hopes lost students find their way in front of Jesus at camp (or before)!</li>
     </ul>
     <div class="la">
       <div class="lak">Looking Ahead</div>
@@ -1181,9 +1214,18 @@
       <li>How are we doing at seeing new students join our student ministry family?</li>
       <li>How is our team doing at living unleashed lives? With our few?</li>
     </ul>
+    <div class="qrla">
     <div class="la">
       <div class="lak">Summer Planning</div>
       <p>Sync up and plan the summer so your team knows what to expect. Summer rhythms are less regular, but that doesn&rsquo;t mean we take off. <b>Find intentional ways to invest through the summer!</b></p>
+    </div>
+    <div class="qrrow">
+      <div class="qrwrap"><div class="qr"></div><div class="qlab">QR &middot; Spring Evaluation</div></div>
+      <div>
+        <div class="rh">Spring Ministry Evaluation</div>
+        <div class="rb">Scan to download &amp; print one copy per team member.</div>
+      </div>
+    </div>
     </div>
     <div class="foot"><span class="sec">04 &middot; Team Dialogues</span><span class="pn">38</span></div>
   </section>

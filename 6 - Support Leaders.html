@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support Leaders—Support Leader Handbook</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);--font-display:'Anton','Arial Narrow',sans-serif;--ember:#b8891b;--accent-press:#96700f}
+  .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
+
+  /* page frame: 8in @96dpi */
+  .page{width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1)}
+  .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:13px}
+  .disp{font-family:var(--font-display);text-transform:uppercase;line-height:1.0;letter-spacing:.005em}
+
+  /* footer / page numbers */
+  .foot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 64px}
+  .foot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .foot .pn{font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--fg2);letter-spacing:.04em}
+  .foot.dark .sec{color:var(--fg3-d)} .foot.dark .pn{color:var(--fg2-d)}
+
+  /* ---- COVER ---- */
+  .cover{color:var(--slate);background:var(--pitch)}
+  .cover.span2 .cph{width:200%;max-width:none;left:auto;right:0}
+  .back.span2 .cph{width:200%;max-width:none;right:auto;left:0}
+  .cover .cph{position:absolute;inset:0;height:100%;object-fit:cover;object-position:center 60%}
+  .cover .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 30%,rgba(12,14,16,.18) 58%,rgba(12,14,16,.6) 100%)}
+  .cover .ctop{position:absolute;top:56px;left:64px;right:64px;display:flex;align-items:flex-start;justify-content:flex-end;gap:40px}
+  .cover .ctag{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#ecd08a;max-width:300px;text-align:right;line-height:1.7;text-shadow:0 1px 12px rgba(12,14,16,.85)}
+  .cover .cbody{position:absolute;left:64px;right:64px;bottom:56px}
+  .cover .rule{width:64px;height:5px;background:var(--ember);margin-bottom:20px}
+  .cover h1{font-size:104px;color:var(--slate);line-height:.9;margin:0}
+  .cover .csub{display:block;font-size:15px;color:rgba(255,254,249,.82);max-width:430px;margin-top:18px;line-height:1.5}
+  .cover .yr{display:block;font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px}
+  .cover .chz,.back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
+
+  /* ---- BACK COVER ---- */
+  .back{color:var(--slate);background:var(--pitch)}
+  .back .cph{position:absolute;inset:0;height:100%;object-fit:cover}
+  .back .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.7),rgba(12,14,16,.12) 45%,rgba(12,14,16,.35))}
+  .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
+  .back .wm img{height:54px;filter:brightness(0) invert(1);opacity:.96}
+  .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.8)}
+
+  /* ---- TABLE OF CONTENTS ---- */
+  .toc{padding:64px 66px 90px;display:flex;flex-direction:column}
+  .toc .eyebrow{color:var(--ember)} .toc h2{font-size:60px;margin:10px 0 6px}
+  .toc .hr{height:1px;background:var(--hairline);margin:14px 0 4px}
+  .trow{display:grid;grid-template-columns:42px 1fr auto;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--hairline)}
+  .trow .tn{font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--ember)}
+  .trow .tt{font-weight:700;font-size:19px;color:var(--fg1)}
+  .trow .tt small{display:block;font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:3px}
+  .trow .tp{font-family:var(--font-mono);font-weight:600;font-size:14px;color:var(--fg2)}
+
+  /* ---- SECTION DIVIDER ---- */
+  .divider{background:var(--pitch);color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end}
+  .divider .ghost{position:absolute;top:-96px;right:-24px;font-family:var(--font-display);font-size:460px;line-height:1;color:rgba(255,254,249,.05);letter-spacing:-.02em;z-index:0;pointer-events:none}
+  .divider .inner{padding:0 66px 104px;position:relative;z-index:1}
+  .divider .secno{font-family:var(--font-mono);font-weight:700;font-size:14px;letter-spacing:.24em;color:var(--ember)}
+  .divider h2{font-size:80px;color:var(--slate);margin:16px 0 0}
+  .divider .sub{font-size:17px;color:var(--fg2-d);max-width:430px;margin-top:22px;line-height:1.5}
+  .divider .tab{width:64px;height:6px;background:var(--ember);margin-top:32px}
+
+  /* ---- CONTENT ---- */
+  .content{padding:54px 64px 92px;display:flex;flex-direction:column}
+  .content .eyebrow{color:var(--ember)} .content h2{font-size:50px;margin-top:8px}
+  .content .hr{height:1px;background:var(--hairline);margin:18px 0 2px}
+  .lead{font-size:15px;color:var(--fg2);line-height:1.55;margin-top:12px}
+  .rows{margin-top:6px;flex:1;display:flex;flex-direction:column}
+  .page.copyright{display:flex;align-items:flex-end;padding:0 64px 96px}
+  .copyblock{max-width:560px}
+  .copyblock p{margin:0;font-size:14px;line-height:1.65;color:var(--fg2)}
+  .copyblock p+p{margin-top:18px}
+  .copyblock a{color:var(--fg2);text-decoration:none}
+  .dotgrid{flex:1;margin-top:14px;border-radius:2px;background-image:radial-gradient(var(--hairline) 1.4px,transparent 1.5px);background-size:26px 26px;background-position:3px 8px}
+
+  /* ---- WIP placeholder block ---- */
+  .wip{flex:1;margin-top:18px;border:2px dashed #c6bca4;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px;text-align:center}
+  .wip .wk{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:var(--ember);background:rgba(184,137,27,.1);border:1px solid rgba(184,137,27,.35);border-radius:999px;padding:8px 16px}
+  .wip p{margin:0;font-size:14px;color:var(--fg3);line-height:1.55;max-width:380px}
+
+  /* ---- view toolbar + spread ---- */
+  .toolbar{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.30)}
+  .toolbar button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 15px;border-radius:999px;cursor:pointer}
+  .toolbar button.on{background:var(--ember);color:var(--slate)}
+  .stage{width:100%}
+  .pair{display:contents}
+  .stack.spread{width:1536px;margin:0;gap:46px}
+  .stack.spread .pair{display:flex;flex-direction:row;width:1536px;justify-content:center;align-items:flex-start}
+  .stack.spread .pair.lead{justify-content:flex-end}
+
+  @media (max-width:640px){
+    body{overflow-x:hidden}
+    .toolbar{top:auto;bottom:14px;left:50%;right:auto;transform:translateX(-50%);z-index:9998}
+  }
+  @media print{
+    @page{size:8in 8in;margin:0}
+    body{background:#fff;padding:0}.stack{gap:0}
+    .page{box-shadow:none;page-break-after:always;width:8in;height:8in}
+    .toolbar{display:none!important}
+    .stack,.stack.spread{transform:none!important;width:auto!important;margin:0!important}
+    .pair{display:contents!important}
+    .stage{height:auto!important}
+  }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}</style>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#b8891b);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#0e1215"/>
+    <rect x="30" y="30" width="40" height="40" fill="#b8891b"/>
+    <text x="50" y="65" font-family="Anton, Arial Narrow, sans-serif" font-size="40" fill="#fffef9" text-anchor="middle">6</text>
+  </svg>
+</template>
+<div class="toolbar">
+  <button id="btnPages" type="button">Pages</button>
+  <button id="btnSpread" type="button">Spreads</button>
+</div>
+<div class="stage" id="stage">
+<div class="stack" id="stack">
+
+  <!-- 1 · COVER -->
+  <section class="page cover span2" data-screen-label="Cover">
+    <img class="cph" src="assets/photos/harvest-together.jpg" alt="Two people working side by side in a harvest field">
+    <div class="cgrad"></div>
+    <div class="ctop">
+      <span class="ctag">&ldquo;EACH OF YOU SHOULD USE WHATEVER GIFT YOU HAVE RECEIVED TO SERVE OTHERS.&rdquo;&mdash;<b style="font-weight:700;font-style:normal;color:inherit">1 PETER 4:10</b></span>
+    </div>
+    <div class="cbody">
+      <div class="rule"></div>
+      <h1 class="disp">Support<br>Leaders</h1>
+      <span class="csub">Support Leader Handbook · Southeast Students</span>
+      <span class="yr">2026–2027</span>
+    </div>
+    <div class="chz"></div>
+  </section>
+
+  <!-- 2 · COPYRIGHT -->
+  <section class="page copyright" data-screen-label="Copyright">
+    <div class="copyblock">
+      <p>&copy; 2026 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
+      <p>For permissions contact: Justin Davis at <a href="mailto:jdavis@secc.org">jdavis@secc.org</a></p>
+    </div>
+  </section>
+
+  <!-- 3 · CONTENTS -->
+  <section class="page toc" data-screen-label="Contents">
+    <div class="eyebrow">What&rsquo;s Inside</div>
+    <h2 class="disp">Contents</h2>
+    <div class="hr"></div>
+    <div class="rows">
+      <div class="trow"><span class="tn">01</span><span class="tt">The Mission<small>Why we exist</small></span><span class="tp">&mdash;</span></div>
+      <div class="trow"><span class="tn">02</span><span class="tt">Your Role<small>What support leaders make possible</small></span><span class="tp">&mdash;</span></div>
+      <div class="trow"><span class="tn">03</span><span class="tt">Serving Well<small>Behind the scenes, every week</small></span><span class="tp">&mdash;</span></div>
+      <div class="trow"><span class="tn">04</span><span class="tt">The Team<small>Who you serve alongside</small></span><span class="tp">&mdash;</span></div>
+      <div class="trow"><span class="tn">05</span><span class="tt">Further Resources<small>Help along the way</small></span><span class="tp">&mdash;</span></div>
+    </div>
+    <div class="foot"><span class="sec">SE Students</span><span class="sec">Support Leaders</span></div>
+  </section>
+
+  <!-- 4 · WELCOME (placeholder) -->
+  <section class="page content" data-screen-label="Welcome (placeholder)">
+    <div>
+      <div class="eyebrow">Welcome, Support Leader</div>
+      <h2 class="disp">You make it possible</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <div class="wip">
+        <span class="wk">Placeholder &middot; Content Coming</span>
+        <p>Welcome letter for support leaders goes here&mdash;why serving behind the scenes matters, and what this handbook covers.</p>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Welcome</span><span class="pn">04</span></div>
+  </section>
+
+  <!-- 5 · DIVIDER 01 -->
+  <section class="page divider" data-screen-label="Divider—The Mission (placeholder)">
+    <div class="ghost disp">01</div>
+    <div class="inner">
+      <div class="secno">SECTION 01</div>
+      <h2 class="disp">The<br>Mission</h2>
+      <div class="sub">Why we exist&mdash;the one calling that gets everyone working toward the same goal.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">05</span></div>
+  </section>
+
+  <!-- 6 · CONTENT (placeholder) -->
+  <section class="page content" data-screen-label="Section content (placeholder)">
+    <div>
+      <div class="eyebrow">The Mission</div>
+      <h2 class="disp">Why We Exist</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <div class="wip">
+        <span class="wk">Placeholder &middot; Content Coming</span>
+        <p>Section content goes here. Layouts from the other leader booklets (rows, declarations, role spines, QR resources) drop in as this handbook is written.</p>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">The Mission</span><span class="pn">06</span></div>
+  </section>
+
+  <!-- 7 · NOTES (placeholder) -->
+  <section class="page content" data-screen-label="Notes (placeholder)">
+    <div>
+      <div class="eyebrow">Notes</div>
+      <h2 class="disp">Sketch it out</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="dotgrid"></div>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">07</span></div>
+  </section>
+
+  <!-- 8 · BACK COVER -->
+  <section class="page back span2" data-screen-label="Back cover">
+    <img class="cph" src="assets/photos/harvest-together.jpg" alt="Harvest field (continues from front cover)">
+    <div class="cgrad"></div>
+    <div class="wm">
+      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students">
+      <div class="tl">Connecting people to Jesus &amp; one another</div>
+    </div>
+    <div class="chz"></div>
+  </section>
+
+</div>
+</div>
+<script>
+(function(){
+  const stack=document.getElementById('stack');
+  const stage=document.getElementById('stage');
+  const pages=[...stack.querySelectorAll(':scope > .page')];
+  function mk(cls){const d=document.createElement('div');d.className='pair'+(cls?' '+cls:'');return d;}
+  if(pages.length){
+    const frag=document.createDocumentFragment();
+    const lead=mk('lead');lead.appendChild(pages[0]);frag.appendChild(lead);
+    for(let i=1;i<pages.length;i+=2){const p=mk();p.appendChild(pages[i]);if(pages[i+1])p.appendChild(pages[i+1]);frag.appendChild(p);}
+    stack.appendChild(frag);
+  }
+  const btnPages=document.getElementById('btnPages');
+  const btnSpread=document.getElementById('btnSpread');
+  function applyScale(){
+    const spread=stack.classList.contains('spread');
+    const sw=stage.clientWidth;
+    const base=spread?1536:768;
+    const scale=Math.min(1,(sw-32)/base);
+    if(!spread&&scale>=1){stack.style.transform='';stack.style.width='';stage.style.height='';return;}
+    stack.style.width=spread?'':'768px';
+    const tx=(sw-base*scale)/2;
+    stack.style.transformOrigin='top left';
+    stack.style.transform='translateX('+tx+'px) scale('+scale+')';
+    stage.style.height=(stack.offsetHeight*scale)+'px';
+  }
+  function setView(v){
+    const spread=v==='spread';
+    stack.classList.toggle('spread',spread);
+    btnSpread.classList.toggle('on',spread);
+    btnPages.classList.toggle('on',!spread);
+    try{localStorage.setItem('ul-view',v);}catch(e){}
+    applyScale();
+  }
+  btnPages.onclick=function(){setView('pages');};
+  btnSpread.onclick=function(){setView('spread');};
+  let init='spread';try{init=localStorage.getItem('ul-view')||'spread';}catch(e){}
+  setView(init);
+  window.addEventListener('resize',applyScale);
+  window.addEventListener('load',applyScale);
+})();
+</script>
+<script src="print-marks.js"></script>
+</body>
+</html>

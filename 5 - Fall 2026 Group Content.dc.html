@@ -27,8 +27,9 @@
     .pg{box-shadow:none!important}
   }
 </style>
+<script src="print-marks.js"></script>
 </helmet>
-<nav id="libnav" style="position:fixed;top:16px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)"><a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">←&nbsp;Library</a></nav>
+<nav id="libnav" style="position:fixed;top:16px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)"><a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">←&nbsp;Library</a><a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">↓&nbsp;Print</a></nav>
 <div class="viewbar" style="position:fixed;top:16px;right:16px;z-index:50;display:flex;gap:4px;background:var(--pitch);border-radius:999px;padding:4px;box-shadow:0 6px 18px rgba(14,18,21,.28)">
   <button onClick="{{ selectSingle }}" style="{{ singleBtnStyle }}">Single</button>
   <button onClick="{{ selectSpread }}" style="{{ spreadBtnStyle }}">Spread</button>
