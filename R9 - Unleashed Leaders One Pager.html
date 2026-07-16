@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unleashed Leaders One-Pager—Southeast Students</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{--font-display:'Anton','Arial Narrow',sans-serif}
+  body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;flex-direction:column;align-items:center;gap:40px}
+  a{color:var(--fire)} a:hover{color:var(--ember)}
+
+  /* 8.5x11 portrait @96dpi */
+  .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);display:flex;flex-direction:column;--sa:var(--ember)}
+
+  /* hero band (matches the other resource sheets) */
+  .hero{background:var(--pitch);padding:40px 60px 0;position:relative;flex:none}
+  .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:46px;line-height:1.02;margin:12px 0 14px;letter-spacing:.005em}
+  .hero p{font-size:12.5px;line-height:1.55;color:var(--fg2-d);max-width:640px;margin:0 0 24px}
+  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -60px}
+
+  /* answer toolbar — matches the booklet view toolbar */
+  .toolbar{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.30)}
+  .toolbar button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 15px;border-radius:999px;cursor:pointer}
+  .toolbar #btnAnswers.on{background:var(--solar);color:var(--on-solar)}
+
+  /* ===== fieldset boxes ===== */
+  .stage{flex:1;display:flex;flex-direction:column;gap:24px;padding:34px 60px 84px}
+  .blk{display:inline-block;min-width:106px;border-bottom:1.7px solid #b3ad99;text-align:center;line-height:1.15;vertical-align:baseline;margin:0 4px;padding:0 6px}
+  .blk.sm{min-width:78px}
+  .blk.lg{min-width:158px}
+  .blk .ans{color:transparent;font-weight:600;font-size:.92em;white-space:nowrap}
+  .answers .blk .ans{color:var(--ember)}
+
+  .tbsec{position:relative;border:3px solid var(--ember);border-radius:16px;padding:34px 30px 26px;flex:none}
+  .tbsec-lbl{position:absolute;top:-16px;left:24px}
+  .tbsec-lbl span,.tbmodel-lbl span,.tbisjesus span,.chbox-lbl span{display:inline-block;background:var(--ember);border:3px solid var(--ember);border-radius:8px;padding:7px 14px;font-family:var(--font-display);text-transform:uppercase;font-size:19px;color:var(--slate);line-height:1;letter-spacing:.01em}
+  .tbline{font-size:15px;color:var(--fg1);line-height:1.9}
+  .tbline + .tbline{margin-top:10px}
+  .tbline .ref{font-family:var(--font-mono);font-weight:700;font-size:11.5px;letter-spacing:.03em;color:var(--fg1);text-transform:uppercase}
+  .tbline .arr{color:var(--fg1);font-weight:700;margin:0 4px}
+  .tbline .blk,.tbline .blk.lg{min-width:96px;padding:0 4px;margin:0 3px}
+
+  /* our model timeline box */
+  .tbmodel{position:relative;border:3px solid var(--ember);border-radius:16px;padding:30px 28px;flex:1;display:flex;flex-direction:column}
+  .tbmodel-lbl{position:absolute;top:-16px;left:24px}
+  .tbtl{display:grid;grid-template-columns:repeat(6,1fr);flex:1;position:relative}
+  .tbtl .line{position:absolute;left:4px;right:4px;top:50%;height:3px;background:var(--fg1);transform:translateY(-50%)}
+  .tbcol{display:grid;grid-template-rows:1fr auto 1fr;align-items:center;position:relative;z-index:1}
+  .tbcol .node{grid-row:2;justify-self:center;width:16px;height:16px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 5px var(--slate)}
+  .tbcol .above{grid-row:1;align-self:center;text-align:center;padding:0 4px}
+  .tbcol .below{grid-row:3;align-self:center;text-align:center;padding:0 4px}
+  .tbcol .ref{font-family:var(--font-mono);font-weight:700;font-size:10.5px;letter-spacing:.02em;color:var(--fg1);text-transform:uppercase}
+  .tbcol .txt{font-size:12.5px;color:var(--fg2);line-height:1.4;margin-top:6px;white-space:nowrap}
+  .tbcol .txt .blk{min-width:62px;margin-top:4px}
+  .tbcol .txt .blk .ans{font-size:12.5px}
+  .tbisjesus{position:absolute;bottom:-16px;right:24px}
+
+  /* ===== back page · who sits + challenges ===== */
+  .chstage{flex:1;display:flex;flex-direction:column;gap:22px;padding:44px 60px 84px}
+  .chbox-lbl{position:absolute;top:-16px;left:24px}
+  .wsbox{position:relative;background:linear-gradient(180deg,rgba(235,100,36,.20),rgba(235,100,36,.07));border:3px solid var(--ember);border-radius:16px;padding:30px 30px 24px;flex:none}
+  .wsbox .chbox-lbl span{background:var(--ember);color:var(--slate);border-color:var(--ember)}
+  .wschairs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:end}
+  .wschair{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;min-width:0}
+  .wschair img{height:118px;width:auto;object-fit:contain;object-position:center bottom}
+  .wschair:first-child img{opacity:.5}
+  .wsfield{display:flex;align-items:stretch;width:100%;height:38px;background:var(--slate);border-radius:8px;overflow:hidden}
+  .wsfield .num{flex:none;width:34px;display:flex;align-items:center;justify-content:center;background:var(--ember);color:var(--slate);font-family:var(--font-mono);font-weight:700;font-size:15px}
+  .wsfield .blank{flex:1;display:flex;align-items:center;padding:0 8px;min-width:0;overflow:hidden}
+  .wsfield .blk{border:none;min-width:0;margin:0;text-align:left;white-space:nowrap}
+  .wsfield .ans{font-family:var(--font-display);text-transform:uppercase;font-size:14px;letter-spacing:.01em;font-weight:400}
+
+  /* verse band */
+  .wsverse{position:relative;overflow:hidden;background:var(--pitch);border-radius:16px;padding:30px 40px;flex:none;min-height:150px;display:flex;flex-direction:column;justify-content:center}
+  .wsverse .wsbg{position:absolute;inset:0;background:url('assets/photos/field-house.jpg') center 66%/cover;z-index:0}
+  .wsverse .wsscrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,11,13,.92) 0%,rgba(9,11,13,.82) 50%,rgba(9,11,13,.60) 100%);z-index:1}
+  .wsverse .vghost{position:absolute;top:-96px;right:18px;font-family:var(--font-display);font-size:300px;line-height:1;color:rgba(235,100,36,.14);pointer-events:none;user-select:none;z-index:2}
+  .wsverse .vbar{width:54px;height:5px;background:var(--ember);margin-bottom:16px;position:relative;z-index:3}
+  .wsverse .vk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:var(--solar);margin-bottom:12px;position:relative;z-index:3}
+  .wsverse .vq{font-family:var(--font-body);font-weight:300;font-size:30px;line-height:1.18;letter-spacing:-.02em;color:var(--slate);margin:0;max-width:580px;position:relative;z-index:3}
+  .wsverse .vq em{color:var(--solar);font-style:italic}
+  .wsverse .vref{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:rgba(255,254,249,.7);margin-top:14px;position:relative;z-index:3}
+
+  /* challenges */
+  .chwrap{flex:1;display:flex;flex-direction:column;gap:12px}
+  .chrow{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:14px;align-items:stretch;flex:1}
+  .chcell{border-radius:14px;display:flex;align-items:center;justify-content:center;padding:14px;text-align:center;min-width:0}
+  .chphrase{position:relative;border:3px solid var(--ember)}
+  .chphrase .chbox-lbl span{background:var(--ember);color:var(--slate);border-color:var(--ember);font-size:15px;padding:6px 12px}
+  .chmoveb{background:var(--ember)}
+  .chrefsb{border:3px solid var(--ember);flex-direction:column;gap:6px}
+  .chfield{display:flex;align-items:center;justify-content:center;background:var(--slate);border:2px solid #d6cfba;border-radius:8px;height:46px;width:100%;padding:0 12px;min-width:0;overflow:hidden}
+  .chfield .blk{border:none;min-width:0;margin:0;white-space:nowrap}
+  .chfield .ans{font-family:var(--font-display);text-transform:uppercase;font-size:19px;letter-spacing:.01em;font-weight:400}
+  .chmoveb .chfield{background:transparent;border:none}
+  .chmoveb .chfield .ans{color:var(--slate)}
+  .chrefsb span{font-family:var(--font-mono);font-size:12px;color:var(--fg2);letter-spacing:.02em;white-space:nowrap;line-height:1.3}
+  .chrefsb span:first-child{color:var(--ember);font-weight:700}
+
+  /* footer */
+  .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;z-index:5}
+  .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .rfoot .lg{height:22px;opacity:.82}
+
+  @media print{
+    body{background:#fff;padding:0;gap:0}
+    .rpage{box-shadow:none;break-after:page;page-break-after:always}
+    .rpage:last-of-type{break-after:auto;page-break-after:auto}
+    .toolbar{display:none!important}
+  }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}html.is-embedded #libnav{display:none!important}html.is-embedded body{padding:0!important}</style>
+<script>(function(){var fe=window.frameElement;if(fe&&(fe.getAttribute('aria-hidden')==='true'||fe.hasAttribute('data-fit')))document.documentElement.className+=' is-embedded';})();</script>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—prints front &amp; back on 8.5×11" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
+    <rect x="470" y="196" width="260" height="70" rx="10" fill="#14171a"/>
+    <rect x="470" y="300" width="260" height="90" rx="8" fill="none" stroke="#eb6424" stroke-width="6"/>
+    <rect x="470" y="420" width="260" height="90" rx="8" fill="none" stroke="#eb6424" stroke-width="6"/>
+  </svg>
+</template>
+
+<div class="toolbar"><button id="btnAnswers" type="button" title="Reveal the fill-in answer key">Answers</button></div>
+
+<!-- ============ FRONT · MISSION / VISION / MODEL ============ -->
+<div class="rpage" id="front">
+  <div class="hero">
+    <div class="eyebrow">Southeast Students &middot; Recap</div>
+    <h1>Unleashed<br>Leaders Review</h1>
+    <p>Fill in the blank to recap how we reach the next generation&mdash;Jesus&rsquo; mission, our mission and model, the four chairs, and the challenge that moves people from one to the next.</p>
+    <div class="hz"></div>
+  </div>
+
+  <div class="stage">
+    <div class="tbsec">
+      <div class="tbsec-lbl"><span>Jesus&rsquo; Mission</span></div>
+      <div class="tbline"><span class="ref">Luke 19:10</span><span class="arr">&rarr;</span>To <span class="blk"><span class="ans">seek</span></span> and <span class="blk"><span class="ans">save</span></span> the lost.</div>
+      <div class="tbline"><span class="ref">Colossians 1:6</span><span class="arr">&rarr;</span>To <span class="blk"><span class="ans">make</span></span> and <span class="blk"><span class="ans">multiply</span></span> disciples.</div>
+    </div>
+
+    <div class="tbsec">
+      <div class="tbsec-lbl"><span>Our Mission</span></div>
+      <div class="tbline"><span class="ref">Our Mission</span><span class="arr">&rarr;</span>Connect people to <span class="blk"><span class="ans">Jesus</span></span> and <span class="blk lg"><span class="ans">one another</span></span>.</div>
+      <div class="tbline"><span class="ref">Our Vision</span><span class="arr">&rarr;</span><span class="blk"><span class="ans">Unleash</span></span> the full force of the church to love people <span class="blk lg"><span class="ans">one at a time</span></span>.</div>
+    </div>
+
+    <div class="tbmodel">
+      <div class="tbmodel-lbl"><span>Our Model</span></div>
+      <div class="tbtl">
+        <div class="line"></div>
+        <div class="tbcol"><div class="node"></div><div class="below"><div class="ref">Luke 6:12&ndash;16</div><div class="txt">Jesus chose<br><span class="blk sm"><span class="ans">Twelve</span></span></div></div></div>
+        <div class="tbcol"><div class="above"><div class="ref">Luke 9:1&ndash;6</div><div class="txt">Jesus regularly<br><span class="blk sm"><span class="ans">sent</span></span></div></div><div class="node"></div></div>
+        <div class="tbcol"><div class="node"></div><div class="below"><div class="ref">Luke 9:10&ndash;17</div><div class="txt">Jesus engaged<br><span class="blk sm"><span class="ans">the crowd</span></span></div></div></div>
+        <div class="tbcol"><div class="above"><div class="ref">Luke 9:18&ndash;20</div><div class="txt">Jesus always<br><span class="blk sm"><span class="ans">followed up</span></span></div></div><div class="node"></div></div>
+        <div class="tbcol"><div class="node"></div><div class="below"><div class="ref">Luke 9:23&ndash;27</div><div class="txt">Jesus raised<br><span class="blk sm"><span class="ans">the bar</span></span></div></div></div>
+        <div class="tbcol"><div class="above"><div class="ref">Luke 9:28</div><div class="txt">Jesus invested<br><span class="blk sm"><span class="ans">in a few</span></span></div></div><div class="node"></div></div>
+      </div>
+      <div class="tbisjesus"><span>Is Jesus</span></div>
+    </div>
+  </div>
+
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Mission, Vision &amp; Model</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ BACK · WHO SITS + CHALLENGES ============ -->
+<div class="rpage" id="back">
+  <div class="chstage">
+    <div class="wsbox">
+      <div class="chbox-lbl"><span>Who Sits In Each</span></div>
+      <div class="wschairs">
+        <div class="wschair"><img src="assets/chairs/chair-1-lost.png" alt=""><div class="wsfield"><span class="num">1</span><span class="blank"><span class="blk"><span class="ans">The Lost</span></span></span></div></div>
+        <div class="wschair"><img src="assets/chairs/chair-2-believer.png" alt=""><div class="wsfield"><span class="num">2</span><span class="blank"><span class="blk"><span class="ans">The Believer</span></span></span></div></div>
+        <div class="wschair"><img src="assets/chairs/chair-3-worker.png" alt=""><div class="wsfield"><span class="num">3</span><span class="blank"><span class="blk"><span class="ans">The Worker</span></span></span></div></div>
+        <div class="wschair"><img src="assets/chairs/chair-4-disciplemaker.png" alt=""><div class="wsfield"><span class="num">4</span><span class="blank"><span class="blk"><span class="ans">Disciple-Maker</span></span></span></div></div>
+      </div>
+    </div>
+
+    <div class="wsverse">
+      <div class="wsbg"></div>
+      <div class="wsscrim"></div>
+      <div class="vghost">&ldquo;</div>
+      <div class="vbar"></div>
+      <div class="vk">The Aim of Every Chair</div>
+      <p class="vq">&ldquo;Whoever claims to live in him must <em>walk as Jesus did.</em>&rdquo;</p>
+      <div class="vref">1 John 2:6</div>
+    </div>
+
+    <div class="chwrap">
+      <div class="chrow">
+        <div class="chcell chphrase"><div class="chbox-lbl"><span>Challenge #1</span></div><div class="chfield"><span class="blk"><span class="ans">Come &amp; See</span></span></div></div>
+        <div class="chcell chmoveb"><div class="chfield"><span class="blk"><span class="ans">Reach</span></span></div></div>
+        <div class="chcell chrefsb"><span>John 1:39</span><span>John 1:46</span><span>John 4:29</span></div>
+      </div>
+      <div class="chrow">
+        <div class="chcell chphrase"><div class="chbox-lbl"><span>Challenge #2</span></div><div class="chfield"><span class="blk"><span class="ans">Follow Me</span></span></div></div>
+        <div class="chcell chmoveb"><div class="chfield"><span class="blk"><span class="ans">Build</span></span></div></div>
+        <div class="chcell chrefsb"><span>John 1:43</span><span>Luke 9:23</span><span>Luke 9:57</span></div>
+      </div>
+      <div class="chrow">
+        <div class="chcell chphrase"><div class="chbox-lbl"><span>Challenge #3</span></div><div class="chfield"><span class="blk"><span class="ans">Fish for Men</span></span></div></div>
+        <div class="chcell chmoveb"><div class="chfield"><span class="blk"><span class="ans">Equip</span></span></div></div>
+        <div class="chcell chrefsb"><span>Matthew 4:19</span><span>Luke 5:1&ndash;11</span><span>Luke 10:2</span></div>
+      </div>
+      <div class="chrow">
+        <div class="chcell chphrase"><div class="chbox-lbl"><span>Challenge #4</span></div><div class="chfield"><span class="blk"><span class="ans">Go &amp; Bear Fruit</span></span></div></div>
+        <div class="chcell chmoveb"><div class="chfield"><span class="blk"><span class="ans">Multiply</span></span></div></div>
+        <div class="chcell chrefsb"><span>John 15:5</span><span>Matthew 28:19</span><span>Colossians 1:6</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Four Chairs &amp; The Challenge</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('btnAnswers');
+  if(!btn)return;
+  function setAnswers(on){
+    document.querySelectorAll('.rpage').forEach(function(p){p.classList.toggle('answers',on);});
+    btn.classList.toggle('on',on);
+    try{localStorage.setItem('ul-op-answers',on?'1':'0');}catch(e){}
+  }
+  var a0=false;try{a0=localStorage.getItem('ul-op-answers')==='1';}catch(e){}
+  setAnswers(a0);
+  btn.onclick=function(){setAnswers(!document.querySelector('.rpage').classList.contains('answers'));};
+})();
+</script>
+<script src="print-marks.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baptism Guide—Southeast Students</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{--font-display:'Anton','Arial Narrow',sans-serif}
+  body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;flex-direction:column;align-items:center;gap:40px}
+  a{color:var(--fire)} a:hover{color:var(--ember)}
+
+  /* 8.5x11 portrait @96dpi */
+  .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);display:flex;flex-direction:column;
+         --bblue:#33adcc;--bblue-dk:#1d829c;--sa:#33adcc;--sa-ghost:#d6eef5}
+
+  /* hero band (matches the other resource sheets) */
+  .hero{background:var(--pitch);padding:30px 60px 0;position:relative;flex:none}
+  .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:44px;line-height:1.02;margin:11px 0 12px;letter-spacing:.005em}
+  .hero p{font-size:12.5px;line-height:1.5;color:var(--fg2-d);max-width:610px;margin:0 0 20px}
+  .hero p b{color:var(--slate);font-weight:600}
+  .hero p i{font-style:italic}
+  .hero .drop{position:absolute;right:52px;top:34px;width:70px;height:70px;object-fit:contain;opacity:.95}
+  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -60px}
+
+  /* slim header (back page) */
+  .shead{padding:38px 60px 0;flex:none}
+  .shead .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .shead h2{font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1;margin:9px 0 0;color:var(--fg1)}
+  .shead .rule{height:3px;background:var(--sa);margin:15px 0 0}
+
+  /* body */
+  .body{padding:20px 60px 0;display:flex;flex-direction:column;flex:1;gap:4px}
+
+  /* number device (block + circle bites) + section bar */
+  .bsec{display:flex;align-items:stretch;height:44px;flex:none;margin-top:8px}
+  .bsec:first-child{margin-top:0}
+  .bk{flex:none;width:36px;background:radial-gradient(circle 25px at calc(100% + 18px) 50%, transparent 24.6px, var(--bblue) 25px);border-radius:11px 0 0 11px}
+  .bnc{flex:none;width:38px;display:flex;align-items:center;justify-content:center}
+  .bnc span{font-family:var(--font-display);color:var(--bblue);font-size:26px;line-height:1}
+  .bar{flex:1;min-width:0;background:radial-gradient(circle 25px at -18px 50%, transparent 24.6px, var(--bblue) 25px);border-radius:0 9px 9px 0;display:flex;align-items:center;padding:0 20px 0 22px}
+  .bar h3{font-family:var(--font-display);color:#fff;font-size:21px;letter-spacing:.02em;margin:0;text-transform:uppercase;display:flex;align-items:baseline;gap:7px;white-space:nowrap}
+  .bar h3 .to{font-family:var(--font-body);font-style:italic;font-weight:600;font-size:13px;letter-spacing:.01em;color:rgba(255,255,255,.92);align-self:center}
+
+  .bbody{padding:10px 4px 6px 74px;flex:none}
+  .bbody ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+  .bbody li{font-size:13px;color:var(--fg1);line-height:1.42;padding-left:18px;position:relative}
+  .bbody li::before{content:'';position:absolute;left:1px;top:7px;width:6px;height:6px;border-radius:50%;background:var(--bblue)}
+  .bbody li b{font-weight:700}
+
+  .gtab{display:grid;grid-template-columns:132px 1fr;gap:7px 22px;align-items:baseline}
+  .gtab .gr{font-family:var(--font-body);font-size:13px;font-weight:700;color:var(--bblue-dk);text-align:right;white-space:nowrap}
+  .gtab .gd{font-size:13px;color:var(--fg1);line-height:1.35}
+
+  /* baptism symbol—two callout boxes, sized to content */
+  .bsym{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:9px 0;max-width:500px}
+  .bsym .sy{display:flex;align-items:center;gap:12px;background:rgba(51,173,204,.10);border:1.5px solid var(--bblue);border-radius:11px;padding:10px 16px;font-size:13px;color:var(--fg1);line-height:1.4}
+  .bsym .sy small{display:block;font-size:11px;color:var(--fg2);font-style:italic;margin-top:2px;font-weight:400}
+  .bsym b{color:var(--bblue);font-weight:800}
+  .bsym .sy > div{white-space:nowrap}
+  .bsym .ar{flex:none;width:22px;height:22px;color:var(--bblue)}
+  .bsym .ar svg{width:100%;height:100%;display:block}
+
+  /* The Bridge — numbered rows with cut-out illustrations */
+  .bridge-rows{display:flex;flex-direction:column;flex:1;margin-top:10px}
+  .brow{display:grid;align-items:center;gap:22px;padding:18px 0}
+  .brow + .brow{border-top:2px dotted #c5cace}
+  .brow.r1{grid-template-columns:44px auto 1fr;gap:28px}
+  .brow.txtl{grid-template-columns:44px 1fr 224px}
+  .brow.diagl{grid-template-columns:44px 224px 1fr}
+  .brow > div{min-width:0}
+  .bnum{width:44px;height:44px;border-radius:50%;background:var(--bblue);color:#fff;font-family:var(--font-display);font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+  .usgod{font-family:var(--font-display);color:var(--bblue);font-size:40px;line-height:1;text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+  .bp{font-size:13.5px;color:var(--fg1);line-height:1.46;margin:0}
+  .bp + .bp{margin-top:8px}
+  .bp b{font-weight:700;color:var(--fg1)}
+  .bdiag img{width:100%;height:auto;display:block}
+  /* section 4 = section 3 base + live overlays (cross, JESUS, arch, GIFT/GOD/LIFE) */
+  .bridge-j{position:relative;width:100%;line-height:0}
+  .bridge-j > img{width:100%;display:block}
+  .bridge-j .jx-cv,.bridge-j .jx-ch{position:absolute;background:#7f7f7f}
+  .bridge-j .jx-cv{left:47.4%;width:5.2%;top:20%;bottom:2.5%}
+  .bridge-j .jx-ch{left:29%;width:42%;top:32%;height:9.5%}
+  .bridge-j .jx-jesus{position:absolute;left:29%;width:42%;top:32%;height:9.5%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);text-transform:uppercase;font-size:12px;letter-spacing:.03em;line-height:1}
+  .bridge-j .jx-arch{position:absolute;left:27%;top:11%;width:44%;height:17%;color:#7f7f7f;overflow:visible}
+  .bridge-j .jx-right{position:absolute;right:5%;top:51%;display:flex;flex-direction:column;gap:7px;align-items:flex-end;text-align:right}
+  .bridge-j .jx-right span{color:#fff;font-family:var(--font-display);text-transform:uppercase;font-size:15px;line-height:1;letter-spacing:.01em}
+
+  /* footer */
+  .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 60px}
+  .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .rfoot .lg{height:22px;opacity:.82}
+
+  @media print{
+    body{background:#fff;padding:0;gap:0}
+    .rpage{box-shadow:none;break-after:page;page-break-after:always}
+    .rpage:last-of-type{break-after:auto;page-break-after:auto}
+  }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}html.is-embedded #libnav{display:none!important}html.is-embedded body{padding:0!important}</style>
+<script>(function(){var fe=window.frameElement;if(fe&&(fe.getAttribute('aria-hidden')==='true'||fe.hasAttribute('data-fit')))document.documentElement.className+=' is-embedded';})();</script>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—prints front &amp; back on 8.5×11" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
+    <rect x="450" y="170" width="300" height="120" rx="10" fill="#14171a"/>
+    <rect x="480" y="330" width="240" height="14" rx="7" fill="#33adcc"/>
+    <rect x="480" y="368" width="240" height="14" rx="7" fill="#33adcc"/>
+    <rect x="480" y="406" width="180" height="14" rx="7" fill="#b3ad99"/>
+  </svg>
+</template>
+
+<!-- ============ FRONT · THE FULL BAPTISM CONVERSATION (1–4) ============ -->
+<div class="rpage">
+  <div class="hero">
+    <div class="eyebrow">Southeast Students &middot; Decision Guide</div>
+    <h1>Baptism</h1>
+    <p>A leader guide to help a student reflect on their <i>decision</i> for Christ and the <i>commitment</i> of baptism&mdash;walking together through their story, the gospel, what baptism means, and their next step.</p>
+    <img class="drop" src="assets/illos/baptism-drop.png" alt="water drop">
+    <div class="hz"></div>
+  </div>
+
+  <div class="body">
+    <div class="bsec"><span class="bk"></span><span class="bnc"><span>1.</span></span><div class="bar"><h3>Starting Questions</h3></div></div>
+    <div class="bbody">
+      <ul>
+        <li>Tell me about your journey with Jesus so far.</li>
+        <li>Why do you want to get baptized?</li>
+        <li>Share with me your understanding of the gospel.</li>
+        <li>Do you have any questions or things you&rsquo;re unsure about?</li>
+      </ul>
+    </div>
+
+    <div class="bsec"><span class="bk"></span><span class="bnc"><span>2.</span></span><div class="bar"><h3>Gospel Conversation <span class="to">( Turn over )</span></h3></div></div>
+    <div class="bbody">
+      <div class="gtab">
+        <div class="gr">Genesis 1</div><div class="gd">God created us for relationship</div>
+        <div class="gr">Genesis 3</div><div class="gd">Sin breaks that relationship</div>
+        <div class="gr">Isaiah 59:2</div><div class="gd">Sin leads to separation from God</div>
+        <div class="gr">Romans 6:23</div><div class="gd">We deserve death, but God gifts us new life</div>
+        <div class="gr">Romans 5:8</div><div class="gd">Christ made a way back for us to God</div>
+        <div class="gr">Acts 2:38</div><div class="gd">Confession leads to forgiveness of sins</div>
+      </div>
+    </div>
+
+    <div class="bsec"><span class="bk"></span><span class="bnc"><span>3.</span></span><div class="bar"><h3>What Is Baptism?</h3></div></div>
+    <div class="bbody">
+      <ul>
+        <li>Ask the student to read <b>Romans 6:1&ndash;7</b> aloud.</li>
+        <li>Baptism is a symbol:</li>
+      </ul>
+      <div class="bsym">
+        <div class="sy"><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"/><path d="M6 14l6 6 6-6"/></svg></span><div>Dying to our <b>old life</b><small>under the water</small></div></div>
+        <div class="sy"><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V4"/><path d="M6 10l6-6 6 6"/></svg></span><div>Rising to <b>new life</b><small>coming up</small></div></div>
+      </div>
+      <ul>
+        <li>Baptism doesn&rsquo;t save us. It is our response to what Jesus already did.</li>
+      </ul>
+    </div>
+
+    <div class="bsec"><span class="bk"></span><span class="bnc"><span>4.</span></span><div class="bar"><h3>Now What?</h3></div></div>
+    <div class="bbody">
+      <ul>
+        <li>Read <b>2 Corinthians 5:17 to 6:2</b>.</li>
+        <li>Today is the day of salvation! Will you go now and be Christ&rsquo;s ambassador? He wants to use you to reach others! Who will you tell?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rfoot"><span class="sec">Decision Guide &middot; Baptism</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ BACK · THE BRIDGE · VISUAL GOSPEL ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Southeast Students &middot; Decision Guide</div>
+    <h2>The Bridge</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="body">
+    <div class="bridge-rows">
+      <div class="brow r1">
+        <div class="bnum">1</div>
+        <div class="usgod">Us + God</div>
+        <p class="bp"><b>Genesis 1</b> describes the start of everything, including the start of humanity. God made us and began a relationship with us.</p>
+      </div>
+      <div class="brow txtl">
+        <div class="bnum">2</div>
+        <div>
+          <p class="bp"><b>Genesis 3</b> describes how our relationship with God was broken by humanity&rsquo;s disobedience.</p>
+          <p class="bp">We call this disobedience &ldquo;sin.&rdquo; God can have nothing to do with sin.<br><br>Read <b>Romans 3:23</b>.</p>
+        </div>
+        <div class="bdiag"><img src="assets/illos/bridge-d2.png" alt="Us and God separated by sin—fallen short"></div>
+      </div>
+      <div class="brow diagl">
+        <div class="bnum">3</div>
+        <div class="bdiag"><img src="assets/illos/bridge-d3-wide.png" alt="The separation between us and God"></div>
+        <p class="bp"><b>Romans 6:23</b> and <b>Isaiah 59:2</b> describe the problem sin creates and its consequences. Sin separates us from God and causes death. There is nothing we can do to return to God on our own.</p>
+      </div>
+      <div class="brow txtl">
+        <div class="bnum">4</div>
+        <div>
+          <p class="bp"><b>Romans 5:8</b>, <b>Romans 10:9&ndash;10</b> and <b>Acts 2:38</b> tell us about the solution. His name is Jesus.</p>
+          <p class="bp">Jesus died for everyone&rsquo;s sin, conquered death, and made a way for us to be with God again.<br><br>When we trust in Jesus and choose to be baptized, we are saved!</p>
+        </div>
+        <div class="bdiag bridge-j">
+        <img src="assets/illos/bridge-d4-base.png" alt="Jesus bridges the gap between us and God">
+        <span class="jx-cv"></span>
+        <span class="jx-ch"></span>
+        <span class="jx-jesus">Jesus</span>
+        <svg class="jx-arch" viewBox="0 0 100 34" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30 Q46 0 84 18"/><path d="M84 18 L74 15 M84 18 L80 29"/></svg>
+        <div class="jx-right"><span>Gift</span><span>God</span><span>Life</span></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rfoot"><span class="sec">Decision Guide &middot; The Bridge</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+<script src="print-marks.js"></script>
+</body>
+</html>
