@@ -52,3 +52,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-16 | R10 - Leader Commitment.html | Moved the Agreement/signature block to the bottom of the back page (rpage flex column, body flex:1, agree margin-top:auto) for a natural signing place | session: resource-sheets
 2026-07-16 | 5 - Fall 2026 Group Content.dc.html | Page 46 (What We Commit to Do): replaced the safety bullet dots with the Leader Commitment branch connector (blue vertical line from the Safety Guidelines heading + a branch to each of the 4 bullets), matching the one-pager | session: resource-sheets
 2026-07-16 | 5 - Fall 2026 Group Content.dc.html | Recolored the user's SVG safety connector strokes from gray (#8a8378) to brand blue (#01b7ff) | session: resource-sheets
+
+--- synced to main 3942d45 2026-07-16 (assets: 82843f1) ---
