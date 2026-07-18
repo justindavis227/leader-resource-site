@@ -54,3 +54,13 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-16 | 5 - Fall 2026 Group Content.dc.html | Recolored the user's SVG safety connector strokes from gray (#8a8378) to brand blue (#01b7ff) | session: resource-sheets
 
 --- synced to main 3942d45 2026-07-16 (assets: 82843f1) ---
+
+2026-07-18 | 0 - Resource Library.dc.html | Reworded resource-card subtitles (Leader Commitment, both Semester Planning, both Ministry Team Evaluation, Solitary Retreat, Unleashed One-Pager, Baptism Guide); added R12 (4-Chair Inventory) card | session: cd-2026-07-18
+2026-07-18 | 1 - Unleashed Leaders Booklet.html | Further Resources: heading "Dashboards"→"LINKS"; removed Leader Resources & SE.Students Dashboard QR rows; kept "What We Believe" with a real scannable+clickable QR (se.church/who-we-are) | session: cd-2026-07-18
+2026-07-18 | 3 - Team Leaders.html | Wired 8 scannable+clickable QR codes to the Vercel site (Fall Planning→R7, Fall Eval→R3, Spring Planning→R8, Spring Eval→R4, Eremos→R5, 4-Chair→R12) plus high5test.com and Invite→secc.org/serve; enlarged invite QR to 84px and centered its dotted connector on "Invite" | session: cd-2026-07-18
+2026-07-18 | 5 - Fall 2026 Group Content.dc.html | Type tuning (stoplight/guardrails 13.5px; Key Takeaway/CTA 12.5px; p2/p3 spacing & letter-spacing matched); Conversations Guide QR centered on stoplight; Leader Commitment blue connector slimmed to 2.5; NEW "Start Up" section spread after Contents; front matter renumbered (Using This Guide=p1, Stoplight 2, In Person 3, Online 4, Commitment 5-6, series from p7); Copyright page replaces prior Blank | session: cd-2026-07-18
+2026-07-18 | R9 - Unleashed Leaders One Pager.html | Back-page challenge rows given more vertical gap so the Challenge #2/#3/#4 labels clear the box above | session: cd-2026-07-18
+2026-07-18 | R10 - Leader Commitment.html | Safety-guideline connector slimmed to 2.5; Agreement box raised off the bottom | session: cd-2026-07-18
+2026-07-18 | R12 - 4 Chair Inventory.html | NEW 8.5x11 resource: Unleashed Leaders 28-statement 4-Chair Personal Inventory on one page (chairs stacked 1→4 left, scoring column right, 9 evenly-spaced next-step lines) | session: cd-2026-07-18
+2026-07-18 | assets/qr-*.svg (x9) | Added scannable QR svgs (all decode-verified): webelieve, r7-fall-planning, r3-fall-eval, r8-spring-planning, r4-spring-eval, r5-eremos, high5test, serve, r12-4chair | session: cd-2026-07-18
+2026-07-18 | (note) | EDIT-LOG 07-18 entries backfilled by Cowork from HANDOFF.md + per-file diffs (CD did not export a ledger this session); provenance for next CD session | session: cowork-reconcile
