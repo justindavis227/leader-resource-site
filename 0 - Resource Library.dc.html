@@ -476,16 +476,24 @@ class Component extends DCLogic {
     const grid = document.getElementById('rgrid');
     if (!grid) return;
     this._grid = grid;
+    // Arrange is an authoring tool: hide it on the live site (any *.vercel.app host) so the
+    // published library is read-only for leaders. In CD preview / local file it stays fully functional.
+    const isLive = /(^|\.)vercel\.app$/i.test(location.hostname);
     [...grid.children].forEach((c, i) => {
       c.dataset.orig = i;
       const a = c.querySelector('a[href]');
       c.dataset.key = a ? a.getAttribute('href') : String(i);
     });
-    this.applySavedOrder();
+    if (!isLive) this.applySavedOrder();
     this.renumber();
 
     const aBtn = document.getElementById('arrangeBtn');
     const rBtn = document.getElementById('resetBtn');
+    if (isLive) {
+      if (aBtn) aBtn.style.display = 'none';
+      if (rBtn) rBtn.style.display = 'none';
+      return;
+    }
     this._arrange = false;
     const setArrange = (on) => {
       this._arrange = on;
