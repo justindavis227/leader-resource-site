@@ -64,3 +64,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-18 | R12 - 4 Chair Inventory.html | NEW 8.5x11 resource: Unleashed Leaders 28-statement 4-Chair Personal Inventory on one page (chairs stacked 1→4 left, scoring column right, 9 evenly-spaced next-step lines) | session: cd-2026-07-18
 2026-07-18 | assets/qr-*.svg (x9) | Added scannable QR svgs (all decode-verified): webelieve, r7-fall-planning, r3-fall-eval, r8-spring-planning, r4-spring-eval, r5-eremos, high5test, serve, r12-4chair | session: cd-2026-07-18
 2026-07-18 | (note) | EDIT-LOG 07-18 entries backfilled by Cowork from HANDOFF.md + per-file diffs (CD did not export a ledger this session); provenance for next CD session | session: cowork-reconcile
+
+--- synced to main 341725c 2026-07-18 (assets: dad95064) ---
