@@ -66,3 +66,7 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-18 | (note) | EDIT-LOG 07-18 entries backfilled by Cowork from HANDOFF.md + per-file diffs (CD did not export a ledger this session); provenance for next CD session | session: cowork-reconcile
 
 --- synced to main 341725c 2026-07-18 (assets: dad95064) ---
+
+2026-07-18 | 0 - Resource Library.dc.html | Arrange mode gated to non-production hosts: hidden on *.vercel.app (live = read-only), kept in CD/local. COWORK-APPLIED (not from CD) — re-apply in the CD sandbox or it will diff as a regression on the next full export | session: cowork-arrange-gate
+
+--- synced to main f6b7f73 2026-07-18 (page-0 arrange-gate; Cowork-applied) ---
