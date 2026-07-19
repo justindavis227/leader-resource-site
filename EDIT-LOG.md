@@ -99,3 +99,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-19 | pdf/ (12 resources) | FIX: re-rendered with the real Inter / Geist Mono / Boldonse / Anton fonts — resolves the on-screen-vs-download mismatch Justin flagged. R6 quote now wraps after "others" exactly like the live sheet; all sheets 8.5x11, single page, Anton headers. | session: cowork-pdf-build
 
 --- real-font pdf fix synced to main bc95ce1 + 185de6f 2026-07-19 ---
+
+2026-07-19 | print-marks.js | Native-print hardening: resource `.rpage` sheets now carry break-inside:avoid + overflow:hidden in the print CSS, so an iOS Safari Share->Print keeps each sheet on ONE page (real fonts nudged the zero-tolerance 11in box a hair over, bumping the last row to page 2). Download pills/#print already served the clean PDF; this fixes only the native browser-print fallback. Verified page counts unchanged (R3/R4=1, R5=3, R9=2). | session: cowork-print-fix

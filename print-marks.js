@@ -23,7 +23,11 @@
       'html,body{background:#fff!important;margin:0!important;padding:0!important;' +
         '-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}' +
       '.rpage-fit{display:block!important;width:auto!important;height:auto!important;margin:0!important;overflow:visible!important}' +
-      '.rpage{box-shadow:none!important;zoom:1!important;transform:none!important;transform-origin:top left!important;break-after:page;page-break-after:always}' +
+      /* keep each fixed-height sheet on ONE page: avoid an internal break, and
+         clip any sub-pixel font-metric overflow (real fonts on iOS Safari nudge
+         the exactly-11in content a hair over, which otherwise bumps the last row
+         to a second page on a native Share->Print). */
+      '.rpage{box-shadow:none!important;zoom:1!important;transform:none!important;transform-origin:top left!important;overflow:hidden!important;break-inside:avoid!important;page-break-inside:avoid!important;break-after:page;page-break-after:always}' +
       '.rpage:last-of-type{break-after:auto;page-break-after:auto}';
     document.head.appendChild(st);
   }
