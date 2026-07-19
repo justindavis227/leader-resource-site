@@ -108,3 +108,11 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-19 | 0 - Resource Library.dc.html | Added R13 "5 Phases" card at the end of Further Resources (17×11 thumbnail, Download pill → pdf/R13). Kept CD's ordering fix (new cards not in the saved localStorage order now append LAST, not first). Merged onto LIVE hub so the 19 existing pdf/ Download pills + reorder + badges + arrange-gate were preserved (CD's export had reverted all Download pills to .html#print). | session: cowork-r13
 2026-07-19 | assets/illos/5phases-*.png (x7) | Added phase-map art: 4 used by R13 (boat-line, chairs-pair, chair-3, chair-5) + 3 source/intermediate kept for future edits (5-phases-src, boat, boat-mask). | session: cowork-r13
 2026-07-19 | pdf/R13 - 5 Phases.pdf | Generated the 17×11 downloadable PDF (Montserrat installed as system font, all 4 images embedded, clean no crop marks, single page 17×11). | session: cowork-r13
+
+2026-07-19 | 1 - Unleashed Leaders Booklet.html | CD: added 2 Notes pages (pp.35–36) after the 33–34 spread; Sketch pages renumbered 37–38. Total now 40 pages (was 38) — divisible by 4, fixes booklet imposition. | session: cowork-bk-update
+2026-07-19 | pdf/1 - Unleashed Leaders Booklet.pdf | Regenerated to 40pg (8×8, real fonts) for the new Notes pages; cover gradient/hazard-stripe verified intact. | session: cowork-bk-update
+2026-07-19 | 5 - Fall 2026 Group Content.dc.html | CD: added Beyond Boring + Those People series overviews (tight em dashes; Beyond Boring trimmed to 3 short paragraphs; synopsis paragraph supports line breaks). Cover series line now lists all four. | session: cowork-bk-update
+2026-07-19 | pdf/5 - Fall 2026 Group Content.dc.pdf | Regenerated to 58pg (8×8, real fonts; dropped the cover-float blank front spacer). | session: cowork-bk-update
+2026-07-19 | (note) | This CD export was a full-sandbox dump; R13, its 7 images, and the hub R13 card were ALREADY live from the prior round — not re-pushed. CD's hub again reverted all 20 pdf Download pills to .html#print — HELD BACK (live hub is authoritative). R13 held back too (CD's copy lacks the #print→PDF redirect). | session: cowork-bk-update
+
+--- booklet 1 (40pg) + booklet 5 (series overviews) synced to main 2026-07-19 ---

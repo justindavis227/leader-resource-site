@@ -373,7 +373,7 @@
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">Series Overview</div>
       <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:44px;line-height:1;margin:8px 0 0">{{ s.title }}</h2>
       <div style="height:1px;background:var(--hairline);margin:16px 0 0"></div>
-      <p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:14px 0 0">{{ s.synopsis }}</p>
+      <p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:14px 0 0;white-space:pre-line">{{ s.synopsis }}</p>
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);font-weight:600;margin:20px 0 4px">Series Outline</div>
       <div style="display:flex;flex-direction:column">
         <sc-for list="{{ s.weeks }}" as="w" hint-placeholder-count="4">
@@ -744,7 +744,11 @@ class Component extends DCLogic {
         theme: 'The invitation to a bold faith', length: '4 Weeks',
         dividerBg: 'var(--blue-rasp)', accentText: 'var(--solar)',
         illo: 'assets/illos/tornado.png',
-        synopsis: `[ Series overview to be added. ]`,
+        synopsis: `Throughout the book of Joshua, we see a theme of strength, courage, and radically bold faith. Joshua believed the promises God had spoken to his ancestors and his mentor—and reaffirmed to Joshua himself. His belief wasn't just an idea in his head; he moved beyond merely believing and lived a life of obedience even when it made him look weird.
+
+Bold Faith isn't only for Bible characters or "professional Christians." It's for every person willing to take a step towards Jesus—and we experience it as we come to know the trustworthy, faithful nature of God. We want students to nurture a bold faith that lasts beyond their current stage of life: students who follow Jesus NOW and in the NEXT season.
+
+One important connection for your students: bold faith doesn't have more power to save than childlike faith, but it helps us live a life of kingdom impact. Our goal is not to make students like Joshua but to connect them to Jesus, the author and perfecter of their faith.`,
         weeks: [
           { t:`All In`, p:`Joshua 1:1-18`,
             k:`A faith that trusts God completely is anything but boring.`,
@@ -785,7 +789,7 @@ class Component extends DCLogic {
         theme: 'Loving the ones we\'d rather avoid', length: '3 Weeks',
         dividerBg: 'var(--pitch)', accentText: '#d1a017',
         illo: 'assets/illos/kite-anchor.png',
-        synopsis: `[ Series overview to be added. ]`,
+        synopsis: `Jesus was hated by many because of who was at his table—quite literally who he shared meals with. He was mocked for eating with "sinners and tax collectors" because he wasn't just content with it—he was passionate about reaching "those people." In Acts we see the Church beginning to be led by the Spirit of Christ to do this same thing. It wasn't natural for them but eventually the apostles began to see the joy of inviting people far from God to join them at the table. Today, the church is still on mission to bring people to the table—even people who hate God, hate us, and who sometimes we hate.`,
         weeks: [
           { t:`People Who Hate God`, p:`Acts 8:4-13`,
             k:`God loved us while we were still far from Him\u2014so we can love people who are far from Him too.`,
