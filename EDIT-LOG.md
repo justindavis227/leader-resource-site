@@ -101,3 +101,10 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 --- real-font pdf fix synced to main bc95ce1 + 185de6f 2026-07-19 ---
 
 2026-07-19 | print-marks.js | Native-print hardening: resource `.rpage` sheets now carry break-inside:avoid + overflow:hidden in the print CSS, so an iOS Safari Share->Print keeps each sheet on ONE page (real fonts nudged the zero-tolerance 11in box a hair over, bumping the last row to page 2). Download pills/#print already served the clean PDF; this fixes only the native browser-print fallback. Verified page counts unchanged (R3/R4=1, R5=3, R9=2). | session: cowork-print-fix
+
+--- native-print fix synced to main 2026-07-19 ---
+
+2026-07-19 | R13 - 5 Phases.html | NEW resource (CD-authored): 17×11 landscape "5 Phases" map — multiply disciples like Jesus, 5-phase timeline with boat medallion, phase bullets, chairs/calls, duration pills. Self-contained (Montserrat + colors_and_type.css); .sheet 1632×1056. COWORK-APPLIED tweak: its inline #print now redirects to /pdf/R13.pdf (was window.print) to match the rest of the site. | session: cowork-r13
+2026-07-19 | 0 - Resource Library.dc.html | Added R13 "5 Phases" card at the end of Further Resources (17×11 thumbnail, Download pill → pdf/R13). Kept CD's ordering fix (new cards not in the saved localStorage order now append LAST, not first). Merged onto LIVE hub so the 19 existing pdf/ Download pills + reorder + badges + arrange-gate were preserved (CD's export had reverted all Download pills to .html#print). | session: cowork-r13
+2026-07-19 | assets/illos/5phases-*.png (x7) | Added phase-map art: 4 used by R13 (boat-line, chairs-pair, chair-3, chair-5) + 3 source/intermediate kept for future edits (5-phases-src, boat, boat-mask). | session: cowork-r13
+2026-07-19 | pdf/R13 - 5 Phases.pdf | Generated the 17×11 downloadable PDF (Montserrat installed as system font, all 4 images embedded, clean no crop marks, single page 17×11). | session: cowork-r13
