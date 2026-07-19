@@ -17,6 +17,42 @@
 
    All DOM wrapping happens on beforeprint and is undone on afterprint, so the
    on-screen view is never disturbed. */
+/* ── Always-on for further-resource sheets (.rpage = 8.5x11) ──────────────
+   1. Give every resource a correct print page box (US Letter, zero margins)
+      so a plain Cmd/Ctrl+P — or the iOS share-sheet Print — lays each sheet
+      out true to size on ONE page instead of bleeding onto two. This runs
+      regardless of the #print launcher, so manual printing behaves too.
+   2. Scale the fixed 816px sheet down to fit narrow (mobile) viewports so the
+      content no longer overflows / smooshes on a phone.                    */
+(function () {
+  function injectResourcePrintPage() {
+    if (!document.querySelector('.rpage') || document.getElementById('__rpage_print')) return;
+    var st = document.createElement('style');
+    st.id = '__rpage_print';
+    st.setAttribute('media', 'print');
+    st.textContent =
+      '@page{size:letter;margin:0}' +
+      'html,body{background:#fff!important;margin:0!important;padding:0!important;' +
+        '-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}' +
+      '.rpage{box-shadow:none!important;zoom:1!important;break-after:page;page-break-after:always}' +
+      '.rpage:last-of-type{break-after:auto;page-break-after:auto}';
+    document.head.appendChild(st);
+  }
+  function fitMobile() {
+    var pages = document.querySelectorAll('.rpage');
+    if (!pages.length) return;
+    var vw = document.documentElement.clientWidth;
+    var z = vw < 840 ? Math.max(0.2, (vw - 24) / 816) : 1;
+    for (var i = 0; i < pages.length; i++) pages[i].style.zoom = (z === 1 ? '' : z);
+  }
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+  ready(function () { injectResourcePrintPage(); fitMobile(); });
+  window.addEventListener('resize', fitMobile);
+})();
+
 (function () {
   // Trigger on ?print=1 OR #print. The hash form survives the preview's
   // link-rewriting (which only recognises the bare filename and would drop a
