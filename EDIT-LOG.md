@@ -70,3 +70,32 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-18 | 0 - Resource Library.dc.html | Arrange mode gated to non-production hosts: hidden on *.vercel.app (live = read-only), kept in CD/local. COWORK-APPLIED (not from CD) — re-apply in the CD sandbox or it will diff as a regression on the next full export | session: cowork-arrange-gate
 
 --- synced to main f6b7f73 2026-07-18 (page-0 arrange-gate; Cowork-applied) ---
+
+2026-07-19 | deck-stage.js | NEW deck-stage runtime component (self-contained; loaded via support.js x-import from the decks) | session: cowork-reconcile
+2026-07-19 | P1 - Unleashed Leaders Deck.dc.html | NEW presentation: Unleashed Leaders / New Leader Training deck, 43 slides (table-discussion format) | session: cowork-reconcile
+2026-07-19 | P2 - Team Leaders Deck.dc.html | NEW presentation: Team Leaders / Leader Investment deck, 129 slides (9 monthly sessions) | session: cowork-reconcile
+2026-07-19 | 0 - Resource Library.dc.html | Added Presentations section linking P1/P2 decks (kept full R1-R12 link set) | session: cowork-reconcile
+--- synced to main 2392343 2026-07-19 (decks P1/P2 + deck-stage; R1/R2 held: sandbox carried stale embed guard) ---
+
+2026-07-19 | print-marks.js | Always-on Letter print box (zero margin, one sheet) for resource sheets — fixes two-page bleed; booklets keep 8.4in square; mobile scale-to-fit (zoom/transform on resize) so 8.5x11 sheets don't smoosh on phones | session: cowork-reconcile
+2026-07-19 | 5 - Fall 2026 Group Content.dc.html | Cover floats to right page in Spread view (blank spacer + isSpread); centered in Single | session: cowork-reconcile
+--- synced to main c28e2e9 2026-07-19 (page5 cover + print-marks; HUB HELD in _cd-update pending real-download build; qr-stoplight.svg missing from repo - broken on live) ---
+
+2026-07-19 | pdf/ (19 files) | NEW: generated true-size, chrome-free, no-crop-mark PDFs for all 19 docs (R1-R12 @8.5x11, booklets @8x8). Cowork-generated via headless Chromium; compressed (gs). | session: cowork-pdf-build
+2026-07-19 | 0 - Resource Library.dc.html | Download pills rewired from #print -> pdf/<name>.pdf (download); reorder + 4 In-Progress badges now LIVE | session: cowork-pdf-build
+2026-07-19 | print-marks.js | #print / ?print now redirects to the pre-rendered /pdf/<doc>.pdf instead of window.print() (kills Safari's URL/date print chrome) | session: cowork-pdf-build
+2026-07-19 | 5 - Fall 2026 Group Content.dc.html | Fixed Cloudflare-obfuscated email (restored mailto:jdavis@secc.org, removed dead /cdn-cgi/ decode script) - was showing "[email protected]" live | session: cowork-pdf-build
+--- synced to main: 51316da (19 pdfs) + 9fdc36c (hub/print-marks/booklet5) 2026-07-19 ---
+2026-07-19 | pdf/ (all 19) | FIX: regenerated with Anton installed as a system font (headless Chromium was silently falling back to Liberation/DejaVu; @font-face/woff2 hadn't loaded). Titles now render in true condensed Anton, matching the site. Anton verified embedded in every PDF. | session: cowork-pdf-build
+--- pdf font-fix synced to main 32adcf4 2026-07-19 ---
+2026-07-19 | pdf/ (7 booklets) | FIX: re-rendered in SCREEN media (print-media was stripping cover photo gradients + the hazard-stripe accent). Also dropped booklet-5's blank spacer page (from the cover-float spread) + 2 stray blanks in booklet 2. Resources unchanged. | session: cowork-pdf-build
+--- booklet pdf fidelity fix synced to main dc06f99 2026-07-19 ---
+2026-07-19 | pdf/ (7 booklets) | FIX: covers lost their photo gradient + hazard stripe because Ghostscript flattens semi-transparent overlays. Dropped gs entirely; instead downsample source photos to 1800px before render, then Fitz-only (preserves transparency). Booklets now 0.6-2.7MB. RULE: never gs-compress these PDFs. | session: cowork-pdf-build
+--- booklet cover transparency fix synced to main 61442a4 2026-07-19 ---
+2026-07-19 | print-marks.js | Mobile fix: resource sheets now scale with transform:scale inside a size-reserving .rpage-fit wrapper instead of CSS zoom (iOS Safari ignored zoom -> footer overlapped content). Verified on device by Justin. | session: cowork-mobile-fix
+--- mobile fix synced to main ae2584a 2026-07-19 ---
+
+2026-07-19 | pdf/ (7 booklets) | FIX: re-rendered with real Inter / Geist Mono / Boldonse installed as system TTFs (body text had been falling back to DejaVu). Covers + interiors verified intact — Anton titles, cover gradients, hazard stripes all preserved. | session: cowork-pdf-build
+2026-07-19 | pdf/ (12 resources) | FIX: re-rendered with the real Inter / Geist Mono / Boldonse / Anton fonts — resolves the on-screen-vs-download mismatch Justin flagged. R6 quote now wraps after "others" exactly like the live sheet; all sheets 8.5x11, single page, Anton headers. | session: cowork-pdf-build
+
+--- real-font pdf fix synced to main bc95ce1 + 185de6f 2026-07-19 ---
