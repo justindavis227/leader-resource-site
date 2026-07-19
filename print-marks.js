@@ -59,6 +59,10 @@
   // ?print= query, leaving the served page without its required token).
   if (!/[?&]print(=|&|$)/.test(location.search) && !/(^|[#&])print($|&|=)/.test(location.hash)) return;
 
+  /* PDF launcher: serve the pre-rendered true-size PDF (clean, no browser chrome) instead of window.print(). */
+  window.location.replace("/pdf/" + encodeURIComponent(decodeURIComponent(location.pathname).replace(/^.*\//,"").replace(/\.html$/i,".pdf")));
+  return;
+
   var isBooklet = false; // decided once the document's pages exist (DC booklets mount late)
   var wrapped = [];
 
