@@ -116,3 +116,9 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-19 | (note) | This CD export was a full-sandbox dump; R13, its 7 images, and the hub R13 card were ALREADY live from the prior round — not re-pushed. CD's hub again reverted all 20 pdf Download pills to .html#print — HELD BACK (live hub is authoritative). R13 held back too (CD's copy lacks the #print→PDF redirect). | session: cowork-bk-update
 
 --- booklet 1 (40pg) + booklet 5 (series overviews) synced to main 2026-07-19 ---
+
+2026-07-20 | (baseline) | Re-baselined CD sandbox from leader-resource-site-baseline-2026-07-20 zip (all pages, runtime JS/CSS, assets, tracking docs) — sandbox now matches live main | session: cd-2026-07-20
+2026-07-20 | 0 - Resource Library.dc.html | Removed stale "Booklets export with crop marks." sentence from hub intro (downloads are clean PDFs now) | session: cd-2026-07-20
+2026-07-20 | 5 - Fall 2026 Group Content.dc.html | Removed page numbers from the four Notes pages (footers keep the "Notes" label); added a two-page Sketch dot-grid spread (from Unleashed Leaders pp.37-38 pattern) after Notes, before back cover | session: fall26-notes-sketch
+
+--- synced to main 609ce2d 2026-07-20 (pdf: 545edd1) ---
