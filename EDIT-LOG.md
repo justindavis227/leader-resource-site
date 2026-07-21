@@ -156,3 +156,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-21 | 0 - Resource Library.dc.html | Added P1n Training Notes card next to P1 Unleashed Leaders deck in Presentations; P2 Team Leaders wraps to next row | session: p1-deck-edits
 2026-07-21 | P1n - Unleashed Leaders Training Notes.html | Fixed overflow: tightened segment/list spacing, moved Week 3 (HSM+MSM specifics) to its own shared page — now 7 pages | session: p1-deck-edits
 2026-07-21 | P1n - Unleashed Leaders Training Notes.html | Page 2 condensed (merged Set Up/Intro/Mission bullets) so homework box clears the footer | session: p1-deck-edits
+
+--- synced to main a36d089 2026-07-21 (pdf: a6a7137) ---
