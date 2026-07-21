@@ -128,3 +128,31 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-20 | tools/render-print-pdfs.js | Print pipeline hardening: hide the `.spread > div[aria-hidden]` cover-float spacer in print CSS (was emitting a blank first sheet); expectPages corrected 38→40 (Booklet 1) and 58→60 (Booklet 5). | session: cowork-printfix
 
 --- synced to main fbac5f6 2026-07-20 (pdf: b837f9a; note: 8bb3630/0b6d0ca carried stale upload snapshots — html landed in fbac5f6) ---
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Dropped CAM row from Ministries slide (MSM/HSM only) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | New "143,556" slide after cover with count-up number animation (replays each time the slide is shown) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Table Discussion slides recolored to ember-orange background so they stand out | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Our Vision slide now includes the booklet campus-map animation (arcs radiating to all campuses via campus-map.js) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | 143,556 count-up slowed to 5s with quintic ease-out (fast start, slow landing) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Our Vision campus map enlarged to 1040px (arrows may run off-slide) and slide footer removed to avoid clashing | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Our Vision map enlarged again to 1440px, full-height bleed behind the slide; vision statement layered on the left | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Our Vision map: Franklin/E-town/Nelson pulled up inside frame (posOverrides); vision statement moved down to 63%; metro labels (South Lou/Beechmont/Southwest) raised for separation | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Chair discussion slides reduced to question-only (RBEM tracker cards removed) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Added 4 "Organized Moments" progression slides (booklet cycle-arrow design; RBEM quadrants + arc arrows light up step by step after each chair discussion) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Added "Organic Moments" slide (booklet straight-arrow 2x2 matrix) after the Chair 4 progression | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Organized Moments slides: dropped N/4 counters; RBEM quadrants enlarged (words 96px, chips 72px, desc 30px, items 28px) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Organized Moments slides: header removed, arrow circle enlarged to 640px with "Our Tools / Organized Moments" set inside the circle | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Replaced single Organic Moments matrix slide with a 4-step Organic Moments progression in the same circle style (outline chips, italic dotted items) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Added "Role Overview" and "You Win When…" slides (booklet pp.16-17) after Your Role 3 | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | You Win When: win banner moved to top-right beside title (smaller); Weekly list back to single column like the booklet | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Organic Moments slides: dropped ring bullets; item text now matches the organized slides (mono uppercase grey) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Organic Moments items back to italic grey with orange numbers (1-3) in front of each item | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Added Review section before Next Steps: divider + 4 fill-in-the-blank recap slides (booklet pp.28-30), each with a blanks slide and an answers slide | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Review slides restyled to match booklet p.28/30: fieldset boxes with dark chip labels (Mission), horizontal node timeline with Is Jesus chip (Our Model), ember row-boxes with answer fields + refs (Challenges) | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Review pairs: answer text now rendered invisibly on blanks slides so layout is pixel-identical when revealing answers (no content shift); challenges rows tightened earlier to clear footer | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Added "Leader Rhythms" slide (booklet p.12) after You Win When, before the 4 Chairs divider | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | Leader Rhythms: lead + list items dropped to 27px | session: p1-deck-edits
+2026-07-21 | P1 - Unleashed Leaders Deck.dc.html | You Win When: bullet lists pulled left (label column 420→300px, gap 60→40px), all three cadence rows stay aligned | session: p1-deck-edits
+2026-07-21 | P1n - Unleashed Leaders Training Notes.html | NEW resource: 6-page 8.5×11 training-notes manuscript rebuilt from Justin's Craft notes (overview + Large Group wks 1-3 + Small Group wks 1-3 + 1-on-1/Few) | session: p1-deck-edits
+2026-07-21 | 0 - Resource Library.dc.html | Added P1n Training Notes card next to P1 Unleashed Leaders deck in Presentations; P2 Team Leaders wraps to next row | session: p1-deck-edits
+2026-07-21 | P1n - Unleashed Leaders Training Notes.html | Fixed overflow: tightened segment/list spacing, moved Week 3 (HSM+MSM specifics) to its own shared page — now 7 pages | session: p1-deck-edits
+2026-07-21 | P1n - Unleashed Leaders Training Notes.html | Page 2 condensed (merged Set Up/Intro/Mission bullets) so homework box clears the footer | session: p1-deck-edits

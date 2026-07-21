@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unleashed Leaders Training Notes—Southeast Students</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{--font-display:'Anton','Arial Narrow',sans-serif}
+  body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;flex-direction:column;align-items:center;gap:40px}
+  a{color:var(--fire)} a:hover{color:var(--ember)}
+
+  /* 8.5x11 portrait @96dpi */
+  .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:#eb6424;display:flex;flex-direction:column}
+
+  /* hero band */
+  .hero{background:var(--pitch);padding:44px 60px 0;position:relative}
+  .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:50px;line-height:1.02;margin:12px 0 14px;letter-spacing:.005em}
+  .hero p{font-size:12.5px;line-height:1.55;color:var(--fg2-d);max-width:640px;margin:0 0 24px}
+  .hero p b{color:var(--slate);font-weight:600}
+  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -60px}
+
+  /* slim header (inner pages) */
+  .shead{padding:40px 60px 0}
+  .shead .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
+  .shead h2{font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1;margin:9px 0 0;color:var(--fg1)}
+  .shead .rule{height:3px;background:var(--sa);margin:16px 0 0}
+
+  .body{padding:22px 60px 74px;display:flex;flex-direction:column;flex:1}
+
+  /* page 1 implementation cards */
+  .impl{border:2px solid var(--sa);border-radius:12px;padding:20px 24px;margin-top:16px}
+  .impl .ih{display:flex;align-items:baseline;gap:12px}
+  .impl .ih .n{font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--sa)}
+  .impl .ih .t{font-family:var(--font-display);text-transform:uppercase;font-size:24px;line-height:1;color:var(--fg1)}
+  .impl .ih .use{margin-left:auto;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;font-weight:700;color:var(--sa);white-space:nowrap}
+  .impl p{font-size:12.5px;line-height:1.5;color:var(--fg2);margin:9px 0 0}
+  .note{margin-top:auto;margin-bottom:26px;background:color-mix(in srgb,var(--sa) 10%,var(--slate));border-radius:12px;padding:16px 22px}
+  .note .nl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10px;font-weight:700;color:var(--sa)}
+  .note p{font-size:12px;line-height:1.5;color:var(--fg2);margin:6px 0 0}
+
+  /* week band */
+  .wk{background:var(--pitch);border-radius:9px;padding:8px 16px;display:flex;align-items:baseline;gap:12px;margin:12px 0 4px}
+  .wk:first-child{margin-top:0}
+  .wk .wl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--sa)}
+  .wk .wt{font-size:12px;color:var(--fg2-d)}
+  .wk .cap{margin-left:auto;font-size:10.5px;font-style:italic;color:var(--fg3-d);white-space:nowrap}
+
+  /* timed segment rows */
+  .seg{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:8px 0;border-bottom:1px solid var(--hairline);align-items:start}
+  .seg:last-of-type{border-bottom:none}
+  .seg .tm{font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--sa);text-align:right;padding-top:1px}
+  .seg .sh{font-size:13px;font-weight:700;color:var(--fg1);text-transform:uppercase;letter-spacing:.02em}
+  .seg .sh small{font-weight:400;text-transform:none;letter-spacing:0;color:var(--fg2);font-size:12px}
+  .seg ul{margin:4px 0 0;padding-left:16px}
+  .seg li{font-size:11px;line-height:1.38;color:var(--fg2);margin:2px 0}
+  .seg li::marker{color:var(--sa)}
+  .seg li b{color:var(--fg1)}
+  .disc{display:inline-block;background:var(--sa);color:var(--slate);border-radius:4px;font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:8.5px;padding:2px 6px;margin-right:5px;vertical-align:1px}
+  .rbem{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.05em;font-size:10px;color:var(--fg3)}
+  .rbem b{color:var(--sa)}
+  .hw{background:color-mix(in srgb,var(--sa) 10%,var(--slate));border-radius:9px;padding:8px 16px;margin-top:8px;font-size:11.5px;line-height:1.5;color:var(--fg2)}
+  .hw b{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:var(--sa)}
+
+  /* footer */
+  .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 60px}
+  .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
+  .rfoot .lg{height:22px;opacity:.82}
+
+  @media print{
+    body{background:#fff;padding:0;gap:0}
+    .rpage{box-shadow:none;break-after:page;page-break-after:always}
+    .rpage:last-of-type{break-after:auto;page-break-after:auto}
+  }
+</style>
+</head>
+<body>
+<style>@media print{#libnav{display:none!important}}html.is-embedded #libnav{display:none!important}html.is-embedded body{padding:0!important}</style>
+<script>(function(){var fe=window.frameElement;if(fe&&(fe.getAttribute('aria-hidden')==='true'||fe.hasAttribute('data-fit')))document.documentElement.className+=' is-embedded';})();</script>
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—8.5&times;11" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+</nav>
+<template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
+    <rect x="450" y="170" width="300" height="120" rx="10" fill="#14171a"/>
+    <rect x="480" y="330" width="60" height="12" rx="4" fill="#eb6424"/>
+    <rect x="552" y="330" width="168" height="12" rx="4" fill="#b3ad99"/>
+    <rect x="480" y="360" width="60" height="12" rx="4" fill="#eb6424"/>
+    <rect x="552" y="360" width="140" height="12" rx="4" fill="#b3ad99"/>
+    <rect x="480" y="390" width="60" height="12" rx="4" fill="#eb6424"/>
+    <rect x="552" y="390" width="168" height="12" rx="4" fill="#b3ad99"/>
+  </svg>
+</template>
+
+<!-- ============ PAGE 1 · OVERVIEW ============ -->
+<div class="rpage">
+  <div class="hero">
+    <div class="eyebrow">Southeast Students &middot; Staff Resource</div>
+    <h1>Unleashed Leaders<br>Training Notes</h1>
+    <p>Three implementations of Unleashed Leaders onboarding, each with a specific context in mind. This manuscript is a <b>general plan of what to cover each session</b>&mdash;the slides and booklet align with these notes.</p>
+    <div class="hz"></div>
+  </div>
+  <div class="body">
+    <div class="impl">
+      <div class="ih"><span class="n">01</span><span class="t">Large Group</span><span class="use">Groups larger than 15</span></div>
+      <p>Usually a good option to kick off a school year, when the most new leaders are coming aboard. Offers the chance to create table conversations and break points during the training. Typically a stand-alone training day and time.</p>
+    </div>
+    <div class="impl">
+      <div class="ih"><span class="n">02</span><span class="t">Small Group</span><span class="use">Groups of 3&ndash;14</span></div>
+      <p>Usually still sitting in one circle. Likely used post Leader Night and pre Leader Celebration when a fair number of potential leaders have shown interest&mdash;or after a membership class where several people show interest in student ministry. Easily paired with ministry time (a breakout during group / program time).</p>
+    </div>
+    <div class="impl">
+      <div class="ih"><span class="n">03</span><span class="t">1 on 1 / Few</span><span class="use">Sporadic interest, year-round</span></div>
+      <p>We never want a lengthy amount of time to pass when helping someone jump into our ministry. Use this option when new leader interest arrives sporadically throughout the year&mdash;walk them through the booklet one-on-one.</p>
+    </div>
+    <div class="note">
+      <div class="nl">Before You Train</div>
+      <p>This training utilizes the 4 Chair Discipling framework (Dann Spader) alongside the Unleashed Leaders booklet. Room set up each week: water, pen, booklet, handouts. Pre-show: looping video (Mission &middot; Vision &middot; Title) and introduce the staff team present. <b style="color:var(--fg1)">Staff note:</b> use the 4 Chair Inventory in your interview to help identify where someone is.</p>
+    </div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 01</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ PAGE 2 · LARGE GROUP · WEEK 1 ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Training Notes &middot; Large Group</div>
+    <h2>Large Group &middot; Week 1</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="body">
+    <div class="wk"><span class="wl">Week 1</span><span class="wt">Disciple Def. &middot; Model &middot; Mission &middot; Motive &middot; Method</span><span class="cap">Minutes in orange</span></div>
+    <div class="seg"><span class="tm">5</span><div><div class="sh">Set Up <small>&mdash; leaving here today we hope you&hellip;</small></div><ul><li>Get a clearer picture of Jesus &middot; of a disciple &middot; feel ready for student ministry to be your place to be unleashed. Share personally: the adventure Christ invited you into as a leader.</li></ul></div></div>
+    <div class="seg"><span class="tm">5</span><div><div class="sh">Intro <small>&mdash; puzzle illustration</small></div><ul><li>Dollar-store puzzle per table, no box. <b>2 min:</b> most puzzle done wins a prize (at Leader Launch). Today we show the box cover&mdash;a clear picture of a disciple.</li><li><span class="disc">Discuss 2 min</span>In your own words, define &ldquo;disciple.&rdquo; Use experiences from your own life.</li></ul></div></div>
+    <div class="seg"><span class="tm">2</span><div><div class="sh">Disciple (def.) <small>&mdash; read Matthew 28:18&ndash;20</small></div><ul><li>One who <b>KNOWS</b> God personally and <b>PURSUES</b> Jesus passionately, modeling everything in their life after the <b>character</b> and <b>priorities</b> of Christ.</li><li>Knows = relationship with God &middot; Pursues = following with everything &middot; Character = growing Christ-likeness &middot; Priorities = disciple-making cues from Jesus.</li></ul></div></div>
+    <div class="seg"><span class="tm">3</span><div><div class="sh">Leader (def.) <small>&mdash; read Luke 9:62; 10:1&ndash;2</small></div><ul><li>A disciple who <b>GRIPS THE PLOW</b> and becomes a <b>HARVEST WORKER</b>. God unleashes a specific purpose in each person for kingdom impact.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Model <small>&mdash; Jesus&rsquo; life is our model</small></div><ul><li><span class="disc">Discuss 2 min</span>What does it mean to &ldquo;walk as Jesus walked&rdquo;? &mdash; 1 John 2:6.</li><li><b>Command C &amp; V:</b> Jesus is our model; copy His character and priorities, paste them into our own life.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Mission <small>&mdash; Jesus sets our mission</small></div><ul><li><span class="disc">Discuss 2 min</span>Why did Jesus come to earth? What was His mission?</li><li><b>Jesus:</b> seek &amp; save the lost (Luke 19:10) &middot; make &amp; multiply disciples (Colossians 1:6). <b>Southeast:</b> connecting people to Jesus &amp; one another.</li><li><b>Stand up</b> if you&rsquo;ve been genuinely discipled. <b>2 min:</b> share what it looked like. Why student ministry? Someone connected you to Jesus&mdash;we get to connect students. Leaders model mission and community.</li></ul></div></div>
+    <div class="seg"><span class="tm">5</span><div><div class="sh">Motive <small>&mdash; love for God and people</small></div><ul><li>1 John 4:19 &ldquo;We love because he first loved us&rdquo; &middot; Matthew 22:37&ndash;40 (First Commandment).</li><li><span class="disc">Discuss 2 min</span>What motivated Jesus? What motivates us?</li></ul></div></div>
+    <div class="seg"><span class="tm">20</span><div><div class="sh">Method <small>&mdash; relational &middot; intentional &middot; missional</small></div><ul><li><b>4 min:</b> 3 notecards per person&mdash;RELATIONAL / INTENTIONAL / MISSIONAL. Jot Scripture from Jesus&rsquo; life for each.</li><li><b>Relational</b> &ldquo;Come follow me&rdquo; &middot; <b>Intentional</b> &ldquo;I will make you&rdquo; &middot; <b>Missional</b> &ldquo;Fish for men.&rdquo; His plan came through 4 CHALLENGES He initiated with His disciples.</li><li><span class="disc">Discuss 2 min</span>Who is investing in you? Into whom are you investing? You will have your <b>WHO</b> and your <b>WHOM</b>.</li></ul></div></div>
+    <div class="hw"><b>Homework</b> &mdash; 4 Chair Personal Inventory &middot; 40 Days of Disciple-Making journal sample &middot; get familiar with the 4 Chairs / Challenges before next week.</div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 02</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ PAGE 3 · LARGE GROUP · WEEKS 2-3 ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Training Notes &middot; Large Group</div>
+    <h2>Large Group &middot; Week 2</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="body">
+    <div class="wk"><span class="wl">Week 2</span><span class="wt">Four Chair Disciple &middot; Reach // Build // Equip // Multiply</span><span class="cap">Have 4 chairs on stage to sit &amp; move in</span></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Set Up + 4 Chair Overview</div><ul><li>Recap as needed. <b>Chair 1</b> Lost (Luke 15) &middot; <b>Chair 2</b> Believer &middot; <b>Chair 3</b> Worker &middot; <b>Chair 4</b> Disciple-Maker.</li><li><b>2 min:</b> share 4 Chair Inventory results at your tables.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Chair 1 <small>&mdash; &ldquo;Come and See&rdquo; &middot; John 1:39 &middot; John 1:46 &middot; John 4:29</small></div><ul><li>Invitation = come and see who Jesus is. Response = repent and believe.</li><li>Sent on a rescue mission: fishers of people (Mark 1:17) &middot; witnesses (Acts 1:8) &middot; ambassadors (2 Cor 5:20).</li><li><span class="disc">Discuss 2 min</span>Who are the lost people crossing your path each day? Write names&mdash;add &ldquo;STUDENTS&rdquo; as a category.</li><li class="rbem"><b>Reach</b> // Build // Equip // Multiply &mdash; MS + HS Camp &middot; ONE Nights &middot; Experience WKND (MSM)</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Chair 2 <small>&mdash; &ldquo;Follow Me&rdquo; &middot; John 1:43 &middot; Luke 9:23 &middot; Luke 9:57</small></div><ul><li>Challenge = lay down your life and follow Jesus.</li><li><span class="disc">Discuss 2 min</span>What does it mean to be a follower? What is expected of one?</li><li>A new disciple learns: identity (in Christ) &middot; how to walk (with Christ) &middot; talk (to God) &middot; feed themselves (God&rsquo;s Word) &middot; clean themselves (repent).</li><li class="rbem">Reach // <b>Build</b> // Equip // Multiply &mdash; Groups &middot; Weekend Worship &middot; Fall Retreat (HSM)</li></ul></div></div>
+    <div class="seg"><span class="tm">15</span><div><div class="sh">Chair 3 <small>&mdash; &ldquo;Fish for Men&rdquo; &middot; Matthew 4:19 &middot; Luke 10:2</small></div><ul><li>Challenge = get after the work of ministry and fish for people.</li><li><span class="disc">Discuss 2 min</span>How do we know we&rsquo;re ready to be a harvest worker? What did Jesus look for?</li><li>Count the cost (Luke 9:23). Read Luke 5:1&ndash;11 for what Jesus looked for in potential leaders.</li><li><b>AFT&rsquo;R more:</b> <span class="disc">Discuss 5 min</span>Am I <b>Available</b> to be used by God? <b>Faithful</b> to Christ and His call? <b>Teachable</b> in actions and attitudes? <b>Responsive</b> to the vision of those leading me? (bottom of p.33)</li><li class="rbem">Reach // Build // <b>Equip</b> // Multiply &mdash; Mission Trips &middot; Serving</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Chair 4 <small>&mdash; &ldquo;Go and Bear Fruit&rdquo; &middot; John 15:5</small></div><ul><li>Challenge = abide in Christ and bear fruit in making disciples.</li><li><span class="disc">Discuss 2 min</span>Where are you strongest right now? Where do you need to improve to produce much fruit?</li><li>Chair 4 disciples aren&rsquo;t just small group leaders&mdash;they use every tool, alongside the Holy Spirit, to reach, build, and equip. Share a disciple-making picture from our ministry.</li><li class="rbem">Reach // Build // Equip // <b>Multiply</b> &mdash; Investing in a few: not a program, a way of life</li></ul></div></div>
+    <div class="seg"><span class="tm">5</span><div><div class="sh">Reach // Build // Equip // Multiply <small>&mdash; overview graphic</small></div><ul><li>Homework: if you didn&rsquo;t finish the 40 Days journal, keep at it.</li></ul></div></div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 03</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ PAGE 4 · SMALL GROUP · WEEK 1 ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Training Notes &middot; Small Group</div>
+    <h2>Small Group &middot; Week 1</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="body">
+    <div class="wk"><span class="wl">Week 1</span><span class="wt">Disciple Def. &middot; Model &middot; Mission &middot; Motive &middot; Method</span><span class="cap">Train from the deck or straight from the booklet</span></div>
+    <div class="seg"><span class="tm">5</span><div><div class="sh">Set Up <small>&mdash; quick get to know you</small></div><ul><li>Share name + what brought you here. Booklet has a note section&mdash;no need to follow along in it.</li><li><b>143,556 students in our region.</b> Most don&rsquo;t know Jesus&mdash;but change starts one student at a time.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Mission + Vision <small>&mdash; Jesus sets our mission</small></div><ul><li><span class="disc">Table Discussion</span>Why did Jesus come to earth? What was His mission?</li><li><b>Jesus:</b> seek &amp; save the lost (Luke 19:10)&mdash;<i>He didn&rsquo;t just flip the light switch on and call it a day</i> &middot; make &amp; multiply disciples (Colossians 1:6).</li><li><b>Southeast&rsquo;s mission:</b> connecting people to Jesus &amp; one another&mdash;rooted in the Great Commission + Great Commandment.</li><li><b>Southeast&rsquo;s vision:</b> unleash the full force of the church to love people one at a time. We make a large church feel small, a large mission tangible. Student ministry is your place of being unleashed.</li></ul></div></div>
+    <div class="seg"><span class="tm">15</span><div><div class="sh">Our Model <small>&mdash; Jesus is our model</small></div><ul><li><span class="disc">Table Discussion</span>In your own words, define &ldquo;disciple.&rdquo; What are some things Jesus did to make disciples?</li><li><b>How Jesus did it:</b> chose Twelve (Lk 6:12&ndash;16) &middot; regularly sent (Lk 9:1&ndash;6) &middot; engaged the crowd (Lk 9:10&ndash;17) &middot; always followed up (Lk 9:18&ndash;20) &middot; raised the bar (Lk 9:23&ndash;27) &middot; invested in a few (Lk 9:28).</li><li><b>What that means for us:</b> Small Groups&mdash;we choose twelve (ish) &middot; Unleash&mdash;we send students out &middot; Program&mdash;we engage the crowd &middot; Intentionality&mdash;we follow up &middot; Expectations&mdash;we raise the bar &middot; One at a Time&mdash;we invest in a few.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Tools <small>&mdash; what&rsquo;s at our disposal?</small></div><ul><li>Look at the Tools page together and explain what we offer as an overview.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Your Role <small>&mdash; summary of your role (booklet p.12)</small></div><ul><li>Read through the role summary and extrapolate. Summarize: Shepherd &middot; Harvest Worker &middot; Teammate.</li><li><b>1 Peter 5:2 &rarr; Shepherd:</b> be shepherds over God&rsquo;s flock&mdash;examples worth following.</li><li><b>Luke 10:2 &rarr; Harvest Worker:</b> Luke 9:62 calls us to grip the plow. Be a worker; call others to the work.</li><li><b>1 Corinthians 3:5&ndash;9 &rarr; Teammate:</b> each plays a part in planting, watering, tilling. God makes it grow&mdash;use your gifts for His Kingdom.</li></ul></div></div>
+    <div class="hw"><b>Homework</b> &mdash; 4 Chair Personal Inventory (booklet pp.15&ndash;16).</div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 04</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ PAGE 5 · SMALL GROUP · WEEKS 2-3 ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Training Notes &middot; Small Group</div>
+    <h2>Small Group &middot; Week 2</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="body">
+    <div class="wk"><span class="wl">Week 2</span><span class="wt">Four Chair Disciple &middot; 4 Challenges lead to 4 Movements</span><span class="cap">Have 4 chairs on stage to sit &amp; move in</span></div>
+    <div class="seg"><span class="tm">5</span><div><div class="sh">Set Up + 4 Chair Overview</div><ul><li>Recap as needed. <b>Chair 1</b> Lost (Luke 15) &middot; <b>Chair 2</b> Believer &middot; <b>Chair 3</b> Worker &middot; <b>Chair 4</b> Disciple-Maker.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 1 <small>&mdash; &ldquo;Come and See&rdquo; &middot; John 1:39 &middot; John 1:46 &middot; John 4:29</small></div><ul><li>Andrew tells Simon; Philip tells Nathanael. Invitation = come and see. Response = repent and believe.</li><li><span class="disc">Discuss 2 min</span>Who are the lost people that naturally cross your path each day?</li><li class="rbem"><b>Reach</b> // Build // Equip // Multiply &mdash; MS + HS Camp &middot; ONE Nights &middot; Worship Nights</li><li><i>Organically:</i> we send students every Wed/Sun to reach their schools, homes, and communities.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 2 <small>&mdash; &ldquo;Follow Me&rdquo; &middot; John 1:43 &middot; Luke 9:23 &middot; Luke 9:57</small></div><ul><li>Challenge = lay down your life and follow Jesus.</li><li><span class="disc">Discuss 2 min</span>What does it mean to be a follower? What is expected of one?</li><li class="rbem">Reach // <b>Build</b> // Equip // Multiply &mdash; Groups &middot; Weekend Worship &middot; Fall Retreat (HSM) &middot; Discipleship WKND (MSM)</li><li><i>Organically:</i> building happens in the in-between moments&mdash;praying and reading with students as we go.</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 3 <small>&mdash; &ldquo;Fish for Men&rdquo; &middot; Matthew 4:19 &middot; Luke 10:2</small></div><ul><li>Challenge = get after the work of ministry and fish for people.</li><li><span class="disc">Discuss 2 min</span>How do we know we&rsquo;re ready to be a harvest worker? What did Jesus look for?</li><li class="rbem">Reach // Build // <b>Equip</b> // Multiply &mdash; Mission Trips &middot; Serving</li><li><i>Organically:</i> modeling mission for our students&mdash;are we going into the fields or just telling them to?</li></ul></div></div>
+    <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 4 <small>&mdash; &ldquo;Go and Bear Fruit&rdquo; &middot; John 15:5</small></div><ul><li>Challenge = abide in Christ and bear fruit in making disciples.</li><li><span class="disc">Discuss 2 min</span>Where are you strongest? Where do you need to improve to produce much fruit?</li><li>Chair 4 disciples aren&rsquo;t just small group leaders&mdash;they use every tool, alongside the Holy Spirit, to reach, build, and equip.</li><li class="rbem">Reach // Build // Equip // <b>Multiply</b> &mdash; Investing in a few: not a program, a way of life</li><li><b>Each chair will be represented in your groups this year.</b> Your job: help students see where they are and get to what God has next.</li></ul></div></div>
+    <div class="hw"><b>Homework</b> &mdash; check with staff on any clearance needs.</div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 05</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ PAGE 6 · WEEK 3 · BOTH TRACKS ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Training Notes &middot; Large Group + Small Group</div>
+    <h2>Week 3 &middot; HSM + MSM Specifics</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="body">
+    <div class="wk"><span class="wl">Week 3</span><span class="wt">Same content for both tracks</span><span class="cap">Large Group: at a Big 3 event &middot; Small Group: HSM &amp; MSM separate</span></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Vision Set Up</div><ul><li>Call back to All In.</li><li>Leaders are the backbone.</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Commitments</div><ul><li><b>Weekly</b> &mdash; Groups &middot; <b>Monthly</b> &mdash; One Nights &middot; <b>Semesterly</b> &mdash; Camps (Fall, Winter, Summer).</li><li><b>Yearly</b> &mdash; Leader Launch, Leader Night, Leader Celebration &middot; <b>Continual</b> &mdash; Investment in a Few.</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Group Details</div><ul><li>Co-leader // Team &middot; School // Grade &middot; Communication.</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Parent Partnerships</div><ul><li>Communication.</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Safety</div><ul><li>Red, Yellow, Green Light &middot; Social Media / Online.</li></ul></div></div>
+    <div class="note" style="margin-top:auto;margin-bottom:26px">
+      <div class="nl">Timing</div>
+      <p>The third week depends on the time of year&mdash;it will be Leader Launch, Leader Night, or Leader Celebration. Leader Launch has a more formal HSM / MSM breakout to offer specific details.</p>
+    </div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 06</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ PAGE 7 · 1 ON 1 / FEW ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Training Notes &middot; 1 on 1 / Few</div>
+    <h2>1 on 1 / Few</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="body">
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">The Walk-Through</div><ul><li>There is a booklet for both <b>MSM</b> and <b>HSM</b>. Use it to walk someone through a general overview of who we are as a ministry and help a potential leader get a feel for our expectations.</li><li>Keep it conversational&mdash;the same Mission / Model / Role / 4 Chairs content, sized for a coffee table instead of a stage.</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">4 Chair Personal Inventory</div><ul><li>Ask the potential leader to fill it out before meeting&mdash;or after, sending it back to you.</li><li>The inventory confronts them with questions that identify where they are, and how our ministry can help them as they help others move to the next chair spiritually.</li></ul></div></div>
+    <div class="note" style="margin-top:26px">
+      <div class="nl">Staff Note</div>
+      <p>Use the 4 Chair Inventory in your interview to help you identify where someone is. And remember the why behind all three tracks: we never want a lengthy amount of time to pass when someone is ready to jump into our ministry.</p>
+    </div>
+    <div style="margin-top:auto;margin-bottom:26px">
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;font-weight:700;color:var(--sa);padding-bottom:5px;border-bottom:2px solid var(--sa)">Companion Resources</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:10px">
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">Unleashed Leaders Booklet <span style="color:var(--fg3)">&middot; the training workbook</span></span>
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">P1 &middot; Unleashed Leaders Deck <span style="color:var(--fg3)">&middot; slides aligned to these notes</span></span>
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">R12 &middot; 4 Chair Inventory <span style="color:var(--fg3)">&middot; homework + interviews</span></span>
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">R9 &middot; Unleashed Leaders One-Pager <span style="color:var(--fg3)">&middot; recap &amp; review</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 07</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<script src="print-marks.js"></script>
+</body>
+</html>
