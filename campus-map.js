@@ -79,6 +79,7 @@
       const clsArc = anim ? uid + '-arc' : '';
       const clsNode = anim ? uid + '-node' : '';
       const clsBey = anim ? uid + '-bey' : '';
+      const clsBeyHead = anim ? uid + '-beyhead' : '';
       let defs = '', bg = '', grid = '', extras = '', arcs = '', beyond = '', nodes = '', labels = '';
 
       // ---- defs: gradients + filters ----
@@ -205,7 +206,7 @@
           const ctrlX = mx + (-dyb / lenb) * bend, ctrlY = my + (dxb / lenb) * bend;
           const ang2 = Math.atan2(y2 - ctrlY, x2 - ctrlX);
           const a1 = ang2 + 2.6, a2 = ang2 - 2.6;
-          head = `<path d="M${x2} ${y2} L${(x2 + Math.cos(a1) * ah).toFixed(1)} ${(y2 + Math.sin(a1) * ah).toFixed(1)} M${x2} ${y2} L${(x2 + Math.cos(a2) * ah).toFixed(1)} ${(y2 + Math.sin(a2) * ah).toFixed(1)}" stroke="${A}" stroke-width="${w}" fill="none" stroke-linecap="round" opacity=".7"/>`;
+          head = `<g class="${clsBeyHead}"><path d="M${x2} ${y2} L${(x2 + Math.cos(a1) * ah).toFixed(1)} ${(y2 + Math.sin(a1) * ah).toFixed(1)} M${x2} ${y2} L${(x2 + Math.cos(a2) * ah).toFixed(1)} ${(y2 + Math.sin(a2) * ah).toFixed(1)}" stroke="${A}" stroke-width="${w}" fill="none" stroke-linecap="round" opacity=".7"/></g>`;
         }
         return `<path class="${clsBey}" d="${p}" fill="none" stroke="url(#${uid}-bey)" stroke-width="${w}" stroke-linecap="round" stroke-dasharray="${cfg.beyond === 'strong' ? '1 0' : '2 7'}"/>${head}`;
       }
@@ -263,7 +264,9 @@
           const ndx = nd && nd.dx || 0, ndy = nd && nd.dy || 0;
           const lx = L.lx + ddx + ndx, ly = L.ly + ddy + ndy, cx = c.x + ddx, cy = c.y + ddy;
           if (L.lead) {
-            labels += `<line x1="${lx + 4}" y1="${ly - 3}" x2="${cx - 5}" y2="${cy}" stroke="${SLATE}" stroke-opacity=".22"/>`;
+            const sx = L.a === 'start' ? lx - 6 : lx + 4;
+            const ex = cx + (cx > sx ? -5 : 5);
+            labels += `<line x1="${sx}" y1="${ly - 3}" x2="${ex}" y2="${cy}" stroke="${SLATE}" stroke-opacity="${cfg.leadOpacity || 0.22}"/>`;
           }
           labels += `<text x="${lx}" y="${ly}" font-family="${fam}" font-size="11" font-weight="500" fill="${cfg.labelFill || '#dfe3e6'}" text-anchor="${L.a}" letter-spacing=".04em">${c.s}</text>`;
         });
@@ -289,12 +292,13 @@
         @keyframes ${uid}-ringpulse{ 0%,100%{ opacity:.14 } 50%{ opacity:.04 } }
         .${uid}-arc { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ${uid}-draw 1.1s cubic-bezier(.5,0,.2,1) forwards; animation-delay: calc(.25s + var(--i,0) * .07s); }
         .${uid}-bey { opacity: 0; animation: ${uid}-fade 1s ease forwards 1s; }
+        .${uid}-beyhead { opacity: 0; animation: ${uid}-fade .45s ease forwards 1.9s; }
         .${uid}-node { transform-box: fill-box; transform-origin: center; opacity: 0; animation: ${uid}-pop .5s cubic-bezier(.3,1.4,.4,1) forwards; animation-delay: calc(.5s + var(--i,0) * .07s); }
         .${uid}-pulse { transform-box: fill-box; transform-origin: center; animation: ${uid}-pulse 2.8s ease-out infinite; }
         .${uid}-ring { animation: ${uid}-ringpulse 4s ease-in-out infinite; animation-delay: calc(var(--i,0) * .3s); }
         @media (prefers-reduced-motion: reduce) {
           .${uid}-arc { animation: none; stroke-dashoffset: 0; }
-          .${uid}-bey,.${uid}-node { animation: none; opacity: 1; }
+          .${uid}-bey,.${uid}-node,.${uid}-beyhead { animation: none; opacity: 1; }
           .${uid}-pulse { animation: none; opacity: 0; }
         }
       </style>`;
