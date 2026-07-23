@@ -231,3 +231,20 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools section: added bullet "Point to your ministry calendar and dates where relevant." | session: direct-edits
 
 --- synced to main 7babfca 2026-07-23 (pdf: ec17ef8) ---
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Re-applied speaker-notes remap from P1n Training Notes onto 2026-07-23 baseline (57 slides; remap originally done post-export for Canva) | session: canva-export
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Cover count-up retimed: 0->143,500 in clean 500 steps over 244s, then final 56 tick 1/second (5 min total) | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Removed slide 61 "The Four Challenges" recap (redundant with Review section) | session: direct-edits
+2026-07-23 | 0 - Resource Library.dc.html | Added "Canva" pill (printpill style) on the P1 Unleashed Leaders card linking to Canva template link https://canva.link/pv5gqvkzxddvuzc (opens own editable copy) | session: canva-export
+2026-07-23 | 0 - Resource Library.dc.html | Added "In progress" pill to P2 Team Leaders deck card (matches existing badge style) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Direct edits mapped to source: intro copy line-break + wording, "TWO PARTS, TWO WEEKS", Part 1/Part 2 wording, 1-on-1 option copy, Before You Train paragraph rewrite, Set Up bullet "+ introduce staff present", HSM+MSM Specifics header rewrite (cap removed) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Direct edits: 1-on-1 booklet bullet ("booklet and slides to guide the conversation", MSM/HSM bolds removed); inventory bullet trimmed ("or after.") | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | 4 Chair Personal Inventory: added two bullets (send photo of results; use insights to guide interview/coaching) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Materials list: "training booklet", "Unleashed Leaders Slides · aligned to these notes", dropped R12/R9 prefixes | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Removed "Vision Set Up" seg from Specifics section | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Removed "Staff Note" callout (4 Chair Inventory / three tracks) from final page | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Removed "Timing" note (Leader Launch/Night/Celebration) from Specifics page | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Commitments seg: Weekly — Groups, Huddles; Semesterly — One Nights, Camps; Monthly dropped; line breaks before Semesterly and Continual | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Commitments: split into four bullets (Weekly / Semesterly / Yearly / Continual) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Group Details bullet: "Co-leader, Team, Grade / Schools / Communication (GroupMe)" (line breaks); Safety bullet: "Stoplight: Red, Yellow, Green Light / Social Media / Online" | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Safety: Social Media / Online split into its own bullet | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Group Details: split into three bullets (Co-leader, Team, Grade / Schools / Communication (GroupMe)) | session: direct-edits
