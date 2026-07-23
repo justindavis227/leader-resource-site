@@ -248,3 +248,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Group Details bullet: "Co-leader, Team, Grade / Schools / Communication (GroupMe)" (line breaks); Safety bullet: "Stoplight: Red, Yellow, Green Light / Social Media / Online" | session: direct-edits
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Safety: Social Media / Online split into its own bullet | session: direct-edits
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Group Details: split into three bullets (Co-leader, Team, Grade / Schools / Communication (GroupMe)) | session: direct-edits
+
+--- synced to main b562002 2026-07-23b (pdf: 76512b5) ---
