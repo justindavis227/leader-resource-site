@@ -229,3 +229,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools section: added bullet "What we do for LEADERS." | session: direct-edits
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools bullet -> "Overview of what we do for LEADERS." (direct edit) | session: direct-edits
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools section: added bullet "Point to your ministry calendar and dates where relevant." | session: direct-edits
+
+--- synced to main 7babfca 2026-07-23 (pdf: ec17ef8) ---
