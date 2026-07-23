@@ -193,3 +193,39 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-22 | P1 - Unleashed Leaders Deck.dc.html | Our Tools slide rebuilt as a section-title slide (pitch bg, divider-style hero title, flat 3x3 tool list, no RBEM language) — RBEM strategy tie-in stays in the later Organized Moments slides | session: vision-map-fixes
 2026-07-22 | P1 - Unleashed Leaders Deck.dc.html | Our Tools redone as its own section: "Section 03 - Our Tools" divider (matching divider style) + separate flat tool-list slide; later sections renumbered (Your Role 04, 4 Chairs 05, Review 06) | session: vision-map-fixes
 2026-07-22 | P1 - Unleashed Leaders Deck.dc.html | Leader Rhythms slide moved from the Your Role section to directly after the Our Tools list slide | session: vision-map-fixes
+
+--- synced to main 72aa36a 2026-07-22 (pdf: 2c5f744) ---
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Room Set Up bullet: "Dollar store puzzle" -> "Dollar store (40-60 piece) puzzle" (direct edit) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Added grey "Illustration" tag (new .illu style, matches Table Discussion pill) in front of the puzzle bullet | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 1 Room Set Up time marker: em-dash -> 0 | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 1 bullet: "picture of discipleship" -> "picture of disciple-making" (direct edit) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 1: Room Set Up segment removed; its 4 bullets moved into Set Up (before existing 2); Room Set Up now a row inside the black week band reading Check-in / Water / Pen / Booklet / Your Special Touch | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 1 band back to plain black box; Room Set Up now a white bar with black border attached beneath it (new .setupbar) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Moved week topic lines out of the black bands into the page hero headers as a new .sub line (pages 2 and 3) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Set Up bullets reordered: name-share first, booklet note split into its own second bullet, puzzle bullets follow | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Room Set Up bar: appended "(Set 15 minutes before people arrive)" (direct edit) | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Added Cover—Count-Up slide (slide 2, 0→143,556 over 5 min, linear, starts on slide entry), Part One divider (after count-up cover) and Part Two divider (before Divider—The Chairs); logic: runCoverCount() + slidechange hooks | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Added Cover—Week 2 slide (duplicate of title slide) after You Win When (slide 38), before Part Two | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 1 Set Up subtitle: "quick get to know you" -> "Illustration to grab the room" (direct edit) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | 143,556 bullet: prefixed "Another picture we have:" | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | 143,556 bullet: "143,556 students in our region." -> "143,556 students." (direct edit) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Your Role section: added bullet referencing the You Win When slide (win + weekly/monthly/semester rhythm) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 1 Homework line: booklet pp.15-16 ref replaced with italic "If doing two weeks, have them bring it back to Part 2" (direct edit) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 2: Room Set Up segment converted to attached white setupbar under black band (matches Week 1) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 2 Set Up + 4 Chair Overview: expanded into per-chair bullets (Lost / Believer / Worker / Disciple-Maker definitions) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Chair 3 bullet: removed "or" ("fishing for people, harvesting...") (direct edit) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Challenges 1-4 RBEM lines simplified to single-word form (Reach/Build/Equip/Multiply = ...); Build adds Retreats, Equip adds Equip Workshops, Multiply = raising up leaders; Chair 4 bullet trimmed (direct edits) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Week 2 hero subtitle -> "4 Chairs / 4 Challenges / Reach // Build // Equip // Multiply" (direct edit) | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Moved Role Overview slide before the Three Callings (Your Role 1-3) slides; removed "(John 15:15)" from all 4 Multiply slides | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Our Tools slide: regrouped items into 3 vertical columns (Camp/One Nights/Worship Nights | Groups/Weekend Worship/Retreats | Equip Workshops/Mission Trips/Serving) | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Leader Rhythms intro sentence forced to a single line (nowrap, wider max-width) | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Our Tools slide: replaced horizontal row rules with orange (ember) vertical column lines | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Our Tools slide: reduced to 2 orange divider lines centered between the 3 columns (first column line removed; borders on cols 2-3 with balanced gap/padding) | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Our Tools slide: removed italic footer line "Your campus shares the when and where for your people." (direct edit, conflict-reconciled) | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Our Tools slide: 3 equal columns, text centered per column, 2 ember lines centered on column breaks | session: direct-edits
+2026-07-23 | P1 - Unleashed Leaders Deck.dc.html | Our Tools slide: columns wrapped in ember rounded-border boxes (style from Jesus’ Mission slide) instead of divider lines | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Your Role section: subtitle drops booklet ref; first bullet reworded ("role overview... Then summarize:"); You Win When bullet condensed to "= a student takes a next step..." (direct edits) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools bullet -> "Overview of what we do with STUDENTS."; You Win When bullet trimmed (rhythm clause removed) (direct edits) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools section: added bullet "What we do for LEADERS." | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools bullet -> "Overview of what we do for LEADERS." (direct edit) | session: direct-edits
+2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Tools section: added bullet "Point to your ministry calendar and dates where relevant." | session: direct-edits
