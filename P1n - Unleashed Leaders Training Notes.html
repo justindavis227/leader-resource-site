@@ -42,7 +42,7 @@
   .impl p{font-size:12.5px;line-height:1.5;color:var(--fg2);margin:9px 0 0}
   .note{margin-top:auto;margin-bottom:26px;background:color-mix(in srgb,var(--sa) 10%,var(--slate));border-radius:12px;padding:16px 22px}
   .note .nl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10px;font-weight:700;color:var(--sa)}
-  .note p{font-size:12px;line-height:1.5;color:var(--fg2);margin:6px 0 0}
+  .note p{font-size:12.5px;line-height:1.5;color:var(--fg2);margin:6px 0 0}
 
   /* week band */
   .wk{background:var(--pitch);border-radius:9px;padding:8px 16px;display:flex;align-items:baseline;gap:12px;margin:12px 0 4px}
@@ -71,6 +71,45 @@
   .rbem b{color:var(--sa)}
   .hw{background:color-mix(in srgb,var(--sa) 10%,var(--slate));border-radius:9px;padding:8px 16px;margin-top:8px;font-size:11.5px;line-height:1.5;color:var(--fg2)}
   .hw b{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:var(--sa)}
+
+  /* staff orientation pages */
+  .cnt{margin-top:16px}
+  .cnt:first-child{margin-top:2px}
+  .cnt .ch{display:flex;align-items:center;gap:11px}
+  .cnt .ch .num{font-family:var(--font-display);font-size:30px;line-height:.9;color:var(--sa)}
+  .cnt .ch .lb{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;color:var(--fg1)}
+  .cnt .ch .hr{flex:1;height:2px;background:var(--hairline)}
+  .kit{border:2px solid var(--pitch);border-radius:12px;padding:4px 20px;margin-top:0}
+  .krow{display:grid;grid-template-columns:24px 96px 1fr;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--hairline)}
+  .krow:last-child{border-bottom:none}
+  .krow .num{font-family:var(--font-display);font-size:24px;line-height:.9;color:var(--sa)}
+  .krow .lb{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;color:var(--fg1)}
+  .krow .it{font-size:12px;line-height:1.5;color:var(--fg2)}
+  .krow .it b{color:var(--fg1);font-weight:600}
+  .krow .it i{color:var(--fg3)}
+  .tiles{display:grid;gap:10px;margin-top:12px}
+  .tiles.c2{grid-template-columns:1fr 1fr}
+  .tiles.c3{grid-template-columns:repeat(3,1fr)}
+  .tile{border:1.5px solid var(--hairline);border-radius:9px;padding:18px 18px;display:flex;gap:9px;align-items:baseline}
+  .tile .i{font-family:var(--font-mono);font-weight:700;font-size:11px;color:var(--sa)}
+  .tile .n{font-size:14px;font-weight:600;color:var(--fg1);line-height:1.25}
+  .tile .n small{display:block;font-weight:400;font-size:10.5px;line-height:1.4;color:var(--fg2);margin-top:3px}
+  .bplist{margin:8px 0 0;padding-left:17px;display:grid;gap:5px}
+  .bplist li{font-size:12.5px;line-height:1.42;color:var(--fg2)}
+  .bplist li::marker{color:var(--sa)}
+  .bplist li b{color:var(--fg1)}
+  .ladder{display:grid;gap:5px;margin-top:9px}
+  .lrow{display:grid;grid-template-columns:66px 1fr;gap:12px;align-items:baseline;padding:7px 14px;border-radius:8px;border:1.5px solid var(--hairline)}
+  .lrow .rk{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--sa)}
+  .lrow .rd{font-size:12.5px;line-height:1.4;color:var(--fg2)}
+  .lrow.best{border-color:var(--sa);background:color-mix(in srgb,var(--sa) 10%,var(--slate))}
+  .lrow.bad{border-color:var(--pitch);background:var(--pitch)}
+  .lrow.bad .rk{color:#fff}
+  .lrow.bad .rd{color:var(--fg2-d)}
+  .purpose{margin-top:auto;margin-bottom:26px;border:2px solid var(--pitch);border-radius:12px;padding:18px 24px}
+  .purpose .nl{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.005em;font-size:24px;line-height:1;color:var(--fg1)}
+  .purpose p{font-size:12px;line-height:1.5;color:var(--fg2);margin:9px 0 0}
+  .purpose p b{color:var(--fg1);font-weight:600}
 
   /* footer */
   .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 60px}
@@ -108,42 +147,93 @@
 <div class="rpage">
   <div class="hero">
     <div class="eyebrow">Southeast Students &middot; Staff Resource</div>
-    <h1>Unleashed Leaders<br>Training Notes</h1>
-    <p>One set of notes. Run at the pace that fits your new-leader pool. This manuscript is a <br><b>general plan of what to cover each session</b>&mdash;the slides and booklet align with these notes.</p>
+    <h1 style="margin-bottom:36px">Unleashed Leaders Notes</h1>
     <div class="hz"></div>
   </div>
   <div class="body">
+    <div class="purpose" style="margin-top:0;margin-bottom:4px">
+      <div class="nl">The Purpose</div>
+      <p style="font-size:12.5px">Our ministry rises and falls on the quality of leaders we have. They are the shepherds, leading our students. <b style="font-size:12.5px">Unleashed Leaders is your chance to ensure you are being diligent with who we let shepherd the sheep.</b></p>
+      <p style="font-size:12.5px">Perfection isn&rsquo;t required in order to lead with us&mdash;but the calling and cost is high. Raising the bar on the front end is easier than trying to raise the bar later. <b>This is your chance to set the pace for the ministry you lead.</b></p>
+    </div>
     <div class="impl">
       <div class="ih"><span class="n">01</span><span class="t">Two Weeks</span><span class="use">TWO PARTS, TWO WEEKS</span></div>
       <p>Part 1 and Part 2 each get their own week. A good rhythm when training pairs with an existing program&mdash;leaders have time between sessions for the homework and for the content to settle.</p>
     </div>
     <div class="impl">
-      <div class="ih"><span class="n">02</span><span class="t">Two Hours</span><span class="use">Both sessions, one sitting</span></div>
+      <div class="ih"><span class="n">02</span><span class="t">Two Hours</span><span class="use">BOTH PARTS, ONE SITTING</span></div>
       <p>Run Hour 1 and Hour 2 back to back as a stand-alone training block. A good fit to kick off a school year or when a group of new leaders needs to be ready quickly&mdash;take a short break between the hours.</p>
     </div>
     <div class="impl">
-      <div class="ih"><span class="n">03</span><span class="t">1 on 1 / Few</span><span class="use">Sporadic interest, year-round</span></div>
+      <div class="ih"><span class="n">03</span><span class="t">1 on 1 / Few</span><span class="use"><span style="letter-spacing:0.76px">RANDOM INTEREST, ANYTIME</span></span></div>
       <p>We never want a lengthy amount of time to pass when helping someone jump into our ministry. Just use the booklet when new leader interest arrives randomly during the year.</p>
     </div>
-    <div class="note">
-      <div class="nl">Before You Train</div>
-      <p>This training utilizes the 4 Chair Discipling framework (Dann Spader) alongside the Unleashed Leaders booklet and slides. Familiarize yourself with 4 Chairs and the content before running a training. It&rsquo;s fine to use the 4 Chair Inventory in your interview before training.</p>
+    <div style="margin-top:auto;margin-bottom:26px">
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;font-weight:700;color:var(--sa);padding-bottom:5px;border-bottom:2px solid var(--sa)">Companion Resources</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:10px">
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">Unleashed Leaders Booklet <span style="color:var(--fg3)">&middot; the training booklet</span></span>
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">Unleashed Leaders Slides <span style="color:var(--fg3)">&middot; aligned to these notes</span></span>
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">4 Chair Inventory <span style="color:var(--fg3)">&middot; homework + interviews</span></span>
+        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">Unleashed Leaders One-Pager <span style="color:var(--fg3)">&middot; recap &amp; review</span></span>
+      </div>
     </div>
   </div>
   <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 01</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
 </div>
 
-<!-- ============ PAGE 2 · WEEK 1 / HOUR 1 ============ -->
+<!-- ============ PAGE 2 &middot; STAFF ORIENTATION ============ -->
+<div class="rpage">
+  <div class="shead">
+    <div class="eyebrow">Staff Orientation</div>
+    <h2>Before Your First Training</h2>
+    <div class="rule"></div>
+    <div class="sub">Best practices &middot; When to run it</div>
+  </div>
+  <div class="body">
+    <div class="note" style="margin-top:0;margin-bottom:0">
+      <div class="nl">Before You Train</div>
+      <p>This training utilizes the 4 Chair Discipling framework (Dann Spader) alongside the Unleashed Leaders booklet and slides. Familiarize yourself with 4 Chairs and the content before running a training.</p>
+    </div>
+
+    <div class="cnt" style="margin-top:42px">
+      <div class="ch"><span class="lb">Best Practices</span><span class="hr"></span></div>
+      <ul class="bplist">
+        <li>Use this New Leader Training process in tandem with all other clearance processes for leaders.</li>
+        <li>Communicate that this training is to help them see if student ministry is a good place for them to be unleashed in their Kingdom work&mdash;<b>they aren&rsquo;t a leader until they are fully cleared, have completed this training, and we mutually agree it&rsquo;s a good fit.</b></li>
+        <li>When possible, slowing down the on-ramp over the course of 2 training times can help you get a better gauge of a potential leader.</li>
+        <li>Resist the urge to fill gaps with any willing volunteer. <b>Good onboarding builds longevity. Rushed onboarding builds a revolving door.</b></li>
+        <li>Connect Unleashed Leaders to before or after the BIG 3 (Leader Launch = Aug, Leader Night = Jan, Leader Celebration = Year End).</li>
+        <li>View HS / MS Camp as an on-ramp to leaders you want to come home and continue discipling their students&mdash;view UL in April / May as a starting line for them to jump in.</li>
+        <li>Have a registration + check-in process.</li>
+        <li>Know each participant&rsquo;s clearance standing when training so you can give clear next steps before and after training as needed.</li>
+      </ul>
+    </div>
+
+    <div class="cnt" style="margin-top:42px;margin-bottom:14px">
+      <div class="ch"><span class="lb">Potential Time Slots to Consider</span><span class="hr"></span></div>
+      <div class="ladder">
+        <div class="lrow best"><span class="rk">Best</span><span class="rd">During the program they will potentially serve in. You quickly identify if they are available&mdash;free yourself to run it during Groups.</span></div>
+        <div class="lrow"><span class="rk">Better</span><span class="rd">A stand-alone time that doesn&rsquo;t compete with anything else. People come in fresh and ready to dive in.</span></div>
+        <div class="lrow"><span class="rk">Good</span><span class="rd">Between your service times on Sunday. Baked-in time they are already coming to church&mdash;catch them in the middle if time allows.</span></div>
+        <div class="lrow"><span class="rk">Okay</span><span class="rd">After church on Sunday. Convenient, but comes at a cost: tired, lull. You&rsquo;ll need to work to revive the room, especially if you run two hours.</span></div>
+        <div class="lrow bad"><span class="rk">Bad</span><span class="rd">Skipping training. Allowing someone not to show up and being okay with it. Free-forming it.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 02</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+</div>
+
+<!-- ============ PAGE 3 · WEEK 1 / HOUR 1 ============ -->
 <div class="rpage">
   <div class="shead">
     <div class="eyebrow">Training Notes</div>
     <h2>Week 1 / Hour 1</h2>
-    <div class="sub">Discipleship Def. &middot; Mission &middot; Model &middot; Tools &middot; Role</div>
+    <div class="sub">DISCIPLESHIP DEFINITION &middot; MISSION &middot; MODEL &middot; TOOLS &middot; ROLE</div>
     <div class="rule"></div>
   </div>
   <div class="body">
-    <div class="wk has-setup"><span class="wl">Week 1 / Hour 1</span><span class="cap">Train from slides <b>NOT</b> booklet. Booklet for notes.</span></div>
-    <div class="setupbar"><span class="sl">Room Set Up</span><span class="sv">Check-in &middot; Water &middot; Pen &middot; Booklet &middot; Your Special Touch (<i>Set 15 minutes before people arrive</i>)</span></div>
+    <div class="wk has-setup"><span class="wl">Week 1 / Hour 1</span><span class="cap">Train from slides <b>NOT</b> booklet. Booklet is for notes.</span></div>
+    <div class="setupbar"><span class="sl">Room Set Up</span><span class="sv">Check-in &middot; Water &middot; Pen &middot; Booklet &middot; Your Special Touch (<i>Be set 15 minutes before people arrive</i>)</span></div>
     <div class="seg"><span class="tm">5</span><div><div class="sh">Set Up <small>&mdash; Illustration to grab the room</small></div><ul><li>Share name + what brought you here + introduce staff present</li><li>Booklet has a note section&mdash;no need to follow along in it.</li><li><span class="illu">Illustration</span>Dollar store (40-60 piece) puzzle. Dump pieces on their tables. You keep the box.</li><li>Give them <b>2 minutes</b> to complete as much as they can. Table with most completed wins a prize (<i>your choice</i>).</li><li>This training is to give you a clear picture of disciple-making. <b>Hold the box up.</b> If you had the puzzle picture in mind, you would know what to do.</li><li>Over the next 2 weeks / 2 hours we will learn how to make disciples in student ministry.</li><li>Another picture we have: <b>143,556 students.</b> Most don&rsquo;t know Jesus&mdash;but change starts one student at a time.</li></ul></div></div>
     <div class="seg"><span class="tm">10</span><div><div class="sh">Mission + Vision <small>&mdash; Jesus sets our mission</small></div><ul><li><span class="disc">Table Discussion</span>Why did Jesus come to earth? What was His mission?</li><li><b>Jesus Mission:</b> seek &amp; save the lost (Luke 19:10) &middot; make &amp; multiply disciples (Colossians 1:6).</li><li><b>Southeast&rsquo;s mission:</b> connecting people to Jesus &amp; one another&mdash;rooted in the Great Commission + Great Commandment.</li><li><b>Southeast&rsquo;s vision:</b> unleash the full force of the church to love people one at a time. We make a large church feel small, a large mission tangible. Student ministry is your place of being unleashed.</li></ul></div></div>
     <div class="seg"><span class="tm">15</span><div><div class="sh">Our Model <small>&mdash; Jesus is our model</small></div><ul><li><span class="disc">Table Discussion</span>In your own words, define &ldquo;disciple.&rdquo; What are some things Jesus did to make disciples?</li><li><b>How Jesus did it:</b> chose Twelve (Lk 6:12&ndash;16) &middot; regularly sent (Lk 9:1&ndash;6) &middot; engaged the crowd (Lk 9:10&ndash;17) &middot; always followed up (Lk 9:18&ndash;20) &middot; raised the bar (Lk 9:23&ndash;27) &middot; invested in a few (Lk 9:28).</li><li><b>What that means for us:</b> Small Groups&mdash;we choose twelve (ish) &middot; Unleash&mdash;we send students out &middot; Program&mdash;we engage the crowd &middot; Intentionality&mdash;we follow up &middot; Expectations&mdash;we raise the bar &middot; One at a Time&mdash;we invest in a few.</li></ul></div></div>
@@ -151,7 +241,7 @@
     <div class="seg"><span class="tm">10</span><div><div class="sh">Your Role <small>&mdash; summary of your role</small></div><ul><li>Read through the role overview and extrapolate. <b>Then summarize:</b> Shepherd &middot; Harvest Worker &middot; Teammate.</li><li><b>1 Peter 5:2 &rarr; Shepherd:</b> be shepherds over God&rsquo;s flock&mdash;examples worth following.</li><li><b>Luke 10:2 &rarr; Harvest Worker:</b> Luke 9:62 calls us to grip the plow. Be a worker; call others to the work.</li><li><b>1 Corinthians 3:5&ndash;9 &rarr; Teammate:</b> each plays a part in planting, watering, tilling. God makes it grow&mdash;use your gifts for His Kingdom.</li><li><b>&ldquo;You Win When&rdquo;</b> = a student takes a next step toward Christ</li></ul></div></div>
     <div class="hw"><b>Homework</b> &mdash; 4 Chair Personal Inventory (<i>If doing two weeks, have them bring it back to Part 2</i>)</div>
   </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 02</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 03</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
 </div>
 
 <!-- ============ PAGE 3 · WEEK 2 / HOUR 2 ============ -->
@@ -165,52 +255,36 @@
   <div class="body">
     <div class="wk has-setup"><span class="wl">Week 2 / Hour 2</span><span class="cap">Have 4 chairs on stage to sit &amp; move in</span></div>
     <div class="setupbar"><span class="sl">Room Set Up</span><span class="sv">Check-in &middot; Water &middot; Pen &middot; Booklet &middot; Your Special Touch (<i>Set 15 minutes before people arrive</i>)</span></div>
-    <div class="seg"><span class="tm">5</span><div><div class="sh">Set Up + 4 Chair Overview</div><ul><li>Recap as needed.</li><li><b>Chair 1 = Lost:</b> everyone is born into this chair. &ldquo;Lost&rdquo; is the Biblical word used in Luke 15.</li><li><b>Chair 2 = Believer:</b> once we place our faith in Christ to forgive our sins we move to chair 2.</li><li><b>Chair 3 = Worker:</b> when you start fishing for people, harvesting the spiritual fields around you, you become a &ldquo;worker.&rdquo;</li><li><b>Chair 4 = Disciple-Maker:</b> when you are personally reaching the lost, building up believers and equipping other workers, you have become a disciple-maker.</li></ul></div></div>
+    <div class="seg"><span class="tm">5</span><div><div class="sh">Set Up + 4 Chair Overview</div><ul><li>Recap as needed.</li><li>Have 4 Chairs on stage as a visual. Consider explaining the overview while moving between chairs and explaining them for engagement.</li><li><b>Chair 1 = Lost:</b> everyone is born into this chair. &ldquo;Lost&rdquo; is the Biblical word used in Luke 15.</li><li><b>Chair 2 = Believer:</b> once we place our faith in Christ to forgive our sins we move to chair 2.</li><li><b>Chair 3 = Worker:</b> when you start fishing for people, harvesting the spiritual fields around you, you become a &ldquo;worker.&rdquo;</li><li><b>Chair 4 = Disciple-Maker:</b> when you are personally reaching the lost, building up believers and equipping other workers, you have become a disciple-maker.</li></ul></div></div>
     <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 1 <small>&mdash; &ldquo;Come and See&rdquo; &middot; John 1:39 &middot; John 1:46 &middot; John 4:29</small></div><ul><li>Andrew tells Simon; Philip tells Nathanael. Invitation = come and see. Response = repent and believe.</li><li><span class="disc">Discuss 2 min</span>Who are the lost people that naturally cross your path each day?</li><li class="rbem"><b>Reach</b> = MS + HS Camp &middot; ONE Nights &middot; Worship Nights</li><li><i>Organically:</i> we send students every Wed/Sun to reach their schools, homes, and communities.</li></ul></div></div>
     <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 2 <small>&mdash; &ldquo;Follow Me&rdquo; &middot; John 1:43 &middot; Luke 9:23 &middot; Luke 9:57</small></div><ul><li>Challenge = lay down your life and follow Jesus.</li><li><span class="disc">Discuss 2 min</span>What does it mean to be a follower? What is expected of one?</li><li class="rbem"><b>Build</b> = Groups &middot; Weekend Worship &middot; Retreats</li><li><i>Organically:</i> building happens in the in-between moments&mdash;praying and reading with students as we go.</li></ul></div></div>
     <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 3 <small>&mdash; &ldquo;Fish for Men&rdquo; &middot; Matthew 4:19 &middot; Luke 10:2</small></div><ul><li>Challenge = get after the work of ministry and fish for people.</li><li><span class="disc">Discuss 2 min</span>How do we know we&rsquo;re ready to be a harvest worker? What did Jesus look for?</li><li class="rbem"><b>Equip</b> = Equip Workshops &middot; Mission Trips &middot; Serving</li><li><i>Organically:</i> modeling mission for our students&mdash;are we going into the fields or just telling them to?</li></ul></div></div>
     <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 4 <small>&mdash; &ldquo;Go and Bear Fruit&rdquo; &middot; John 15:5</small></div><ul><li>Challenge = abide in Christ and bear fruit in making disciples.</li><li><span class="disc">Discuss 2 min</span>Where are you strongest? Where do you need to improve to produce much fruit?</li><li>Chair 4 disciples aren&rsquo;t just small group leaders&mdash;they use every tool, alongside the Holy Spirit, to reach, build, equip</li><li class="rbem"><b>Multiply</b> = Investing in a few: not a program, raising up leaders</li><li><b>Each chair will be represented in your groups this year.</b> Your job: help students see where they are and get to what God has next.</li></ul></div></div>
     <div class="hw"><b>Homework</b> &mdash; check with staff on any clearance needs.</div>
   </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 03</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 04</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
 </div>
 
 <!-- ============ PAGE 4 · HSM + MSM SPECIFICS ============ -->
 <div class="rpage">
   <div class="shead">
     <div class="eyebrow">Training Notes</div>
-    <h2>HSM + MSM Specifics</h2>
-    <div class="rule"></div>
-  </div>
-  <div class="body">
-    <div class="wk"><span class="wl">Specifics</span><span class="wt">Other items you might want to cover in or around training</span></div>
-    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Commitments</div><ul><li><b>Weekly</b> &mdash; Groups, Huddles</li><li><b>Semesterly</b> &mdash; One Nights, Camps (Fall, Winter, Summer).</li><li><b>Yearly</b> &mdash; Leader Launch, Leader Night, Leader Celebration</li><li><b>Continual</b> &mdash; Investment in a Few.</li></ul></div></div>
-    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Group Details</div><ul><li>Co-leader, Team, Grade</li><li>Schools</li><li>Communication (GroupMe)</li></ul></div></div>
-    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Parent Partnerships</div><ul><li>Communication.</li></ul></div></div>
-    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Safety</div><ul><li>Stoplight: Red, Yellow, Green Light</li><li>Social Media / Online</li></ul></div></div>
-  </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 04</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
-</div>
-
-<!-- ============ PAGE 5 · 1 ON 1 / FEW ============ -->
-<div class="rpage">
-  <div class="shead">
-    <div class="eyebrow">Training Notes &middot; 1 on 1 / Few</div>
     <h2>1 on 1 / Few</h2>
     <div class="rule"></div>
   </div>
   <div class="body">
-    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">The Walk-Through</div><ul><li>There is a booklet and slides to guide the conversation. Use it to walk someone through a general overview of who we are as a ministry and help a potential leader get a feel for our expectations.</li><li>Keep it conversational&mdash;the same Mission / Model / Role / 4 Chairs content, sized for a coffee table instead of a stage.</li></ul></div></div>
-    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">4 Chair Personal Inventory</div><ul><li>Ask the potential leader to fill it out before meeting&mdash;or after.</li><li>Have them send you a photo of their results for you to review.</li><li>Use these insights to help guide your interview and help you know how best to coach them going forward.</li><li>The inventory confronts them with questions that identify where they are, and how our ministry can help them as they help others move to the next chair spiritually.</li></ul></div></div>
-    <div style="margin-top:auto;margin-bottom:26px">
-      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px;font-weight:700;color:var(--sa);padding-bottom:5px;border-bottom:2px solid var(--sa)">Companion Resources</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:10px">
-        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">Unleashed Leaders Booklet <span style="color:var(--fg3)">&middot; the training booklet</span></span>
-        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">Unleashed Leaders Slides <span style="color:var(--fg3)">&middot; aligned to these notes</span></span>
-        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">4 Chair Inventory <span style="color:var(--fg3)">&middot; homework + interviews</span></span>
-        <span style="font-size:12px;color:var(--fg2);padding:6px 0;border-bottom:1px solid var(--hairline)">Unleashed Leaders One-Pager <span style="color:var(--fg3)">&middot; recap &amp; review</span></span>
-      </div>
+    <div class="wk"><span class="wl">1 on 1 / Few</span><span class="wt">Using the booklet when interest arrives randomly</span><span class="cap">Booklet-led&mdash;slides optional</span></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">The Walk-Through</div><ul><li>There is a booklet and slides to guide the conversation. Use it to walk someone through a general overview of who we are as a ministry and help a potential leader get a feel for our expectations.</li><li>Use your laptop or phone to show slides as a visual if needed. Or lean fully into the booklet.</li><li>Keep it conversational&mdash;the same Mission / Model / Role / 4 Chairs content, sized for a coffee table instead of a stage.</li></ul></div></div>
+    <div class="seg" style="border-bottom:none"><span class="tm">&mdash;</span><div><div class="sh">4 Chair Personal Inventory</div><ul><li>Ask the potential leader to fill it out before meeting&mdash;or after.</li><li>Have them send you a photo of their results for you to review.</li><li>Use these insights to help guide your interview and help you know how best to coach them going forward.</li><li>The inventory confronts them with questions that identify where they are, and how our ministry can help them as they help others move to the next chair spiritually.</li></ul></div></div>
+    <div style="margin-top:26px">
+      <div style="font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1;color:var(--fg1)">HSM + MSM Specifics</div>
+      <div style="height:3px;background:var(--sa);margin-top:16px"></div>
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;color:var(--fg2);margin-top:8px">Other items you might want to cover in or around training</div>
     </div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Commitments</div><ul><li><b>Weekly</b> &mdash; Groups, Huddles</li><li><b>Semesterly</b> &mdash; One Nights, Camps (Fall, Winter, Summer).</li><li><b>Yearly</b> &mdash; Leader Launch, Leader Night, Leader Celebration</li><li><b>Continual</b> &mdash; Investment in a Few.</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Group Details</div><ul><li>Co-leader, Team, Grade</li><li>Schools</li><li>Communication (GroupMe)</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Parent Partnerships</div><ul><li>Communication.</li></ul></div></div>
+    <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Safety</div><ul><li>Stoplight: Red, Yellow, Green Light</li><li>Social Media / Online</li></ul></div></div>
   </div>
   <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 05</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
 </div>

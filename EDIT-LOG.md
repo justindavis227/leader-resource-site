@@ -250,3 +250,28 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-23 | P1n - Unleashed Leaders Training Notes.html | Group Details: split into three bullets (Co-leader, Team, Grade / Schools / Communication (GroupMe)) | session: direct-edits
 
 --- synced to main b562002 2026-07-23b (pdf: 76512b5) ---
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | 1 on 1 / Few track label: "Sporadic interest, year-round" -> "RANDOM INTEREST, ANYTIME" | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | 1 on 1 / Few track label: "RANDOM INTEREST, ANYTIME" -> "Change" | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | 1 on 1 / Few track label: back to "RANDOM INTEREST, ANYTIME" with 0.76px letter-spacing | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Week 1 sub caps ("DISCIPLESHIP DEFINITION · MISSION · MODEL · TOOLS · ROLE"); "Booklet is for notes."; Week 1 room set-up "Be set 15 minutes before people arrive" | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Week 2 Set Up + 4 Chair Overview: added bullet "Have 4 Chairs on stage as a visual. Consider explaining the overview while moving between chairs..." | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | The Walk-Through: added bullet "Use your laptop or phone to show slides as a visual if needed. Or lean fully into the booklet." | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Added two staff-orientation pages after page 1: "What You're Working With" (4 resources / 3 formats / 2 illustrations + The Purpose) and "Best Practices" (8 bullets + BEST-to-BAD time-slot ladder); renumbered following page footers 02-05 -> 04-07 | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Moved The Purpose block from page 2 to page 1 (above Before You Train) | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 1 hero: title -> "Unleashed Leaders Notes" (one line), intro paragraph removed | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 1: The Purpose moved above the Two Weeks/Two Hours/1-on-1 format cards | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | The Purpose restyled: Anton 24px title (matches "Two Weeks"), black 2px border instead of black fill, dark body text | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Rebalanced orientation pages 02/03 to fill the sheet: taller 4/3/2 tiles with groups spread down the page; roomier best-practice bullets and time-slot ladder | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | The Purpose copy: second paragraph reworded ("Perfection isn't required...") with closing line bolded; body text 12.5px | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Merged the two orientation pages into one page 02 ("Before Your First Training"): compact 4/3/2 kit panel + Best Practices + time-slot ladder; following footers renumbered to 03-06 | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Removed the 4/3/2 kit panel from page 02 and moved the Companion Resources block up to page 02 (removed from the final booklet page) | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Merged the last two pages: "HSM + MSM Specifics · 1 on 1 / Few" now one page (05); doc is 5 pages | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Swapped blocks: Companion Resources now closes page 01; "Before You Train" note opens page 02 (styles unchanged) | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 05 reordered: "1 on 1 / Few" first (Week-style band with caption), HSM + MSM Specifics second; head now "1 on 1 / Few · HSM + MSM Specifics" | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Before You Train: dropped the closing "It's fine to use the 4 Chair Inventory in your interview" sentence | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 02 text up to 12.5px (Before You Train, best-practice bullets, ladder rows); "doesn't compete with anything else" wording | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 05: head is now just "1 on 1 / Few"; added an in-page "HSM + MSM Specifics" title (Anton 34px + ember rule + mono subline) above the specifics section | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Two Hours card label -> "BOTH PARTS, ONE SITTING" | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 05: removed the grey divider under the "4 Chair Personal Inventory" row (last row of the 1 on 1 section) | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 02 subhead -> "Best practices · When to run it" | session: direct-edits
+2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 02: equal 42px gaps above Best Practices and Potential Time Slots | session: direct-edits
