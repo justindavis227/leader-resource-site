@@ -275,3 +275,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 05: removed the grey divider under the "4 Chair Personal Inventory" row (last row of the 1 on 1 section) | session: direct-edits
 2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 02 subhead -> "Best practices · When to run it" | session: direct-edits
 2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 02: equal 42px gaps above Best Practices and Potential Time Slots | session: direct-edits
+
+--- synced to main 3aee778 2026-07-26 (pdf: f37f4ce) ---
