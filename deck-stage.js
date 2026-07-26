@@ -27,7 +27,14 @@
  *      prev/next — taps on links, buttons and other interactive slide
  *      content are left alone.
  *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
- *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *  (d) bottom-center overlay showing slide count + hints. On fine-pointer
+ *      (desktop) devices it is revealed ONLY by mouse movement — keyboard
+ *      navigation never flashes it — and fades out on idle. On touch
+ *      devices (no mousemove) it still flashes on navigation so the
+ *      controls stay reachable. Press F (or the overlay's Present button)
+ *      to toggle browser-fullscreen presenting: the thumbnail rail and
+ *      editing chrome hide, arrows stay silent, and Esc exits. The button
+ *      hides itself where the Fullscreen API is unavailable (iPhone).
  *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
  *      scaled with `transform: scale()` to fit the viewport, letterboxed.
  *      Set the `noscale` attribute to render at authored size (1:1) — the
@@ -259,7 +266,7 @@
     .btn:focus-visible { outline: none; }
     .btn::-moz-focus-inner { border: 0; }
     .btn svg { width: 14px; height: 14px; display: block; }
-    .btn.reset {
+    .btn.reset, .btn.present {
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.02em;
@@ -267,7 +274,7 @@
       gap: 6px;
       color: rgba(255,255,255,0.72);
     }
-    .btn.reset .kbd {
+    .btn.reset .kbd, .btn.present .kbd {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -615,8 +622,10 @@
       this._hideTimer = null;
       this._mouseIdleTimer = null;
       this._menuIndex = -1;
+      this._fsPresenting = false;
 
       this._onKey = this._onKey.bind(this);
+      this._onFsChange = this._onFsChange.bind(this);
       this._onResize = this._onResize.bind(this);
       this._onSlotChange = this._onSlotChange.bind(this);
       this._onMouseMove = this._onMouseMove.bind(this);
@@ -653,6 +662,8 @@
       window.addEventListener('mousemove', this._onMouseMove, { passive: true });
       window.addEventListener('message', this._onMessage);
       window.addEventListener('click', this._onDocClick, true);
+      document.addEventListener('fullscreenchange', this._onFsChange);
+      document.addEventListener('webkitfullscreenchange', this._onFsChange);
       this.addEventListener('click', this._onTap);
       // Print lays every slide out as its own page, so [data-deck-active]-
       // gated entrance styles need the attribute on every slide (not just
@@ -968,6 +979,8 @@
       window.removeEventListener('mousemove', this._onMouseMove);
       window.removeEventListener('message', this._onMessage);
       window.removeEventListener('click', this._onDocClick, true);
+      document.removeEventListener('fullscreenchange', this._onFsChange);
+      document.removeEventListener('webkitfullscreenchange', this._onFsChange);
       window.removeEventListener('beforeprint', this._onBeforePrint);
       window.removeEventListener('afterprint', this._onAfterPrint);
       if (this._freezeStyle) { this._freezeStyle.remove(); this._freezeStyle = null; }
@@ -1046,11 +1059,21 @@
         </button>
         <span class="divider"></span>
         <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+        <span class="divider"></span>
+        <button class="btn present" type="button" aria-label="Present fullscreen" title="Present (F)">Present<span class="kbd">F</span></button>
       `;
 
       overlay.querySelector('.prev').addEventListener('click', () => this._advance(-1, 'click'));
       overlay.querySelector('.next').addEventListener('click', () => this._advance(1, 'click'));
       overlay.querySelector('.reset').addEventListener('click', () => this._go(0, 'click'));
+      this._presentBtn = overlay.querySelector('.present');
+      this._presentBtn.addEventListener('click', () => this._togglePresent());
+      // Fullscreen API is absent on iPhone Safari — hide the affordance
+      // rather than offer a dead button. (style.display, not [hidden]:
+      // the .btn display:inline-flex rule would win over the UA sheet.)
+      if (!(document.fullscreenEnabled || document.webkitFullscreenEnabled)) {
+        this._presentBtn.style.display = 'none';
+      }
 
       // Thumbnail rail + context menu. Thumbnails are populated in
       // _renderRail() after _collectSlides().
@@ -1397,11 +1420,17 @@
       if (showOverlay) this._flashOverlay();
     }
 
-    _flashOverlay() {
+    _flashOverlay(source) {
       // Host posts __omelette_presenting while in fullscreen/tab presentation
       // mode — suppress the nav footer entirely (both hover and slide-change
       // flash) so the audience sees clean slides.
       if (!this._overlay || this._presenting) return;
+      // On fine-pointer (desktop) devices only mouse movement reveals the
+      // pill — arrow/keyboard/tap navigation stays silent so a presenter
+      // clicking through slides shows the audience nothing. Touch devices
+      // never fire mousemove, so they keep the flash-on-navigate reveal or
+      // the overlay's controls would be unreachable.
+      if (source !== 'pointer' && FINE_POINTER_MQ.matches) return;
       this._overlay.setAttribute('data-visible', '');
       if (this._hideTimer) clearTimeout(this._hideTimer);
       this._hideTimer = setTimeout(() => {
@@ -1416,7 +1445,7 @@
       // corrects it.
       if (!this._railEnabled || !this._railVisible || this.hasAttribute('no-rail')
           || this.hasAttribute('noscale') || this._presenting || this._previewMode
-          || NARROW_MQ.matches) return 0;
+          || this._fsPresenting || NARROW_MQ.matches) return 0;
       return this._railPx || 0;
     }
 
@@ -1458,7 +1487,41 @@
 
     _onMouseMove() {
       // Keep overlay visible while mouse moves; hide after idle.
-      this._flashOverlay();
+      this._flashOverlay('pointer');
+    }
+
+    // ── Browser-fullscreen presenting (live site, no CD host) ────────────
+    //
+    // Distinct from _presenting (which the CD host drives via postMessage
+    // and which suppresses the overlay entirely): _fsPresenting hides the
+    // rail + editing chrome but keeps the mousemove-reveal pill so the
+    // presenter can still reach Reset / Exit. Esc exits natively via the
+    // Fullscreen API; F toggles.
+    _togglePresent() {
+      const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+      if (fsEl) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) { try { const p = exit.call(document); if (p && p.catch) p.catch(() => {}); } catch (e) {} }
+        return;
+      }
+      const rootEl = document.documentElement;
+      const req = rootEl.requestFullscreen || rootEl.webkitRequestFullscreen;
+      if (req) { try { const p = req.call(rootEl); if (p && p.catch) p.catch(() => {}); } catch (e) {} }
+    }
+
+    _onFsChange() {
+      this._fsPresenting = !!(document.fullscreenElement || document.webkitFullscreenElement);
+      if (this._presentBtn) {
+        // First child is the label text node; the .kbd span keeps its F.
+        this._presentBtn.childNodes[0].nodeValue = this._fsPresenting ? 'Exit' : 'Present';
+        this._presentBtn.setAttribute('title', this._fsPresenting ? 'Exit fullscreen (F or Esc)' : 'Present (F)');
+        this._presentBtn.setAttribute('aria-label', this._fsPresenting ? 'Exit fullscreen' : 'Present fullscreen');
+      }
+      this._closeMenu();
+      this._closeConfirm();
+      this._syncRailHidden();
+      this._fit();
+      this._scaleThumbs();
     }
 
     _onMessage(e) {
@@ -1535,7 +1598,7 @@
       // transition. data-user-hidden is the soft hide (translateX(-100%))
       // for the viewer's rail toggle, so show/hide slides under
       // :host([data-rail-anim]).
-      const hard = !this._railEnabled || this._presenting || this._previewMode;
+      const hard = !this._railEnabled || this._presenting || this._previewMode || this._fsPresenting;
       if (hard) this._rail.setAttribute('data-presenting', '');
       else this._rail.removeAttribute('data-presenting');
       if (!this._railVisible) this._rail.setAttribute('data-user-hidden', '');
@@ -1612,6 +1675,10 @@
         this._go(this._slides.length - 1, 'keyboard');
       } else if (key === 'r' || key === 'R') {
         this._go(0, 'keyboard');
+      } else if (key === 'f' || key === 'F') {
+        // Toggle browser-fullscreen presenting. keydown is a user gesture,
+        // so requestFullscreen is permitted here.
+        this._togglePresent();
       } else if (/^[0-9]$/.test(key)) {
         // 1..9 jump to that slide; 0 jumps to 10.
         const n = key === '0' ? 9 : parseInt(key, 10) - 1;
