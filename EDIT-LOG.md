@@ -277,3 +277,6 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-26 | P1n - Unleashed Leaders Training Notes.html | Page 02: equal 42px gaps above Best Practices and Potential Time Slots | session: direct-edits
 
 --- synced to main 3aee778 2026-07-26 (pdf: f37f4ce) ---
+
+2026-07-26 | group-cards/ (NEW, unlinked) | Added Group Cards Fall 2026 viewer app at group-cards/index.html + 17 per-week PDFs in group-cards/pdf/. Deliberately NOT linked from the hub — direct-link only (per-week deep links #s#w#). Cowork-generated from Leader Resource Site/Group Cards pipeline; CD never edits these. | session: group-cards-live
+2026-07-26 | SITE-MANIFEST.md | Documented the unlinked group-cards/ path (Cowork-generated, outside the hub link graph, do not clean up) | session: group-cards-live
