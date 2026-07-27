@@ -287,3 +287,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 --- synced to main 5c197a4 2026-07-27 ---
 2026-07-27 | 0 - Resource Library.dc.html | Top nav: added "Group Cards ↗" page-link chip (href="group-cards/", ember-tinted to read as external vs the scroll-spy chips). group-cards/ is Cowork-generated, repo-only — 404s in the CD sandbox by design | session: hub-relayout
 2026-07-27 | 0 - Resource Library.dc.html | Mobile (≤760px): chip row replaced by a hamburger menu (brand stays visible; dropdown with Booklets/Resources/Presentations/Group Cards, closes on selection). Desktop chip row + scroll-spy unchanged; all JS/CSS inside the hub file | session: hub-relayout
+
+--- synced to main d5b0165 2026-07-27 (nav) ---
