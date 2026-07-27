@@ -291,3 +291,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 --- synced to main d5b0165 2026-07-27 (nav) ---
 
 2026-07-27 | 0 - Resource Library.dc.html | Mobile nav fix: chip row now actually hidden ≤760px (.navrow display:none needs !important — the nav carries an inline display:flex that beat the plain media rule; verified broken on Justin’s device screenshot). Hamburger-only on mobile | session: hub-relayout
+
+--- synced to main 229fbed 2026-07-27 (mobile nav fix) ---
