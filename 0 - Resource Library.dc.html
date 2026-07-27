@@ -12,32 +12,73 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;display=swap" rel="stylesheet">
 <style>
   body{margin:0;background:#e7e3d7}
-  .printpill{position:absolute;top:12px;right:12px;z-index:5;display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.07em;font-size:10px;color:#fffef9;background:rgba(14,18,21,.74);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 12px;text-decoration:none;white-space:nowrap;transition:background .15s}
-  .printpill:hover{background:var(--ember)}
-  @media (max-width:760px){ .lib-wrap{padding:44px 26px 72px !important} }
-  @media (max-width:480px){ .lib-wrap{padding:30px 16px 60px !important} }
+  a{color:var(--fg1)} a:hover{color:var(--ember)}
+  .printpill{position:absolute;top:10px;right:10px;z-index:5;display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.07em;font-size:10px;color:#fffef9;background:rgba(14,18,21,.74);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:6px 11px;text-decoration:none;white-space:nowrap;transition:background .15s}
+  .printpill:hover{background:var(--ember);color:#fffef9}
+  .navchip{font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--fg2);text-decoration:none;border:1.5px solid var(--hairline);border-radius:999px;padding:8px 14px;white-space:nowrap;transition:all .15s;display:inline-flex;align-items:baseline;gap:7px}
+  .navchip:hover{border-color:var(--ember);color:var(--ember)}
+  .navchip.active{background:var(--fg1);border-color:var(--fg1);color:#fffef9}
+  .navchip .cnt{font-size:9px;opacity:.55}
+  .anchor{scroll-margin-top:84px}
+  .navrow{overflow-x:auto;scrollbar-width:none}
+  .navrow::-webkit-scrollbar{display:none}
+  @media (max-width:760px){
+    .navbrand{display:none !important}
+    .sectionpad{padding-left:18px !important;padding-right:18px !important}
+    .heropad{padding:36px 18px 8px !important}
+    .heroh1{font-size:38px !important}
+  }
+  @media (max-width:760px){
+    .pgridcols{grid-template-columns:1fr !important}
+    .panel{padding:22px 16px 30px !important;border-radius:18px !important}
+  }
 </style>
 </helmet>
 
-<div class="lib-wrap" style="min-height:100vh;font-family:var(--font-body);color:var(--fg1);padding:64px 64px 96px">
+<div style="min-height:100vh;font-family:var(--font-body);color:var(--fg1)" data-screen-label="Resource Library">
 
-  <div style="max-width:1240px;margin:0 auto 44px">
-    <div style="font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:13px;color:var(--ember)">Southeast Students</div>
-    <h1 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:54px;line-height:1.02;letter-spacing:-.01em;margin:14px 0 0">LEADER RESOURCES</h1>
-    <p style="font-size:15px;line-height:1.55;color:var(--fg2);max-width:600px;margin:14px 0 0">Every booklet and resource for 2026–2027 school year. Click any cover to read it, or hit <b>Download</b> to save a print / PDF version.</p>
+  <!-- Sticky section nav -->
+  <div style="position:sticky;top:0;z-index:20;background:rgba(231,227,215,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline)">
+    <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 24px">
+      <div class="navbrand" style="display:flex;align-items:baseline;gap:10px;flex:none">
+        <span style="width:26px;height:5px;background:var(--ember);align-self:center"></span>
+        <span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--fg1)">Leader Resources</span>
+      </div>
+      <nav class="navrow" style="display:flex;gap:8px;margin-left:auto">
+        <a class="navchip" href="#booklets" data-spy="booklets">Booklets <span class="cnt">07</span></a>
+        <a class="navchip" href="#resources" data-spy="resources">Resources <span class="cnt">13</span></a>
+        <a class="navchip" href="#decks" data-spy="decks">Presentations <span class="cnt">03</span></a>
+      </nav>
+    </div>
   </div>
 
-  <div style="max-width:1240px;margin:0 auto 20px">
-    <div style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--fg3)">Booklets</div>
+  <!-- Hero -->
+  <div class="heropad" style="max-width:1240px;margin:0 auto;padding:56px 24px 8px">
+    <div style="font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:13px;color:var(--ember)">Southeast Students · 2026–2027</div>
+    <h1 class="heroh1" style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:54px;line-height:1.02;letter-spacing:-.01em;margin:12px 0 0">LEADER RESOURCES</h1>
+    <p style="font-size:15px;line-height:1.55;color:var(--fg2);max-width:600px;margin:14px 0 0">Every booklet and resource for the school year. Click any cover to read it, or hit <b>PDF</b> to save a print version.</p>
   </div>
 
-  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:44px">
+  <!-- 01 · BOOKLETS -->
+  <div class="sectionpad anchor" id="booklets" style="max-width:1288px;margin:44px auto 0;padding:0 24px">
+  <div class="panel" style="background:#eeeade;border:1px solid rgba(14,18,21,.08);border-radius:24px;padding:32px 36px 44px;box-shadow:0 6px 24px rgba(14,18,21,.05)">
+    <div style="display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--fg1);padding-bottom:12px">
+      <span style="font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--ember)">01</span>
+      <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:26px;letter-spacing:.01em;margin:0">Booklets</h2>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)">7 booklets</span>
+        <button id="arrangeBtnB" type="button" style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg2);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:8px 15px;cursor:pointer">Arrange</button>
+        <button id="resetBtnB" type="button" style="display:none;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg3);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:8px 15px;cursor:pointer">Reset order</button>
+      </div>
+    </div>
 
-    <!-- 01 · UNLEASHED LEADERS -->
-    <div style="position:relative;flex:0 1 384px;max-width:384px;min-width:0">
+  <div id="bgrid" style="margin:28px auto 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:36px 24px">
+
+    <!-- 01 Unleashed Leaders -->
+    <div style="position:relative;min-width:0">
       <a href="1 - Unleashed Leaders Booklet.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 18px 48px rgba(14,18,21,.28);border-radius:14px;background:#0c0e10">
-          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.5);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 14px 36px rgba(14,18,21,.24);border-radius:12px;background:#0c0e10">
+          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.38);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/harvest-cover.jpg" alt="Harvest field at dusk" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 28%,rgba(12,14,16,.02) 50%,rgba(12,14,16,.4) 78%,rgba(12,14,16,.74) 100%)"></div>
             <div style="position:absolute;left:64px;right:64px;bottom:56px">
@@ -49,7 +90,7 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">01</span>
           <div>
             <div style="font-weight:600;font-size:15px;color:var(--fg1)">Unleashed Leaders</div>
@@ -57,14 +98,14 @@
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/1 - Unleashed Leaders Booklet.pdf" download title="Download PDF">↓ Download</a>
+      <a class="printpill" href="pdf/1 - Unleashed Leaders Booklet.pdf" download title="Download PDF">↓ PDF</a>
     </div>
 
-    <!-- 02 · FALL 2026 GROUP CONTENT -->
-    <div style="position:relative;flex:0 1 384px;max-width:384px;min-width:0">
+    <!-- 02 Fall 2026 -->
+    <div style="position:relative;min-width:0">
       <a href="5 - Fall 2026 Group Content.dc.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 18px 48px rgba(14,18,21,.28);border-radius:14px;background:#0c0e10">
-          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.5);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 14px 36px rgba(14,18,21,.24);border-radius:12px;background:#0c0e10">
+          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.38);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/head-blue.jpg" alt="Student in blue light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.96) 8%,rgba(12,14,16,.62) 30%,rgba(12,14,16,.05) 56%,rgba(12,14,16,0) 100%)"></div>
             <div style="position:absolute;top:56px;right:64px;max-width:270px;text-align:right;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;line-height:1.8;color:#e8d136">One at a Time · Churchy Words · Beyond Boring · Those People</div>
@@ -77,7 +118,7 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#01b7ff 0 20px,transparent 20px 40px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#01b7ff">02</span>
           <div>
             <div style="font-weight:600;font-size:15px;color:var(--fg1)">Fall 2026 Group Content</div>
@@ -85,14 +126,14 @@
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/5 - Fall 2026 Group Content.dc.pdf" download title="Download PDF">↓ Download</a>
+      <a class="printpill" href="pdf/5 - Fall 2026 Group Content.dc.pdf" download title="Download PDF">↓ PDF</a>
     </div>
 
-    <!-- 03 · TEAM LEADER MANUAL -->
-    <div style="position:relative;flex:0 1 384px;max-width:384px;min-width:0">
+    <!-- 03 Team Leaders -->
+    <div style="position:relative;min-width:0">
       <a href="3 - Team Leaders.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 18px 48px rgba(14,18,21,.28);border-radius:14px;background:#0c0e10">
-          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.5);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 14px 36px rgba(14,18,21,.24);border-radius:12px;background:#0c0e10">
+          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.38);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/cover-topography.jpg" alt="Dark topographic contour lines" style="position:absolute;top:0;bottom:0;right:0;left:auto;width:200%;max-width:none;height:100%;object-fit:cover;object-position:center 60%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 28%,rgba(12,14,16,.02) 50%,rgba(12,14,16,.4) 78%,rgba(12,14,16,.74) 100%)"></div>
             <div style="position:absolute;left:64px;right:64px;bottom:56px">
@@ -104,7 +145,7 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">03</span>
           <div>
             <div style="font-weight:600;font-size:15px;color:var(--fg1)">Team Leaders</div>
@@ -112,14 +153,14 @@
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/3 - Team Leaders.pdf" download title="Download PDF">↓ Download</a>
+      <a class="printpill" href="pdf/3 - Team Leaders.pdf" download title="Download PDF">↓ PDF</a>
     </div>
 
-    <!-- 04 · LEADER HUDDLES -->
-    <div style="position:relative;flex:0 1 384px;max-width:384px;min-width:0">
+    <!-- 04 Leader Huddles -->
+    <div style="position:relative;min-width:0">
       <a href="4 - Leader Huddles.dc.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 18px 48px rgba(14,18,21,.28);border-radius:14px;background:#0c0e10">
-          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.5);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 14px 36px rgba(14,18,21,.24);border-radius:12px;background:#0c0e10">
+          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.38);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/worship-bw.jpg" alt="Students worshipping with hands raised in low light" style="position:absolute;top:0;bottom:0;right:0;left:auto;width:200%;max-width:none;height:100%;object-fit:cover;object-position:center 42%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.48) 32%,rgba(12,14,16,.10) 60%,rgba(12,14,16,.34) 100%)"></div>
             <div style="position:absolute;left:64px;right:64px;bottom:56px">
@@ -131,22 +172,22 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">04</span>
           <div>
-            <div style="display:flex;align-items:baseline;gap:8px"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Leader Huddles</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:var(--ember);border:1px solid var(--ember);border-radius:999px;padding:2px 8px">In progress</span></div>
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Leader Huddles</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:var(--ember);border:1px solid var(--ember);border-radius:999px;padding:2px 8px">In progress</span></div>
             <div style="font-size:13px;color:var(--fg3);margin-top:2px">52 weekly huddles for MSM &amp; HSM leaders</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/4 - Leader Huddles.dc.pdf" download title="Download PDF">↓ Download</a>
+      <a class="printpill" href="pdf/4 - Leader Huddles.dc.pdf" download title="Download PDF">↓ PDF</a>
     </div>
 
-    <!-- 05 · SMALL GROUP LEADERS -->
-    <div style="position:relative;flex:0 1 384px;max-width:384px;min-width:0">
+    <!-- 05 Group Leaders -->
+    <div style="position:relative;min-width:0">
       <a href="2 - Group Leaders.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 18px 48px rgba(14,18,21,.28);border-radius:14px;background:#0c0e10">
-          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.5);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 14px 36px rgba(14,18,21,.24);border-radius:12px;background:#0c0e10">
+          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.38);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/campfire-community.jpg" alt="Group gathered around a campfire" style="position:absolute;top:0;bottom:0;right:0;left:auto;width:200%;max-width:none;height:100%;object-fit:cover;object-position:center 60%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 30%,rgba(12,14,16,.18) 58%,rgba(12,14,16,.72) 100%)"></div>
             <div style="position:absolute;left:64px;right:64px;bottom:56px">
@@ -158,22 +199,22 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#1a9cd6 0 20px,transparent 20px 40px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#1a9cd6">05</span>
           <div>
-            <div style="display:flex;align-items:baseline;gap:8px"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Group Leaders</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:#1a9cd6;border:1px solid #1a9cd6;border-radius:999px;padding:2px 8px">In progress</span></div>
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Group Leaders</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:#1a9cd6;border:1px solid #1a9cd6;border-radius:999px;padding:2px 8px">In progress</span></div>
             <div style="font-size:13px;color:var(--fg3);margin-top:2px">Group leader handbook · leading a group like Jesus</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/2 - Group Leaders.pdf" download title="Download PDF">↓ Download</a>
+      <a class="printpill" href="pdf/2 - Group Leaders.pdf" download title="Download PDF">↓ PDF</a>
     </div>
 
-    <!-- 06 · SUPPORT LEADERS (placeholder) -->
-    <div style="position:relative;flex:0 1 384px;max-width:384px;min-width:0">
+    <!-- 06 Support Leaders -->
+    <div style="position:relative;min-width:0">
       <a href="6 - Support Leaders.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 18px 48px rgba(14,18,21,.28);border-radius:14px;background:#0c0e10">
-          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.5);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 14px 36px rgba(14,18,21,.24);border-radius:12px;background:#0c0e10">
+          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.38);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/harvest-together.jpg" alt="Two people working side by side in a harvest field" style="position:absolute;top:0;bottom:0;right:0;left:auto;width:200%;max-width:none;height:100%;object-fit:cover;object-position:center 60%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 30%,rgba(12,14,16,.18) 58%,rgba(12,14,16,.6) 100%)"></div>
             <div style="position:absolute;left:64px;right:64px;bottom:56px">
@@ -185,22 +226,22 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#b8891b 0 20px,transparent 20px 40px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#b8891b">06</span>
           <div>
-            <div style="display:flex;align-items:baseline;gap:8px"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Support Leaders</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:#b8891b;border:1px solid #b8891b;border-radius:999px;padding:2px 8px">In progress</span></div>
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Support Leaders</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:#b8891b;border:1px solid #b8891b;border-radius:999px;padding:2px 8px">In progress</span></div>
             <div style="font-size:13px;color:var(--fg3);margin-top:2px">Support leader handbook · serving behind the scenes</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/6 - Support Leaders.pdf" download title="Download PDF">↓ Download</a>
+      <a class="printpill" href="pdf/6 - Support Leaders.pdf" download title="Download PDF">↓ PDF</a>
     </div>
 
-    <!-- 07 · STUDENT LEADERSHIP (placeholder) -->
-    <div style="position:relative;flex:0 1 384px;max-width:384px;min-width:0">
+    <!-- 07 Student Leadership -->
+    <div style="position:relative;min-width:0">
       <a href="7 - Student Leadership.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 18px 48px rgba(14,18,21,.28);border-radius:14px;background:#0c0e10">
-          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.5);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:1;overflow:hidden;box-shadow:0 14px 36px rgba(14,18,21,.24);border-radius:12px;background:#0c0e10">
+          <div data-fit="768" style="width:768px;height:768px;position:relative;transform:scale(.38);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/fields-aerial.jpg" alt="Aerial view of two fields meeting on a diagonal" style="position:absolute;top:0;bottom:0;right:0;left:auto;width:200%;max-width:none;height:100%;object-fit:cover;object-position:center 60%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.55) 30%,rgba(12,14,16,.24) 58%,rgba(12,14,16,.55) 100%)"></div>
             <div style="position:absolute;left:64px;right:64px;bottom:56px">
@@ -212,271 +253,268 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#cc3f36 0 20px,transparent 20px 40px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#cc3f36">07</span>
           <div>
-            <div style="display:flex;align-items:baseline;gap:8px"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Student Leadership</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:#cc3f36;border:1px solid #cc3f36;border-radius:999px;padding:2px 8px">In progress</span></div>
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Student Leadership</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:#cc3f36;border:1px solid #cc3f36;border-radius:999px;padding:2px 8px">In progress</span></div>
             <div style="font-size:13px;color:var(--fg3);margin-top:2px">Student leadership guide · raising up student leaders</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/7 - Student Leadership.pdf" download title="Download PDF">↓ Download</a>
-    </div>
-
-
-  </div>
-
-  <div style="max-width:1240px;margin:64px auto 20px">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap">
-      <div>
-        <div style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--fg3)">Further Resources</div>
-        <p style="font-size:14px;line-height:1.5;color:var(--fg2);max-width:580px;margin:10px 0 0">Evaluations, assessments, and guides for the year. Used as standalone or in partnership with Team Leader Manual. Open any sheet to view, or Download to save a full-page 8.5×11 print / PDF.</p>
-      </div>
-      <div style="display:flex;gap:8px;flex:none">
-        <button id="arrangeBtn" type="button" style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg2);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:9px 16px;cursor:pointer">Arrange</button>
-        <button id="resetBtn" type="button" style="display:none;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg3);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:9px 16px;cursor:pointer">Reset order</button>
-      </div>
+      <a class="printpill" href="pdf/7 - Student Leadership.pdf" download title="Download PDF">↓ PDF</a>
     </div>
   </div>
+  </div>
+  </div>
 
-  <div id="rgrid" style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:44px">
-
-    <!-- R1 · SPIRITUAL DISCIPLINES -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R1 - Spiritual Disciplines Evaluation.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R1 - Spiritual Disciplines Evaluation.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#1a9cd6">R1</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Spiritual Disciplines Evaluation</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Further resource · personal self-assessment</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R1 - Spiritual Disciplines Evaluation.pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
+  <!-- 02 · FURTHER RESOURCES -->
+  <div class="sectionpad anchor" id="resources" style="max-width:1288px;margin:36px auto 0;padding:0 24px">
+  <div class="panel" style="background:#eeeade;border:1px solid rgba(14,18,21,.08);border-radius:24px;padding:32px 36px 44px;box-shadow:0 6px 24px rgba(14,18,21,.05)">
+    <div style="display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--fg1);padding-bottom:12px;flex-wrap:wrap">
+      <span style="font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--ember)">02</span>
+      <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:26px;letter-spacing:.01em;margin:0">Further Resources</h2>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)">13 resources</span>
+        <button id="arrangeBtn" type="button" style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg2);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:8px 15px;cursor:pointer">Arrange</button>
+        <button id="resetBtn" type="button" style="display:none;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg3);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:8px 15px;cursor:pointer">Reset order</button>
+      </div>
     </div>
+    <p style="font-size:14px;line-height:1.5;color:var(--fg2);max-width:620px;margin:14px 0 0">Evaluations, assessments, and guides for the year — standalone or alongside the Team Leader Manual. Open any sheet to view, or PDF to save a full-page 8.5×11 print version.</p>
 
-    <!-- R2 · FRUIT OF THE SPIRIT -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R2 - Fruit of the Spirit Assessment.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R2 - Fruit of the Spirit Assessment.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#cc3f36">R2</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Fruit of the Spirit Assessment</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Further resource · Galatians 5 self-check</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R2 - Fruit of the Spirit Assessment.pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
-    </div>
+  <div id="rgrid" style="margin:28px auto 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:32px 24px">
 
-    <!-- R3 · FALL EVALUATION -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R3 - Ministry Team Evaluation (Fall).html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R3 - Ministry Team Evaluation (Fall).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#b8891b">R3</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Ministry Team Evaluation · Fall</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Ministry Team · Look Back</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R3 - Ministry Team Evaluation (Fall).pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
-    </div>
-
-    <!-- R4 · SPRING EVALUATION -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R4 - Ministry Team Evaluation (Spring).html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R4 - Ministry Team Evaluation (Spring).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#eb6424">R4</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Ministry Team Evaluation · Spring</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Ministry Team · Look Back</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R4 - Ministry Team Evaluation (Spring).pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
-    </div>
-
-    <!-- R5 · SOLITARY RETREAT -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R5 - Solitary Retreat (Eremos Place).html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R5 - Solitary Retreat (Eremos Place).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#1a9cd6">R5</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Solitary Retreat</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Eremos Place · 2 Hour Retreat</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R5 - Solitary Retreat (Eremos Place).pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
-    </div>
-
-    <!-- R6 · DISCIPLESHIP MAP -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R6 - Discipleship Map.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R6 - Discipleship Map.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#cc3f36">R6</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Discipleship Map</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Further resource · map your few</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R6 - Discipleship Map.pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
-    </div>
-
-    <!-- R7 · SEMESTER PLANNING · FALL -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R7 - Semester Planning (Fall).html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R7 - Semester Planning (Fall).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#b8891b">R7</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Semester Planning · Fall</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Luke 9 Team · Calendar Planning</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R7 - Semester Planning (Fall).pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
-    </div>
-
-    <!-- R8 · SEMESTER PLANNING · SPRING -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R8 - Semester Planning (Spring).html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R8 - Semester Planning (Spring).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#eb6424">R8</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Semester Planning · Spring</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Luke 9 Team · Calendar Planning</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R8 - Semester Planning (Spring).pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
-    </div>
-
-    <!-- R9 · UNLEASHED LEADERS ONE-PAGER -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R9 - Unleashed Leaders One Pager.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R9 - Unleashed Leaders One Pager.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
-        </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#eb6424">R9</span>
-          <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Unleashed Leaders One-Pager</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Review Mission, Vision, 4 Chairs</div>
-          </div>
-        </div>
-      </a>
-      <a class="printpill" href="pdf/R9 - Unleashed Leaders One Pager.pdf" download title="Download print-ready PDF · 8.5×11 front &amp; back">↓ Download</a>
-    </div>
-
-    <!-- R10 · LEADER COMMITMENT -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
+    <div style="position:relative;min-width:0">
       <a href="R10 - Leader Commitment.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R10 - Leader Commitment.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R10 - Leader Commitment.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#01b7ff">R10</span>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#01b7ff">R10</span>
           <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Leader Commitment</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Who we commit to be &amp; do · Signature</div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Leader Commitment</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Who we commit to be &amp; do</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/R10 - Leader Commitment.pdf" download title="Download print-ready PDF · 8.5×11 front &amp; back">↓ Download</a>
+      <a class="printpill" href="pdf/R10 - Leader Commitment.pdf" download title="Download print-ready PDF · 8.5×11 front &amp; back">↓ PDF</a>
     </div>
 
-    <!-- R11 · BAPTISM GUIDE -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
-      <a href="R11 - Baptism Guide.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R11 - Baptism Guide.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
+    <div style="position:relative;min-width:0">
+      <a href="R9 - Unleashed Leaders One Pager.html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R9 - Unleashed Leaders One Pager.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#33adcc">R11</span>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#eb6424">R9</span>
           <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">Baptism Guide</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Decision Guide · Baptism Conversation</div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Unleashed Leaders One-Pager</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Mission, Vision, 4 Chairs</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/R11 - Baptism Guide.pdf" download title="Download print-ready PDF · 8.5×11 front &amp; back">↓ Download</a>
+      <a class="printpill" href="pdf/R9 - Unleashed Leaders One Pager.pdf" download title="Download print-ready PDF · 8.5×11 front &amp; back">↓ PDF</a>
     </div>
 
-    <!-- R12 · 4 CHAIR INVENTORY -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
+    <div style="position:relative;min-width:0">
       <a href="R12 - 4 Chair Inventory.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="R12 - 4 Chair Inventory.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3289);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R12 - 4 Chair Inventory.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#eb6424">R12</span>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#eb6424">R12</span>
           <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">4 Chair Inventory</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Disciple-Making · Personal Self-Assessment</div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">4 Chair Inventory</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Disciple-Making Self-Assessment</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/R12 - 4 Chair Inventory.pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
+      <a class="printpill" href="pdf/R12 - 4 Chair Inventory.pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
     </div>
-    <!-- R13 · 5 PHASES -->
-    <div style="position:relative;flex:0 1 300px;max-width:300px;min-width:0">
+
+    <div style="position:relative;min-width:0">
+      <a href="R1 - Spiritual Disciplines Evaluation.html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R1 - Spiritual Disciplines Evaluation.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#1a9cd6">R1</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Spiritual Disciplines Evaluation</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Personal self-assessment</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R1 - Spiritual Disciplines Evaluation.pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R2 - Fruit of the Spirit Assessment.html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R2 - Fruit of the Spirit Assessment.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#cc3f36">R2</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Fruit of the Spirit Assessment</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Galatians 5 self-check</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R2 - Fruit of the Spirit Assessment.pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R7 - Semester Planning (Fall).html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R7 - Semester Planning (Fall).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#b8891b">R7</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Semester Planning · Fall</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Luke 9 Team · Calendar Planning</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R7 - Semester Planning (Fall).pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R3 - Ministry Team Evaluation (Fall).html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R3 - Ministry Team Evaluation (Fall).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#b8891b">R3</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Ministry Team Evaluation · Fall</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Ministry Team · Look Back</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R3 - Ministry Team Evaluation (Fall).pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R8 - Semester Planning (Spring).html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R8 - Semester Planning (Spring).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#eb6424">R8</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Semester Planning · Spring</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Luke 9 Team · Calendar Planning</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R8 - Semester Planning (Spring).pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R4 - Ministry Team Evaluation (Spring).html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R4 - Ministry Team Evaluation (Spring).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#eb6424">R4</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Ministry Team Evaluation · Spring</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Ministry Team · Look Back</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R4 - Ministry Team Evaluation (Spring).pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R5 - Solitary Retreat (Eremos Place).html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R5 - Solitary Retreat (Eremos Place).html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#1a9cd6">R5</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Solitary Retreat</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Eremos Place · 2 Hour Retreat</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R5 - Solitary Retreat (Eremos Place).pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R6 - Discipleship Map.html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R6 - Discipleship Map.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#cc3f36">R6</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Discipleship Map</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Map your few</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R6 - Discipleship Map.pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
+      <a href="R11 - Baptism Guide.html" style="text-decoration:none;color:inherit;display:block;width:100%">
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#d6d2c4">
+          <iframe src="R11 - Baptism Guide.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#33adcc">R11</span>
+          <div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">Baptism Guide</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Baptism Conversation</div>
+          </div>
+        </div>
+      </a>
+      <a class="printpill" href="pdf/R11 - Baptism Guide.pdf" download title="Download print-ready PDF · 8.5×11 front &amp; back">↓ PDF</a>
+    </div>
+
+    <div style="position:relative;min-width:0">
       <a href="R13 - 5 Phases.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:1632/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#fff">
-          <iframe src="R13 - 5 Phases.html" scrolling="no" data-fit="1632" loading="lazy" tabindex="-1" aria-hidden="true" style="width:1632px;height:1056px;border:0;transform:scale(.1838);transform-origin:top left;pointer-events:none;display:block"></iframe>
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:10px;box-shadow:0 10px 26px rgba(14,18,21,.2);background:#fff">
+          <iframe src="R13 - 5 Phases.html" scrolling="no" data-fit="1632" data-rot="1056" loading="lazy" tabindex="-1" aria-hidden="true" style="width:1632px;height:1056px;border:0;transform:scale(.28);transform-origin:top left;pointer-events:none;display:block"></iframe>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
-          <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:#e8b70f">R13</span>
+        <div style="display:flex;align-items:baseline;gap:9px;margin-top:12px">
+          <span style="font-family:var(--font-mono);font-weight:700;font-size:11px;color:#e8b70f">R13</span>
           <div>
-            <div style="font-weight:600;font-size:15px;color:var(--fg1)">5 Phases</div>
-            <div style="font-size:13px;color:var(--fg3);margin-top:2px">Multiply disciples like Jesus · 17×11 map</div>
+            <div style="font-weight:600;font-size:14px;color:var(--fg1)">5 Phases</div>
+            <div style="font-size:12.5px;color:var(--fg3);margin-top:2px">Multiply disciples like Jesus · 17×11 map</div>
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/R13 - 5 Phases.pdf" download title="Download print-ready PDF · 17×11">↓ Download</a>
-    </div>
-
-  </div>
-
-  <div style="max-width:1240px;margin:64px auto 20px">
-    <div>
-      <div style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--fg3)">Presentations</div>
-      <p style="font-size:14px;line-height:1.5;color:var(--fg2);max-width:580px;margin:10px 0 0">Slide decks for trainings and leader gatherings. Open a deck to present — arrow keys advance slides; build steps reveal one point at a time.</p>
+      <a class="printpill" href="pdf/R13 - 5 Phases.pdf" download title="Download print-ready PDF · 17×11">↓ PDF</a>
     </div>
   </div>
+  </div>
+  </div>
 
-  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:44px">
+  <!-- 03 · PRESENTATIONS -->
+  <div class="sectionpad anchor" id="decks" style="max-width:1288px;margin:36px auto 96px;padding:0 24px">
+  <div class="panel" style="background:#eeeade;border:1px solid rgba(14,18,21,.08);border-radius:24px;padding:32px 36px 44px;box-shadow:0 6px 24px rgba(14,18,21,.05)">
+    <div style="display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--fg1);padding-bottom:12px">
+      <span style="font-family:var(--font-mono);font-weight:700;font-size:13px;color:var(--ember)">03</span>
+      <h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:26px;letter-spacing:.01em;margin:0">Presentations</h2>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)">3 presentations</span>
+        <button id="arrangeBtnP" type="button" style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg2);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:8px 15px;cursor:pointer">Arrange</button>
+        <button id="resetBtnP" type="button" style="display:none;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--fg3);background:transparent;border:1.5px solid var(--hairline);border-radius:999px;padding:8px 15px;cursor:pointer">Reset order</button>
+      </div>
+    </div>
+    <p style="font-size:14px;line-height:1.5;color:var(--fg2);max-width:620px;margin:14px 0 0">Slide decks for trainings and leader gatherings. Open a deck to present — arrow keys advance slides; build steps reveal one point at a time.</p>
 
-    <!-- P1 · UNLEASHED LEADERS DECK -->
-    <div style="position:relative;flex:0 1 834px;max-width:834px;min-width:0">
+  <div id="pgrid" class="pgridcols" style="margin:28px auto 0;display:grid;grid-template-columns:1.7778fr .7727fr;gap:36px 28px;align-items:start">
+
+    <!-- P1 -->
+    <div style="position:relative;min-width:0">
       <a href="P1 - Unleashed Leaders Deck.dc.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#0e1215">
-          <div data-fit="1920" style="width:1920px;height:1080px;position:relative;transform:scale(.3114);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:12px;box-shadow:0 14px 36px rgba(14,18,21,.24);background:#0e1215">
+          <div data-fit="1920" style="width:1920px;height:1080px;position:relative;transform:scale(.3);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/harvest-cover.jpg" alt="Harvest field at dusk" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.94) 5%,rgba(12,14,16,.5) 32%,rgba(12,14,16,.04) 56%,rgba(12,14,16,.45) 100%)"></div>
             <div style="position:absolute;top:76px;left:140px;right:140px;display:flex;justify-content:space-between"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:26px;color:var(--slate)">Southeast Students</span><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:24px;color:#e8d136">New Leader Training</span></div>
@@ -488,7 +526,7 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:22px;background:repeating-linear-gradient(135deg,var(--ember) 0 36px,transparent 36px 72px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">P1</span>
           <div>
             <div style="font-weight:600;font-size:15px;color:var(--fg1)">Unleashed Leaders</div>
@@ -499,13 +537,13 @@
       <a class="printpill" href="https://canva.link/pv5gqvkzxddvuzc" target="_blank" rel="noopener" title="Open in Canva — creates your own editable copy">↗ Canva</a>
     </div>
 
-    <!-- P1n · UNLEASHED LEADERS TRAINING NOTES -->
-    <div style="position:relative;flex:0 1 362px;max-width:362px;min-width:0">
+    <!-- P1n -->
+    <div style="position:relative;min-width:0">
       <a href="P1n - Unleashed Leaders Training Notes.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#d6d2c4">
-          <iframe src="P1n - Unleashed Leaders Training Notes.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.3676);transform-origin:top left;pointer-events:none"></iframe>
+        <div style="width:100%;aspect-ratio:816/1056;overflow:hidden;border-radius:12px;box-shadow:0 14px 36px rgba(14,18,21,.24);background:#d6d2c4">
+          <iframe src="P1n - Unleashed Leaders Training Notes.html" scrolling="no" data-fit="816" loading="lazy" tabindex="-1" aria-hidden="true" style="width:816px;height:1056px;border:0;transform:scale(.4);transform-origin:top left;pointer-events:none;display:block"></iframe>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">P1n</span>
           <div>
             <div style="font-weight:600;font-size:15px;color:var(--fg1)">Training Notes</div>
@@ -513,14 +551,14 @@
           </div>
         </div>
       </a>
-      <a class="printpill" href="pdf/P1n - Unleashed Leaders Training Notes.pdf" download title="Download print-ready PDF · 8.5×11">↓ Download</a>
+      <a class="printpill" href="pdf/P1n - Unleashed Leaders Training Notes.pdf" download title="Download print-ready PDF · 8.5×11">↓ PDF</a>
     </div>
 
-    <!-- P2 · TEAM LEADERS DECK -->
-    <div style="position:relative;flex:0 1 834px;max-width:834px;min-width:0">
+    <!-- P2 -->
+    <div style="position:relative;min-width:0">
       <a href="P2 - Team Leaders Deck.dc.html" style="text-decoration:none;color:inherit;display:block;width:100%">
-        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:14px;box-shadow:0 18px 48px rgba(14,18,21,.28);background:#0e1215">
-          <div data-fit="1920" style="width:1920px;height:1080px;position:relative;transform:scale(.3114);transform-origin:top left;font-family:var(--font-body)">
+        <div style="width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:12px;box-shadow:0 14px 36px rgba(14,18,21,.24);background:#0e1215">
+          <div data-fit="1920" style="width:1920px;height:1080px;position:relative;transform:scale(.3);transform-origin:top left;font-family:var(--font-body)">
             <img src="assets/photos/cover-topography.jpg" alt="Dark topographic contour lines" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.9) 8%,rgba(12,14,16,.35) 44%,rgba(12,14,16,.3) 100%)"></div>
             <div style="position:absolute;top:76px;left:140px;right:140px;display:flex;justify-content:space-between"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:26px;color:var(--slate)">Southeast Students</span><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:24px;color:#e8d136">Leader Investment</span></div>
@@ -532,16 +570,17 @@
             <div style="position:absolute;left:0;right:0;bottom:0;height:22px;background:repeating-linear-gradient(135deg,var(--ember) 0 36px,transparent 36px 72px)"></div>
           </div>
         </div>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-top:16px">
+        <div style="display:flex;align-items:baseline;gap:10px;margin-top:14px">
           <span style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">P2</span>
           <div>
-            <div style="display:flex;align-items:baseline;gap:8px"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Team Leaders</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:var(--ember);border:1px solid var(--ember);border-radius:999px;padding:2px 8px">In progress</span></div>
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font-weight:600;font-size:15px;color:var(--fg1)">Team Leaders</span><span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;color:var(--ember);border:1px solid var(--ember);border-radius:999px;padding:2px 8px">In progress</span></div>
             <div style="font-size:13px;color:var(--fg3);margin-top:2px">Leader investment deck · 9 monthly sessions, 128 slides</div>
           </div>
         </div>
       </a>
     </div>
-
+  </div>
+  </div>
   </div>
 </div>
 </x-dc>
@@ -553,42 +592,83 @@ class Component extends DCLogic {
     window.addEventListener('load', this._fit);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(this._fit);
     this.fit(); setTimeout(this._fit, 0); setTimeout(this._fit, 300);
-    this.initReorder();
+    this.setupGrid('bgrid', 'arrangeBtnB', 'resetBtnB', 'blib-order', 'pad2');
+    this.setupGrid('rgrid', 'arrangeBtn', 'resetBtn', 'rlib-order', 'R');
+    this.setupGrid('pgrid', 'arrangeBtnP', 'resetBtnP', 'plib-order', null);
+    this.initSpy();
   }
   componentWillUnmount(){
     window.removeEventListener('resize', this._fit);
     window.removeEventListener('load', this._fit);
+    if (this._io) this._io.disconnect();
   }
   fit(){
     document.querySelectorAll('[data-fit]').forEach((el) => {
       const box = el.parentElement;
       if (!box) return;
       const dw = parseFloat(el.getAttribute('data-fit'));
-      const s = box.clientWidth / dw;
       el.style.transformOrigin = 'top left';
-      el.style.transform = 'scale(' + s + ')';
+      if (el.dataset.rot) {
+        const s = box.clientHeight / dw;
+        const w2 = parseFloat(el.dataset.rot) * s;
+        el.style.transform = 'translate(' + (w2 + (box.clientWidth - w2) / 2) + 'px,0) rotate(90deg) scale(' + s + ')';
+      } else {
+        el.style.transform = 'scale(' + (box.clientWidth / dw) + ')';
+      }
     });
   }
 
-  initReorder(){
-    const grid = document.getElementById('rgrid');
+  initSpy(){
+    const chips = [...document.querySelectorAll('[data-spy]')];
+    const secs = ['booklets', 'resources', 'decks'].map((id) => document.getElementById(id)).filter(Boolean);
+    const setActive = (id) => chips.forEach((c) => c.classList.toggle('active', c.dataset.spy === id));
+    this._io = new IntersectionObserver((entries) => {
+      const vis = entries.filter((e) => e.isIntersecting);
+      if (vis.length) setActive(vis[vis.length - 1].target.id);
+    }, { rootMargin: '-84px 0px -60% 0px' });
+    secs.forEach((s) => this._io.observe(s));
+    setActive('booklets');
+  }
+
+  setupGrid(gridId, aBtnId, rBtnId, storeKey, mode){
+    const grid = document.getElementById(gridId);
     if (!grid) return;
-    this._grid = grid;
+    const self = this;
     const isLive = /(^|\.)vercel\.app$/i.test(location.hostname);
     [...grid.children].forEach((c, i) => {
       c.dataset.orig = i;
       const a = c.querySelector('a[href]');
       c.dataset.key = a ? a.getAttribute('href') : String(i);
     });
-    if (!isLive) this.applySavedOrder();
-    this.renumber();
+    const renumber = () => {
+      if (!mode) return;
+      [...grid.children].forEach((c, i) => {
+        const b = c.querySelector('span');
+        if (b) b.textContent = mode === 'R' ? 'R' + (i + 1) : ('0' + (i + 1)).slice(-2);
+      });
+    };
+    const persist = () => {
+      try { localStorage.setItem(storeKey, JSON.stringify([...grid.children].map((c) => c.dataset.key))); } catch (e) {}
+    };
+    const applySaved = () => {
+      let order = null;
+      try { order = JSON.parse(localStorage.getItem(storeKey) || 'null'); } catch (e) {}
+      if (!Array.isArray(order)) return;
+      const byKey = {};
+      const rest = [...grid.children].filter((c) => order.indexOf(c.dataset.key) === -1);
+      [...grid.children].forEach((c) => { byKey[c.dataset.key] = c; });
+      order.forEach((k) => { if (byKey[k]) grid.appendChild(byKey[k]); });
+      rest.forEach((c) => grid.appendChild(c));
+    };
+    if (!isLive) applySaved();
+    renumber();
 
-    const aBtn = document.getElementById('arrangeBtn');
-    const rBtn = document.getElementById('resetBtn');
+    const aBtn = document.getElementById(aBtnId);
+    const rBtn = document.getElementById(rBtnId);
     if (isLive) { if (aBtn) aBtn.style.display = 'none'; if (rBtn) rBtn.style.display = 'none'; return; }
-    this._arrange = false;
+    let arrange = false, dragEl = null;
     const setArrange = (on) => {
-      this._arrange = on;
+      arrange = on;
       [...grid.children].forEach((c) => {
         c.setAttribute('draggable', on ? 'true' : 'false');
         c.style.cursor = on ? 'grab' : '';
@@ -603,88 +683,63 @@ class Component extends DCLogic {
       grid.style.outlineOffset = '16px';
       grid.style.borderRadius = '6px';
     };
-    if (aBtn) aBtn.onclick = () => setArrange(!this._arrange);
+    if (aBtn) aBtn.onclick = () => setArrange(!arrange);
     if (rBtn) rBtn.onclick = () => {
-      try { localStorage.removeItem('rlib-order'); } catch (e) {}
+      try { localStorage.removeItem(storeKey); } catch (e) {}
       [...grid.children].sort((a, b) => (a.dataset.orig - b.dataset.orig)).forEach((c) => grid.appendChild(c));
-      this.renumber();
+      renumber();
+      self.fit();
     };
 
-    grid.addEventListener('click', (e) => { if (this._arrange) { e.preventDefault(); e.stopPropagation(); } }, true);
+    const cardOf = (node) => {
+      let el = node;
+      while (el && el.parentElement !== grid) el = el.parentElement;
+      return (el && el.parentElement === grid) ? el : null;
+    };
+    const getDragAfter = (x, y) => {
+      const els = [...grid.children].filter((c) => c !== dragEl);
+      let best = { dist: Infinity, el: null, before: true };
+      for (const el of els) {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const dx = x - cx, dy = y - cy;
+        const dist = dx * dx + dy * dy;
+        if (dist < best.dist) {
+          const before = (y < cy - 4) || (Math.abs(y - cy) <= r.height / 2 && x < cx);
+          best = { dist, el, before };
+        }
+      }
+      return best;
+    };
 
+    grid.addEventListener('click', (e) => { if (arrange) { e.preventDefault(); e.stopPropagation(); } }, true);
     grid.addEventListener('dragstart', (e) => {
-      if (!this._arrange) { e.preventDefault(); return; }
-      const host = this.cardOf(e.target);
+      if (!arrange) { e.preventDefault(); return; }
+      const host = cardOf(e.target);
       if (!host) return;
-      this._dragEl = host;
+      dragEl = host;
       host.style.opacity = '.4';
       e.dataTransfer.effectAllowed = 'move';
       try { e.dataTransfer.setData('text/plain', host.dataset.key || ''); } catch (_) {}
     });
     grid.addEventListener('dragover', (e) => {
-      if (!this._dragEl) return;
+      if (!dragEl) return;
       e.preventDefault();
-      const c = this.getDragAfter(e.clientX, e.clientY);
+      const c = getDragAfter(e.clientX, e.clientY);
       if (c && c.el) {
-        if (c.before) grid.insertBefore(this._dragEl, c.el);
-        else grid.insertBefore(this._dragEl, c.el.nextSibling);
+        if (c.before) grid.insertBefore(dragEl, c.el);
+        else grid.insertBefore(dragEl, c.el.nextSibling);
       }
     });
-    grid.addEventListener('drop', (e) => { if (this._dragEl) e.preventDefault(); });
+    grid.addEventListener('drop', (e) => { if (dragEl) e.preventDefault(); });
     grid.addEventListener('dragend', () => {
-      if (!this._dragEl) return;
-      this._dragEl.style.opacity = '';
-      this._dragEl = null;
-      this.renumber();
-      this.persist();
+      if (!dragEl) return;
+      dragEl.style.opacity = '';
+      dragEl = null;
+      renumber();
+      persist();
+      self.fit();
     });
-  }
-
-  cardOf(node){
-    let el = node;
-    while (el && el.parentElement !== this._grid) el = el.parentElement;
-    return (el && el.parentElement === this._grid) ? el : null;
-  }
-
-  getDragAfter(x, y){
-    const els = [...this._grid.children].filter((c) => c !== this._dragEl);
-    let best = { dist: Infinity, el: null, before: true };
-    for (const el of els) {
-      const r = el.getBoundingClientRect();
-      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      const dx = x - cx, dy = y - cy;
-      const dist = dx * dx + dy * dy;
-      if (dist < best.dist) {
-        const before = (y < cy - 4) || (Math.abs(y - cy) <= r.height / 2 && x < cx);
-        best = { dist, el, before };
-      }
-    }
-    return best;
-  }
-
-  renumber(){
-    [...this._grid.children].forEach((c, i) => {
-      const b = c.querySelector('span');
-      if (b) b.textContent = 'R' + (i + 1);
-    });
-  }
-
-  persist(){
-    try {
-      const order = [...this._grid.children].map((c) => c.dataset.key);
-      localStorage.setItem('rlib-order', JSON.stringify(order));
-    } catch (e) {}
-  }
-
-  applySavedOrder(){
-    let order = null;
-    try { order = JSON.parse(localStorage.getItem('rlib-order') || 'null'); } catch (e) {}
-    if (!Array.isArray(order)) return;
-    const byKey = {};
-    const rest = [...this._grid.children].filter((c) => order.indexOf(c.dataset.key) === -1);
-    [...this._grid.children].forEach((c) => { byKey[c.dataset.key] = c; });
-    order.forEach((k) => { if (byKey[k]) this._grid.appendChild(byKey[k]); });
-    rest.forEach((c) => this._grid.appendChild(c));
   }
 }
 </script>
