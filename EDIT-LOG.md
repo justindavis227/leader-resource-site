@@ -289,3 +289,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-27 | 0 - Resource Library.dc.html | Mobile (≤760px): chip row replaced by a hamburger menu (brand stays visible; dropdown with Booklets/Resources/Presentations/Group Cards, closes on selection). Desktop chip row + scroll-spy unchanged; all JS/CSS inside the hub file | session: hub-relayout
 
 --- synced to main d5b0165 2026-07-27 (nav) ---
+
+2026-07-27 | 0 - Resource Library.dc.html | Mobile nav fix: chip row now actually hidden ≤760px (.navrow display:none needs !important — the nav carries an inline display:flex that beat the plain media rule; verified broken on Justin’s device screenshot). Hamburger-only on mobile | session: hub-relayout
