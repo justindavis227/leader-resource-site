@@ -285,3 +285,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-07-27 | 0 - Resource Library.dc.html | Baked arranged Resources order into the DOM as default: R10, R9, R12, R1, R2, R7, R3, R8, R4, R5, R6, R11, R13 (Booklets and Presentations orders already matched source order). Position renumbering stays automatic; R-codes stay fixed to their items | session: hub-relayout
 
 --- synced to main 5c197a4 2026-07-27 ---
+2026-07-27 | 0 - Resource Library.dc.html | Top nav: added "Group Cards ↗" page-link chip (href="group-cards/", ember-tinted to read as external vs the scroll-spy chips). group-cards/ is Cowork-generated, repo-only — 404s in the CD sandbox by design | session: hub-relayout
+2026-07-27 | 0 - Resource Library.dc.html | Mobile (≤760px): chip row replaced by a hamburger menu (brand stays visible; dropdown with Booklets/Resources/Presentations/Group Cards, closes on selection). Desktop chip row + scroll-spy unchanged; all JS/CSS inside the hub file | session: hub-relayout
