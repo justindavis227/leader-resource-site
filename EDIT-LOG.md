@@ -283,3 +283,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 
 2026-07-27 | 0 - Resource Library.dc.html | Hub relayout adopted from sandbox mockup: sticky section nav with scroll-spy chips + counts (Booklets/Resources/Presentations), numbered section headers, each section in a rounded panel card, aligned grids (booklets 4-across desktop), Arrange mode extended to Booklets and Presentations (keys blib-order/plib-order; Resources keeps rlib-order), R13 preview rotated sideways to fill a portrait card, Presentations grid sizes P1 deck + P1n notes to equal height with P2 matching P1, Download pills relabeled "↓ PDF". All hrefs, R/P-codes, and filenames unchanged | session: hub-relayout
 2026-07-27 | 0 - Resource Library.dc.html | Baked arranged Resources order into the DOM as default: R10, R9, R12, R1, R2, R7, R3, R8, R4, R5, R6, R11, R13 (Booklets and Presentations orders already matched source order). Position renumbering stays automatic; R-codes stay fixed to their items | session: hub-relayout
+
+--- synced to main 5c197a4 2026-07-27 ---
