@@ -378,3 +378,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-05 | index.html | DELETED repo-side (visible commit, revertible): meta-refresh bounce page replaced by vercel.json rewrite — CD: do NOT re-export or recreate index.html | session: cowork-clean-url-2026-08-05
 
 --- synced to main b62b0c1 2026-08-05 (clean-url: 6eb2a91 + b62b0c1; no pdf changes) ---
+
+2026-08-05 | 0 - Resource Library.dc.html | Cowork-applied: static <title>Southeast Students—Leader Resources</title> in head (tab/bookmark name; .dc pages had none) | session: cowork-clean-url-2026-08-05
