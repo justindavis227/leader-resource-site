@@ -382,3 +382,8 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-05 | 0 - Resource Library.dc.html | Cowork-applied: static <title>Southeast Students—Leader Resources</title> in head (tab/bookmark name; .dc pages had none) | session: cowork-clean-url-2026-08-05
 
 --- synced to main a48b29d 2026-08-05 (library title; no pdf changes) ---
+
+2026-08-05 | 4 - Leader Huddles.dc.html | Cowork-applied: static <title>Leader Huddles—Southeast Students</title> (tab/bookmark name) | session: cowork-titles-2026-08-05
+2026-08-05 | 5 - Fall 2026 Group Content.dc.html | Cowork-applied: static <title>Fall 2026 Group Content—Southeast Students</title> | session: cowork-titles-2026-08-05
+2026-08-05 | P1 - Unleashed Leaders Deck.dc.html | Cowork-applied: static <title>Unleashed Leaders Deck—Southeast Students</title> | session: cowork-titles-2026-08-05
+2026-08-05 | P2 - Team Leaders Deck.dc.html | Cowork-applied: static <title>Team Leaders Deck—Southeast Students</title> | session: cowork-titles-2026-08-05
