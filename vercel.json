@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/0%20-%20Resource%20Library.dc.html" }
+  ]
+}

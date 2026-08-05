@@ -372,3 +372,7 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-05 | 4 - Leader Huddles.dc.html | Cowork-applied (title-case, Justin-approved): Mission TOC rows + data-screen-labels updated to match retitles — MIS-04 "Camp: Who Are You Bringing?", MIS-07 "Gathered & Scattered" (CD's retitle touched only the huddle pages) | session: cowork-sync-2026-08-05
 
 --- synced to main 4b7b6f4 2026-08-05 (pdf: b32e6c2) ---
+
+2026-08-05 | vercel.json | NEW (Cowork): rewrite / -> "0 - Resource Library.dc.html" so the root URL serves the library directly (clean shareable URL); redirect /index.html -> / | session: cowork-clean-url-2026-08-05
+2026-08-05 | 0 - Resource Library.dc.html | Cowork-applied: Open Graph tags in <head> (og:title/description/image/url + twitter:card) so link previews are deterministic on both short and long URLs | session: cowork-clean-url-2026-08-05
+2026-08-05 | index.html | DELETED repo-side (visible commit, revertible): meta-refresh bounce page replaced by vercel.json rewrite — CD: do NOT re-export or recreate index.html | session: cowork-clean-url-2026-08-05
