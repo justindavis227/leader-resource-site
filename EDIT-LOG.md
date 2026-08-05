@@ -387,3 +387,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-05 | 5 - Fall 2026 Group Content.dc.html | Cowork-applied: static <title>Fall 2026 Group Content—Southeast Students</title> | session: cowork-titles-2026-08-05
 2026-08-05 | P1 - Unleashed Leaders Deck.dc.html | Cowork-applied: static <title>Unleashed Leaders Deck—Southeast Students</title> | session: cowork-titles-2026-08-05
 2026-08-05 | P2 - Team Leaders Deck.dc.html | Cowork-applied: static <title>Team Leaders Deck—Southeast Students</title> | session: cowork-titles-2026-08-05
+
+--- synced to main c423753 2026-08-05 (pdf: 799509b — titles pass) ---
