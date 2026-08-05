@@ -370,3 +370,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-05 | 4 - Leader Huddles.dc.html | Typo fixes in Justin's new edits, approved pre-push: "a students invite" -> "a student's invite" (MIS-04); "sovernignly" -> "sovereignly" (MIS-07); "carry's more weight" -> "carries more weight" (MIS-07) | session: cd-2026-08-05
 
 2026-08-05 | 4 - Leader Huddles.dc.html | Cowork-applied (title-case, Justin-approved): Mission TOC rows + data-screen-labels updated to match retitles — MIS-04 "Camp: Who Are You Bringing?", MIS-07 "Gathered & Scattered" (CD's retitle touched only the huddle pages) | session: cowork-sync-2026-08-05
+
+--- synced to main 4b7b6f4 2026-08-05 (pdf: b32e6c2) ---
