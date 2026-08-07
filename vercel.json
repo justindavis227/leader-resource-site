@@ -1,8 +1,275 @@
 {
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/slides/ldr-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRomxIgBw",
+      "permanent": false
+    },
+    {
+      "source": "/slides/ldr-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRohS4jvM",
+      "permanent": false
+    },
+    {
+      "source": "/slides/ldr-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoi1ILh0",
+      "permanent": false
+    },
+    {
+      "source": "/slides/ldr-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRol-1XSo",
+      "permanent": false
+    },
+    {
+      "source": "/slides/ldr-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRokUkB5M",
+      "permanent": false
+    },
+    {
+      "source": "/slides/ldr-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRotXURyI",
+      "permanent": false
+    },
+    {
+      "source": "/slides/ldr-07",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRovcDBTs",
+      "permanent": false
+    },
+    {
+      "source": "/slides/lgr-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRogZPAiQ",
+      "permanent": false
+    },
+    {
+      "source": "/slides/lgr-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRosIkev4",
+      "permanent": false
+    },
+    {
+      "source": "/slides/lgr-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoqhFLQI",
+      "permanent": false
+    },
+    {
+      "source": "/slides/lgr-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRomgQXc0",
+      "permanent": false
+    },
+    {
+      "source": "/slides/lgr-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRol122MM",
+      "permanent": false
+    },
+    {
+      "source": "/slides/lgr-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoujIgP0",
+      "permanent": false
+    },
+    {
+      "source": "/slides/lgr-07",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRogITfPM",
+      "permanent": false
+    },
+    {
+      "source": "/slides/car-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRolo7luw",
+      "permanent": false
+    },
+    {
+      "source": "/slides/car-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRornD_WY",
+      "permanent": false
+    },
+    {
+      "source": "/slides/car-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRomv1hpc",
+      "permanent": false
+    },
+    {
+      "source": "/slides/car-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRom299BA",
+      "permanent": false
+    },
+    {
+      "source": "/slides/car-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRohZ2CKw",
+      "permanent": false
+    },
+    {
+      "source": "/slides/car-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRosIw1ac",
+      "permanent": false
+    },
+    {
+      "source": "/slides/pry-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRonrOCKY",
+      "permanent": false
+    },
+    {
+      "source": "/slides/pry-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRolp4Dcc",
+      "permanent": false
+    },
+    {
+      "source": "/slides/pry-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRok_OwLc",
+      "permanent": false
+    },
+    {
+      "source": "/slides/pry-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoouX_JA",
+      "permanent": false
+    },
+    {
+      "source": "/slides/pry-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoj7PUx8",
+      "permanent": false
+    },
+    {
+      "source": "/slides/pry-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRog1LLls",
+      "permanent": false
+    },
+    {
+      "source": "/slides/mis-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRon3UnFY",
+      "permanent": false
+    },
+    {
+      "source": "/slides/mis-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRosehrNw",
+      "permanent": false
+    },
+    {
+      "source": "/slides/mis-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoqJsAUY",
+      "permanent": false
+    },
+    {
+      "source": "/slides/mis-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRojs4L2s",
+      "permanent": false
+    },
+    {
+      "source": "/slides/mis-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRooqGZl0",
+      "permanent": false
+    },
+    {
+      "source": "/slides/mis-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoitg7zI",
+      "permanent": false
+    },
+    {
+      "source": "/slides/mis-07",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoq3-RVM",
+      "permanent": false
+    },
+    {
+      "source": "/slides/dsc-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRonJA7sU",
+      "permanent": false
+    },
+    {
+      "source": "/slides/dsc-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoseDHE0",
+      "permanent": false
+    },
+    {
+      "source": "/slides/dsc-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRorDhBsI",
+      "permanent": false
+    },
+    {
+      "source": "/slides/dsc-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRokq_x4I",
+      "permanent": false
+    },
+    {
+      "source": "/slides/dsc-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoj_4d68",
+      "permanent": false
+    },
+    {
+      "source": "/slides/dsc-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRogY_03w",
+      "permanent": false
+    },
+    {
+      "source": "/slides/dsc-07",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRosDgAyM",
+      "permanent": false
+    },
+    {
+      "source": "/slides/skl-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoveL7vk",
+      "permanent": false
+    },
+    {
+      "source": "/slides/skl-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRohm1WGY",
+      "permanent": false
+    },
+    {
+      "source": "/slides/skl-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRoqlXQaw",
+      "permanent": false
+    },
+    {
+      "source": "/slides/skl-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRojIj_Og",
+      "permanent": false
+    },
+    {
+      "source": "/slides/skl-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRojJ8FlE",
+      "permanent": false
+    },
+    {
+      "source": "/slides/skl-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRosjajrQ",
+      "permanent": false
+    },
+    {
+      "source": "/slides/vis-01",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRolnTXIo",
+      "permanent": false
+    },
+    {
+      "source": "/slides/vis-02",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRop8HKvo",
+      "permanent": false
+    },
+    {
+      "source": "/slides/vis-03",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRok38-Eo",
+      "permanent": false
+    },
+    {
+      "source": "/slides/vis-04",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRokzQATM",
+      "permanent": false
+    },
+    {
+      "source": "/slides/vis-05",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRovQxdqE",
+      "permanent": false
+    },
+    {
+      "source": "/slides/vis-06",
+      "destination": "https://www.canva.com/design?create=true&template=EAHRopz_PB8",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/0%20-%20Resource%20Library.dc.html" }
+    {
+      "source": "/",
+      "destination": "/0%20-%20Resource%20Library.dc.html"
+    }
   ]
 }
