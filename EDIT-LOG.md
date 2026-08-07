@@ -412,3 +412,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-07 | vercel.json | Cowork-applied: 52 /slides/<id> redirects added (302) -> Canva brand-template create links; source of truth SLIDES-MANIFEST.md. Cowork-owned file. | session: cowork-slides-2026-08-07
 2026-08-07 | assets/qr-slides-*.svg | Cowork-applied: 52 new QR assets (one per huddle, existing qr-*.svg style, v3-L, 2-module quiet zone) encoding the /slides/<id> redirect URLs — NOT Canva URLs, so the printed codes survive any Canva migration | session: cowork-slides-2026-08-07
 2026-08-07 | 4 - Leader Huddles.dc.html | Cowork-applied: all 52 run-page corner blocks now a linked Slides block — section title / huddle number / "Slides" (accent) + 46px QR with section-color rounded outline, above the header hairline; .hr margin compensated so content below is unmoved; whole block links to /slides/<id> (Justin-approved mock 2026-08-07) | session: cowork-slides-2026-08-07
+
+--- synced to main b04eca6 2026-08-07 (slides QR blocks; redirects: 73a2a4b; qr assets: 3445484+6ce682a; pdf: 32b24b3) ---
