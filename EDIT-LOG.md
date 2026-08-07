@@ -408,3 +408,7 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 --- synced to main 63c96fe 2026-08-06 (huddles content pass; pdf: 55d3793) ---
 
 2026-08-07 | colors_and_type.css | Cowork-applied: pinned text-size-adjust to 100% (html rule) — iOS Safari auto-inflated text on the zoomed-out spread view, overflowing dense right-hand run pages (found on Justin's real-phone check). PDF impact verified nil: booklet 4 rebuilt with the fix, all 124 pages pixel-identical to live — shared-CSS PDF fan-out skipped on that evidence. | session: cowork-sync-2026-08-06
+
+2026-08-07 | vercel.json | Cowork-applied: 52 /slides/<id> redirects added (302) -> Canva brand-template create links; source of truth SLIDES-MANIFEST.md. Cowork-owned file. | session: cowork-slides-2026-08-07
+2026-08-07 | assets/qr-slides-*.svg | Cowork-applied: 52 new QR assets (one per huddle, existing qr-*.svg style, v3-L, 2-module quiet zone) encoding the /slides/<id> redirect URLs — NOT Canva URLs, so the printed codes survive any Canva migration | session: cowork-slides-2026-08-07
+2026-08-07 | 4 - Leader Huddles.dc.html | Cowork-applied: all 52 run-page corner blocks now a linked Slides block — section title / huddle number / "Slides" (accent) + 46px QR with section-color rounded outline, above the header hairline; .hr margin compensated so content below is unmoved; whole block links to /slides/<id> (Justin-approved mock 2026-08-07) | session: cowork-slides-2026-08-07
