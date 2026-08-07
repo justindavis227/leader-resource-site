@@ -406,3 +406,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-06 | 4 - Leader Huddles.dc.html | Cowork-applied: DSC-07 section TOC row + data-screen-label aligned to new title "Ministry Is for You, Not Just Them" (was still "Feeding Yourself"; same reconciliation CD did for SKL-06) | session: cowork-sync-2026-08-06
 
 --- synced to main 63c96fe 2026-08-06 (huddles content pass; pdf: 55d3793) ---
+
+2026-08-07 | colors_and_type.css | Cowork-applied: pinned text-size-adjust to 100% (html rule) — iOS Safari auto-inflated text on the zoomed-out spread view, overflowing dense right-hand run pages (found on Justin's real-phone check). PDF impact verified nil: booklet 4 rebuilt with the fix, all 124 pages pixel-identical to live — shared-CSS PDF fan-out skipped on that evidence. | session: cowork-sync-2026-08-06

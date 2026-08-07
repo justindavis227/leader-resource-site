@@ -115,3 +115,7 @@ small, .caption { font-family: var(--font-body); font-size: var(--text-sm); colo
 
 /* Button label convention — Geist Mono, uppercase, tracked */
 .btn-label { font-family: var(--font-mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Mobile: pin text size — iOS Safari auto-inflates text on zoomed-out wide layouts,
+   overflowing dense pages (found on real-phone check 2026-08-07). */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
