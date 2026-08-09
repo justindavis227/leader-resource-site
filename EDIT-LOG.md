@@ -442,3 +442,5 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-09 | 4 - Leader Huddles.dc.html | Cowork-applied: +4 renumber — 120 pn footers (03–122 → 07–126), 60 tp page refs (8 Contents rows + 52 section-intro rows); 00 row keeps its em-dash. Byte-check: nothing but page numbers changed. | session: cowork-sync-2026-08-09
 2026-08-09 | 4 - Leader Huddles.dc.html | Cowork-applied: Best Practices item 07 sentence completed per Justin ("…aren't Available or need accountability to be Faithful" — was missing the "or", cut off mid-edit in CD). | session: cowork-sync-2026-08-09
 2026-08-09 | pdf/4 - Leader Huddles.dc.pdf | Cowork-regenerated: full book, 128 pages (was 124), lrs-pdf-render clean mode, 8x8, page-count guard passed. | session: cowork-sync-2026-08-09
+
+--- synced to main f2db977 2026-08-09 (Best Practices front matter + renumber; pdf: 65c73f0; css guard; hub pill) ---
