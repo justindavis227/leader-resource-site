@@ -444,3 +444,6 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 2026-08-09 | pdf/4 - Leader Huddles.dc.pdf | Cowork-regenerated: full book, 128 pages (was 124), lrs-pdf-render clean mode, 8x8, page-count guard passed. | session: cowork-sync-2026-08-09
 
 --- synced to main f2db977 2026-08-09 (Best Practices front matter + renumber; pdf: 65c73f0; css guard; hub pill) ---
+2026-08-09 | pdf/4 - Leader Huddles.dc.pdf + pdf/5 - Fall 2026 Group Content.dc.pdf | Cowork-regenerated (renderer fix): lrs-pdf-render was forcing display:block on every page unit when flattening spreads, killing flex-column layouts — copyright block rendered top instead of bottom, Leader Notes hugged the scripture instead of sitting above the footer (Justin caught it in the downloaded PDFs; present in both dc booklets). Fix: stop overriding the page's own display; only the spread/pair CONTAINERS are linearized. Script updated at Leader Resource Site/lrs-pdf-render.mjs (also adds the cloud container's Chromium path to the launch candidates). Other PDFs rendered by this script may carry the same subtle flattening — sweep candidate. | session: cowork-sync-2026-08-09
+
+--- synced to main 667a5bc 2026-08-09 (renderer flex fix; booklets 4+5 PDFs rebuilt) ---
