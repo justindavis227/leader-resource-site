@@ -6,6 +6,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Geist+Mono:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
+/* Mobile text-inflation pin — MUST stay below the @import (any rule above an @import voids it) */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
 :root {
   /* ---- BRAND PALETTE (named) -------------------------------- */
   --charcoal:   #343434;  /* warm dark gray — workhorse dark surface   */
@@ -115,7 +118,3 @@ small, .caption { font-family: var(--font-body); font-size: var(--text-sm); colo
 
 /* Button label convention — Geist Mono, uppercase, tracked */
 .btn-label { font-family: var(--font-mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
-
-/* Mobile: pin text size — iOS Safari auto-inflates text on zoomed-out wide layouts,
-   overflowing dense pages (found on real-phone check 2026-08-07). */
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
