@@ -17,7 +17,7 @@
   body{background:#0f1115;color:#16181d;overflow:hidden}
 
   /* ---------- HOME ---------- */
-  #home{height:100%;overflow-y:auto;background:#fffef9;-webkit-overflow-scrolling:touch;
+  #home{position:relative;z-index:1;height:100%;overflow-y:auto;background:#fffef9;-webkit-overflow-scrolling:touch;
         padding:calc(env(safe-area-inset-top) + 22px) 18px calc(env(safe-area-inset-bottom) + 40px)}
   .h-title{font-size:24px;font-weight:800;letter-spacing:-.02em;color:#0e1215}
   .h-sub{color:#6b7178;font-size:12px;margin-top:4px;font-family:var(--mono);
@@ -58,7 +58,7 @@
   .wk-actions .copied,.wk-actions>*.copied{background:#0e1215;color:#d1fb51;border-color:#0e1215}
 
   /* ---------- VIEWER ---------- */
-  #viewer{position:fixed;inset:0;background:#0f1115;display:none;flex-direction:column;
+  #viewer{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;background:#0f1115;display:none;flex-direction:column;
           padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
   #viewer.on{display:flex}
   .v-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px 6px;color:#fff;flex:none}
@@ -73,11 +73,18 @@
 
   .stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6px 14px 10px}
   .cardwrap{position:relative;aspect-ratio:350/622;height:min(100%,calc(min(92vw,380px) * 622 / 350));width:auto}
-  .flip{position:absolute;inset:0;perspective:1600px;cursor:pointer}
+  .flip{position:absolute;top:0;right:0;bottom:0;left:0;perspective:1600px;cursor:pointer}
   .flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,.15,.2,1);
               transform-style:preserve-3d}
   .flip.flipped .flip-inner{transform:rotateY(180deg)}
-  .face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+  /* backface-visibility alone is unreliable in Safari once the faces carry
+     composited layers - drive visibility off the flipped class as well, so
+     exactly one face can ever be painted. */
+  .face{opacity:1;transition:opacity 0s linear .25s}
+  .flip .back{opacity:0}
+  .flip.flipped .front{opacity:0}
+  .flip.flipped .back{opacity:1}
+  .face{position:absolute;top:0;right:0;bottom:0;left:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;
         border-radius:22px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)}
 
   /* front (cover) */
@@ -92,11 +99,11 @@
   .front .num i{font-style:normal;font-size:14px;font-weight:600;opacity:.8}
   .front .tap-hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:10px;
                    letter-spacing:.14em;text-transform:uppercase;opacity:.5}
-  .art-fill{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
-  .art-scrim{position:absolute;inset:0;z-index:1;
+  .art-fill{position:absolute;top:0;right:0;bottom:0;left:0;background-size:cover;background-position:center;z-index:0}
+  .art-scrim{position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;
              background:linear-gradient(to bottom,rgba(8,6,14,.88) 0%,rgba(8,6,14,.72) 10%,
                         rgba(8,6,14,.46) 20%,rgba(8,6,14,.18) 29%,rgba(8,6,14,0) 37%,rgba(8,6,14,0) 100%)}
-  .art-scrim-b{position:absolute;inset:auto 0 0 0;height:34%;z-index:1;
+  .art-scrim-b{position:absolute;right:0;bottom:0;left:0;height:34%;z-index:1;
                background:linear-gradient(to top,rgba(8,6,14,.8),rgba(8,6,14,0))}
   .art-bar{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
            text-shadow:0 1px 3px rgba(0,0,0,.6)}
@@ -185,7 +192,7 @@ function tileHTML(s,si,w,wi){
     // all tile info rides the top scrim, same as the printed front — the art's
     // own wordmark/tagline sits low in several series, so the bottom stays clear
     return '<button class="tile" onclick="openViewer('+si+','+wi+')">'
-      + '<div class="art-fill" style="background-image:url('+s.art+')"></div>'
+      + '<div class="art-fill" style="background-image:url(&quot;'+s.art+'&quot;)"></div>'
       + '<div class="art-scrim"></div>'
       + '<div class="art-bar"><div>'
       + '<div class="t-wkline" style="margin:0">'+wkline+'</div>'
@@ -270,7 +277,7 @@ function closeViewer(){
 function frontHTML(){
   const s=S(), w=W(), c=C();
   if(s.art){
-    return '<div class="art-fill" style="background-image:url('+s.art+')"></div>'
+    return '<div class="art-fill" style="background-image:url(&quot;'+s.art+'&quot;)"></div>'
          + '<div class="art-scrim"></div>'
          + '<div class="art-bar"><div>'
          + '<div class="art-wk">Week '+w.week+(w.title?' &middot; '+esc(w.title):'')+'</div>'
