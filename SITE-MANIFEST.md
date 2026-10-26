@@ -18,6 +18,20 @@ _Read this first every sync. It replaces CD's hard-coded "canonical set" list, w
 
 ---
 
+
+## Brand 2026 (branch `brand-2026`, 2026-10-26)
+
+Site reskinned to the October 2026 SE Students brand. Source of truth: `~/CoWork/brand/se-students/` (tokens, guide, fonts, logos, gradient).
+- `colors_and_type.css` is now the v2 foundation + expression tokens (Neue Haas Grotesk Display Pro, black / white / off-white, red accent, gradient). Legacy v1 names (`--ember`, `--solar`, `--fire`, `--blue-rasp`, `--glacier`) are kept as remapped aliases so old inline styles keep working.
+- Fonts are self-hosted in `assets/fonts/` (4 NHG weights). Web-font licensing route still TO CONFIRM.
+- Logos: `assets/logos/se-students-*` (pulled as vectors from the guide PDF; designer's files replace them). Old `logo-*.png` kept but unreferenced.
+- Art: chairs and bridge illustrations recolored to red; blue bridge versions kept in `assets/illos/_blue-version/`.
+- Hazard stripes → gradient (`var(--gradient)` / `--gradient-edge`); Print pill is gradient on every doc.
+- Justin's calls: ALL CAPS kept for titles / section heads / covers (guide says sentence case); backgrounds stay white; hub cover cards have no gradient cap; P1 deck deliberately untouched (own review pending); P2 and the R-docs on the red + gradient scheme.
+- PDFs: all 22 regenerated with `Leader Resource Site/lrs-pdf-render.mjs` (v2: NHG for body copy too, per the print rule; R13 forced to 17×11). Page counts verified identical to the previous set.
+- Arrange/Reset on the hub: hidden on `*.vercel.app` by the existing `isLive` gate, plus hidden under 560px.
+- The row below about Boldonse / Geist Mono / Inter / Anton in `colors_and_type.css` is superseded.
+
 ## Live pages (24)
 
 | File | Type | Section | Notes |

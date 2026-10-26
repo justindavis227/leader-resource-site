@@ -1,120 +1,204 @@
 /* ============================================================
-   SOUTHEAST STUDENTS — Colors & Type
-   Placeholder brand system (v1). Logo + final marks NOT locked.
-   Fonts load from Google Fonts (Boldonse, Geist Mono, Inter).
+   SOUTHEAST STUDENTS — Foundation tokens (v2, 2026-10)
+   Source: SE_Students_BrandGuide_10.21.pdf (sections 1–6).
+   The FOUNDATION does not change year to year. Seasonal color,
+   texture and imagery live in expression-*.css and rotate.
+
+   STATUS OF VALUES
+   - Confirmed by Justin 2026-10-26: black #0d0d0d, white #ffffff,
+     off-white #eae7e2.
+   - SAMPLED from the guide's rendered pages (replace when the
+     designer sends official values/Pantones): HSM Blue, MSM Orange.
+   - PLACEHOLDER (not in the guide at all): navy, red.
+   - Logo files, official gradient, Pantones: TO COME.
+
+   LEGACY ALIASES: the old v1 names (--ember, --solar, --fire,
+   --blue-rasp, --glacier, --charcoal, --pitch, --slate) are kept
+   and remapped so existing pages reskin without edits. New work
+   should use the v2 names only.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Geist+Mono:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+/* Neue Haas Grotesk Display Pro — self-hosted. The site copies the
+   three weights it needs into assets/fonts/. Weight map follows the
+   guide: 55 Roman = 400, 65 Medium = 500, 75 Bold = 700. */
+@font-face { font-family: 'Neue Haas Grotesk Display Pro'; font-weight: 400; font-style: normal; font-display: swap; src: url('assets/fonts/NeueHaasDisplayRoman.ttf') format('truetype'); }
+@font-face { font-family: 'Neue Haas Grotesk Display Pro'; font-weight: 500; font-style: normal; font-display: swap; src: url('assets/fonts/NeueHaasDisplayMediu.ttf') format('truetype'); }
+@font-face { font-family: 'Neue Haas Grotesk Display Pro'; font-weight: 700; font-style: normal; font-display: swap; src: url('assets/fonts/NeueHaasDisplayBold.ttf') format('truetype'); }
+@font-face { font-family: 'Neue Haas Grotesk Display Pro'; font-weight: 900; font-style: normal; font-display: swap; src: url('assets/fonts/NeueHaasDisplayBlack.ttf') format('truetype'); }
 
-/* Mobile text-inflation pin — MUST stay below the @import (any rule above an @import voids it) */
+/* Mobile text-inflation pin */
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 :root {
-  /* ---- BRAND PALETTE (named) -------------------------------- */
-  --charcoal:   #343434;  /* warm dark gray — workhorse dark surface   */
-  --pitch:      #0e1215;  /* near-black — deepest surface, hero blocks  */
-  --slate:      #fffef9;  /* warm off-white paper — default light bg    */
-  --solar:      #e8d136;  /* solar yellow — high-energy accent          */
-  --fire:       #cc3f36;  /* fire red — bold primary accent             */
-  --ember:      #eb6424;  /* ember orange — the signature "go" accent   */
-  --blue-rasp:  #1a9cd6;  /* blue raspberry — cool pop / icon accent    */
-  --glacier:    #deeff9;  /* glacier — pale cool tint, soft light bg    */
+  /* ---- CORE PALETTE (Color 4.1) ------------------------------ */
+  --black:      #0d0d0d;  /* PRIMARY. Confirmed.                          */
+  --off-white:  #eae7e2;  /* SECONDARY. Backgrounds. Confirmed.           */
+  --white:      #ffffff;  /* ACCENT. Use sparingly. Confirmed.            */
+  --ink-2:      #4a4a4a;  /* secondary text on light (derived)            */
+  --ink-3:      #8a8a8a;  /* muted text / section labels (sampled: the
+                             gray "Color", "Typography" kickers)          */
+  --hairline:   #d6d2cb;  /* dividers on light (derived from off-white)   */
+  --ink-2-d:    #c9c6c0;  /* secondary text on black                      */
+  --ink-3-d:    #8a8a8a;
+  --hairline-d: #2a2a2a;
 
-  /* ---- SEMANTIC SURFACES ------------------------------------ */
-  --bg:          var(--slate);     /* default page background          */
-  --bg-dark:     var(--pitch);     /* inverted / hero background        */
-  --bg-panel:    var(--charcoal);  /* panels on dark, sidebars          */
-  --bg-tint:     var(--glacier);   /* soft section background           */
+  /* ---- MINISTRY COLORS (Ministry Identity 5.4) ---------------- */
+  --hsm-blue:   #26ade4;  /* SAMPLED. High school content ONLY. White text on it. */
+  --msm-orange: #f47b20;  /* SAMPLED. Middle school content ONLY. Navy text on it. */
+  --navy:       #0f1f3d;  /* PLACEHOLDER — "approved navy" is named in the
+                             guide but no value is given anywhere.          */
+  --red:        #e01b2f;  /* PLACEHOLDER — the guide allows a red logo mark
+                             on black; no value given. Sampled from the
+                             gradient's red end.                             */
 
-  /* ---- SEMANTIC FOREGROUND (on light) ----------------------- */
-  --fg1:  #0e1215;                 /* primary text on light             */
-  --fg2:  #4a4f53;                 /* secondary text on light           */
-  --fg3:  #868c90;                 /* muted / captions on light         */
-  --hairline: #e4e0d4;             /* borders / dividers on light       */
+  /* ---- SEMANTIC SURFACES -------------------------------------- */
+  --bg:        var(--white);      /* default page background. Justin's rule
+                                      (2026-10-26): backgrounds stay WHITE unless
+                                      an image or an intentional dark/tinted panel
+                                      from the previous version. Off-white is a
+                                      choice, never a default.                 */
+  --bg-dark:   var(--black);      /* hero / inverted blocks                 */
+  --bg-panel:  #1a1a1a;           /* panels on dark                         */
+  --bg-tint:   var(--off-white);  /* soft panels, when a tint is intentional */
 
-  /* ---- SEMANTIC FOREGROUND (on dark) ------------------------ */
-  --fg1-d: #fffef9;                /* primary text on dark              */
-  --fg2-d: #b9bdc0;                /* secondary text on dark            */
-  --fg3-d: #7e8488;                /* muted text on dark                */
-  --hairline-d: #2b2f33;           /* borders / dividers on dark        */
+  /* ---- SEMANTIC FOREGROUND ------------------------------------ */
+  --fg1: var(--black);
+  --fg2: var(--ink-2);
+  --fg3: var(--ink-3);
+  --fg1-d: var(--off-white);      /* text on black is off-white (Type 3.4) */
+  --fg2-d: var(--ink-2-d);
+  --fg3-d: var(--ink-3-d);
 
-  /* ---- ACTIONS ---------------------------------------------- */
-  --accent:        var(--ember);   /* primary action / brand pop        */
-  --accent-press:  #cf5318;        /* ember, pressed (darker)           */
-  --accent-2:      var(--fire);    /* secondary action                  */
-  --accent-cool:   var(--blue-rasp);
-  --on-accent:     #fffef9;        /* text on ember/fire                */
-  --on-solar:      #0e1215;        /* text on solar (yellow needs dark) */
+  /* ---- ACTIONS ------------------------------------------------ */
+  --accent:       var(--black);   /* primary action on light = black pill  */
+  --accent-press: #2a2a2a;
+  --accent-2:     var(--black);
+  --accent-cool:  var(--ink-3);   /* kickers/eyebrows are quiet gray now   */
+  --on-accent:    var(--white);   /* text on black pill                    */
+  --on-solar:     var(--black);   /* legacy: text on the old yellow fills  */
 
-  /* ---- TYPE FAMILIES ---------------------------------------- */
-  --font-display: 'Boldonse', 'Arial Narrow', sans-serif; /* loud headlines, ALL CAPS */
-  --font-mono:    'Geist Mono', ui-monospace, 'SFMono-Regular', monospace; /* labels, eyebrows, buttons */
-  --font-body:    'Inter', system-ui, -apple-system, sans-serif; /* body copy */
-  /* The "Southeast Students" wordmark is a custom rounded display
-     treatment — use the logo ASSETS in /assets/logos, do not retype. */
+  /* ---- TYPE FAMILIES (Typography 3.x) ------------------------- */
+  /* Brand face everywhere in PRINT. On WEBSITES AND APPS the brand
+     face is for headlines/hero only; body, nav, buttons, labels use
+     the system font (Justin's standing rule). Override --font-body
+     and --font-mono to the display family for print builds.       */
+  --font-display: 'Neue Haas Grotesk Display Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; /* legacy alias: there is NO mono in the new brand */
+  --font-print:   'Neue Haas Grotesk Display Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-  /* ---- TYPE SCALE ------------------------------------------- */
-  --text-xs:   12px;
-  --text-sm:   14px;
-  --text-base: 17px;
-  --text-lg:   20px;
-  --text-xl:   26px;
-  --text-2xl:  34px;
-  --text-3xl:  46px;
-  --text-4xl:  64px;
-  --text-5xl:  88px;
+  /* ---- TYPE SCALE (unchanged from v1) ------------------------- */
+  --text-xs: 12px; --text-sm: 14px; --text-base: 17px; --text-lg: 20px;
+  --text-xl: 26px; --text-2xl: 34px; --text-3xl: 46px; --text-4xl: 64px; --text-5xl: 88px;
 
-  /* ---- RADII ------------------------------------------------ */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-pill: 999px;   /* CTA buttons are full pills (see brand)    */
+  /* ---- RADII -------------------------------------------------- */
+  --radius-sm: 4px; --radius-md: 8px; --radius-pill: 999px; /* CTA = pill (Type 3.3) */
 
-  /* ---- SPACING (8px base) ----------------------------------- */
+  /* ---- SPACING (8px base) ------------------------------------- */
   --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
-  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
-  --space-9: 96px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
 
-  /* ---- ELEVATION -------------------------------------------- */
-  --shadow-sm: 0 1px 2px rgba(14,18,21,.10);
-  --shadow-md: 0 6px 18px rgba(14,18,21,.14);
-  --shadow-lg: 0 18px 48px rgba(14,18,21,.20);
+  /* ---- ELEVATION ---------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(13,13,13,.10);
+  --shadow-md: 0 6px 18px rgba(13,13,13,.14);
+  --shadow-lg: 0 18px 48px rgba(13,13,13,.20);
+
+  /* ---- LEGACY v1 ALIASES (remapped — do not use in new work) -- */
+  --charcoal:  #1a1a1a;
+  --pitch:     var(--black);
+  --slate:     var(--white);
+  --solar:     var(--off-white);   /* old yellow fills → quiet off-white; dark text still reads */
+  --fire:      var(--red);
+  --ember:     var(--red);         /* old "go" orange highlight → red (reads on black AND
+                                      off-white; black-on-black killed highlighted text).
+                                      Orange itself is MSM-only now. Buttons use --accent. */
+  --blue-rasp: var(--red);         /* old blue-accent docs → the red + gradient scheme
+                                      (Justin, 2026-10-26, after seeing HSM blue on them) */
+  --glacier:   #fbe6e9;            /* pale red tint for the old glacier panels */
 }
 
 /* ============================================================
-   SEMANTIC TYPE ROLES
-   Display = Boldonse (always uppercase, tight). Eyebrows/labels =
-   Geist Mono (uppercase, tracked). Body = Inter.
+   TYPE ROLES. The guide (Type 3.3) is sentence case; Justin's call
+   (2026-10-26) keeps ALL CAPS for titles, section heads and booklet
+   covers on the Leader Resource Site. Body, labels and buttons are
+   sentence case. Headline 75 Bold · Subhead 65 Medium · Body 55 Roman
    ============================================================ */
-
-.display, .h-display {
+.display, .h-display, h1, .h1, h2, .h2 {
   font-family: var(--font-display);
-  font-weight: 400;            /* Boldonse ships a single bold weight */
+  font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.06;           /* Boldonse has a tall line box — keep loose to avoid overlap */
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   color: var(--fg1);
 }
+h1, .h1 { font-size: var(--text-4xl); line-height: 0.98; }
+h2, .h2 { font-size: var(--text-2xl); line-height: 1.04; }
+h3, .h3 { font-family: var(--font-display); font-weight: 500; font-size: var(--text-xl); line-height: 1.15; letter-spacing: -0.01em; color: var(--fg1); }
 
-h1, .h1 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: var(--text-4xl); line-height: 1.06; letter-spacing: -0.01em; color: var(--fg1); }
-h2, .h2 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: var(--text-2xl); line-height: 1.08; color: var(--fg1); }
-h3, .h3 { font-family: var(--font-body); font-weight: 700; font-size: var(--text-xl); line-height: 1.15; color: var(--fg1); }
-
-/* Eyebrow / kicker / label — Geist Mono, uppercase, tracked */
+/* Kicker / eyebrow / label — quiet gray, sentence case, no tracking */
 .eyebrow, .label, .kicker {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
   font-size: var(--text-sm);
-  color: var(--accent-cool);
+  color: var(--fg3);
 }
 
 p, .body { font-family: var(--font-body); font-weight: 400; font-size: var(--text-base); line-height: 1.6; color: var(--fg2); }
-.lead   { font-family: var(--font-body); font-weight: 400; font-size: var(--text-lg); line-height: 1.55; color: var(--fg2); }
+.lead    { font-family: var(--font-body); font-weight: 400; font-size: var(--text-lg); line-height: 1.5; color: var(--fg2); }
 small, .caption { font-family: var(--font-body); font-size: var(--text-sm); color: var(--fg3); }
+.mono { font-family: var(--font-body); font-weight: 500; }
 
-/* Mono utility — stats, metadata, code */
-.mono { font-family: var(--font-mono); font-weight: 500; }
+/* Button label — 75 Bold, sentence case, pill */
+.btn-label { font-family: var(--font-display); font-weight: 700; text-transform: none; letter-spacing: 0; }
+/* ============================================================
+   SOUTHEAST STUDENTS — Expression layer, 2026 launch
+   Source: Brand Expression 7.x. "The foundation stays. The
+   expression changes." Runs ~12–18 months; the end date is set at
+   launch and reviewed before it ends.
 
-/* Button label convention — Geist Mono, uppercase, tracked */
-.btn-label { font-family: var(--font-mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+   Launched: 2026-10 (guide dated 10.21)   Planned review: TBD — ask
+   Next expression: copy this file to expression-<year>.css and swap.
+   ============================================================ */
+:root {
+  /* Gradient texture (7.4). OFFICIAL FILE: textures/gradient-texture.png
+     (8000×4494, from Justin 2026-10-26). Stops sampled along its bright
+     band: navy → violet → purple → magenta → red → orange. Use the PNG
+     itself for hero/cover backgrounds; the CSS gradient is for bars,
+     pills and edges where an image is overkill. */
+  --x-navy:    #141d5f;
+  --x-violet:  #472ca7;
+  --x-purple:  #961ca5;
+  --x-magenta: #de0178;
+  --x-pink:    #fb0e42;
+  --x-red:     #ff172c;
+  --x-orange:  #f98e2f;
+
+  --gradient: linear-gradient(135deg, var(--black) 0%, var(--x-violet) 25%, var(--x-magenta) 55%, var(--x-red) 85%, var(--x-orange) 100%);
+  --gradient-image: url('assets/textures/gradient-texture.jpg');
+  --gradient-soft: radial-gradient(120% 90% at 20% 20%, var(--x-violet) 0%, var(--x-magenta) 45%, var(--black) 100%);
+  --gradient-edge: linear-gradient(90deg, var(--x-violet), var(--x-magenta), var(--x-red)); /* thin bars, rules, edge caps */
+
+  /* Grain (7.4) — scratched black, low-opacity overlay on dark only.
+     Texture file to come; until then a CSS approximation.          */
+  --grain-opacity: .12;
+
+  /* Gradient + grid (7.4) — covers and event graphics ONLY, sparingly.
+     Not a web pattern; build it per piece.                           */
+}
+
+/* Replacement for the old hazard-stripe banner/edge-cap device:
+   a thin gradient bar. Same places, far quieter.                   */
+.brand-bar { height: 6px; background: var(--gradient-edge); }
+.brand-bar--thick { height: 14px; }
+
+/* Gradient hero panel: black with the blend rising from a corner */
+.gradient-panel { background: var(--black); background-image: var(--gradient-soft); color: var(--fg1-d); }
+
+/* Grain overlay for dark panels (texture file replaces this later) */
+.grain { position: relative; }
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  opacity: var(--grain-opacity); mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}

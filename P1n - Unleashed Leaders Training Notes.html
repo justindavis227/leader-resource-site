@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unleashed Leaders Training Notes—Southeast Students</title>
 <link rel="stylesheet" href="colors_and_type.css">
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="data:text/css," rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{--font-display:'Anton','Arial Narrow',sans-serif}
+  body{}
   body{margin:0;background:#d6d2c4;font-family:var(--font-body);padding:48px 0;color:var(--fg1);display:flex;flex-direction:column;align-items:center;gap:40px}
   a{color:var(--fire)} a:hover{color:var(--ember)}
 
   /* 8.5x11 portrait @96dpi */
   .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
-         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:#eb6424;display:flex;flex-direction:column}
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:var(--ember);display:flex;flex-direction:column}
 
   /* hero band */
   .hero{background:var(--pitch);padding:44px 60px 0;position:relative}
   .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
-  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:50px;line-height:1.02;margin:12px 0 14px;letter-spacing:.005em}
+  .hero h1{font-family:var(--font-display);text-transform:uppercase;color:var(--slate);font-size:42px;line-height:1.02;margin:12px 0 14px;letter-spacing:-.015em;white-space:nowrap}
   .hero p{font-size:12.5px;line-height:1.55;color:var(--fg2-d);max-width:640px;margin:0 0 24px}
   .hero p b{color:var(--slate);font-weight:600}
-  .hz{height:12px;background:repeating-linear-gradient(135deg,var(--sa) 0 20px,transparent 20px 40px);margin:0 -60px}
+  .hz{height:12px;background:var(--gradient);margin:0 -60px}
 
   /* slim header (inner pages) */
   .shead{padding:40px 60px 0}
@@ -126,19 +126,19 @@
 <body>
 <style>@media print{#libnav{display:none!important}}html.is-embedded #libnav{display:none!important}html.is-embedded body{padding:0!important}</style>
 <script>(function(){var fe=window.frameElement;if(fe&&(fe.getAttribute('aria-hidden')==='true'||fe.hasAttribute('data-fit')))document.documentElement.className+=' is-embedded';})();</script>
-<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—8.5&times;11" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—8.5&times;11" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--gradient-edge);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail" data-bg-color="#d6d2c4">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
     <rect x="450" y="170" width="300" height="460" rx="10" fill="#f7f5ef"/>
     <rect x="450" y="170" width="300" height="120" rx="10" fill="#14171a"/>
-    <rect x="480" y="330" width="60" height="12" rx="4" fill="#eb6424"/>
+    <rect x="480" y="330" width="60" height="12" rx="4" fill="var(--ember)"/>
     <rect x="552" y="330" width="168" height="12" rx="4" fill="#b3ad99"/>
-    <rect x="480" y="360" width="60" height="12" rx="4" fill="#eb6424"/>
+    <rect x="480" y="360" width="60" height="12" rx="4" fill="var(--ember)"/>
     <rect x="552" y="360" width="140" height="12" rx="4" fill="#b3ad99"/>
-    <rect x="480" y="390" width="60" height="12" rx="4" fill="#eb6424"/>
+    <rect x="480" y="390" width="60" height="12" rx="4" fill="var(--ember)"/>
     <rect x="552" y="390" width="168" height="12" rx="4" fill="#b3ad99"/>
   </svg>
 </template>
@@ -178,7 +178,7 @@
       </div>
     </div>
   </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 01</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 01</span><img class="lg" src="assets/logos/se-students-primary-black.png" alt="Southeast Students"></div>
 </div>
 
 <!-- ============ PAGE 2 &middot; STAFF ORIENTATION ============ -->
@@ -220,7 +220,7 @@
       </div>
     </div>
   </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 02</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 02</span><img class="lg" src="assets/logos/se-students-primary-black.png" alt="Southeast Students"></div>
 </div>
 
 <!-- ============ PAGE 3 · WEEK 1 / HOUR 1 ============ -->
@@ -241,7 +241,7 @@
     <div class="seg"><span class="tm">10</span><div><div class="sh">Your Role <small>&mdash; summary of your role</small></div><ul><li>Read through the role overview and extrapolate. <b>Then summarize:</b> Shepherd &middot; Harvest Worker &middot; Teammate.</li><li><b>1 Peter 5:2 &rarr; Shepherd:</b> be shepherds over God&rsquo;s flock&mdash;examples worth following.</li><li><b>Luke 10:2 &rarr; Harvest Worker:</b> Luke 9:62 calls us to grip the plow. Be a worker; call others to the work.</li><li><b>1 Corinthians 3:5&ndash;9 &rarr; Teammate:</b> each plays a part in planting, watering, tilling. God makes it grow&mdash;use your gifts for His Kingdom.</li><li><b>&ldquo;You Win When&rdquo;</b> = a student takes a next step toward Christ</li></ul></div></div>
     <div class="hw"><b>Homework</b> &mdash; 4 Chair Personal Inventory (<i>If doing two weeks, have them bring it back to Part 2</i>)</div>
   </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 03</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 03</span><img class="lg" src="assets/logos/se-students-primary-black.png" alt="Southeast Students"></div>
 </div>
 
 <!-- ============ PAGE 3 · WEEK 2 / HOUR 2 ============ -->
@@ -262,7 +262,7 @@
     <div class="seg"><span class="tm">10</span><div><div class="sh">Challenge 4 <small>&mdash; &ldquo;Go and Bear Fruit&rdquo; &middot; John 15:5</small></div><ul><li>Challenge = abide in Christ and bear fruit in making disciples.</li><li><span class="disc">Discuss 2 min</span>Where are you strongest? Where do you need to improve to produce much fruit?</li><li>Chair 4 disciples aren&rsquo;t just small group leaders&mdash;they use every tool, alongside the Holy Spirit, to reach, build, equip</li><li class="rbem"><b>Multiply</b> = Investing in a few: not a program, raising up leaders</li><li><b>Each chair will be represented in your groups this year.</b> Your job: help students see where they are and get to what God has next.</li></ul></div></div>
     <div class="hw"><b>Homework</b> &mdash; check with staff on any clearance needs.</div>
   </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 04</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 04</span><img class="lg" src="assets/logos/se-students-primary-black.png" alt="Southeast Students"></div>
 </div>
 
 <!-- ============ PAGE 4 · HSM + MSM SPECIFICS ============ -->
@@ -286,7 +286,7 @@
     <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Parent Partnerships</div><ul><li>Communication.</li></ul></div></div>
     <div class="seg"><span class="tm">&mdash;</span><div><div class="sh">Safety</div><ul><li>Stoplight: Red, Yellow, Green Light</li><li>Social Media / Online</li></ul></div></div>
   </div>
-  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 05</span><img class="lg" src="assets/logos/logo-primary.png" alt="Southeast Students"></div>
+  <div class="rfoot"><span class="sec">Unleashed Leaders &middot; Training Notes &middot; 05</span><img class="lg" src="assets/logos/se-students-primary-black.png" alt="Southeast Students"></div>
 </div>
 
 <script src="print-marks.js"></script>

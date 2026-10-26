@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unleashed Leaders—New Leader Training</title>
 <link rel="stylesheet" href="colors_and_type.css">
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="data:text/css," rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);--font-display:'Anton','Arial Narrow',sans-serif}
+  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);}
   .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
 
   /* page frame: 8in @96dpi */
@@ -34,7 +34,7 @@
   .cover h1{font-size:104px;color:var(--slate);line-height:.9;margin:0}
   .cover .csub{display:block;font-size:15px;color:rgba(255,254,249,.82);max-width:430px;margin-top:18px;line-height:1.5}
   .cover .yr{display:block;font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px}
-  .cover .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
+  .cover .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
 
   /* ---- BACK COVER ---- */
   .back{color:var(--slate)}
@@ -43,7 +43,7 @@
   .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
   .back .wm img{height:54px;opacity:.96}
   .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.8)}
-  .back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
+  .back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
 
   /* ---- FULL-BLEED VERSE PAGE (p.18) ---- */
   .versepage{color:var(--slate)}
@@ -56,7 +56,7 @@
   .versepage .vpquote{font-family:var(--font-body);font-weight:300;font-size:41px;line-height:1.18;letter-spacing:-.02em;color:var(--slate);margin:0;max-width:642px}
   .versepage .vpquote em{font-style:normal;font-weight:800;color:var(--ember)}
   .versepage .vpref{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(255,254,249,.82);margin-top:26px}
-  .versepage .vphz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px);z-index:2}
+  .versepage .vphz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient);z-index:2}
 
   /* ---- FULL-BLEED FIELD PAGE (p.3) ---- */
   .fieldpg{color:var(--slate)}
@@ -81,7 +81,7 @@
 
   /* ---- SECTION DIVIDER · B-DARK ---- */
   .divider{background:var(--pitch);color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end}
-  .divider .ghost{position:absolute;top:-96px;right:-24px;font-family:var(--font-display);font-size:460px;line-height:1;color:rgba(255,254,249,.05);letter-spacing:-.02em;z-index:0;pointer-events:none}
+  .divider .ghost{position:absolute;top:-70px;right:12px;font-family:var(--font-display);font-size:380px;line-height:1;color:rgba(255,254,249,.05);letter-spacing:-.02em;z-index:0;pointer-events:none}
   .divider .inner{padding:0 66px 104px;position:relative;z-index:1}
   .divider .secno{font-family:var(--font-mono);font-weight:700;font-size:14px;letter-spacing:.24em;color:var(--ember)}
   .divider h2{font-size:80px;color:var(--slate);margin:16px 0 0}
@@ -146,24 +146,24 @@
   .toolbox .tbhead .lead{max-width:520px}
   .stoplight{flex:none;width:46px;height:120px;background:var(--pitch);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:9px 0;margin-top:4px}
   .stoplight span{width:26px;height:26px;border-radius:50%}
-  .stoplight .r{background:#cc3f36}.stoplight .y{background:#e0a52b}.stoplight .g{background:#319a4d}
+  .stoplight .r{background:var(--fire)}.stoplight .y{background:#e0a52b}.stoplight .g{background:#319a4d}
   .toolbox .lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;flex:1}
   .lane{border:1px solid var(--hairline);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:#fffdf5}
   .lane .lhd{display:flex;align-items:center;gap:8px;padding:12px 14px;color:#fff}
   .lane .lhd .dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.92);flex:none}
   .lane .lhd .lt{font-family:var(--font-display);text-transform:uppercase;font-size:16px;line-height:1;letter-spacing:.01em;white-space:nowrap}
-  .lane.green .lhd{background:#319a4d}.lane.red .lhd{background:#cc3f36}
+  .lane.green .lhd{background:#319a4d}.lane.red .lhd{background:var(--fire)}
   .lane.yellow .lhd{background:#e0a52b;color:var(--pitch)}
   .lane.yellow .lhd .dot{background:rgba(14,18,21,.82)}
   .lane .lbody{padding:14px 16px 17px;display:flex;flex-direction:column;gap:12px}
   .lane .lcap{font-size:11.5px;color:var(--fg2);line-height:1.45}
   .lane .lcap b{font-weight:700}
   .lane .lcap>div{margin-top:3px}
-  .lane.green .lcap b{color:#2c7d41}.lane.yellow .lcap b{color:#a8761a}.lane.red .lcap b{color:#cc3f36}
+  .lane.green .lcap b{color:#2c7d41}.lane.yellow .lcap b{color:#a8761a}.lane.red .lcap b{color:var(--fire)}
   .lane ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
   .lane li{font-size:12px;color:var(--fg2);line-height:1.35;padding-left:15px;position:relative}
   .lane li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%}
-  .lane.green li::before{background:#319a4d}.lane.yellow li::before{background:#e0a52b}.lane.red li::before{background:#cc3f36}
+  .lane.green li::before{background:#319a4d}.lane.yellow li::before{background:#e0a52b}.lane.red li::before{background:var(--fire)}
 
   /* mission page—tweakable spacing + indent */
   .content.mission .rows{display:flex;flex-direction:column;gap:var(--mission-gap,14px)}
@@ -394,8 +394,8 @@
   /* resources / QR */
   .qrow{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--hairline);align-items:center}
   .qr{width:96px;height:96px;border:1px solid var(--hairline);border-radius:8px;background:
-      repeating-linear-gradient(0deg,#0e1215 0 6px,transparent 6px 12px),
-      repeating-linear-gradient(90deg,#0e1215 0 6px,transparent 6px 12px);
+      var(--hairline),
+      var(--hairline);
       background-size:24px 24px;background-color:#fffdf5;opacity:.18;position:relative}
   .qrwrap{position:relative;width:96px;height:96px}
   .qrwrap .qlab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--fg3);text-transform:uppercase}
@@ -724,14 +724,14 @@
 </head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
-<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--gradient-edge);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <rect width="100" height="100" fill="#0e1215"/>
-    <rect x="30" y="30" width="40" height="40" fill="#eb6424"/>
+    <rect width="100" height="100" fill="var(--black)"/>
+    <rect x="30" y="30" width="40" height="40" fill="var(--ember)"/>
     <text x="50" y="65" font-family="Anton, Arial Narrow, sans-serif" font-size="40" fill="#fffef9" text-anchor="middle">1</text>
   </svg>
 </template>
@@ -1011,8 +1011,8 @@
         <svg viewBox="0 0 100 100">
           <defs>
             <g id="arw">
-              <path d="M19.4 24.3 A40 40 0 0 1 62.4 12.0" fill="none" stroke="#eb6424" stroke-width="11" stroke-linecap="butt"/>
-              <path d="M73.8 15.7 L57.1 21.9 L63.9 0.9 Z" fill="#eb6424"/>
+              <path d="M19.4 24.3 A40 40 0 0 1 62.4 12.0" fill="none" stroke="var(--ember)" stroke-width="11" stroke-linecap="butt"/>
+              <path d="M73.8 15.7 L57.1 21.9 L63.9 0.9 Z" fill="var(--ember)"/>
             </g>
           </defs>
           <use href="#arw"/>
@@ -1057,10 +1057,10 @@
       </div>
     </div>
       <div class="qflow" aria-hidden="true">
-        <span class="qarw a-right"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-r" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#eb6424" stop-opacity="0"></stop><stop offset="1" stop-color="#eb6424" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-r)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="#eb6424"/></svg></span>
-        <span class="qarw a-down"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-d" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#eb6424" stop-opacity="0"></stop><stop offset="1" stop-color="#eb6424" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-d)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="#eb6424"/></svg></span>
-        <span class="qarw a-left"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-l" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#eb6424" stop-opacity="0"></stop><stop offset="1" stop-color="#eb6424" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-l)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="#eb6424"/></svg></span>
-        <span class="qarw a-up"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-u" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#eb6424" stop-opacity="0"></stop><stop offset="1" stop-color="#eb6424" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-u)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="#eb6424"/></svg></span>
+        <span class="qarw a-right"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-r" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--ember)" stop-opacity="0"></stop><stop offset="1" stop-color="var(--ember)" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-r)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="var(--ember)"/></svg></span>
+        <span class="qarw a-down"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-d" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--ember)" stop-opacity="0"></stop><stop offset="1" stop-color="var(--ember)" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-d)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="var(--ember)"/></svg></span>
+        <span class="qarw a-left"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-l" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--ember)" stop-opacity="0"></stop><stop offset="1" stop-color="var(--ember)" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-l)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="var(--ember)"/></svg></span>
+        <span class="qarw a-up"><svg viewBox="0 0 142 44"><defs><linearGradient id="qg-u" x1="2" y1="0" x2="106" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--ember)" stop-opacity="0"></stop><stop offset="1" stop-color="var(--ember)" stop-opacity="1"></stop></linearGradient></defs><line x1="2" y1="22" x2="106" y2="22" stroke="url(#qg-u)" stroke-width="14" stroke-linecap="butt"/><path d="M106 6 L142 22 L106 38 Z" fill="var(--ember)"/></svg></span>
       </div>
     </div>
     <div class="foot"><span class="sec">Our Tools</span><span class="pn">14</span></div>
@@ -1139,7 +1139,7 @@
     <div class="winhero">
       <div class="wbar"></div>
       <div class="wk">The win</div>
-      <div class="wbig" style="font-size: 33px"><span style="color: #eb6424">STUDENTS TAKE A NEXT STEP</span> <span style="color: #fffef9">TOWARD CHRIST.</span></div>
+      <div class="wbig" style="font-size: 33px"><span style="color: var(--ember)">STUDENTS TAKE A NEXT STEP</span> <span style="color: #fffef9">TOWARD CHRIST.</span></div>
     </div>
     <div class="rows">
       <div class="cadstack">
@@ -1679,7 +1679,7 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
     <img class="cph" src="assets/photos/harvest.jpg" alt="Harvest field">
     <div class="cgrad"></div>
     <div class="wm">
-      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students">
+      <img src="assets/logos/se-students-primary-white.png" alt="Southeast Students">
       <div class="tl">Connecting people to Jesus &amp; one another</div>
     </div>
     <div class="chz"></div>
@@ -1901,7 +1901,7 @@ ReactDOM.createRoot(document.getElementById('tweak-root')).render(<MissionTweaks
 window.renderVisionMaps = function(labelNudge, animate){
   if(!window.CampusMap) return;
   var base={ grid:'none', vignette:false, transparent:true, arc:'solid', beyond:'arrows', pin:'glow', labels:'all',
-    labelFill:'#0e1215', centerFill:'#0e1215', offsetX:592, shiftY:-135, scale:1.5,
+    labelFill:'var(--black)', centerFill:'var(--black)', offsetX:592, shiftY:-135, scale:1.5,
     animate: animate !== false,
     labelOverrides:{ 'South Louisville':{lx:260}, 'Beechmont Center':{lx:260}, 'Southwest':{lx:260}, 'Elizabethtown':{lx:256}, 'Chapel in the Woods':{lx:409, ly:219, a:'start', lead:true}, 'Crestwood':{lx:428, ly:178} },
     posOverrides:{ 'Elizabethtown':{dy:-85}, 'Nelson County':{dy:-45}, 'Franklin':{dy:-120}, 'Chapel in the Woods':{dx:45, dy:7}, 'Crestwood':{dx:6, dy:14}, 'Shelby County':{dx:26} },

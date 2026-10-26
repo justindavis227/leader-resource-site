@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Student Leadership—Student Leadership Guide</title>
 <link rel="stylesheet" href="colors_and_type.css">
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="data:text/css," rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);--font-display:'Anton','Arial Narrow',sans-serif;--ember:#cc3f36;--accent-press:#a5322b}
+  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);--ember:var(--fire);--accent-press:#a5322b}
   .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
 
   /* page frame: 8in @96dpi */
@@ -35,7 +35,7 @@
   .cover h1{font-size:96px;color:var(--slate);line-height:.9;margin:0}
   .cover .csub{display:block;font-size:15px;color:rgba(255,254,249,.82);max-width:430px;margin-top:18px;line-height:1.5}
   .cover .yr{display:block;font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px}
-  .cover .chz,.back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
+  .cover .chz,.back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
 
   /* ---- BACK COVER ---- */
   .back{color:var(--slate);background:var(--pitch)}
@@ -57,7 +57,7 @@
 
   /* ---- SECTION DIVIDER ---- */
   .divider{background:var(--pitch);color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end}
-  .divider .ghost{position:absolute;top:-96px;right:-24px;font-family:var(--font-display);font-size:460px;line-height:1;color:rgba(255,254,249,.05);letter-spacing:-.02em;z-index:0;pointer-events:none}
+  .divider .ghost{position:absolute;top:-70px;right:12px;font-family:var(--font-display);font-size:380px;line-height:1;color:rgba(255,254,249,.05);letter-spacing:-.02em;z-index:0;pointer-events:none}
   .divider .inner{padding:0 66px 104px;position:relative;z-index:1}
   .divider .secno{font-family:var(--font-mono);font-weight:700;font-size:14px;letter-spacing:.24em;color:var(--ember)}
   .divider h2{font-size:80px;color:var(--slate);margin:16px 0 0}
@@ -109,14 +109,14 @@
 </head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
-<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#cc3f36);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,var(--fire));padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <rect width="100" height="100" fill="#0e1215"/>
-    <rect x="30" y="30" width="40" height="40" fill="#cc3f36"/>
+    <rect width="100" height="100" fill="var(--black)"/>
+    <rect x="30" y="30" width="40" height="40" fill="var(--fire)"/>
     <text x="50" y="65" font-family="Anton, Arial Narrow, sans-serif" font-size="40" fill="#fffef9" text-anchor="middle">7</text>
   </svg>
 </template>
@@ -226,7 +226,7 @@
     <img class="cph" src="assets/photos/fields-aerial.jpg" alt="Aerial fields (continues from front cover)">
     <div class="cgrad"></div>
     <div class="wm">
-      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students">
+      <img src="assets/logos/se-students-primary-white.png" alt="Southeast Students">
       <div class="tl">Connecting people to Jesus &amp; one another</div>
     </div>
     <div class="chz"></div>

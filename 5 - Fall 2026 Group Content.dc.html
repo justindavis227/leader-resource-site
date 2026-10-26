@@ -10,10 +10,10 @@
 <x-dc>
 <helmet>
 <link rel="stylesheet" href="colors_and_type.css">
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;display=swap" rel="stylesheet">
+<link href="data:text/css," rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{margin:0;background:#d6d2c4;padding:48px 0;font-family:var(--font-body);--font-display:'Anton','Arial Narrow',sans-serif;overflow-x:hidden}
+  body{margin:0;background:#d6d2c4;padding:48px 0;font-family:var(--font-body);overflow-x:hidden}
   a{color:var(--ember);text-decoration:none}
   a:hover{color:var(--accent-press)}
   @media (max-width:640px){
@@ -30,7 +30,7 @@
 </style>
 <script src="print-marks.js"></script>
 </helmet>
-<nav id="libnav" style="position:fixed;top:16px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)"><a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">←&nbsp;Library</a><a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">↓&nbsp;Print</a></nav>
+<nav id="libnav" style="position:fixed;top:16px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)"><a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">←&nbsp;Library</a><a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--gradient-edge);padding:8px 15px;border-radius:999px">↓&nbsp;Print</a></nav>
 <div class="viewbar" style="position:fixed;top:16px;right:16px;z-index:50;display:flex;gap:4px;background:var(--pitch);border-radius:999px;padding:4px;box-shadow:0 6px 18px rgba(14,18,21,.28)">
   <button onClick="{{ selectSingle }}" style="{{ singleBtnStyle }}">Single</button>
   <button onClick="{{ selectSpread }}" style="{{ spreadBtnStyle }}">Spread</button>
@@ -39,7 +39,7 @@
 <div class="book" style="display:flex;flex-direction:column;align-items:center;gap:40px">
 
   <!-- ============ COVER ============ -->
-  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:#01b7ff">
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:var(--hsm-blue)">
   <sc-if value="{{ isSpread }}" hint-placeholder-val="{{ true }}"><div aria-hidden="true" style="width:768px;height:768px;flex:none"></div></sc-if>
   <section class="pg" data-screen-label="Cover" style="width:768px;height:768px;background:var(--pitch);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--slate)">
     <img src="assets/photos/head-blue.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%">
@@ -47,17 +47,17 @@
     
     <div style="position:absolute;top:56px;right:64px;max-width:270px;text-align:right;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;line-height:1.8;color:var(--solar)">One at a Time · Churchy Words · Beyond Boring · Those People</div>
     <div style="position:absolute;left:64px;right:64px;bottom:60px">
-      <div style="width:64px;height:5px;background:#01b7ff;margin-bottom:22px"></div>
+      <div style="width:64px;height:5px;background:var(--hsm-blue);margin-bottom:22px"></div>
       
       <h1 style="font-family:var(--font-display);text-transform:uppercase;font-size:104px;line-height:.9;letter-spacing:.01em;color:var(--slate);margin:0">Fall<br>2026</h1>
       <div style="font-size:15px;color:rgba(255,254,249,.84);max-width:440px;margin-top:20px;line-height:1.55">Group Leader Content · Southeast Students</div>
       <div style="font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px">2026–2027</div>
     </div>
-    <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#01b7ff 0 20px,transparent 20px 40px)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)"></div>
   </section>
   </div>
 
-  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:#01b7ff">
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:var(--hsm-blue)">
   <!-- ============ COPYRIGHT ============ -->
   <section class="pg" data-screen-label="Copyright" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:56px 64px 92px;display:flex;flex-direction:column;justify-content:flex-end">
     <p style="font-size:14px;color:var(--fg2);line-height:1.65;margin:0;max-width:560px">© 2026 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
@@ -93,15 +93,15 @@
   </section>
   </div>
 
-  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:#01b7ff">
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:var(--hsm-blue)">
   <!-- ============ START UP DIVIDER ============ -->
   <section class="pg" data-screen-label="Start Up Divider" style="width:768px;height:768px;position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);background:var(--pitch);color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end">
-    <div aria-hidden="true" style="position:absolute;top:-90px;left:-70px;width:360px;height:360px;border:44px solid #01b7ff;border-radius:50%;opacity:.08;pointer-events:none;z-index:0"></div>
+    <div aria-hidden="true" style="position:absolute;top:-90px;left:-70px;width:360px;height:360px;border:44px solid var(--hsm-blue);border-radius:50%;opacity:.08;pointer-events:none;z-index:0"></div>
     <div style="position:relative;z-index:1;padding:0 64px 84px">
-      <div style="font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.26em;color:#01b7ff">SECTION 00</div>
+      <div style="font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.26em;color:var(--hsm-blue)">SECTION 00</div>
       <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:96px;line-height:.9;color:var(--slate);margin:14px 0 0">Start<br>Up</h2>
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:rgba(255,254,249,.72);margin-top:24px">Everything to know before you lead a group</div>
-      <div style="width:64px;height:6px;background:#01b7ff;margin-top:26px"></div>
+      <div style="width:64px;height:6px;background:var(--hsm-blue);margin-top:26px"></div>
     </div>
     <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px;z-index:1"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:rgba(255,254,249,.55)">Start Up</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:rgba(255,254,249,.8);letter-spacing:.04em">Southeast Students</span></div>
   </section>
@@ -150,7 +150,7 @@
   </section>
   </div>
 
-  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:#01b7ff">
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:var(--hsm-blue)">
   <!-- ============ HOW TO USE ============ -->
   <section class="pg" data-screen-label="Using This Guide" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:56px 64px 92px;display:flex;flex-direction:column">
     <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">For Small-Group Leaders</div>
@@ -186,7 +186,7 @@
             
             <span style="background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:6px;display:block"><img src="assets/qr-stoplight.svg" alt="Scan to open the Stoplight course" style="width:72px;height:72px;display:block"></span><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.09em;font-size:8px;color:var(--fg3);text-align:center;line-height:1.35;max-width:84px">Scan for the<br>full course</span>
           </a>
-          <div style="flex:none;width:46px;height:120px;background:var(--pitch);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:9px 0"><span style="width:26px;height:26px;border-radius:50%;background:#cc3f36"></span><span style="width:26px;height:26px;border-radius:50%;background:#e0a52b"></span><span style="width:26px;height:26px;border-radius:50%;background:#319a4d"></span></div>
+          <div style="flex:none;width:46px;height:120px;background:var(--pitch);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:9px 0"><span style="width:26px;height:26px;border-radius:50%;background:var(--fire)"></span><span style="width:26px;height:26px;border-radius:50%;background:#e0a52b"></span><span style="width:26px;height:26px;border-radius:50%;background:#319a4d"></span></div>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;flex:1">
@@ -220,14 +220,14 @@
           </div>
         </div>
         <div style="border:1px solid var(--hairline);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:#fffdf5">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;color:#fff;background:#cc3f36"><span style="width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.92);flex:none"></span><span style="font-family:var(--font-display);text-transform:uppercase;font-size:16px;line-height:1;letter-spacing:.01em;white-space:nowrap">Red Light</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;color:#fff;background:var(--fire)"><span style="width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.92);flex:none"></span><span style="font-family:var(--font-display);text-transform:uppercase;font-size:16px;line-height:1;letter-spacing:.01em;white-space:nowrap">Red Light</span></div>
           <div style="padding:14px 15px 17px;display:flex;flex-direction:column;gap:12px">
-            <div style="font-size:11.5px;color:var(--fg2);line-height:1.45"><b style="color: #cc3f36; font-size: 13.5px">“Stop and get help.”</b><div style="margin-top: 3px; font-size: 13.5px">Get a staff member and bring them into the conversation.</div></div>
+            <div style="font-size:11.5px;color:var(--fg2);line-height:1.45"><b style="color: var(--fire); font-size: 13.5px">“Stop and get help.”</b><div style="margin-top: 3px; font-size: 13.5px">Get a staff member and bring them into the conversation.</div></div>
             <div style="display:grid;gap:7px">
-              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:#cc3f36;margin-top:5px"></span><span>Self-injury</span></div>
-              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:#cc3f36;margin-top:5px"></span><span>Hearing voices / hallucinations</span></div>
-              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:#cc3f36;margin-top:5px"></span><span>Sexual &amp; physical abuse reported</span></div>
-              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:#cc3f36;margin-top:5px"></span><span>Suicidal / homicidal thoughts (threats to harm)</span></div>
+              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:var(--fire);margin-top:5px"></span><span>Self-injury</span></div>
+              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:var(--fire);margin-top:5px"></span><span>Hearing voices / hallucinations</span></div>
+              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:var(--fire);margin-top:5px"></span><span>Sexual &amp; physical abuse reported</span></div>
+              <div style="display:grid;grid-template-columns:12px 1fr;gap:4px;font-size:13.5px;color:var(--fg2);line-height:1.35"><span style="width:6px;height:6px;border-radius:50%;background:var(--fire);margin-top:5px"></span><span>Suicidal / homicidal thoughts (threats to harm)</span></div>
             </div>
           </div>
         </div>
@@ -237,7 +237,7 @@
   </div>
 
   <!-- ============ SAFETY GUARDRAILS ============ -->
-  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:#01b7ff">
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:var(--hsm-blue)">
     <section class="pg" data-screen-label="Guardrails—Interaction" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">Safety Guardrails</div>
       <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:36px;line-height:1;margin:6px 0 0">Student to Leader: <span style="color:var(--ember)">In Person</span></h2>
@@ -296,7 +296,7 @@
   </div>
 
   <!-- ============ LEADER AGREEMENT ============ -->
-  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:#01b7ff">
+  <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:var(--hsm-blue)">
     <section class="pg" data-screen-label="Agreement—Be" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
       <div style="height:64px;flex:none;display:flex;align-items:center;justify-content:space-between;gap:28px">
         <div>
@@ -332,9 +332,9 @@
             <div style="position:relative;font-size:12.5px;color:var(--fg2);line-height:1.42">Communicating with students only in transparent and approved ways.</div>
             <div style="position:relative;font-size:12.5px;color:var(--fg2);line-height:1.42">Reporting concerns, disclosures, or unsafe situations to Staff immediately.</div>
             
-          <svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 101px; top: 5px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: #01b7ff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg><svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 101px; top: 34px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: #01b7ff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg><svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 102px; top: 60px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: #01b7ff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg><svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 102px; top: 87px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: #01b7ff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg></div>
+          <svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 101px; top: 5px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: var(--hsm-blue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg><svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 101px; top: 34px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: var(--hsm-blue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg><svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 102px; top: 60px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: var(--hsm-blue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg><svg width="25" height="8" viewBox="0 0 25 8" preserveAspectRatio="none" style="position: absolute; left: 102px; top: 87px; width: 25px; height: 8px; overflow: visible; fill: none; stroke: var(--hsm-blue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 25 4"></path></svg></div>
           
-        <svg width="8" height="97" viewBox="0 0 8 97" preserveAspectRatio="none" style="position: absolute; left: 97px; top: 51px; width: 8px; height: 97px; overflow: visible; fill: none; stroke: #01b7ff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 4 0 L 4 97"></path></svg></div>
+        <svg width="8" height="97" viewBox="0 0 8 97" preserveAspectRatio="none" style="position: absolute; left: 97px; top: 51px; width: 8px; height: 97px; overflow: visible; fill: none; stroke: var(--hsm-blue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round"><path d="M 4 0 L 4 97"></path></svg></div>
       </div>
       <div style="margin-top:26px;flex:none;background:color-mix(in srgb, var(--ember) 11%, var(--slate));border-radius:10px;padding:14px 20px">
         <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember)">Agreement</div>
@@ -599,9 +599,9 @@
     <div style="position:absolute;left:0;right:0;bottom:74px;display:flex;flex-direction:column;align-items:center">
       <div style="font-family:var(--font-display);text-transform:uppercase;font-size:38px;letter-spacing:.02em;color:var(--slate)">WHO'S YOUR ONE ?</div>
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.66);margin-top:12px">Leaving the 99 for the 1</div>
-      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students" style="height:30px;width:auto;opacity:.92;margin-top:26px">
+      <img src="assets/logos/se-students-primary-white.png" alt="Southeast Students" style="height:30px;width:auto;opacity:.92;margin-top:26px">
     </div>
-    <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,#01b7ff 0 20px,transparent 20px 40px)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)"></div>
   </section>
 
 </div>
@@ -857,7 +857,7 @@ One important connection for your students: bold faith doesn't have more power t
         synopsis: s.synopsis,
         dividerBg: s.dividerBg,
         accentText: s.accentText,
-        accent: ['#eb6424', 'var(--fire)', 'var(--blue-rasp)', '#d1a017'][si],
+        accent: ['var(--ember)', 'var(--fire)', 'var(--blue-rasp)', '#d1a017'][si],
         tipNo: '0' + (si + 2),
         tip: [
           `Follow up during the week. Students need someone to walk with them, not talk at them\u2014a relationship carried past group can change a life.`,

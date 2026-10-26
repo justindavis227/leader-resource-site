@@ -9,7 +9,7 @@
 <style>
   *{box-sizing:border-box}
   body{margin:0;background:#d6d2c4;padding:48px 0;display:flex;justify-content:center;font-family:'Montserrat',sans-serif}
-  a{color:#eb6424} a:hover{color:#cc4f16}
+  a{color:var(--ember)} a:hover{color:#cc4f16}
   .sheet{width:1632px;height:1056px;background:#fff;position:relative;overflow:hidden;box-shadow:0 18px 60px rgba(14,18,21,.22);color:#21242d;flex:none}
   .abs{position:absolute}
   .phead{font-weight:800;font-size:26px;line-height:1.18;letter-spacing:.03em;color:#21242d;text-transform:uppercase}
@@ -60,9 +60,9 @@
   window.addEventListener('resize',fit);
 })();
 </script>
-<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — 17×11" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF — 17×11" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--gradient-edge);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail" data-bg-color="#ffffff">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">

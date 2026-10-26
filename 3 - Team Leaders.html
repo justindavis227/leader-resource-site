@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Southeast Students—Team Leader Manual</title>
 <link rel="stylesheet" href="colors_and_type.css">
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="data:text/css," rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);--font-display:'Anton','Arial Narrow',sans-serif}
+  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);}
   .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
 
   /* page frame: 8in @96dpi */
@@ -17,12 +17,12 @@
   .disp{font-family:var(--font-display);text-transform:uppercase;line-height:1.0;letter-spacing:.005em}
 
   /* ---- SECTION ACCENTS (one color per section) ---- */
-  .page.s1{--sa:#cc3f36;--sa-ghost:#efb3ae}   /* mission + mantras · fire   */
-  .page.s2{--sa:#cc3f36;--sa-ghost:#efb3ae}   /* team leaders · fire        */
-  .page.s3{--sa:#1a9cd6;--sa-ghost:#a5dbf2}   /* key convos · blue rasp     */
+  .page.s1{--sa:var(--fire);--sa-ghost:#efb3ae}   /* mission + mantras · fire   */
+  .page.s2{--sa:var(--fire);--sa-ghost:#efb3ae}   /* team leaders · fire        */
+  .page.s3{--sa:var(--blue-rasp);--sa-ghost:#a5dbf2}   /* key convos · blue rasp     */
   .page.s4{--sa:#b8891b;--sa-ghost:#ecd489}   /* team dialogues · gold      */
-  .page.s5{--sa:#eb6424;--sa-ghost:#f3c3a6}   /* big three · ember          */
-  .page.s6{--sa:#1a9cd6;--sa-ghost:#a5dbf2}   /* further resources · blue   */
+  .page.s5{--sa:var(--ember);--sa-ghost:#f3c3a6}   /* big three · ember          */
+  .page.s6{--sa:var(--blue-rasp);--sa-ghost:#a5dbf2}   /* further resources · blue   */
 
   /* footer / page numbers */
   .foot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 64px}
@@ -43,7 +43,7 @@
   .cover h1{font-size:104px;color:var(--slate);line-height:.9;margin:0;font-family:var(--font-display);text-transform:uppercase}
   .cover .csub{display:block;font-size:15px;color:rgba(255,254,249,.85);max-width:430px;margin-top:18px;line-height:1.5}
   .cover .yr{display:block;font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px}
-  .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:repeating-linear-gradient(135deg,var(--ember) 0 20px,transparent 20px 40px)}
+  .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
   .back{color:var(--slate)}
   .back .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.72),rgba(12,14,16,.14) 45%,rgba(12,14,16,.30))}
   .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
@@ -69,7 +69,7 @@
   /* ---- SECTION DIVIDER ---- */
   .divider{background:linear-gradient(rgba(9,11,13,.45),rgba(9,11,13,.55)),url('assets/photos/cover-topography.jpg') center/cover,var(--pitch);color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end}
   .page.sintro::before{content:'';position:absolute;inset:0;background:url('assets/photos/cover-topography.jpg') center/cover;opacity:.09;pointer-events:none}
-  .divider .ghost{position:absolute;top:-96px;right:-24px;font-family:var(--font-display);font-size:460px;line-height:1;color:#171b1f;letter-spacing:-.02em;z-index:0;pointer-events:none}
+  .divider .ghost{position:absolute;top:-70px;right:12px;font-family:var(--font-display);font-size:380px;line-height:1;color:#171b1f;letter-spacing:-.02em;z-index:0;pointer-events:none}
   .divider .inner{padding:0 66px 104px;position:relative;z-index:1}
   .divider .secno{font-family:var(--font-mono);font-weight:700;font-size:14px;letter-spacing:.24em;color:var(--sa)}
   .divider h2{font-size:80px;color:var(--slate);margin:16px 0 0}
@@ -243,8 +243,8 @@
   /* QR rows */
   .qrwrap{position:relative;width:84px;height:84px;flex:none}
   .qr{width:84px;height:84px;border:1px solid var(--hairline);border-radius:8px;background:
-      repeating-linear-gradient(0deg,#0e1215 0 6px,transparent 6px 12px),
-      repeating-linear-gradient(90deg,#0e1215 0 6px,transparent 6px 12px);
+      var(--hairline),
+      var(--hairline);
       background-size:24px 24px;background-color:#fffdf5;opacity:.18}
   .qrwrap .qlab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.08em;color:var(--fg3);text-transform:uppercase;text-align:center;padding:6px}
   .qrrow{display:flex;gap:20px;align-items:center;margin-top:14px;border:1px solid var(--hairline);border-radius:10px;padding:14px 18px;background:#fffdf5}
@@ -321,14 +321,14 @@
 </head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
-<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,#0e1215);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
+<nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#eb6424);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--gradient-edge);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
-<template id="__bundler_thumbnail" data-bg-color="#0e1215">
+<template id="__bundler_thumbnail" data-bg-color="var(--black)">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#0e1215"/>
-    <rect x="500" y="470" width="120" height="10" fill="#eb6424"/>
+    <rect width="1200" height="800" fill="var(--black)"/>
+    <rect x="500" y="470" width="120" height="10" fill="var(--ember)"/>
     <text x="600" y="440" font-family="Anton, 'Arial Narrow', sans-serif" font-size="150" fill="#fffef9" text-anchor="middle">03</text>
   </svg>
 </template>
@@ -367,12 +367,12 @@
     <div class="eyebrow">What&rsquo;s Inside</div>
     <h2 class="disp">Contents</h2>
     <div class="rows">
-      <div class="trow"><span class="tn" style="color:#eb6424">01</span><span class="tt">Mission + Mantras<small>Who we are</small></span><span class="tp">03</span></div>
-      <div class="trow"><span class="tn" style="color:#cc3f36">02</span><span class="tt">Team Leaders<small>What we do</small></span><span class="tp">07</span></div>
-      <div class="trow"><span class="tn" style="color:#1a9cd6">03</span><span class="tt">Key Conversations<small>1-ON-1 CONVOS</small></span><span class="tp">15</span></div>
+      <div class="trow"><span class="tn" style="color:var(--ember)">01</span><span class="tt">Mission + Mantras<small>Who we are</small></span><span class="tp">03</span></div>
+      <div class="trow"><span class="tn" style="color:var(--fire)">02</span><span class="tt">Team Leaders<small>What we do</small></span><span class="tp">07</span></div>
+      <div class="trow"><span class="tn" style="color:var(--blue-rasp)">03</span><span class="tt">Key Conversations<small>1-ON-1 CONVOS</small></span><span class="tp">15</span></div>
       <div class="trow"><span class="tn" style="color:#b8891b">04</span><span class="tt">Team Dialogues<small>TEAM MEETINGS</small></span><span class="tp">17</span></div>
-      <div class="trow"><span class="tn" style="color:#eb6424">05</span><span class="tt">Big Three<small>MSM + HSM</small></span><span class="tp">39</span></div>
-      <div class="trow"><span class="tn" style="color:#1a9cd6">06</span><span class="tt">Further Resources<small>Learn more</small></span><span class="tp">43</span></div>
+      <div class="trow"><span class="tn" style="color:var(--ember)">05</span><span class="tt">Big Three<small>MSM + HSM</small></span><span class="tp">39</span></div>
+      <div class="trow"><span class="tn" style="color:var(--blue-rasp)">06</span><span class="tt">Further Resources<small>Learn more</small></span><span class="tp">43</span></div>
     </div>
     <div class="foot"><span class="sec">Team Leader Manual</span><span class="pn">02</span></div>
   </section>
@@ -1727,7 +1727,7 @@
     <img class="cph" src="assets/photos/cover-topography.jpg" alt="Dark topographic contour lines (continues from front cover)">
     <div class="cgrad"></div>
     <div class="wm">
-      <img src="assets/logos/logo-knockout-white.png" alt="Southeast Students">
+      <img src="assets/logos/se-students-primary-white.png" alt="Southeast Students">
       <div class="tl">Team Leaders</div>
     </div>
     <div class="chz"></div>
