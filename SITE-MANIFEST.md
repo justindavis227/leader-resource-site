@@ -32,7 +32,7 @@ Site reskinned to the October 2026 SE Students brand. Source of truth: `~/CoWork
 - Arrange/Reset on the hub: hidden on `*.vercel.app` by the existing `isLive` gate, plus hidden under 560px.
 - The row below about Boldonse / Geist Mono / Inter / Anton in `colors_and_type.css` is superseded.
 
-## Live pages (24)
+## Live pages (25)
 
 | File | Type | Section | Notes |
 |---|---|---|---|
@@ -40,6 +40,7 @@ Site reskinned to the October 2026 SE Students brand. Source of truth: `~/CoWork
 | `0 - Resource Library.dc.html` | dc | Hub | The library index; links everything below. Booklet display order + 4 "In Progress" badges live here. |
 | `1 - Unleashed Leaders Booklet.html` | html | Booklets | Display #1 |
 | `5 - Fall 2026 Group Content.dc.html` | dc | Booklets | Display #2 · cover float-right on spread |
+| `8 - Spring 2027 Group Content.dc.html` | dc | Booklets | Display #3 · "In progress" · built 2026-10-27 from the Fall template. All content + series art/accent slots live in the EDIT HERE block at the top of the script. Content source: Craft › CURRICULUM TEAM. |
 | `3 - Team Leaders.html` | html | Booklets | Display #3 · 8 scannable QR codes |
 | `4 - Leader Huddles.dc.html` | dc | Booklets | Display #4 · "In Progress" badge |
 | `2 - Group Leaders.html` | html | Booklets | Display #5 |
