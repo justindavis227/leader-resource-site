@@ -11,7 +11,19 @@
 <meta property="og:url" content="https://leader-resources.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <script src="./support.js"></script>
-<style>@media(max-width:560px){#arrangeBtnB,#arrangeBtn,#resetBtnB,#resetBtn{display:none!important}}</style></head>
+<style>@media(max-width:560px){#arrangeBtnB,#arrangeBtn,#resetBtnB,#resetBtn{display:none!important}}</style><style id="mobile-grid">
+/* Phones: two resources side by side (Justin, 2026-10-26). Cards keep their
+   look — the data-fit scaler shrinks them to the narrower column. */
+@media (max-width:560px){
+  #bgrid,#rgrid{grid-template-columns:1fr 1fr!important;gap:22px 12px!important}
+  #pgrid{grid-template-columns:1fr 1fr!important;gap:22px 12px!important}
+  #bgrid > div > a > div + div,#rgrid > div > a > div + div,#pgrid > div > a > div + div{margin-top:10px!important;gap:7px!important}
+  #bgrid > div > a > div + div > div > div:first-child,#rgrid > div > a > div + div > div > div:first-child,#pgrid > div > a > div + div > div > div:first-child{font-size:13px!important;line-height:1.25}
+  #bgrid > div > a > div + div > div > div + div,#rgrid > div > a > div + div > div > div + div,#pgrid > div > a > div + div > div > div + div{font-size:11px!important;line-height:1.35}
+  .printpill{top:6px;right:6px;font-size:9px;padding:5px 8px}
+}
+</style>
+</head>
 <body>
 <x-dc>
 <helmet>
