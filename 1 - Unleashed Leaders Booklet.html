@@ -34,7 +34,7 @@
   .cover h1{font-size:104px;color:var(--slate);line-height:.9;margin:0}
   .cover .csub{display:block;font-size:15px;color:rgba(255,254,249,.82);max-width:430px;margin-top:18px;line-height:1.5}
   .cover .yr{display:block;font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px}
-  .cover .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
+  .cover .chz{display:none}
 
   /* ---- BACK COVER ---- */
   .back{color:var(--slate)}
@@ -43,7 +43,7 @@
   .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
   .back .wm img{height:54px;opacity:.96}
   .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.8)}
-  .back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
+  .back .chz{display:none}
 
   /* ---- FULL-BLEED VERSE PAGE (p.18) ---- */
   .versepage{color:var(--slate)}
@@ -56,7 +56,7 @@
   .versepage .vpquote{font-family:var(--font-body);font-weight:300;font-size:41px;line-height:1.18;letter-spacing:-.02em;color:var(--slate);margin:0;max-width:642px}
   .versepage .vpquote em{font-style:normal;font-weight:800;color:var(--ember)}
   .versepage .vpref{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:rgba(255,254,249,.82);margin-top:26px}
-  .versepage .vphz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient);z-index:2}
+  .versepage .vphz{display:none}
 
   /* ---- FULL-BLEED FIELD PAGE (p.3) ---- */
   .fieldpg{color:var(--slate)}
@@ -135,7 +135,7 @@
   .rolb .rail{position:relative;align-self:stretch}
   .rolb .rail i{position:absolute;left:7px;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--ember)}
   .rolb .rtier{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ember);font-weight:600;margin-bottom:7px}
-  .rolb .rname{font-family:var(--font-display);text-transform:uppercase;font-size:27px;line-height:.9;color:var(--fg1);letter-spacing:.005em}
+  .rolb .rname{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;color:var(--fg1);letter-spacing:.005em}
   .rolb ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;align-content:center}
   .rolb li{font-size:12.5px;color:var(--fg2);line-height:1.4;padding-left:16px;position:relative}
   .rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
@@ -245,7 +245,7 @@
   .content.role .cadstack{margin-top:14px}
   .content.role .cadrow{padding:var(--cad-pad,18px) 0}
   .content.role .clist li{margin-bottom:var(--cad-item,5px)}
-  .cadrow .cfreq{font-family:var(--font-display);text-transform:uppercase;font-size:30px;line-height:1;color:var(--fg1);letter-spacing:.01em}
+  .cadrow .cfreq{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:30px;line-height:1;color:var(--fg1);letter-spacing:.01em}
   .cadrow .csub{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:var(--ember);margin-top:9px}
   .clist{margin:0;padding:0;list-style:none}
   .clist.two{columns:2;column-gap:36px}
@@ -326,7 +326,7 @@
   .fourmx .fxcorner{display:flex;align-items:flex-end;padding:0 0 5px 2px}
   .fourmx .fxcorner span{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:9.5px;color:var(--fg3);font-weight:600}
   .fourmx .fxrl{display:flex;flex-direction:column;justify-content:center;padding-right:8px}
-  .fourmx .fxrl .t{font-family:var(--font-display);text-transform:uppercase;font-size:24px;line-height:.98;color:var(--fg1);letter-spacing:.01em}
+  .fourmx .fxrl .t{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:17px;line-height:.98;color:var(--fg1);letter-spacing:-.01em}
   .fourmx .fxrl .k{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:9.5px;color:var(--ember);font-weight:600;margin-bottom:7px}
   .fourmx .fxrl .ksub{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:9.5px;color:var(--ember);font-weight:600;margin-top:6px;align-self:flex-start}
   .optahead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
@@ -432,9 +432,9 @@
   .mband .mqr .qcap{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:8px;color:var(--ember);font-weight:600;white-space:nowrap}
 
   /* right page—questions, tied back by the echoed (outlined) number */
-  .mbq{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center;padding:8px 0;border-top:1px solid var(--hairline)}
+  .mbq{display:grid;grid-template-columns:56px 1fr;gap:30px;align-items:center;padding:8px 0;border-top:1px solid var(--hairline)}
   .mbq:last-child{border-bottom:1px solid var(--hairline)}
-  .mbq .ghn{font-family:var(--font-display);font-size:52px;line-height:.76;letter-spacing:.01em;color:#f3c3a6}
+  .mbq .ghn{font-family:var(--font-display);font-weight:700;font-size:52px;line-height:.76;letter-spacing:-.01em;color:var(--red)}
   .mbq ul{margin:0;padding:0;list-style:none}
   .mbq li{font-size:11.5px;color:var(--fg2);line-height:1.38;padding:2.5px 0 2.5px 15px;position:relative}
   .mbq li+li{margin-top:1px}

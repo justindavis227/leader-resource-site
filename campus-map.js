@@ -46,7 +46,7 @@
     'Franklin':            { lx: 320, ly: 690, a: 'start', beyond: true },
   };
 
-  const EMBER = '#eb6424', SOLAR = '#e8d136', FIRE = '#cc3f36',
+  const EMBER = '#ff172c', SOLAR = '#f98e2f', FIRE = '#de0178', // brand 2026: red / orange / magenta from the gradient
         SLATE = '#fffef9', COOL = '#1a9cd6';
 
   function arcPath(x1, y1, x2, y2, k) {
@@ -105,8 +105,10 @@
           <stop offset="100%" stop-color="${A}" stop-opacity=".42"/>
         </linearGradient>
         <linearGradient id="${uid}-bey" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="${A}"/>
-          <stop offset="100%" stop-color="${A}" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#472ca7"/>
+          <stop offset="45%" stop-color="#de0178"/>
+          <stop offset="80%" stop-color="#ff172c" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#f98e2f" stop-opacity="0"/>
         </linearGradient>
         <filter id="${uid}-glow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="3.2" result="b"/>
