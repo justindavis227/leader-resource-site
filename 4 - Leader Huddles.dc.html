@@ -14,7 +14,7 @@
 <style>
 
   *{box-sizing:border-box}
-  body{margin:0;background:#d6d2c4;padding:40px 0;font-family:var(--font-body);}
+  body{margin:0;background:#0d0d0d;padding:40px 0;font-family:var(--font-body);}
   .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
 
   /* page frame: 8in @96dpi */
@@ -307,10 +307,10 @@
   .stack[data-big="body"] .hud .big{font-size:14px;line-height:1.6}
 
   /* ---- view toolbar + spread ---- */
-  .toolbar{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.30)}
+  .toolbar{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.5);border:1px solid rgba(255,254,249,.18)}
   .toolbar button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 15px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
   .toolbar button.on{background:var(--ember);color:var(--slate)}
-  .toolbar2{position:fixed;top:62px;left:16px;z-index:60;display:flex;align-items:center;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.30)}
+  .toolbar2{position:fixed;top:62px;left:16px;z-index:60;display:flex;align-items:center;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.5);border:1px solid rgba(255,254,249,.18)}
   .toolbar2 .tlab{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;color:var(--fg3-d);padding:0 8px 0 12px}
   .toolbar2 button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 13px;border-radius:999px;cursor:pointer}
   .toolbar2 button.on{background:var(--ember);color:var(--slate)}
