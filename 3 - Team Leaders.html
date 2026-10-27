@@ -12,17 +12,17 @@
   .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
 
   /* page frame: 8in @96dpi */
-  .page{width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);--sa:var(--ember);--sa-ghost:#f3c3a6}
+  .page{width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);--sa:var(--red);--sa-ghost:#f3b7bd}
   .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:13px}
   .disp{font-family:var(--font-display);text-transform:uppercase;line-height:1.0;letter-spacing:.005em}
 
   /* ---- SECTION ACCENTS (one color per section) ---- */
-  .page.s1{--sa:var(--fire);--sa-ghost:#efb3ae}   /* mission + mantras · fire   */
-  .page.s2{--sa:var(--fire);--sa-ghost:#efb3ae}   /* team leaders · fire        */
-  .page.s3{--sa:var(--blue-rasp);--sa-ghost:#a5dbf2}   /* key convos · blue rasp     */
-  .page.s4{--sa:#b8891b;--sa-ghost:#ecd489}   /* team dialogues · gold      */
-  .page.s5{--sa:var(--ember);--sa-ghost:#f3c3a6}   /* big three · ember          */
-  .page.s6{--sa:var(--blue-rasp);--sa-ghost:#a5dbf2}   /* further resources · blue   */
+  .page.s1{--sa:var(--red);--sa-ghost:#f3b7bd}   /* mission + mantras · fire   */
+  .page.s2{--sa:var(--red);--sa-ghost:#f3b7bd}   /* team leaders · fire        */
+  .page.s3{--sa:var(--red);--sa-ghost:#f3b7bd}   /* key convos · blue rasp     */
+  .page.s4{--sa:var(--red);--sa-ghost:#f3b7bd}   /* team dialogues · gold      */
+  .page.s5{--sa:var(--red);--sa-ghost:#f3b7bd}   /* big three · ember          */
+  .page.s6{--sa:var(--red);--sa-ghost:#f3b7bd}   /* further resources · blue   */
 
   /* footer / page numbers */
   .foot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:24px 64px}
@@ -127,7 +127,7 @@
   /* mantra arrow bars */
   .marrows{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:4px}
   .mbar{display:flex;align-items:center;background:rgba(14,18,21,.07);border-radius:8px;height:46px;overflow:hidden}
-  .mchipA{height:46px;display:flex;align-items:center;background:var(--sa);color:#fffef9;font-family:var(--font-display);text-transform:uppercase;font-size:19px;letter-spacing:.02em;padding:0 34px 0 22px;clip-path:polygon(0 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,0 100%);flex:none}
+  .mchipA{height:46px;display:flex;align-items:center;background:var(--sa);color:#fffef9;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:17px;letter-spacing:0;padding:0 34px 0 22px;clip-path:polygon(0 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,0 100%);flex:none}
   .mrefx{font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--fg1);margin-left:16px;text-transform:uppercase;white-space:nowrap}
   .mtxt{margin:9px 0 0 118px}
   .mtxt p{margin:0;font-size:13px;color:var(--fg2);line-height:1.6}
@@ -147,7 +147,7 @@
   .mband{display:flex;flex-direction:column;justify-content:center;padding:8px 0;border-top:1px solid var(--hairline)}
   .mband:last-child{border-bottom:1px solid var(--hairline)}
   .mband:first-child{border-top:none}  /* title .hr serves as the top break line */
-  .mband .mname{font-family:var(--font-display);text-transform:uppercase;font-size:31px;line-height:.94;color:var(--fg1)}
+  .mband .mname{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:31px;line-height:.94;color:var(--fg1)}
   .mband .mname .ref{display:inline-block;font-size:10.5px;vertical-align:4px;margin-left:9px;text-transform:none}
   .mband .mline{font-size:13px;color:var(--fg2);line-height:1.4;margin-top:7px}
   .mband .mval{font-size:12px;color:var(--fg3);font-style:italic;margin-top:3px}
@@ -164,13 +164,13 @@
   /* Luke 9 rhythms table */
   .rhead{display:flex;align-items:stretch;gap:24px;border-bottom:1px solid var(--hairline);padding-bottom:16px}
   .rhead-l{flex:none}
-  .rhead-r{border-left:3px solid var(--sa);padding-left:22px;display:flex;align-items:center;max-width:330px}
+  .rhead-r{border-left:3px solid var(--sa);padding-left:22px;display:flex;align-items:center;max-width:330px;text-wrap:balance}
   .rhead-r p{margin:0;font-size:13px;line-height:1.5;color:var(--fg2)}
   .rhy{flex:1;display:grid;grid-template-rows:repeat(5,1fr);margin-top:10px}
   .rhyrow{display:grid;grid-template-columns:168px 1fr 208px;gap:20px;align-items:center;border-top:1px solid var(--hairline);padding:6px 0}
   .rhyrow:first-child{border-top:none}
   .rhyrow:last-child{border-bottom:1px solid var(--hairline)}
-  .rhyrow .rw{font-family:var(--font-display);text-transform:uppercase;font-size:26px;line-height:.94;color:var(--fg1)}
+  .rhyrow .rw{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:24px;line-height:.94;color:var(--fg1)}
   .rhyrow .rq{font-size:13px;color:var(--fg2);font-style:italic;line-height:1.5}
   .rhyrow .rq b{font-style:normal;font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--sa);letter-spacing:.05em;display:block;margin-top:5px}
   .rhyrow .rt{display:flex;flex-direction:column;gap:5px}
@@ -186,7 +186,7 @@
   .rolb .rail{position:relative;align-self:stretch}
   .rolb .rail i{position:absolute;left:7px;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--sa)}
   .rolb .rtier{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--sa);font-weight:600;margin-bottom:7px}
-  .rolb .rname{font-family:var(--font-display);text-transform:uppercase;font-size:27px;line-height:.9;color:var(--fg1)}
+  .rolb .rname{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;color:var(--fg1)}
   .rolb ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;align-content:center}
   .rolb li{font-size:13px;color:var(--fg2);line-height:1.4;padding-left:16px;position:relative}
   .rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--sa)}
@@ -194,14 +194,14 @@
   /* quote pages */
   .quote{background:var(--pitch);display:flex;flex-direction:column;justify-content:center;padding:0 84px}
   .quote .qmark{font-family:var(--font-display);font-size:150px;line-height:.4;color:var(--sa);margin-bottom:20px}
-  .quote .qt{font-family:var(--font-display);text-transform:uppercase;font-size:37px;line-height:1.14;color:var(--slate);letter-spacing:.01em}
+  .quote .qt{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:27px;line-height:1.12;color:var(--slate);letter-spacing:-.01em}
   .quote .qa{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--sa);margin-top:30px}
 
   /* ---- CONVO / DIALOGUE TEMPLATE ---- */
   .kc .kchead{display:flex;align-items:center;gap:16px}
   .kc .mchip{flex:none;font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.1em;color:#fffef9;background:var(--sa);border-radius:7px;padding:7px 12px;text-transform:uppercase}
   .kc .mchip.dkx{color:var(--pitch)}
-  .kc .kchead h2{font-size:42px;margin:0}
+  .kc .kchead h2{font-size:31px;margin:0;white-space:nowrap;letter-spacing:-.015em}
   .kc .kn{font-family:var(--font-mono);font-size:11px;color:var(--fg3);letter-spacing:.08em;text-transform:uppercase;margin-left:auto}
   .kc .vline{font-size:13.5px;color:var(--fg2);line-height:1.5;font-style:italic;margin-top:14px}
   .kc .vline b{font-style:normal;color:var(--fg1)}
@@ -213,8 +213,8 @@
   .kc .qs li.note::before{display:none}
   .kc .qs li.note b{color:var(--fg1)}
   .kc .qs li .writein{display:flex;gap:14px;margin-top:9px}
-  .kc .writein span{flex:1;height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05)}
-  .la{background:rgba(14,18,21,.035);border-left:4px solid var(--sa);border-radius:0 8px 8px 0;padding:14px 20px;margin-top:14px}
+  .kc .writein span{flex:1;height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(224,27,47,.05)}
+  .la{background:rgba(224,27,47,.06);border-left:4px solid var(--sa);border-radius:0 8px 8px 0;padding:14px 20px;margin-top:14px}
   .la .lak{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--sa);font-weight:700;margin-bottom:6px}
   .la p{margin:0;font-size:12.5px;color:var(--fg2);line-height:1.5}
   .la p b{color:var(--fg1)}
@@ -228,14 +228,14 @@
   .lrow .meter{display:flex;gap:3px;align-items:flex-end;height:15px}
   .lrow .meter i{width:6px;height:15px;border-radius:2px;background:var(--sa-ghost)}
   .lrow .meter i.on{background:var(--sa)}
-  .lrow .lline{height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05)}
+  .lrow .lline{height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(224,27,47,.05)}
   .lrow .llab{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;color:var(--fg2);text-transform:uppercase;white-space:nowrap}
   .cheval{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
   .chcol{background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:13px 13px 15px;display:flex;flex-direction:column}
   .chcol .chtop{display:flex;align-items:center;gap:8px}
   .chcol .chnum{width:26px;height:26px;border-radius:50%;background:var(--sa);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;flex:none}
   .chcol .chlab{font-family:var(--font-mono);font-weight:700;font-size:11px;letter-spacing:.02em;text-transform:uppercase;color:var(--fg2);line-height:1.15;white-space:nowrap}
-  .chcol .chpct{position:relative;margin-top:11px;height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(26,156,214,.05);display:flex;align-items:center;justify-content:flex-end;padding:0 11px}
+  .chcol .chpct{position:relative;margin-top:11px;height:32px;border:1.5px solid var(--sa-ghost);border-radius:7px;background:rgba(224,27,47,.05);display:flex;align-items:center;justify-content:flex-end;padding:0 11px}
   .chcol .chpct b{font-family:var(--font-display);font-size:18px;line-height:1;color:var(--sa);opacity:.5}
   .chcol .chnl{font-family:var(--font-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--fg3);margin:13px 0 6px}
   .chcol .nline{height:23px;border-bottom:1px solid var(--hairline)}
@@ -259,7 +259,7 @@
   .b3row{display:grid;grid-template-columns:315px 250px;gap:30px;justify-content:start;align-items:center;border-top:1px solid var(--hairline);padding:10px 0}
   .b3row:last-child{border-bottom:1px solid var(--hairline)}
   .b3row:first-child{border-top:none}  /* title .hr serves as the top break line */
-  .b3row .bn{font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:.94;color:var(--fg1)}
+  .b3row .bn{font-family:var(--font-display);font-weight:700;text-transform:none;font-size:30px;line-height:.98;letter-spacing:-.015em;white-space:nowrap;color:var(--fg1)}
   .b3row .bn .ref{display:block;margin-left:0;font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:.9;letter-spacing:normal;color:var(--sa);vertical-align:baseline;margin-bottom:1px}
   .b3row .bd{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:8px}
   .b3row .tip{border-left:3px solid var(--sa);padding:2px 0 2px 14px}
@@ -273,7 +273,7 @@
   .prow .rail{position:relative;justify-self:center}
   .prow .rail i{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--sa);color:#fff;font-family:var(--font-mono);font-weight:700;font-size:13px;box-shadow:0 0 0 4px var(--slate)}
   .prow .rail i::before{counter-increment:pstep;content:counter(pstep,decimal-leading-zero)}
-  .prow .pname{font-family:var(--font-display);text-transform:uppercase;font-size:31px;line-height:.9;color:var(--fg1)}
+  .prow .pname{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:31px;line-height:.9;color:var(--fg1)}
   .prow .pdesc{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.09em;font-size:11px;color:var(--fg2);margin-top:4px}
   .prow-invite::after{content:'';position:absolute;top:34%;left:158px;right:298px;height:0;border-top:2px dashed var(--sa-ghost)}
   .prow-invite .qrpop{position:absolute;right:0;top:34%;transform:translateY(-50%);width:298px;display:flex;gap:14px;align-items:center;background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:12px 15px;box-shadow:0 12px 30px rgba(14,18,21,.16);z-index:2}
@@ -286,8 +286,8 @@
   .steps{flex:1;display:grid;grid-template-rows:repeat(5,1fr);margin-top:4px}
   .strow{display:grid;grid-template-columns:52px 138px 1fr;gap:14px;align-items:center;border-top:1px solid var(--hairline);padding:3px 0}
   .strow:last-child{border-bottom:1px solid var(--hairline)}
-  .strow .sn{font-family:var(--font-display);font-size:32px;color:var(--sa-ghost);line-height:.8}
-  .strow .sname{font-family:var(--font-display);text-transform:uppercase;font-size:19px;line-height:1.02;color:var(--fg1)}
+  .strow .sn{font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--sa);line-height:.8}
+  .strow .sname{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:17px;line-height:1.05;letter-spacing:-.01em;color:var(--fg1)}
   .strow .sdesc{font-size:15px;color:var(--fg2);line-height:1.38}
 
   /* notes */
@@ -528,7 +528,7 @@
         <h2 class="disp">Luke 9 Rhythms</h2>
       </div>
       <div class="rhead-r" style="width:298px;height:72px">
-        <p>Five rhythms for leader culture, and the tools we use to live them based on the<br>Luke 9 ministry team.</p>
+        <p>Five rhythms for leader culture, and the tools we use to live them based on the Luke 9 ministry team.</p>
       </div>
     </div>
     <div class="rhy">
@@ -1560,22 +1560,22 @@
     <div class="steps">
       <div class="strow">
         <div class="sn">01</div>
-        <div class="sname">I do. You watch.<br>We talk.</div>
+        <div class="sname">I do.<br>You watch.<br>We talk.</div>
         <div class="sdesc">The new leader shadows an experienced leader a few times, then they meet to debrief what was observed.</div>
       </div>
       <div class="strow">
         <div class="sn">02</div>
-        <div class="sname">I do. You help.<br>We talk.</div>
+        <div class="sname">I do.<br>You help.<br>We talk.</div>
         <div class="sdesc">The new leader helps lead a particular area&mdash;announcements and prayer, say, while the experienced leader leads the talk. Follow up one-on-one.</div>
       </div>
       <div class="strow">
         <div class="sn">03</div>
-        <div class="sname">You do. I help.<br>We talk.</div>
+        <div class="sname">You do.<br>I help.<br>We talk.</div>
         <div class="sdesc">The new leader transitions from supporting to taking leadership responsibilities. The experienced leader follows up to debrief.</div>
       </div>
       <div class="strow">
         <div class="sn">04</div>
-        <div class="sname">You do. I watch.<br>We talk.</div>
+        <div class="sname">You do.<br>I watch.<br>We talk.</div>
         <div class="sdesc">The new leader fulfills all the functions of leadership, with the experienced leader now looking on.</div>
       </div>
       <div class="strow">
