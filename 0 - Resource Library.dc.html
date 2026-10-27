@@ -42,7 +42,7 @@
   .navrow{overflow-x:auto;scrollbar-width:none}
   .navrow::-webkit-scrollbar{display:none}
   #navburger{display:none;margin-left:auto;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1.5px solid var(--hairline);border-radius:10px;cursor:pointer;color:var(--fg1);padding:0}
-  #navmenu{display:none;position:absolute;top:100%;left:0;right:0;background:#efece1;border-bottom:1px solid var(--hairline);box-shadow:0 18px 32px rgba(14,18,21,.14)}
+  #navmenu{display:none;position:absolute;top:100%;left:0;right:0;background:#eae7e2;border-bottom:1px solid var(--hairline);box-shadow:0 18px 32px rgba(14,18,21,.14)}
   #navmenu.open{display:block}
   #navmenu a{display:flex;align-items:baseline;gap:8px;padding:15px 24px;font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--fg1);text-decoration:none;border-top:1px solid var(--hairline)}
   #navmenu a .cnt{font-size:9px;opacity:.55}
@@ -63,10 +63,10 @@
 <div style="min-height:100vh;font-family:var(--font-body);color:var(--fg1)" data-screen-label="Resource Library">
 
   <!-- Sticky section nav -->
-  <div style="position:sticky;top:0;z-index:20;background:rgba(231,227,215,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline)">
+  <div style="position:sticky;top:0;z-index:20;background:rgba(234,231,226,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline)">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 24px">
       <div class="navbrand" style="display:flex;align-items:baseline;gap:10px;flex:none">
-        <span style="width:26px;height:5px;background:var(--ember);align-self:center"></span>
+        <img src="assets/logos/se-students-mark-black.png" alt="" style="height:22px;width:auto;align-self:center">
         <span style="font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--fg1)">Leader Resources</span>
       </div>
       <nav class="navrow" style="display:flex;gap:8px;margin-left:auto">
@@ -626,6 +626,21 @@
   </div>
   </div>
   </div>
+
+  <!-- Footer -->
+  <footer style="max-width:1288px;margin:72px auto 0;padding:0 24px 64px">
+    <div style="height:4px;background:var(--gradient-edge);border-radius:2px"></div>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding-top:36px">
+      <div style="display:flex;align-items:center;gap:18px">
+        <img src="assets/logos/se-students-stacked-black.png" alt="Southeast Students" style="height:64px;width:auto">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:22px;line-height:1.05;letter-spacing:-.01em;color:var(--fg1)">Next. Known.<br>Not finished.</div>
+      </div>
+      <div style="font-size:13px;color:var(--fg3);line-height:1.6;text-align:right">
+        <div>Leader Resources &middot; 2026&ndash;2027</div>
+        <div>Questions? <a href="mailto:jdavis@secc.org" style="color:var(--fg2);text-decoration:underline;text-underline-offset:3px">jdavis@secc.org</a></div>
+      </div>
+    </div>
+  </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
