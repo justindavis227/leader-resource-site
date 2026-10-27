@@ -8,7 +8,7 @@
 <link href="data:text/css," rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{margin:0;background:#161616;padding:40px 0;font-family:var(--font-body);--ember:#b8891b;--accent-press:#96700f}
+  body{margin:0;background:#161616;padding:40px 0;font-family:var(--font-body);--ember:var(--red);--accent-press:#b51525}
   .stack{display:flex;flex-direction:column;align-items:center;gap:34px}
 
   /* page frame: 8in @96dpi */
@@ -23,69 +23,577 @@
   .foot.dark .sec{color:var(--fg3-d)} .foot.dark .pn{color:var(--fg2-d)}
 
   /* ---- COVER ---- */
-  .cover{color:var(--slate);background:var(--pitch)}
+  .cover{color:var(--slate);--ga:var(--blue-rasp)}
+  .cover.gl .ctag{color:#a5dbf2;text-shadow:0 1px 12px rgba(12,14,16,.85)}
+  .cover.gl .cgrad{background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 30%,rgba(12,14,16,.18) 58%,rgba(12,14,16,.72) 100%)}
+  .cover.gl .rule{background:var(--ga)}
+  .cover.gl .chz{background:var(--gradient)}
+  .back.gl .chz{background:var(--gradient)}
   .cover.span2 .cph{width:200%;max-width:none;left:auto;right:0}
   .back.span2 .cph{width:200%;max-width:none;right:auto;left:0}
-  .cover .cph{position:absolute;inset:0;height:100%;object-fit:cover;object-position:center 60%}
-  .cover .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 30%,rgba(12,14,16,.18) 58%,rgba(12,14,16,.6) 100%)}
+  .cover .cph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+  .cover .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.92) 4%,rgba(12,14,16,.5) 30%,rgba(12,14,16,.04) 58%,rgba(12,14,16,.12) 100%)}
   .cover .ctop{position:absolute;top:56px;left:64px;right:64px;display:flex;align-items:flex-start;justify-content:flex-end;gap:40px}
-  .cover .ctag{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#ecd08a;max-width:300px;text-align:right;line-height:1.7;text-shadow:0 1px 12px rgba(12,14,16,.85)}
+  .cover .ctop .eyebrow{color:var(--slate)}
+  .cover .ctag{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--solar);max-width:300px;text-align:right;line-height:1.7}
   .cover .cbody{position:absolute;left:64px;right:64px;bottom:56px}
   .cover .rule{width:64px;height:5px;background:var(--ember);margin-bottom:20px}
   .cover h1{font-size:104px;color:var(--slate);line-height:.9;margin:0}
   .cover .csub{display:block;font-size:15px;color:rgba(255,254,249,.82);max-width:430px;margin-top:18px;line-height:1.5}
   .cover .yr{display:block;font-family:var(--font-mono);font-size:12px;color:rgba(255,254,249,.72);letter-spacing:.06em;margin-top:14px}
-  .cover .chz,.back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
+  .cover .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
 
   /* ---- BACK COVER ---- */
-  .back{color:var(--slate);background:var(--pitch)}
-  .back .cph{position:absolute;inset:0;height:100%;object-fit:cover}
+  .back{color:var(--slate)}
+  .back .cph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .back .cgrad{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,16,.7),rgba(12,14,16,.12) 45%,rgba(12,14,16,.35))}
   .back .wm{position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px}
-  .back .wm img{height:54px;filter:brightness(0) invert(1);opacity:.96}
+  .back .wm img{height:54px;opacity:.96}
   .back .wm .tl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.8)}
+  .back .chz{position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--gradient)}
 
   /* ---- TABLE OF CONTENTS ---- */
   .toc{padding:64px 66px 90px;display:flex;flex-direction:column}
   .toc .eyebrow{color:var(--ember)} .toc h2{font-size:60px;margin:10px 0 6px}
+  .toc.gl .eyebrow{color:var(--blue-rasp)}
   .toc .hr{height:1px;background:var(--hairline);margin:14px 0 4px}
   .trow{display:grid;grid-template-columns:42px 1fr auto;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--hairline)}
   .trow .tn{font-family:var(--font-mono);font-weight:700;font-size:15px;color:var(--ember)}
+  .toc.gl .trow .tn{color:var(--blue-rasp)}
   .trow .tt{font-weight:700;font-size:19px;color:var(--fg1)}
   .trow .tt small{display:block;font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:3px}
   .trow .tp{font-family:var(--font-mono);font-weight:600;font-size:14px;color:var(--fg2)}
 
-  /* ---- SECTION DIVIDER ---- */
+  /* ---- SECTION DIVIDER · B-DARK ---- */
   .divider{background:var(--pitch);color:var(--slate);display:flex;flex-direction:column;justify-content:flex-end}
   .divider .ghost{position:absolute;top:-70px;right:12px;font-family:var(--font-display);font-size:380px;line-height:1;color:rgba(255,254,249,.05);letter-spacing:-.02em;z-index:0;pointer-events:none}
   .divider .inner{padding:0 66px 104px;position:relative;z-index:1}
   .divider .secno{font-family:var(--font-mono);font-weight:700;font-size:14px;letter-spacing:.24em;color:var(--ember)}
+  .divider.gl .secno{color:var(--blue-rasp)}
   .divider h2{font-size:80px;color:var(--slate);margin:16px 0 0}
   .divider .sub{font-size:17px;color:var(--fg2-d);max-width:430px;margin-top:22px;line-height:1.5}
   .divider .tab{width:64px;height:6px;background:var(--ember);margin-top:32px}
+  .divider.gl .tab{background:var(--blue-rasp)}
+  .divider .foot .sec{color:var(--fg3-d)} .divider .foot .pn{color:var(--fg2-d)}
 
-  /* ---- CONTENT ---- */
+  /* ---- CONTENT (generic) ---- */
   .content{padding:54px 64px 92px;display:flex;flex-direction:column}
   .content .eyebrow{color:var(--ember)} .content h2{font-size:50px;margin-top:8px}
+  .content h2 .hib{color:var(--ember);font-weight:inherit}
+  .content.gl .eyebrow{color:var(--blue-rasp)}
+  .content.gl .declare .dq em{color:var(--blue-rasp)}
+  .content.gl .scripture .sref{color:var(--blue-rasp)}
   .content .hr{height:1px;background:var(--hairline);margin:18px 0 2px}
   .lead{font-size:15px;color:var(--fg2);line-height:1.55;margin-top:12px}
-  .rows{margin-top:6px;flex:1;display:flex;flex-direction:column}
+  .lead.big{font-size:17px;color:var(--fg1)}
+  .lead b{color:var(--fg1)}
+  /* welcome stat + signoff (from leader packet) */
+  .statwrap{display:flex;align-items:center;gap:24px;margin:20px 0;padding:22px 28px;background:var(--pitch);border-radius:10px}
+  .statwrap .sn{font-family:var(--font-display);font-size:58px;color:var(--solar);line-height:.84;letter-spacing:.01em;white-space:nowrap}
+  .statwrap .vr{width:1px;align-self:stretch;background:rgba(255,254,249,.16)}
+  .statwrap .sl{font-size:13.5px;color:var(--fg2-d);line-height:1.5}
+  .statwrap .sl b{color:var(--slate);font-weight:600}
+  .signoff{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--ember);margin-top:18px;text-align:right}
+  .rows{margin-top:6px;flex:1}
   .page.copyright{display:flex;align-items:flex-end;padding:0 64px 96px}
   .copyblock{max-width:560px}
   .copyblock p{margin:0;font-size:14px;line-height:1.65;color:var(--fg2)}
   .copyblock p+p{margin-top:18px}
   .copyblock a{color:var(--fg2);text-decoration:none}
-  .dotgrid{flex:1;margin-top:14px;border-radius:2px;background-image:radial-gradient(var(--hairline) 1.4px,transparent 1.5px);background-size:26px 26px;background-position:3px 8px}
+  .row{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid var(--hairline);align-items:start}
+  .row:last-child{border-bottom:none}
+  .row .k{font-family:var(--font-mono);font-weight:700;font-size:20px;color:var(--ember);line-height:1.18}
+  .row .k.sm{font-size:14px;letter-spacing:.04em;padding-top:3px}
+  .row .ghn{font-family:var(--font-display);font-size:52px;line-height:.76;letter-spacing:.01em;color:#b6ddf0;align-self:center}
+  .rows.ghlist .row{grid-template-columns:82px 1fr}
+  .row .t{font-weight:700;font-size:15.5px;color:var(--fg1);line-height:1.22}
+  .row .b{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:4px}
+  .ref{font-family:var(--font-mono);font-size:11px;color:var(--ember);letter-spacing:.04em;margin-left:6px;font-weight:500}
 
-  /* ---- WIP placeholder block ---- */
-  .wip{flex:1;margin-top:18px;border:2px dashed #c6bca4;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px;text-align:center}
-  .wip .wk{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:var(--ember);background:rgba(184,137,27,.1);border:1px solid rgba(184,137,27,.35);border-radius:999px;padding:8px 16px}
-  .wip p{margin:0;font-size:14px;color:var(--fg3);line-height:1.55;max-width:380px}
+  /* 5 keys—key-shaped number icon (solid-chip fob, matches mantra glyphs) */
+  .keyrows .row{grid-template-columns:78px 1fr}
+  .keyico{position:relative;width:76px;height:42px;margin-top:1px}
+  .keyico svg{width:76px;height:42px;color:var(--ember);fill:none;stroke-width:2.7;overflow:visible;display:block}
+  .keyico .kn{position:absolute;top:0;left:3px;width:34px;height:42px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:13.5px;color:#fff;letter-spacing:0}
+
+  /* role overview—Your Role hierarchy spine */
+  .roleovr .rows{display:flex;flex-direction:column;margin-top:2px}
+  .roleovr .roleov{flex:1;display:grid;grid-template-rows:repeat(4,1fr);position:relative}
+  .roleovr .roleov::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--hairline)}
+  .roleovr .rolb:first-child::before{display:none}
+  .rolb{position:relative;display:grid;grid-template-columns:16px 196px 1fr;gap:0 22px;align-items:center;padding:10px 0}
+  .rolb::before{content:'';position:absolute;left:7px;right:0;top:0;height:1px;background:var(--hairline)}
+  .rolb:last-child::after{content:'';position:absolute;left:7px;right:0;bottom:0;height:1px;background:var(--hairline)}
+  .rolb .rail{position:relative;align-self:stretch}
+  .rolb .rail i{position:absolute;left:7px;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--ember)}
+  .rolb .rtier{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ember);font-weight:600;margin-bottom:7px}
+  .rolb .rname{font-family:var(--font-display);text-transform:uppercase;font-size:27px;line-height:.9;color:var(--fg1);letter-spacing:.005em}
+  .rolb ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;align-content:center}
+  .rolb li{font-size:13px;color:var(--fg2);line-height:1.4;padding-left:16px;position:relative}
+  .rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
+  .rolb li .ref{margin-left:6px}
+
+  /* the toolbox—stoplight conversations guide */
+  .toolbox .tbhead{display:flex;justify-content:space-between;align-items:flex-start;gap:28px}
+  .toolbox .tbhead .lead{max-width:520px}
+  .stoplight{flex:none;width:46px;height:120px;background:var(--pitch);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:9px 0;margin-top:4px}
+  .stoplight span{width:26px;height:26px;border-radius:50%}
+  .stoplight .r{background:var(--fire)}.stoplight .y{background:#e0a52b}.stoplight .g{background:#319a4d}
+  .toolbox .lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;flex:1}
+  .lane{border:1px solid var(--hairline);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:#fffdf5}
+  .lane .lhd{display:flex;align-items:center;gap:8px;padding:12px 14px;color:#fff}
+  .lane .lhd .dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.92);flex:none}
+  .lane .lhd .lt{font-family:var(--font-display);text-transform:uppercase;font-size:16px;line-height:1;letter-spacing:.01em;white-space:nowrap}
+  .lane.green .lhd{background:#319a4d}.lane.red .lhd{background:var(--fire)}
+  .lane.yellow .lhd{background:#e0a52b;color:var(--pitch)}
+  .lane.yellow .lhd .dot{background:rgba(14,18,21,.82)}
+  .lane .lbody{padding:14px 16px 17px;display:flex;flex-direction:column;gap:12px}
+  .lane .lcap{font-size:11.5px;color:var(--fg2);line-height:1.45}
+  .lane .lcap b{font-weight:700}
+  .lane .lcap>div{margin-top:3px}
+  .lane.green .lcap b{color:#2c7d41}.lane.yellow .lcap b{color:#a8761a}.lane.red .lcap b{color:var(--fire)}
+  .lane ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+  .lane li{font-size:12px;color:var(--fg2);line-height:1.35;padding-left:15px;position:relative}
+  .lane li::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%}
+  .lane.green li::before{background:#319a4d}.lane.yellow li::before{background:#e0a52b}.lane.red li::before{background:var(--fire)}
+
+  /* mission page—tweakable spacing + indent */
+  .content.mission .rows{display:flex;flex-direction:column;gap:var(--mission-gap,14px)}
+  .content.mission .rows > *{margin-top:0!important;margin-bottom:0!important}
+  .content.mission .scrow{margin-left:var(--scrow-indent,0px)}
+
+  /* mission statement declaration */
+  .declare{background:var(--pitch);border-radius:10px;padding:26px 30px;margin:18px 0}
+  .declare .dq{font-family:var(--font-display);font-size:34px;line-height:1.02;color:var(--slate)}
+  .declare .dq em{color:var(--ember);font-style:normal}
+  .declare .dl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--fg3-d);margin-bottom:10px}
+
+  /* scripture cards */
+  .scrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+  .scrow .scripture{margin-top:0;height:100%}
+  .scripture{background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:16px 20px;margin-top:12px}
+  .scripture .sref{font-family:var(--font-mono);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--ember)}
+  .scripture .scite{font-family:var(--font-body);font-style:italic;font-size:12px;color:var(--fg3);margin-top:3px;letter-spacing:0}
+  .scripture .sverse{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:9px;font-style:italic}
+
+  /* vision big statement */
+  .vision{background:var(--slate);padding:0 80px;display:flex;flex-direction:column;justify-content:center}
+  .vision .vbig{font-family:var(--font-body);font-size:60px;line-height:1.02;letter-spacing:-.02em}
+  .vision .vbig .lt{font-weight:300;color:var(--fg1);display:block}
+  .vision .vbig .hi{font-weight:800;color:var(--ember);display:block}
+  .vision .vk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--ember);margin-bottom:30px}
+
+  /* vision spread campus map (pages 7-8) */
+  .visionmap .vmap{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .visionmap .foot{z-index:3}
+  .vision.visionmap{padding:0}
+  .vision.visionmap .vbscrim{position:absolute;left:0;right:0;bottom:0;height:240px;z-index:1;pointer-events:none;
+    background:linear-gradient(to top,rgba(255,254,249,.97),rgba(255,254,249,.62) 50%,rgba(255,254,249,0))}
+  .vision.visionmap .vstmt{position:absolute;left:64px;bottom:88px;z-index:2;width:600px}
+  .vision.visionmap .vstmt .vk{margin-bottom:14px}
+  .vision.visionmap .vbig2{font-family:var(--font-body);font-size:29px;line-height:1.2;letter-spacing:-.02em;color:var(--fg1);font-weight:300}
+  .vision.visionmap .vbig2 .hi{color:var(--ember);font-weight:800}
+
+  /* model 3-col table */
+  .modelhead{display:grid;grid-template-columns:104px 1fr 1.5fr;gap:14px;padding:0 0 10px;border-bottom:2px solid var(--fg1)}
+  .modelhead span{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:600;color:var(--fg3)}
+  .mrow{display:grid;grid-template-columns:104px 1fr 1.5fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--hairline);align-items:baseline}
+  .mrow .mref{font-family:var(--font-mono);font-weight:600;font-size:12.5px;color:var(--ember)}
+  .mrow .mj{font-size:14.5px;color:var(--fg2)}
+  .mrow .mu{font-size:13.5px;color:var(--fg1);font-weight:700}
+  .mrow .mu small{font-weight:400;font-size:13.5px;color:var(--fg2)}
+  .mrow .mu small::before{content:" // ";color:var(--fg3)}
+  .mrow .mu{text-wrap:nowrap}
+
+  /* model page—tweakable column spacing + dividers */
+  .content.model .modelhead,
+  .content.model .mrow{column-gap:var(--model-colgap,14px)}
+  .content.model.dividers .modelhead > span:not(:first-child),
+  .content.model.dividers .mrow > span:not(:first-child){
+    border-left:1px solid var(--hairline);
+    padding-left:var(--model-colgap,14px);
+  }
+
+  /* two-up cards */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+  .card{border:1px solid var(--hairline);border-radius:8px;padding:18px 20px;background:#fffdf5}
+  .card .ch{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--ember)}
+  .sched{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin-top:12px}
+  .sched .tm{font-family:var(--font-mono);font-weight:600;font-size:12.5px;color:var(--fg1);white-space:nowrap}
+  .sched .ev{font-size:13px;color:var(--fg2)}
+  .subhead{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);margin:14px 0 6px;font-weight:600}
+
+  /* three-column groups */
+  .cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:6px}
+  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:26px 44px;margin-top:6px}
+  .grp .gh{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;font-size:11px;font-weight:700;color:var(--ember);padding-bottom:8px;border-bottom:2px solid var(--ember);margin-bottom:10px}
+  .grp li{font-size:13px;color:var(--fg2);line-height:1.4;list-style:none;padding:5px 0;border-bottom:1px solid var(--hairline)}
+  .grp ul{margin:0;padding:0}
+
+  /* stacked cadence rows */
+  .cadstack{display:flex;flex-direction:column;margin-top:10px}
+  .cadrow{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:8px 0;border-top:1px solid var(--hairline);align-items:start}
+  .cadrow:last-of-type{border-bottom:none}
+  .content.role .cadstack{margin-top:14px}
+  .content.role .cadrow{padding:var(--cad-pad,18px) 0}
+  .content.role .clist li{margin-bottom:var(--cad-item,5px)}
+  .cadrow .cfreq{font-family:var(--font-display);text-transform:uppercase;font-size:30px;line-height:1;color:var(--fg1);letter-spacing:.01em}
+  .cadrow .csub{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:var(--ember);margin-top:9px}
+  .clist{margin:0;padding:0;list-style:none}
+  .clist.two{columns:2;column-gap:36px}
+  .clist li{break-inside:avoid;position:relative;padding-left:16px;margin-bottom:3px;font-size:13px;color:var(--fg2);line-height:1.4}
+  .clist li:last-child{margin-bottom:0}
+  .clist li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
+
+  /* reach·build·equip·multiply cycle */
+  .cycle{position:relative;flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;margin-top:22px}
+  .q{display:flex;flex-direction:column;padding:14px 12px}
+  .q.tl{align-items:flex-start;justify-content:flex-start;text-align:left}
+  .q.tr{align-items:flex-end;justify-content:flex-start;text-align:right}
+  .q.bl{align-items:flex-start;justify-content:flex-end;text-align:left}
+  .q.br{align-items:flex-end;justify-content:flex-end;text-align:right}
+  .qhead{display:flex;align-items:center;gap:13px}
+  .qnum{width:38px;height:38px;border-radius:7px;background:var(--pitch);color:var(--slate);font-family:var(--font-mono);font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;flex:none}
+  .qword{font-family:var(--font-display);font-size:50px;line-height:.9;color:var(--fg1);letter-spacing:.005em}
+  .qdesc{font-style:italic;font-size:13px;color:var(--fg2);margin-top:7px;max-width:250px}
+  .qitems{margin-top:11px;display:flex;flex-direction:column;gap:4px}
+  .qitems span{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--fg3);white-space:nowrap}
+  .q.tr .qitems,.q.br .qitems{align-items:flex-end}
+  /* center loop */
+  .loop{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:284px;height:284px;z-index:3;pointer-events:none}
+  .loop svg{width:100%;height:100%;display:block;overflow:visible}
+
+  /* win callout */
+  .winhero{position:relative;background:var(--pitch);border-radius:12px;padding:18px 34px 20px;margin:2px 0 14px;overflow:hidden;flex:none}
+  .winhero .wbar{width:52px;height:6px;background:var(--ember);margin-bottom:10px}
+  .winhero .wk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:var(--fg3-d);margin-bottom:8px}
+  .winhero .wbig{font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1.06;color:var(--slate);letter-spacing:.01em}
+  .winhero .wbig em{color:var(--ember);font-style:normal}
+
+  .versefoot{font-size:12px;color:var(--fg3);line-height:1.5;font-style:italic;margin-top:8px;padding-top:12px;border-top:1px solid var(--hairline)}
+  .versefoot b{font-style:normal;color:var(--ember);font-family:var(--font-mono);font-weight:600;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+
+  /* four chairs */
+  .chairs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+  .chair{border:1px solid var(--hairline);border-radius:10px;overflow:hidden;background:#fffdf5}
+  .chair .cnum{height:42px;background:var(--pitch);color:var(--slate);font-family:var(--font-mono);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center}
+  .chair .seg{padding:14px 14px 16px}
+  .chair .sl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;font-size:9px;color:var(--fg3);font-weight:600}
+  .chair .nm{font-weight:700;font-size:14px;color:var(--fg1);margin-top:3px;line-height:1.1}
+  .chair .rf{font-family:var(--font-mono);font-size:10px;color:var(--ember);margin-top:3px}
+  .chair .seg+.seg{border-top:1px solid var(--hairline)}
+
+  /* four chairs—challenge / movement matrix */
+  .fourmx{display:grid;grid-template-columns:138px repeat(4,1fr);column-gap:14px;row-gap:14px;margin-top:22px}
+  .fourmx .fxnum{height:50px;background:var(--pitch);color:var(--slate);border-radius:8px;font-family:var(--font-mono);font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center}
+  .fourmx .fxcorner{display:flex;align-items:flex-end;padding:0 0 5px 2px}
+  .fourmx .fxcorner span{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:9.5px;color:var(--fg3);font-weight:600}
+  .fourmx .fxrl{display:flex;flex-direction:column;justify-content:center;padding-right:8px}
+  .fourmx .fxrl .t{font-family:var(--font-display);text-transform:uppercase;font-size:24px;line-height:.98;color:var(--fg1);letter-spacing:.01em}
+  .fourmx .fxrl .k{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:9.5px;color:var(--ember);font-weight:600;margin-bottom:7px}
+  .fourmx .fxrl .ksub{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:9.5px;color:var(--ember);font-weight:600;margin-top:6px;align-self:flex-start}
+  .optahead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+  .optahead h2{white-space:nowrap;flex:0 0 auto;margin:8px 0 0}
+  .optachairs{display:flex;align-items:flex-end;gap:8px;flex:0 1 auto;min-width:0}
+  .optachairs img{height:58px;width:auto;object-fit:contain}
+  .page.fourchairs .rows{display:flex;flex-direction:column;justify-content:flex-start}
+  .page.fourchairs .fourmx{margin-top:8px}
+  .page.fourchairs .hr{margin-top:41px}
+  .page.fourchairs .rows>.lead{margin-top:36px}
+  .fourmx .fxc{border-radius:9px;padding:15px 16px;display:flex;flex-direction:column;justify-content:center}
+  .fourmx .fxc .nm{font-weight:700;font-size:15.5px;line-height:1.16}
+  .fourmx .fxc .rf{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;margin-top:6px;color:var(--ember)}
+  .fourmx .fxc.chal{background:#fffdf5;border:1px solid var(--hairline)}
+  .fourmx .fxc.chal .nm{color:var(--fg1)}
+  .fourmx .fxc.move{background:var(--pitch)}
+  .fourmx .fxc.move .nm{color:var(--slate)}
+
+  /* inventory */
+  .inv{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:8px}
+  .chairhd{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--fg1);padding-bottom:7px}
+  .chairhd .cl{font-weight:700;font-size:13px;color:var(--fg1)}
+  .chairhd .cl b{color:var(--ember)}
+  .chairhd .tot{font-family:var(--font-mono);font-size:10px;color:var(--fg3);letter-spacing:.04em}
+  .scorekey{font-family:var(--font-mono);font-size:9.5px;color:var(--fg3);letter-spacing:.02em;margin:8px 0 4px;text-transform:uppercase}
+  .qol{margin:0;padding:0;counter-reset:none}
+  .qol li{display:grid;grid-template-columns:22px 1fr 26px;gap:8px;font-size:11.5px;color:var(--fg2);line-height:1.35;padding:5px 0;list-style:none;align-items:center}
+  .qol li .qn{font-family:var(--font-mono);font-weight:600;color:var(--ember);font-size:11px}
+  .qol li .qbox{width:26px;height:22px;border:1px solid var(--fg1);border-radius:5px;background:#fffdf5}
+  .scoreboxes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .sbox{border:1px solid var(--fg1);border-radius:8px;padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--fg1);display:flex;justify-content:space-between;align-items:center}
+  .sbox b{color:var(--ember)}
+  .nextstep{margin-top:14px}
+  .nextstep .nl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);font-weight:600}
+  .nextstep .nline{height:26px;border-bottom:1px solid var(--hairline)}
+
+  /* inventory flat-lay spread (pages 18-19) */
+  .invspread.invspread-l{padding-right:40px}
+  .invspread.invspread-r{padding-left:40px}
+  .invspread .invhd{height:168px}
+  .invspread .invhd .hr{margin:14px 0 0}
+  .invspread .invhd-r{display:flex;align-items:flex-start;padding-top:22px;height:168px}
+  .sgpanel{border-left:3px solid var(--ember);padding:2px 0 2px 16px}
+  .sgpanel .sgttl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:700;color:var(--fg1);margin-bottom:8px}
+  .sgpanel p{font-size:12.5px;color:var(--fg2);line-height:1.55;margin:0}
+  .sgpanel p b{color:var(--ember);font-weight:700}
+  .invspread .rows{display:flex;flex-direction:column;margin-top:0}
+  .invspread .inv{flex:1;margin-top:0;grid-template-rows:1fr}
+  .invcol{display:flex;flex-direction:column;min-width:0}
+  .invcol .qol{flex:1}
+  .invspread .qol li{padding:6px 0}
+  .chairtot{margin-top:10px;display:flex;align-items:center;justify-content:space-between;border:1.5px solid var(--fg1);border-radius:8px;padding:9px 14px}
+  .chairtot .ctl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;font-size:11px;font-weight:600;color:var(--fg1)}
+  .chairtot .ctv{font-family:var(--font-mono);font-size:12px;color:var(--fg3);letter-spacing:.02em}
+  .chairtot .ctv b{color:var(--ember);font-weight:700;font-size:15px;margin-right:3px}
+  .invend{height:60px;margin-top:12px;display:flex;flex-direction:column;justify-content:flex-end}
+  .invend .nl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);font-weight:600;margin-bottom:6px}
+  .invend .nline{height:26px;border-bottom:1px solid var(--hairline)}
+
+  /* resources / QR */
+  .qrow{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--hairline);align-items:center}
+  .qr{width:96px;height:96px;border:1px solid var(--hairline);border-radius:8px;background:
+      var(--hairline),
+      var(--hairline);
+      background-size:24px 24px;background-color:#fffdf5;opacity:.18;position:relative}
+  .qrwrap{position:relative;width:96px;height:96px}
+  .qrwrap .qlab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--fg3);text-transform:uppercase}
+  .qrow .rh{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--fg1)}
+  .qrow .rb{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:5px}
+
+  /* mantras flat-lay spread (pages 22-23) */
+  .mspread.mspread-l{padding-right:42px}
+  .mspread.mspread-r{padding-left:42px}
+  .mspread .mhd{height:150px}
+  .mspread .mhd .hr{margin:14px 0 0}
+  .mspread .mhd-r{display:flex;align-items:flex-start;height:150px;padding-top:18px}
+  .mspread .mhd-r .mframe{border-left:3px solid var(--ember);padding:3px 0 3px 18px}
+  .mspread .mhd-r .mframe .fk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--ember);font-weight:600;margin-bottom:9px}
+  .mspread .mhd-r .mframe p{margin:0;font-size:14px;color:var(--fg2);line-height:1.5}
+  .mspread .mhd-r .mframe p b{color:var(--fg1);font-weight:600}
+  .mspread .rows{display:flex;flex-direction:column;margin-top:0}
+  .mbands{flex:1;display:grid;grid-template-rows:repeat(5,1fr)}
+
+  /* left page—the five mantras, QR to the video hinged toward the gutter */
+  .mband{position:relative;display:grid;grid-template-columns:1fr 76px;gap:18px;align-items:center;
+    padding:8px 0;border-top:1px solid var(--hairline)}
+  .mband:last-child{border-bottom:1px solid var(--hairline)}
+  .mband .mtxt{min-width:0}
+  .mband .mname{font-family:var(--font-display);text-transform:uppercase;font-size:31px;line-height:.94;color:var(--fg1);letter-spacing:.005em}
+  .mband .mname .ref{display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--ember);letter-spacing:.03em;font-weight:500;margin-left:9px;vertical-align:3px;text-transform:none}
+  .mband .mline{font-size:12.5px;color:var(--fg2);line-height:1.4;margin-top:7px}
+  .mband .mval{font-size:11.5px;color:var(--fg3);font-style:italic;margin-top:3px}
+  .mband .mval b{color:var(--ember);font-style:normal;font-weight:600}
+  .mband .mqr{justify-self:end;display:flex;flex-direction:column;align-items:center;gap:5px}
+  .mband .mqr img{width:70px;height:70px;display:block;border:1px solid var(--hairline);border-radius:4px;background:#fff}
+  .mband .mqr .qcap{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:8px;color:var(--ember);font-weight:600;white-space:nowrap}
+
+  /* right page—questions, tied back by the echoed (outlined) number */
+  .mbq{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center;padding:8px 0;border-top:1px solid var(--hairline)}
+  .mbq:last-child{border-bottom:1px solid var(--hairline)}
+  .mbq .ghn{font-family:var(--font-display);font-size:52px;line-height:.76;letter-spacing:.01em;color:#f3c3a6}
+  .mbq ul{margin:0;padding:0;list-style:none}
+  .mbq li{font-size:11.5px;color:var(--fg2);line-height:1.38;padding:2.5px 0 2.5px 15px;position:relative}
+  .mbq li+li{margin-top:1px}
+  .mbq li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
+
+  /* ===== BAPTISM GUIDE—faithful rebuild from source PDF ===== */
+  .bspread{--bblue:#33adcc;--bblue-dk:#1d829c}
+
+  /* header banner—main block + circle-bite parens + end cap */
+  .bbanner{display:flex;align-items:stretch;height:84px;margin-bottom:17px;flex:none}
+  .bbanner .bmain{flex:1;min-width:0;background:radial-gradient(circle 45px at calc(100% + 34px) 50%, transparent 44.5px, var(--bblue) 45px);border-radius:16px 0 0 16px;display:flex;align-items:center;padding:0 46px 0 30px}
+  .bbanner h2{font-family:var(--font-display);color:#fff;font-size:52px;line-height:.9;letter-spacing:.012em;margin:0;text-transform:uppercase;white-space:nowrap}
+  .bbanner .bgap{flex:none;width:68px;display:flex;align-items:center;justify-content:center}
+  .bbanner .bgap img{width:56px;height:56px;object-fit:contain;display:block}
+  .bbanner .bcap{flex:none;width:58px;background:radial-gradient(circle 45px at -34px 50%, transparent 44.5px, var(--bblue) 45px);border-radius:0 16px 16px 0}
+
+  .bspread .purpose{font-size:13.5px;color:var(--fg1);line-height:1.5;margin:0 2px 20px 83px}
+  .bspread .purpose b{color:var(--bblue-dk);font-weight:700}
+  .bspread .purpose i{font-style:italic}
+
+  /* number device (block + circle bites) + section bar */
+  .bsec{display:flex;align-items:stretch;height:50px;flex:none}
+  .bk{flex:none;width:38px;background:radial-gradient(circle 28px at calc(100% + 20px) 50%, transparent 27.6px, var(--bblue) 28px);border-radius:12px 0 0 12px}
+  .bnc{flex:none;width:40px;display:flex;align-items:center;justify-content:center}
+  .bnc span{font-family:var(--font-display);color:var(--bblue);font-size:28px;line-height:1}
+  .bar{flex:1;min-width:0;background:radial-gradient(circle 28px at -20px 50%, transparent 27.6px, var(--bblue) 28px);border-radius:0 9px 9px 0;display:flex;align-items:center;padding:0 20px 0 24px}
+  .bar h3{font-family:var(--font-display);color:#fff;font-size:22px;letter-spacing:.02em;margin:0;text-transform:uppercase;display:flex;align-items:baseline;gap:7px;white-space:nowrap}
+  .bar h3 .to{font-family:var(--font-body);font-style:italic;font-weight:600;font-size:14px;letter-spacing:.01em}
+
+  .bbody{padding:16px 4px 18px 83px}
+  .bbody.grow{flex:1}
+  .bbody.b1{flex:none;height:196px}
+  .bbody ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .bbody li{font-size:14px;color:var(--fg1);line-height:1.5;padding-left:19px;position:relative}
+  .bbody li::before{content:'';position:absolute;left:1px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--bblue)}
+  .bbody li b{font-weight:700}
+  .bbody>p{font-size:12.5px;color:var(--fg1);line-height:1.44;margin:0}
+
+  .gtab{display:grid;grid-template-columns:140px 1fr;gap:11px 22px;align-items:baseline;margin-left:-15px}
+  .gtab .gr{font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--fg1);text-align:right;white-space:nowrap}
+  .gtab .gd{font-size:14px;color:var(--fg1);line-height:1.4}
+
+  /* right-page verse—quiet left-rule treatment, height-matched to the left page's banner+purpose */
+  .bpv{flex:none;height:84px;margin-bottom:77px;display:flex;flex-direction:column;justify-content:center;gap:8px;border-left:4px solid var(--bblue);padding:4px 10px 4px 22px}
+  .bpv p{margin:0;color:var(--fg1);font-size:14px;line-height:1.55;font-style:italic;font-weight:500}
+  .bpv p b{color:var(--bblue-dk);font-weight:700;font-style:normal}
+  .bpv .bref{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--bblue-dk);font-weight:700}
+  /* baptism symbol—two callout boxes */
+  .bsym{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:11px 0 11px 0}
+  .bsym .sy{background:rgba(51,173,204,.10);border:1.5px solid var(--bblue);border-radius:12px;padding:12px 16px;font-size:13.5px;color:var(--fg1);line-height:1.45}
+  .bsym .sy small{display:block;font-size:11.5px;color:var(--fg2);font-style:italic;margin-top:2px;font-weight:400}
+  .bsym b{color:var(--bblue);font-weight:800}
+
+  /* ===== THE BRIDGE—numbered rows with cut-out illustrations ===== */
+  .bridge-rows{display:flex;flex-direction:column;flex:1;margin-top:6px}
+  .brow{display:grid;align-items:center;gap:18px;padding:11px 0}
+  .brow + .brow{border-top:2px dotted #c5cace}
+  .brow.r1{grid-template-columns:44px auto 1fr;gap:28px;padding-top:4px}
+  .brow.txtl{grid-template-columns:44px 1fr 204px}
+  .brow.diagl{grid-template-columns:44px 204px 1fr}
+  .brow > div{min-width:0}
+  .bnum{width:42px;height:42px;border-radius:50%;background:var(--bblue);color:#fff;font-family:var(--font-display);font-size:21px;display:flex;align-items:center;justify-content:center;flex:none}
+  .usgod{font-family:var(--font-display);color:var(--bblue);font-size:38px;line-height:1;text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+  .bp{font-size:12.5px;color:var(--fg1);line-height:1.4;margin:0}
+  .bp + .bp{margin-top:7px}
+  .bp b{font-weight:700;color:var(--fg1)}
+  .bdiag img{width:100%;height:auto;display:block}
+
+  /* ===== FOUR CHAIRS—NEEDS & QUESTIONS (further resources) ===== */
+  .cspread .chd h2{margin:6px 0 0}
+  .cspread .chd .hr{height:2px;background:var(--fg1);margin:13px 0 0}
+  .cspread .chd .lead{font-size:12.5px;color:var(--fg2);line-height:1.46;margin:12px 0 0}
+  .cblocks{display:flex;flex-direction:column;flex:1;margin-top:6px}
+  .cblk{--cac:var(--ember);padding:20px 0;display:flex;flex-direction:column;justify-content:center;flex:1}
+  .cblk.lost{--cac:#343434}
+  .cblk + .cblk{border-top:1px solid var(--hairline)}
+  .chead{display:flex;align-items:center;gap:18px;margin-bottom:14px}
+  .chead > div{flex:1;min-width:0}
+  .cillo{height:74px;width:56px;object-fit:contain;object-position:center bottom;flex:none}
+  .cnum{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:10.5px;font-weight:700;color:var(--cac)}
+  .cname{font-family:var(--font-display);text-transform:uppercase;font-size:27px;line-height:.96;color:var(--fg1);letter-spacing:.01em;margin:4px 0 0}
+  .ctag{font-size:13px;color:var(--fg2);margin-top:7px;font-style:italic}
+  .ctag .cref{font-style:normal;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;color:var(--cac);margin-left:8px}
+  .cgroup{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:baseline}
+  .cgroup + .cgroup{margin-top:11px}
+  .clbl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;color:var(--cac);padding-top:1px}
+  .cgroup p{margin:0;font-size:13px;line-height:1.46;color:var(--fg1)}
+
+  /* notes */
+  .noteline{height:30px;border-bottom:1px solid var(--hairline)}
+  .dotgrid{flex:1;margin-top:6px;border-radius:2px;background-image:radial-gradient(var(--hairline) 1.4px,transparent 1.5px);background-size:26px 26px;background-position:3px 8px}
+
+  /* ===== FILL-IN-THE-BLANK RECAP (one-pager · two spreads) ===== */
+  .fbpage{padding:56px 66px 84px;display:flex;flex-direction:column}
+  .fbpage .fbhd .eyebrow{color:var(--ember)}
+  .fbpage .fbhd h2{font-size:50px;margin:7px 0 0}
+  .fbpage .fbhd h2.sub2{font-size:30px;color:var(--fg3)}
+  .fbpage .fbhd .hr{height:2px;background:var(--fg1);margin:14px 0 0}
+  .fbpage .fbhint{font-size:11.5px;color:var(--fg3);font-style:italic;margin:10px 0 0}
+  .fbbody{display:flex;flex-direction:column;flex:1;margin-top:24px;gap:30px}
+
+  /* bracketed section label (echoes the one-pager) */
+  .fbgroup + .fbgroup{margin-top:6px;padding-top:28px;border-top:1px solid var(--hairline)}
+  .fbsl{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .fbsl .lbl{position:relative;font-family:var(--font-display);text-transform:uppercase;font-size:21px;letter-spacing:.01em;color:var(--fg1);line-height:1;padding-left:17px}
+  .fbsl .lbl::before{content:'';position:absolute;left:0;top:1px;bottom:1px;width:6px;background:var(--ember);border-radius:2px}
+  .fbsl .tag{font-family:var(--font-mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;color:var(--fg3)}
+  .fbsl::after{content:'';flex:1;height:2px;background:var(--hairline)}
+
+  /* statement lines (mission / vision) */
+  .fbst{display:flex;align-items:baseline;gap:16px;font-size:15.5px;color:var(--fg1);line-height:2.05}
+  .fbst + .fbst{margin-top:12px}
+  .fbst .ref{flex:none;min-width:122px;font-family:var(--font-mono);font-weight:600;font-size:10.5px;letter-spacing:.05em;color:var(--ember);text-transform:uppercase}
+  .fbst .txt{flex:1}
+
+  /* the blanks */
+  .blk{display:inline-block;min-width:106px;border-bottom:1.7px solid #b3ad99;text-align:center;line-height:1.15;vertical-align:baseline;margin:0 4px;padding:0 6px}
+  .blk.sm{min-width:78px}
+  .blk.lg{min-width:158px}
+  .blk.xl{min-width:200px}
+  .blk .ans{color:transparent;font-weight:600;font-size:.92em;white-space:nowrap}
+  .stack.answers .blk .ans{color:var(--ember)}
+
+  /* our model—vertical timeline */
+  .fbtl{display:flex;flex-direction:column;flex:1}
+  .fbtl .tlrow{display:grid;grid-template-columns:24px 132px 1fr;gap:16px;align-items:center;flex:1;border-top:1px solid var(--hairline)}
+  .fbtl .tlrow:first-child{border-top:none}
+  .fbtl .node{justify-self:center;width:11px;height:11px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px rgba(26,156,214,.14)}
+  .fbtl .tlref{font-family:var(--font-mono);font-weight:600;font-size:11px;letter-spacing:.04em;color:var(--ember)}
+  .fbtl .tltxt{font-size:16px;color:var(--fg1)}
+  .fbtl .tltxt .blk{min-width:120px}
+  .fbnote{margin-top:18px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;color:var(--fg1);text-align:right}
+  .fbnote b{color:var(--ember);font-weight:700}
+
+  /* chair cards—vertical, two side-by-side per page */
+  .fbchairs2{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;margin-top:6px}
+  .fbchair2{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+  .fbc-illo{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .fbc-illo img{height:118px;width:auto;object-fit:contain;object-position:center bottom}
+  .fbc-illo .badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;background:var(--charcoal);color:var(--slate);font-family:var(--font-mono);font-weight:700;font-size:12px}
+  .fbc-main{width:100%;margin-top:15px}
+  .fbc-kick{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:700;color:var(--fg3)}
+  .fbc-name{margin:9px 0 20px}
+  .fbc-name .blk{display:block;width:100%;min-width:0;text-align:center;border-bottom-width:2px;padding-bottom:6px}
+  .fbc-name .ans{font-family:var(--font-display);text-transform:uppercase;font-size:25px;letter-spacing:.01em;line-height:1.05;font-weight:400}
+  .stack.answers .fbc-name .blk .ans{color:var(--fg1)}
+  .fbc-row{width:100%;margin-bottom:18px}
+  .fbc-lbl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:9.5px;font-weight:700;color:var(--ember);margin-bottom:9px}
+  .fbc-quote{font-size:17px;color:var(--fg1)}
+  .fbc-quote .blk{min-width:120px}
+  .fbc-chip{border:1.5px solid var(--hairline);background:#f3efe3;border-radius:8px;padding:12px 10px;max-width:170px;margin:0 auto}
+  .fbc-chip .blk{display:block;width:100%;min-width:0;border-bottom-color:#a59f8b;font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12.5px}
+  .fbc-refs{display:flex;flex-direction:column;gap:4px;align-items:center;margin-top:2px}
+  .fbc-refs span{font-family:var(--font-mono);font-size:11px;color:var(--fg2);letter-spacing:.02em;white-space:nowrap}
+  .fbc-refs span:first-child{color:var(--ember);font-weight:600}
+  .fbverse{font-size:12.5px;color:var(--fg2);font-style:italic;text-align:center;margin-top:14px}
+  .fbverse b{font-style:normal;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--ember);font-weight:600}
+
+  /* ===== FILL-IN RECAP · TEST BUILD (PDF infographic layout) ===== */
+  .tbpage{padding:40px 50px 48px;display:flex;flex-direction:column;gap:32px}
+  /* dark banner with overlapping logo circle */
+  .tbbanner{position:relative;background:var(--charcoal);border-radius:20px;padding:30px 140px 30px 36px}
+  .tbbanner h2{font-family:var(--font-display);text-transform:uppercase;font-size:44px;color:var(--slate);line-height:1;margin:0;letter-spacing:.004em}
+  .tbbanner .sub{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.17em;font-size:12px;color:#b8ad98;margin-top:12px}
+  .tbbanner .logo{position:absolute;right:18px;top:50%;transform:translateY(-50%);width:112px;height:112px;border-radius:50%;background:var(--slate);box-shadow:0 0 0 6px var(--charcoal);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .tbbanner .logo img{width:98px;height:98px;object-fit:contain}
+  /* bracketed (fieldset) section */
+  .tbsec{position:relative;border:2px solid #c6bca4;border-radius:16px;padding:32px 30px 26px}
+  .tbsec + .tbsec{margin-top:8px}
+  .tbsec-lbl{position:absolute;top:-16px;left:24px;background:var(--slate);padding:0 7px}
+  .tbsec-lbl span{display:inline-block;background:#eae3d3;border-radius:8px;padding:9px 16px;font-family:var(--font-display);text-transform:uppercase;font-size:19px;color:var(--fg1);line-height:1;letter-spacing:.01em;box-shadow:0 1px 3px rgba(14,18,21,.12)}
+  .tbline{font-size:15.5px;color:var(--fg1);line-height:1.7}
+  .tbline + .tbline{margin-top:12px}
+  .tbline .ref{font-family:var(--font-mono);font-weight:700;font-size:11.5px;letter-spacing:.03em;color:var(--ember);text-transform:uppercase}
+  .tbline .arr{color:var(--ember);font-weight:700;margin:0 8px}
+  /* our model timeline box */
+  .tbmodel{position:relative;border:2px solid #c6bca4;border-radius:16px;padding:28px;flex:1;display:flex;flex-direction:column}
+  .tbmodel-lbl{position:absolute;top:-16px;left:24px;background:var(--slate);padding:0 7px}
+  .tbmodel-lbl span{display:inline-block;background:#eae3d3;border-radius:8px;padding:9px 16px;font-family:var(--font-display);text-transform:uppercase;font-size:19px;color:var(--fg1);line-height:1;box-shadow:0 1px 3px rgba(14,18,21,.12)}
+  .tbtl{display:grid;grid-template-columns:repeat(6,1fr);flex:1;position:relative}
+  .tbtl .line{position:absolute;left:4px;right:4px;top:50%;height:3px;background:var(--fg1);transform:translateY(-50%)}
+  .tbcol{display:grid;grid-template-rows:1fr auto 1fr;align-items:center;position:relative;z-index:1}
+  .tbcol .node{grid-row:2;justify-self:center;width:16px;height:16px;border-radius:50%;background:#b3a892;box-shadow:0 0 0 5px var(--slate)}
+  .tbcol .above{grid-row:1;align-self:center;text-align:center;padding:0 4px}
+  .tbcol .below{grid-row:3;align-self:center;text-align:center;padding:0 4px}
+  .tbcol .ref{font-family:var(--font-mono);font-weight:700;font-size:10.5px;letter-spacing:.02em;color:var(--fg1)}
+  .tbcol .txt{font-size:13px;color:var(--fg2);line-height:1.4;margin-top:5px}
+  .tbcol .txt .blk{min-width:64px;margin-top:3px}
+  .tbisjesus{position:absolute;right:26px;bottom:18px;font-family:var(--font-display);text-transform:uppercase;font-size:34px;color:#c3bca8;letter-spacing:.01em;line-height:1}
+  /* your role row */
+  .tbrole{display:flex;align-items:center;gap:14px;padding-left:4px}
+  .tbrole .lbr{flex:none;width:22px;height:30px;border-left:3px solid var(--fg1);border-top:3px solid var(--fg1);border-top-left-radius:10px}
+  .tbrole .rlbl{display:inline-block;background:#eae3d3;border-radius:8px;padding:9px 16px;font-family:var(--font-display);text-transform:uppercase;font-size:19px;color:var(--fg1);line-height:1;box-shadow:0 1px 3px rgba(14,18,21,.12)}
+  .tbrole .rule{width:28px;height:3px;background:var(--fg1)}
+  .tbrole .ricons{display:flex;gap:14px}
+  .tbrole .circ{width:54px;height:54px;border-radius:50%;background:#b3a892}
 
   /* ---- view toolbar + spread ---- */
   .toolbar{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.5);border:1px solid rgba(255,254,249,.18)}
-  .toolbar button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 15px;border-radius:999px;cursor:pointer}
+  .toolbar button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 15px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
   .toolbar button.on{background:var(--ember);color:var(--slate)}
+  .toolbar .tbsep{width:1px;align-self:stretch;margin:3px 2px;background:rgba(255,254,249,.16)}
+  .toolbar #btnAnswers.on{background:var(--solar);color:var(--on-solar)}
   .stage{width:100%}
   .pair{display:contents}
   .stack.spread{width:1536px;margin:0;gap:46px}
@@ -105,18 +613,57 @@
     .pair{display:contents!important}
     .stage{height:auto!important}
   }
+  /* ---- Support Leaders additions (2026-10-27 working draft) ---- */
+  .cover .ctag{color:rgba(255,255,255,.9)}
+  .row .ghn{color:color-mix(in srgb, var(--ember) 32%, #fff)}
+  .rows.tight .row{padding:8px 0}
+  .callout{display:flex;align-items:center;gap:18px;background:var(--pitch);border-radius:10px;padding:16px 22px;margin-top:14px}
+  .callout .ck{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:700;color:var(--ember);white-space:nowrap}
+  .callout .cq{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:24px;line-height:1.05;color:var(--slate)}
+  .callout .cq.sm{font-family:var(--font-body);text-transform:none;font-size:13.5px;line-height:1.5;color:var(--fg2-d)}
+  .rhythm{flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;margin-top:8px}
+  .rhythm .rh{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--hairline);align-items:start}
+  .rhythm .rh:last-child{border-bottom:none}
+  .rhythm .rk{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:34px;line-height:.9;color:var(--ember)}
+  .rhythm .t{font-weight:700;font-size:16px;color:var(--fg1);line-height:1.25}
+  .rhythm .b{font-size:13.5px;color:var(--fg2);line-height:1.55;margin-top:6px}
+  .cks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .cks li{position:relative;padding-left:30px;font-size:14px;color:var(--fg2);line-height:1.4}
+  .cks li::before{content:'';position:absolute;left:0;top:0;width:17px;height:17px;border:1.5px solid var(--fg3);border-radius:4px}
+  .goal{margin-top:16px;font-size:16px;line-height:1.45;color:var(--fg1);font-weight:600}
+  .goal span{display:block;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:6px}
+  .bul{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px;flex:1;align-content:start}
+  .bul li{position:relative;padding-left:22px;font-size:14px;color:var(--fg2);line-height:1.5}
+  .bul li::before{content:'';position:absolute;left:2px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--ember)}
+  .bul li b{color:var(--fg1)}
+  .win{display:flex;align-items:center;gap:18px;background:color-mix(in srgb, var(--ember) 9%, #fff);border-left:4px solid var(--ember);border-radius:0 10px 10px 0;padding:16px 22px}
+  .win .wk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:700;color:var(--ember);white-space:nowrap}
+  .win .wq{font-size:16px;font-weight:600;color:var(--fg1);line-height:1.4;font-style:italic}
+  .chain{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0 4px}
+  .chain .lk{position:relative;background:#fff;border:1px solid var(--hairline);border-top:5px solid var(--ember);border-radius:8px;padding:14px 14px 16px}
+  .chain .lk:not(:last-child)::after{content:'';position:absolute;right:-9px;top:50%;width:8px;height:8px;border-top:2px solid var(--ember);border-right:2px solid var(--ember);transform:translateY(-50%) rotate(45deg);z-index:2;background:transparent}
+  .chain .ln{display:block;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:17px;line-height:1;color:var(--fg1)}
+  .chain .lx{display:block;font-size:12px;color:var(--fg2);line-height:1.45;margin-top:8px}
+  .fill{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:10px}
+  .fill .fr{display:grid;grid-template-columns:230px 1fr;gap:16px;align-items:end;padding:6px 0}
+  .fill .fl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:600;color:var(--fg2)}
+  .fill .fv{height:28px;border-bottom:1.5px solid var(--fg3)}
+  .toolbox .lane .lcap{font-size:12.5px;line-height:1.55}
+  .toolbox .lane .lcap b{font-size:14px}
+  .content.rolepg{gap:0}
+  .roleovr .rolb ul li b{color:var(--fg1)}
 </style>
 </head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
 <a href="0 - Resource Library.dc.html" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#cdd3d6;padding:8px 15px;border-radius:999px">&#8592;&nbsp;Library</a>
-<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--ember,#b8891b);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
+<a href="#print" onclick="location.hash='print';location.reload();return false;" title="Print / save PDF—booklets export with crop marks" style="display:inline-flex;align-items:center;text-decoration:none;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--slate,#f5f3ec);background:var(--gradient-edge);padding:8px 15px;border-radius:999px">&#8595;&nbsp;Print</a>
 </nav>
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
     <rect width="100" height="100" fill="var(--black)"/>
-    <rect x="30" y="30" width="40" height="40" fill="#b8891b"/>
+    <rect x="30" y="30" width="40" height="40" fill="var(--red)"/>
     <text x="50" y="65" font-family="Anton, Arial Narrow, sans-serif" font-size="40" fill="#fffef9" text-anchor="middle">6</text>
   </svg>
 </template>
@@ -127,23 +674,23 @@
 <div class="stage" id="stage">
 <div class="stack" id="stack">
 
-  <!-- 1 · COVER -->
+  <!-- COVER -->
   <section class="page cover span2" data-screen-label="Cover">
     <img class="cph" src="assets/photos/harvest-together.jpg" alt="Two people working side by side in a harvest field">
     <div class="cgrad"></div>
     <div class="ctop">
-      <span class="ctag">&ldquo;EACH OF YOU SHOULD USE WHATEVER GIFT YOU HAVE RECEIVED TO SERVE OTHERS.&rdquo;&mdash;<b style="font-weight:700;font-style:normal;color:inherit">1 PETER 4:10</b></span>
+      <span class="ctag">&ldquo;EACH ONE SHOULD USE WHATEVER GIFT HE HAS RECEIVED TO SERVE OTHERS.&rdquo;&mdash;<b style="font-weight:700;font-style:normal;color:inherit">1 PETER 4:10</b></span>
     </div>
     <div class="cbody">
       <div class="rule"></div>
       <h1 class="disp">Support<br>Leaders</h1>
-      <span class="csub">Support Leader Handbook · Southeast Students</span>
-      <span class="yr">2026–2027</span>
+      <span class="csub">The people behind the welcome, care, and connection</span>
+      <span class="yr">Support Leader Handbook · 2026–2027</span>
     </div>
     <div class="chz"></div>
   </section>
 
-  <!-- 2 · COPYRIGHT -->
+  <!-- COPYRIGHT -->
   <section class="page copyright" data-screen-label="Copyright">
     <div class="copyblock">
       <p>&copy; 2026 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
@@ -151,77 +698,525 @@
     </div>
   </section>
 
-  <!-- 3 · CONTENTS -->
+  <!-- CONTENTS -->
   <section class="page toc" data-screen-label="Contents">
     <div class="eyebrow">What&rsquo;s Inside</div>
     <h2 class="disp">Contents</h2>
     <div class="hr"></div>
     <div class="rows">
-      <div class="trow"><span class="tn">01</span><span class="tt">The Mission<small>Why we exist</small></span><span class="tp">&mdash;</span></div>
-      <div class="trow"><span class="tn">02</span><span class="tt">Your Role<small>What support leaders make possible</small></span><span class="tp">&mdash;</span></div>
-      <div class="trow"><span class="tn">03</span><span class="tt">Serving Well<small>Behind the scenes, every week</small></span><span class="tp">&mdash;</span></div>
-      <div class="trow"><span class="tn">04</span><span class="tt">The Team<small>Who you serve alongside</small></span><span class="tp">&mdash;</span></div>
-      <div class="trow"><span class="tn">05</span><span class="tt">Further Resources<small>Help along the way</small></span><span class="tp">&mdash;</span></div>
+      <div class="trow"><span class="tn">00</span><span class="tt">Welcome<small>You belong in this mission</small></span><span class="tp">03</span></div>
+      <div class="trow"><span class="tn">01</span><span class="tt">The Mission<small>Why we exist</small></span><span class="tp">04</span></div>
+      <div class="trow"><span class="tn">02</span><span class="tt">Your Role<small>What Support Leaders make possible</small></span><span class="tp">08</span></div>
+      <div class="trow"><span class="tn">03</span><span class="tt">Serving Well<small>Behind the scenes, every week</small></span><span class="tp">11</span></div>
+      <div class="trow"><span class="tn">04</span><span class="tt">The Team<small>Who you serve alongside</small></span><span class="tp">21</span></div>
+      <div class="trow"><span class="tn">05</span><span class="tt">Further Resources<small>Help along the way</small></span><span class="tp">24</span></div>
     </div>
     <div class="foot"><span class="sec">SE Students</span><span class="sec">Support Leaders</span></div>
   </section>
 
-  <!-- 4 · WELCOME (placeholder) -->
-  <section class="page content" data-screen-label="Welcome (placeholder)">
+  <!-- WELCOME -->
+  <section class="page content" data-screen-label="Welcome">
     <div>
-      <div class="eyebrow">Welcome, Support Leader</div>
-      <h2 class="disp">You make it possible</h2>
+      <div class="eyebrow">You Belong in This Mission</div>
+      <h2 class="disp">Welcome, Support Leader</h2>
       <div class="hr"></div>
     </div>
     <div class="rows">
-      <div class="wip">
-        <span class="wk">Placeholder &middot; Content Coming</span>
-        <p>Welcome letter for support leaders goes here&mdash;why serving behind the scenes matters, and what this handbook covers.</p>
+      <p class="lead">We are so glad you are here! Every week, students walk into our ministries carrying different stories, questions, worries, and hopes. Some are excited to be here. Some are giving church a chance for the very first time. All of them matter to God.</p>
+      <p class="lead">Before a student ever joins a group or hears a message, someone opens a door, learns a name, helps them find their place, notices a need, protects the environment or prays for what God might do. <b>That someone might be you.</b></p>
+      <div class="statwrap">
+        <span class="sl" style="font-size:16px;color:var(--slate);line-height:1.45">Support Leaders are not simply helping ministry happen. <b style="color:var(--ember)">You are doing ministry.</b></span>
       </div>
+      <p class="lead">Your faithfulness helps create the kind of environment where students can encounter Jesus and build relationships that last. You are part of one Student Ministry team. We are so grateful for you, and we want you to feel confident about why we serve, what your role makes possible and how to serve well.</p>
+      <div class="signoff">Thank you!<br>Your Student Ministry Team</div>
     </div>
-    <div class="foot"><span class="sec">Welcome</span><span class="pn">04</span></div>
+    <div class="foot"><span class="sec">Welcome</span><span class="pn">03</span></div>
   </section>
 
-  <!-- 5 · DIVIDER 01 -->
-  <section class="page divider" data-screen-label="Divider—The Mission (placeholder)">
+  <!-- DIV 01 -->
+  <section class="page divider" data-screen-label="Divider—The Mission">
     <div class="ghost disp">01</div>
     <div class="inner">
       <div class="secno">SECTION 01</div>
       <h2 class="disp">The<br>Mission</h2>
-      <div class="sub">Why we exist&mdash;the one calling that gets everyone working toward the same goal.</div>
+      <div class="sub">Why we exist&mdash;different assignments, same mission.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">05</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">04</span></div>
   </section>
 
-  <!-- 6 · CONTENT (placeholder) -->
-  <section class="page content" data-screen-label="Section content (placeholder)">
+  <!-- WHY WE EXIST -->
+  <section class="page content mission" data-screen-label="The Mission—Why We Exist">
     <div>
       <div class="eyebrow">The Mission</div>
       <h2 class="disp">Why We Exist</h2>
       <div class="hr"></div>
     </div>
     <div class="rows">
-      <div class="wip">
-        <span class="wk">Placeholder &middot; Content Coming</span>
-        <p>Section content goes here. Layouts from the other leader booklets (rows, declarations, role spines, QR resources) drop in as this handbook is written.</p>
+      <div class="declare">
+        <div class="dl">Southeast Christian Church &middot; Mission</div>
+        <div class="dq">Connecting people to <em>Jesus</em><br>and to <em>one another</em>.</div>
       </div>
+      <p class="lead">Every part of Southeast Students exists to support that mission. It is rooted in the Great Commandment and the Great Commission: love God, love people, and make disciples.</p>
+      <div class="scrow">
+        <div class="scripture">
+          <div class="sref">The Great Commandment</div>
+          <div class="scite">Matthew 22:37&ndash;39</div>
+          <div class="sverse">&ldquo;Love the Lord your God with all your heart and with all your soul and with all your mind. &hellip; And the second is like it: Love your neighbor as yourself.&rdquo;</div>
+        </div>
+        <div class="scripture">
+          <div class="sref">The Great Commission</div>
+          <div class="scite">Matthew 28:19&ndash;20</div>
+          <div class="sverse">&ldquo;Therefore go and make disciples of all nations &hellip; And surely I am with you always, to the very end of the age.&rdquo;</div>
+        </div>
+      </div>
+      <p class="lead"><b>Group Leaders</b> live out this mission by building consistent relationships and discipling students. <b>Support Leaders</b> live it out by helping students feel welcomed, connected, safe and cared for. <b>Different assignments. Same mission.</b></p>
+    </div>
+    <div class="foot"><span class="sec">The Mission</span><span class="pn">05</span></div>
+  </section>
+
+  <!-- FOUR QUESTIONS -->
+  <section class="page content" data-screen-label="The Mission—Four Questions">
+    <div>
+      <div class="eyebrow">The Mission</div>
+      <h2 class="disp">Four Questions</h2>
+      <div class="hr"></div>
+      <p class="lead">Four questions for every leader:</p>
+    </div>
+    <div class="rows">
+      <div class="row"><div class="k sm">01</div><div><div class="t">How am I connecting to Jesus?</div><div class="b">Your relationship with Jesus matters more than the task you complete. Serve from time with Him, not as a substitute for time with Him.</div></div></div>
+      <div class="row"><div class="k sm">02</div><div><div class="t">How am I connecting to one another?</div><div class="b">Ministry is a team effort. Know the people you serve with, encourage them, and build relationships that extend beyond your assignment.</div></div></div>
+      <div class="row"><div class="k sm">03</div><div><div class="t">How am I connecting people to Jesus?</div><div class="b">A warm welcome, a calm response or an offered prayer can help remove an obstacle between a student and their next step toward Jesus.</div></div></div>
+      <div class="row"><div class="k sm">04</div><div><div class="t">How am I connecting people to one another?</div><div class="b">Belonging often opens the door to deeper connection. Notice the student who is standing alone and help them find a person, a group, or a place to belong.</div></div></div>
     </div>
     <div class="foot"><span class="sec">The Mission</span><span class="pn">06</span></div>
   </section>
 
-  <!-- 7 · NOTES (placeholder) -->
-  <section class="page content" data-screen-label="Notes (placeholder)">
+  <!-- HEART BEHIND SUPPORT -->
+  <section class="page content" data-screen-label="The Mission—The Heart Behind Support">
     <div>
-      <div class="eyebrow">Notes</div>
-      <h2 class="disp">Sketch it out</h2>
+      <div class="eyebrow">The Mission</div>
+      <h2 class="disp">The Heart Behind Support</h2>
       <div class="hr"></div>
     </div>
-    <div class="dotgrid"></div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">07</span></div>
+    <div class="rows" style="display:flex;flex-direction:column">
+      <div class="scripture" style="margin-top:18px">
+        <div class="sref">One Body, Many Parts</div>
+        <div class="scite">1 Corinthians 12:27</div>
+        <div class="sverse" style="font-size:15px">&ldquo;Now you are the body of Christ, and each one of you is a part of it.&rdquo;</div>
+      </div>
+      <p class="lead big" style="margin-top:22px">In 1 Corinthians 12, Paul describes one body with many parts. No part gets all the attention; every part matters.</p>
+      <p class="lead">The person leading a group and the person running check-in have different responsibilities, but both can help one student take a step closer to Jesus.</p>
+      <div class="callout" style="margin-top:auto">
+        <span class="ck">Remember</span>
+        <span class="cq">We don&rsquo;t just fill positions. We serve people.</span>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">The Mission</span><span class="pn">07</span></div>
   </section>
 
-  <!-- 8 · BACK COVER -->
+  <!-- DIV 02 -->
+  <section class="page divider" data-screen-label="Divider—Your Role">
+    <div class="ghost disp">02</div>
+    <div class="inner">
+      <div class="secno">SECTION 02</div>
+      <h2 class="disp">Your<br>Role</h2>
+      <div class="sub">What Support Leaders make possible.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">08</span></div>
+  </section>
+
+  <!-- THREE WINS -->
+  <section class="page content" data-screen-label="Your Role—Three Wins">
+    <div>
+      <div class="eyebrow">3 Wins for Support Leaders</div>
+      <h2 class="disp">Three Wins</h2>
+      <div class="hr"></div>
+      <p class="lead">You may never teach a lesson or lead a small group. But the way you serve can shape whether a student feels comfortable enough to stay, connected enough to return and supported enough to take a next step.</p>
+    </div>
+    <div class="rows">
+      <div class="row"><div class="k sm">01</div><div><div class="t">Students are seen and welcomed.</div><div class="b">A student is greeted, helped and treated like they matter&hellip;not like another name in a line. First impressions can become the beginning of belonging.</div></div></div>
+      <div class="row"><div class="k sm">02</div><div><div class="t">Students are safe and cared for.</div><div class="b">Our spaces are attentive, orderly and responsive. We notice what is happening, honor boundaries, and involve the right people when a need arises.</div></div></div>
+      <div class="row"><div class="k sm">03</div><div><div class="t">Students have room to connect with Jesus and others.</div><div class="b">When practical needs are met and distractions are addressed, students, Group Leaders and staff can focus on relationships, worship and discipleship. Prayer covers every part of the night.</div></div></div>
+    </div>
+    <div class="foot"><span class="sec">Your Role</span><span class="pn">09</span></div>
+  </section>
+
+  <!-- WHERE SUPPORT LEADERS SERVE -->
+  <section class="page content roleovr" data-screen-label="Your Role—Where Support Leaders Serve">
+    <div>
+      <div class="eyebrow">Your Role</div>
+      <h2 class="disp">Where You Serve</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <div class="roleov" style="grid-template-rows:1.6fr 1fr 1fr">
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rtier">Team</div><div class="rname">First<br>Impressions</div></div>
+          <ul>
+            <li><b>Check-In:</b> Help students and families navigate the approved check-in process and get where they need to go.</li>
+            <li><b>Connections:</b> Look for new or disconnected students and help them connect with a Group Leader, staff member, or next step.</li>
+            <li><b>Snack Bar:</b> Offer warm, orderly hospitality through food and conversation while following campus procedures.</li>
+          </ul></div>
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rtier">Team</div><div class="rname">Security</div></div>
+          <ul><li>Help maintain an attentive, welcoming environment through the assigned safety role, established procedures, and close communication with staff and designated security personnel.</li></ul></div>
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rtier">Team</div><div class="rname">Prayer<br>Team</div></div>
+          <ul><li>Pray intentionally for students, leaders, families, staff and the movement of God. Be available to pray with people when appropriate and connect significant care needs to ministry staff.</li></ul></div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Your Role</span><span class="pn">10</span></div>
+  </section>
+
+  <!-- DIV 03 -->
+  <section class="page divider" data-screen-label="Divider—Serving Well">
+    <div class="ghost disp">03</div>
+    <div class="inner">
+      <div class="secno">SECTION 03</div>
+      <h2 class="disp">Serving<br>Well</h2>
+      <div class="sub">Behind the scenes, every week. Prepare, pay attention and follow through.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">11</span></div>
+  </section>
+
+  <!-- WHAT WE ASK -->
+  <section class="page content" data-screen-label="Serving Well—What We Ask">
+    <div>
+      <div class="eyebrow">Every Support Leader</div>
+      <h2 class="disp">What We Ask</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows tight">
+      <div class="row"><div class="k sm">01</div><div><div class="t">Be faithful.</div><div class="b">Honor your serving commitment and communicate early when you cannot serve.</div></div></div>
+      <div class="row"><div class="k sm">02</div><div><div class="t">Be ready.</div><div class="b">Arrive at your campus&rsquo;s designated time, know your assignment, and ask what you need to know before students arrive.</div></div></div>
+      <div class="row"><div class="k sm">03</div><div><div class="t">Be present.</div><div class="b">Look up, engage people, and stay attentive instead of waiting for someone to tell you what to do.</div></div></div>
+      <div class="row"><div class="k sm">04</div><div><div class="t">Be a teammate.</div><div class="b">Support Group Leaders, other Support Leaders, and staff. No task is beneath us.</div></div></div>
+      <div class="row"><div class="k sm">05</div><div><div class="t">Model the way.</div><div class="b">Represent Jesus through your words, attitude, relationships, and choices.</div></div></div>
+      <div class="row"><div class="k sm">06</div><div><div class="t">Ask for help.</div><div class="b">You are not expected to have every answer or solve every situation yourself.</div></div></div>
+    </div>
+    <div class="callout">
+      <span class="ck">A good night</span>
+      <span class="cq sm">is not just &ldquo;Did I complete my task?&rdquo; It is also &ldquo;Did I help someone take a step toward Jesus or toward community?&rdquo;</span>
+    </div>
+    <div class="foot"><span class="sec">Serving Well</span><span class="pn">12</span></div>
+  </section>
+
+  <!-- RHYTHM -->
+  <section class="page content" data-screen-label="Serving Well—Rhythm of a Ministry Night">
+    <div>
+      <div class="eyebrow">Every Week</div>
+      <h2 class="disp">The Rhythm of a Ministry Night</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rhythm">
+      <div class="rh"><div class="rk">Before</div><div><div class="t">Prepare the space and your heart.</div><div class="b">Arrive at your assigned time. Check in with your team lead or staff contact. Learn about special events, changes, or needs. Make sure your station is ready. Pray for the students and families who will walk through the doors.</div></div></div>
+      <div class="rh"><div class="rk">During</div><div><div class="t">Stay available to people.</div><div class="b">Do your assigned job with excellence, but remember the person in front of you is more important than the process. Look for students who seem new, overwhelmed, alone or unsure of where to go. Stay in your assigned area unless your team lead directs otherwise.</div></div></div>
+      <div class="rh"><div class="rk">After</div><div><div class="t">Leave the ministry stronger.</div><div class="b">Finish assigned closing tasks, pass along any follow-up needs and communicate concerns to the right staff member. Make sure the next team has what it needs.</div></div></div>
+    </div>
+    <div class="foot"><span class="sec">Serving Well</span><span class="pn">13</span></div>
+  </section>
+
+  <!-- ROLE: CHECK-IN -->
+  <section class="page content rolepg" data-screen-label="Serving Well—Check-In">
+    <div>
+      <div class="eyebrow">First Impressions</div>
+      <h2 class="disp">Check-In</h2>
+      <div class="hr"></div>
+      <div class="goal"><span>Your goal</span>Help every student begin the night with clarity, care, and confidence.</div>
+    </div>
+    <ul class="bul">
+      <li><b>Offer a genuine greeting.</b> A calm, friendly welcome matters even when the line is long.</li>
+      <li>Learn and follow the campus-approved check-in and attendance process; do not create unofficial shortcuts.</li>
+      <li>Help new students know where to go next. When unsure, connect them with the designated Team Leader or Connections Leader.</li>
+      <li>Protect student and family information. Keep screens, printed lists and conversations appropriately private.</li>
+      <li>If a registration, pickup, attendance or access issue does not seem right, involve the designated Team Leader or staff member instead of guessing.</li>
+    </ul>
+    <div class="win"><span class="wk">A small win</span><span class="wq">&ldquo;You&rsquo;re in the right place. Let me help you get checked in.&rdquo;</span></div>
+    <div class="foot"><span class="sec">Serving Well · First Impressions</span><span class="pn">14</span></div>
+  </section>
+
+  <!-- ROLE: CONNECTIONS -->
+  <section class="page content rolepg" data-screen-label="Serving Well—Connections">
+    <div>
+      <div class="eyebrow">First Impressions</div>
+      <h2 class="disp">Connections</h2>
+      <div class="hr"></div>
+      <div class="goal"><span>Your goal</span>Help people move from arriving to belonging.</div>
+    </div>
+    <ul class="bul">
+      <li>Look for the first-time student, the student standing alone or the parent who seems unsure.</li>
+      <li>Introduce yourself, learn names and ask simple questions before giving directions.</li>
+      <li>Help students make a real connection with the appropriate Group Leader or Team Leader, rather than just pointing down a hallway.</li>
+      <li>Pay attention to students who have visited before but still seem disconnected.</li>
+      <li>Share relevant follow-up needs with the Team Leader through the approved process; do not independently collect or distribute student contact information.</li>
+    </ul>
+    <div class="win"><span class="wk">A small win</span><span class="wq">&ldquo;Have you met your leaders yet? I&rsquo;d love to introduce you.&rdquo;</span></div>
+    <div class="foot"><span class="sec">Serving Well · First Impressions</span><span class="pn">15</span></div>
+  </section>
+
+  <!-- ROLE: SNACK BAR -->
+  <section class="page content rolepg" data-screen-label="Serving Well—Snack Bar">
+    <div>
+      <div class="eyebrow">First Impressions</div>
+      <h2 class="disp">Snack Bar</h2>
+      <div class="hr"></div>
+      <div class="goal"><span>Your goal</span>Turn a practical service into a welcoming point of connection.</div>
+    </div>
+    <ul class="bul">
+      <li>Prepare, serve, handle payments if applicable and clean up according to your campus&rsquo;s procedures.</li>
+      <li>Be warm and attentive; a short interaction can make a student feel known.</li>
+      <li>Keep stations clean and orderly and follow food safety procedures (wearing gloves while serving food, etc.).</li>
+      <li>Look for opportunities to help rather than allow the station to become a distraction from students.</li>
+    </ul>
+    <div class="win"><span class="wk">A small win</span><span class="wq">&ldquo;Good to see you back! How has your week been?&rdquo;</span></div>
+    <div class="foot"><span class="sec">Serving Well · First Impressions</span><span class="pn">16</span></div>
+  </section>
+
+  <!-- ROLE: SECURITY -->
+  <section class="page content rolepg" data-screen-label="Serving Well—Security">
+    <div>
+      <div class="eyebrow">Support Team</div>
+      <h2 class="disp">Security</h2>
+      <div class="hr"></div>
+      <div class="goal"><span>Your goal</span>Help provide an environment where students and leaders can focus on ministry because concerns are noticed and handled appropriately.</div>
+    </div>
+    <ul class="bul">
+      <li>Know your assigned area, responsibilities, communication method, and reporting contact.</li>
+      <li>Stay observant and approachable; pay attention to entrances, transitions and anything outside the usual pattern.</li>
+      <li>Follow established campus and church security procedures. Do not invent your own response or investigate concerning situations independently.</li>
+      <li>Communicate concerns promptly and discreetly to designated security personnel and/or ministry staff.</li>
+      <li>During an emergency, follow the approved emergency plan and the direction of authorized responders.</li>
+    </ul>
+    <div class="win"><span class="wk">A small win</span><span class="wq">A concern is recognized early, shared quickly and handled by the right people.</span></div>
+    <div class="foot"><span class="sec">Serving Well · Security</span><span class="pn">17</span></div>
+  </section>
+
+  <!-- ROLE: PRAYER -->
+  <section class="page content rolepg" data-screen-label="Serving Well—Prayer Team">
+    <div>
+      <div class="eyebrow">Support Team</div>
+      <h2 class="disp">Prayer Team</h2>
+      <div class="hr"></div>
+      <div class="goal"><span>Your goal</span>Intentionally cover the ministry in prayer and help people remember that God is at work.</div>
+    </div>
+    <ul class="bul">
+      <li>Pray before, during, and after ministry for students, Group Leaders, Support Leaders, families, and staff.</li>
+      <li>Pray specifically for students who are new, hurting, disconnected or exploring faith, using only information appropriately shared with your team.</li>
+      <li>When someone requests prayer: listen with care, ask what they would like prayer for and pray simply and sincerely.</li>
+      <li>Respect personal boundaries and ministry guidelines; do not pressure someone to share, respond, or accept physical contact.</li>
+      <li>If a conversation raises a significant pastoral or safety concern, involve ministry staff rather than trying to carry it alone.</li>
+    </ul>
+    <div class="win"><span class="wk">A small win</span><span class="wq">&ldquo;Would it be okay if I prayed with you?&rdquo;</span></div>
+    <div class="foot"><span class="sec">Serving Well · Prayer Team</span><span class="pn">18</span></div>
+  </section>
+
+  <!-- UNEXPECTED -->
+  <section class="page content" data-screen-label="Serving Well—When the Unexpected Happens">
+    <div>
+      <div class="eyebrow">Serving Well</div>
+      <h2 class="disp">When the Unexpected Happens</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows tight">
+      <div class="row"><div class="k sm">01</div><div><div class="t">A student cannot find their group.</div><div class="b">Stay with the student as appropriate and connect them to the Connections Leader or Team Leader who can help.</div></div></div>
+      <div class="row"><div class="k sm">02</div><div><div class="t">A parent has a question you cannot answer.</div><div class="b">Thank them for asking and introduce them to the Team Leader responsible for that decision.</div></div></div>
+      <div class="row"><div class="k sm">03</div><div><div class="t">A student shares something concerning.</div><div class="b">Listen without making promises of secrecy. Bring in the appropriate staff member promptly, following established safety and reporting procedures.</div></div></div>
+      <div class="row"><div class="k sm">04</div><div><div class="t">Something seems unsafe.</div><div class="b">Follow your campus&rsquo;s safety communication and emergency procedures right away. You do not need to determine whether a concern is serious enough on your own.</div></div></div>
+    </div>
+    <div class="callout">
+      <span class="ck">Remember</span>
+      <span class="cq sm">Your job is to notice, care, connect, and communicate&hellip;not to fix everything.</span>
+    </div>
+    <div class="foot"><span class="sec">Serving Well</span><span class="pn">19</span></div>
+  </section>
+
+  <!-- TEAMMATE -->
+  <section class="page content" data-screen-label="Serving Well—Be the Teammate">
+    <div>
+      <div class="eyebrow">Serving Well</div>
+      <h2 class="disp">Be the Teammate You Wish You Had</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows ghlist">
+      <div class="row"><div class="ghn">01</div><div><div class="t">Communicate early and clearly</div><div class="b">Especially if you cannot serve or something has changed.</div></div></div>
+      <div class="row"><div class="ghn">02</div><div><div class="t">Assume the best</div><div class="b">Ask questions, and speak directly and kindly.</div></div></div>
+      <div class="row"><div class="ghn">03</div><div><div class="t">Take responsibility</div><div class="b">Own your assignment and stay willing to help where you are needed.</div></div></div>
+      <div class="row"><div class="ghn">04</div><div><div class="t">Protect trust</div><div class="b">Share sensitive student information only with appropriate ministry personnel who need it.</div></div></div>
+      <div class="row"><div class="ghn">05</div><div><div class="t">Celebrate</div><div class="b">Celebrate what God is doing in other roles, not only the part you can see.</div></div></div>
+    </div>
+    <div class="foot"><span class="sec">Serving Well</span><span class="pn">20</span></div>
+  </section>
+
+  <!-- DIV 04 -->
+  <section class="page divider" data-screen-label="Divider—The Team">
+    <div class="ghost disp">04</div>
+    <div class="inner">
+      <div class="secno">SECTION 04</div>
+      <h2 class="disp">The<br>Team</h2>
+      <div class="sub">Who you serve alongside&mdash;one team serving one mission.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">21</span></div>
+  </section>
+
+  <!-- ONE MINISTRY -->
+  <section class="page content roleovr" data-screen-label="The Team—One Ministry">
+    <div>
+      <div class="eyebrow">The Team</div>
+      <h2 class="disp">One Ministry, Different Roles</h2>
+      <div class="hr"></div>
+      <p class="lead" style="font-size:13.5px">Student Ministry is not made up of people working separate jobs. It is one team serving one mission. When we work together, students experience consistent care from the parking lot to the group room and back out the door.</p>
+    </div>
+    <div class="rows">
+      <div class="roleov">
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rname" style="font-size:22px">Student<br>Ministry Staff</div></div>
+          <ul><li>Equip volunteers, clarify ministry direction, make ministry decisions, coordinate follow-up, and provide pastoral leadership.</li><li>Connect Support Leaders, Group Leaders, and campus teams when a situation requires additional care.</li></ul></div>
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rname" style="font-size:22px">Group<br>Leaders</div></div>
+          <ul><li>Build consistent relationships with students through group, biblical discussion, discipleship, and ongoing care.</li></ul></div>
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rname" style="font-size:22px">Support<br>Leaders</div></div>
+          <ul><li>Make space for ministry through hospitality, connection, prayer, and attentive service.</li><li>Often notice needs first and help the right teammate respond.</li></ul></div>
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rname" style="font-size:22px">Campus Security<br>&amp; Partners</div></div>
+          <ul><li>Provide specialized oversight or responses according to the campus&rsquo;s approved processes. Support Leaders serving in security coordinate with them rather than acting independently.</li></ul></div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">The Team</span><span class="pn">22</span></div>
+  </section>
+
+  <!-- HANDOFF -->
+  <section class="page content" data-screen-label="The Team—A Great Handoff">
+    <div>
+      <div class="eyebrow">The Team</div>
+      <h2 class="disp">How a Great Handoff Works</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="chain">
+      <div class="lk"><span class="ln">Notice</span><span class="lx">A ninth grader is standing alone and says they do not know anybody.</span></div>
+      <div class="lk"><span class="ln">Listen</span><span class="lx">&ldquo;I&rsquo;m glad you came. Is this your first time?&rdquo;</span></div>
+      <div class="lk"><span class="ln">Connect</span><span class="lx">Walk with them to the right leader or staff member and make an introduction.</span></div>
+      <div class="lk"><span class="ln">Follow Through</span><span class="lx">Let the appropriate leader know what might help the student feel welcomed next week.</span></div>
+    </div>
+    <p class="lead" style="font-size:13.5px">The same principle applies to a concerned parent, a student requesting prayer, or a safety issue. Don&rsquo;t leave someone with only a direction when you can offer an appropriate connection.</p>
+    <div class="scripture" style="margin-top:auto">
+      <div class="sref">What You Can Expect From Staff</div>
+      <div class="sverse" style="font-style:normal;margin-top:7px">Staff should help you understand your assignment, connect you to the right team, provide role-specific training and ministry updates, and tell you where to bring questions or concerns. If you have not received the training or information you need, please ask before serving independently.</div>
+      <div class="sverse" style="font-style:normal;margin-top:7px"><b style="color:var(--fg1)">Same mission across every campus. Local processes may differ.</b> Follow your campus&rsquo;s current instructions for team assignments, communications, student supervision, security, and emergencies.</div>
+    </div>
+    <div class="foot"><span class="sec">The Team</span><span class="pn">23</span></div>
+  </section>
+
+  <!-- DIV 05 -->
+  <section class="page divider" data-screen-label="Divider—Further Resources">
+    <div class="ghost disp">05</div>
+    <div class="inner">
+      <div class="secno">SECTION 05</div>
+      <h2 class="disp">Further<br>Resources</h2>
+      <div class="sub">Help along the way. You don&rsquo;t need to know everything&mdash;just when to ask, where to go, and how to hand off a need.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">24</span></div>
+  </section>
+
+  <!-- CONVERSATION GUIDE -->
+  <section class="page content toolbox" data-screen-label="Further Resources—Conversation Guide">
+    <div class="tbhead">
+      <div>
+        <div class="eyebrow">Further Resources</div>
+        <h2 class="disp">A Simple Conversation Guide</h2>
+        <div class="hr"></div>
+      </div>
+      <div class="stoplight"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+    </div>
+    <div class="lanes">
+      <div class="lane green">
+        <div class="lhd"><span class="dot"></span><span class="lt">Green Light</span></div>
+        <div class="lbody"><div class="lcap"><b>&ldquo;Care and connect.&rdquo;</b><div>Everyday questions, nerves about joining a group, ordinary friendship challenges, or requests for prayer can often begin with a warm conversation. Listen, encourage, and help the student connect with a Group Leader or staff member when helpful.</div></div></div>
+      </div>
+      <div class="lane yellow">
+        <div class="lhd"><span class="dot"></span><span class="lt">Yellow Light</span></div>
+        <div class="lbody"><div class="lcap"><b>&ldquo;Involve staff for guidance.&rdquo;</b><div>Ongoing bullying, significant family concerns, emotional distress, questions beyond your role, or other sensitive disclosures should be shared with a ministry staff member. Stay kind and calm; do not feel pressure to provide counseling or make a ministry decision on your own.</div></div></div>
+      </div>
+      <div class="lane red">
+        <div class="lhd"><span class="dot"></span><span class="lt">Red Light</span></div>
+        <div class="lbody"><div class="lcap"><b>&ldquo;Get help immediately.&rdquo;</b><div>Possible abuse, threats of harm, self-injury, serious safety concerns, a medical emergency, or a student in immediate danger require urgent help through the church&rsquo;s approved response and reporting procedures. Follow emergency directions and any applicable legal reporting requirements. Never promise absolute confidentiality.</div></div></div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Further Resources</span><span class="pn">25</span></div>
+  </section>
+
+  <!-- WEEKLY QUICK CHECK -->
+  <section class="page content" data-screen-label="Further Resources—Weekly Quick Check">
+    <div>
+      <div class="eyebrow">Further Resources</div>
+      <h2 class="disp">Your Weekly Quick Check</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rhythm checks">
+      <div class="rh"><div class="rk">Before</div><ul class="cks"><li>Have I confirmed when and where to serve?</li><li>Do I know my role, team lead, and any updates?</li><li>Have I prayed for the students coming tonight?</li></ul></div>
+      <div class="rh"><div class="rk">During</div><ul class="cks"><li>Am I approachable, attentive, and present?</li><li>Have I welcomed someone by name or helped someone connect?</li><li>Have I communicated any concerns to the right person?</li></ul></div>
+      <div class="rh"><div class="rk">After</div><ul class="cks"><li>Have I finished my station&rsquo;s closing tasks?</li><li>Have I communicated follow-up needs?</li><li>Have I confirmed my next serving date?</li></ul></div>
+    </div>
+    <div class="foot"><span class="sec">Further Resources</span><span class="pn">26</span></div>
+  </section>
+
+  <!-- CAMPUS QUICK REFERENCE -->
+  <section class="page content" data-screen-label="Further Resources—Campus Quick Reference">
+    <div>
+      <div class="eyebrow">Complete Locally</div>
+      <h2 class="disp">Campus Quick Reference</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="fill">
+      <div class="fr"><span class="fl">Campus / Ministry</span><span class="fv"></span></div>
+      <div class="fr"><span class="fl">Ministry night &amp; location</span><span class="fv"></span></div>
+      <div class="fr"><span class="fl">Arrival / huddle time</span><span class="fv"></span></div>
+      <div class="fr"><span class="fl">Student Ministry staff contact</span><span class="fv"></span></div>
+      <div class="fr"><span class="fl">Support Team Lead</span><span class="fv"></span></div>
+      <div class="fr"><span class="fl">Check-in / new student process</span><span class="fv"></span></div>
+      <div class="fr"><span class="fl">Security Team Leader &amp; contact</span><span class="fv"></span></div>
+      <div class="fr"><span class="fl">Anything missing?</span><span class="fv"></span></div>
+    </div>
+    <div class="foot"><span class="sec">Further Resources</span><span class="pn">27</span></div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="page content" data-screen-label="Further Resources—Questions You May Have">
+    <div>
+      <div class="eyebrow">Further Resources</div>
+      <h2 class="disp">Questions You May Have</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <div class="row"><div class="k sm">Q</div><div><div class="t">What if I can&rsquo;t serve one week?</div><div class="b">Communicate as early as possible using your campus&rsquo;s approved scheduling process. Do not assume your spot is covered until you have followed that process.</div></div></div>
+      <div class="row"><div class="k sm">Q</div><div><div class="t">What if I don&rsquo;t know the answer?</div><div class="b">It&rsquo;s okay to say, &ldquo;That&rsquo;s a great question. Let me connect you with someone who can help.&rdquo;</div></div></div>
+      <div class="row"><div class="k sm">Q</div><div><div class="t">What if a student wants to talk about following Jesus or baptism?</div><div class="b">Celebrate their question and connect them with a Group Leader or ministry staff member who can walk through their next steps. Pray with them when appropriate.</div></div></div>
+      <div class="row"><div class="k sm">Q</div><div><div class="t">What if I notice a concern but I&rsquo;m not sure how serious it is?</div><div class="b">Tell your designated staff or security contact promptly. It is better to communicate a concern than to carry it alone.</div></div></div>
+    </div>
+    <div class="foot"><span class="sec">Further Resources</span><span class="pn">28</span></div>
+  </section>
+
+  <!-- ONE STUDENT AT A TIME -->
+  <section class="page vision" data-screen-label="Closing—One Student at a Time">
+    <div class="vk">One Student at a Time</div>
+    <div class="vbig"><span class="lt">One welcome.</span><span class="lt">One conversation.</span><span class="hi">One prayer.</span></div>
+    <p class="lead" style="max-width:560px;margin-top:34px">A student&rsquo;s story can change through one conversation, one welcome, one moment of feeling safe, one invitation into community, or one prayer. The moments that feel small to us may be the moments God uses in a big way.</p>
+    <p class="lead" style="max-width:560px"><b>Thank you for helping connect students to Jesus and to one another.</b></p>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">29</span></div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="page content" data-screen-label="Notes">
+    <div>
+      <div class="eyebrow">Space to Think</div>
+      <h2 class="disp">Notes</h2>
+    </div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+    </div>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">30</span></div>
+  </section>
+
+  <!-- BACK COVER -->
   <section class="page back span2" data-screen-label="Back cover">
     <img class="cph" src="assets/photos/harvest-together.jpg" alt="Harvest field (continues from front cover)">
     <div class="cgrad"></div>
@@ -234,6 +1229,7 @@
 
 </div>
 </div>
+
 <script>
 (function(){
   const stack=document.getElementById('stack');
