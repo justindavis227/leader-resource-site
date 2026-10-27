@@ -53,7 +53,7 @@
   .wk-actions>*{flex:1;font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.06em;
         text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer;
         border:1px solid rgba(255,254,249,.18);background:#1d1d1d;color:#c9c6c0;border-radius:999px;padding:6px 4px}
-  .wk-actions>*:active{background:#2a2a2a}
+  .wk-actions>*:hover,.wk-actions>*:active{background:var(--red);color:#fff;border-color:var(--red)}
   .wk-actions .copied,.wk-actions>*.copied{background:var(--red);color:#fff;border-color:var(--red)}
 
   /* ---------- VIEWER ---------- */
@@ -64,11 +64,12 @@
   .v-back{background:none;border:none;color:rgba(255,255,255,.75);font-size:14px;font-weight:600;
           display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 0}
   .v-right{display:flex;align-items:center;gap:12px}
+  .v-back:hover{color:#fff}
   .v-count{font-size:12px;color:rgba(255,255,255,.6);font-weight:600;font-family:var(--mono)}
   .v-pdf{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
          color:#fff;background:var(--red);border:1px solid var(--red);border-radius:999px;padding:6px 12px;
          text-decoration:none}
-  .v-pdf:active{background:#b0121f}
+  .v-pdf:hover,.v-pdf:active{background:#b0121f}
 
   .stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6px 14px 10px}
   .cardwrap{position:relative;aspect-ratio:350/622;height:min(100%,calc(min(92vw,380px) * 622 / 350));width:auto}
@@ -223,7 +224,7 @@ function renderHome(){
   let h = '<div class="h-title">Group Cards</div>'
         + '<div class="h-sub">Southeast Students &middot; Fall 2026</div>';
   DATA.series.forEach((s,si)=>{
-    const ac = s.kit ? s.kit.bg : s.c1;
+    const ac = s.kit ? (s.kit.ink || s.kit.bg) : s.c1;
     h += '<div class="series"><div class="s-head" style="border-color:'+ac+'">'
        + '<span class="dot" style="background:'+ac+'"></span>'
        + '<h2>'+esc(s.title)+(s.subtitle?' <span class="sub">&middot; '+esc(s.subtitle)+'</span>':'')+'</h2></div>'
@@ -231,7 +232,7 @@ function renderHome(){
     s.weeks.forEach((w,wi)=>{
       h += '<div class="wk-cell">'+tileHTML(s,si,w,wi)
          + '<div class="wk-actions">'
-         + '<button onclick="copyLink(this,'+si+','+wi+')">Copy link</button>'
+         + '<button onclick="copyLink(this,'+si+','+wi+')">Link</button>'
          + '<a href="'+w.pdf+'" download>PDF</a>'
          + '</div></div>';
     });
