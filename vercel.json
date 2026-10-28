@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/shot-list",
+      "destination": "https://claude.ai/artifact/CB4483vLcvV9spQghdfqvy",
+      "permanent": false
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
