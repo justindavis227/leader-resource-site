@@ -613,6 +613,27 @@
     .pair{display:contents!important}
     .stage{height:auto!important}
   }
+  /* ---- Leader Expectations (mantras) ---- */
+  .xp{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:16px 0;border-top:1px solid var(--hairline)}
+  .xp:last-child{border-bottom:1px solid var(--hairline)}
+  .xp .xi svg{width:44px;height:44px;color:var(--ember);stroke-width:2.1;overflow:visible;fill:none}
+  .xp .xn{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:27px;line-height:.95;color:var(--fg1)}
+  .xp .xn .ref{display:inline-block;font-family:var(--font-mono);font-size:10.5px;color:var(--ember);letter-spacing:.03em;font-weight:500;margin-left:9px;vertical-align:3px;text-transform:none}
+  .xp .xt{font-size:13px;color:var(--fg1);font-weight:600;line-height:1.4;margin-top:6px}
+  .xp ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:5px}
+  .xp li{font-size:12.5px;color:var(--fg2);line-height:1.45;padding-left:15px;position:relative}
+  .xp li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)}
+  .xp li b{color:var(--fg1)}
+  .xps .rows{display:flex;flex-direction:column;margin-top:4px}
+  .xps .rows > .xp:first-child{border-top:none}
+  .fill2{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+  .fill2 .fr{display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:end}
+  .fill2 .fl{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:600;color:var(--fg2)}
+  .fill2 .fl small{display:block;text-transform:none;letter-spacing:0;font-family:var(--font-body);font-weight:400;color:var(--fg3);font-size:11.5px;margin-top:3px}
+  .fill2 .fv{height:28px;border-bottom:1.5px solid var(--fg3)}
+  .evs{display:flex;gap:22px;margin-top:6px}
+  .evs span{font-size:13px;color:var(--fg2);display:flex;align-items:center;gap:8px}
+  .evs span::before{content:'';width:15px;height:15px;border:1.5px solid var(--fg3);border-radius:3px}
 </style>
 </head>
 <body>
@@ -669,10 +690,10 @@
     <div class="rows">
       <div class="trow"><span class="tn">01</span><span class="tt">The Mission<small>Why we exist</small></span><span class="tp">05</span></div>
       <div class="trow"><span class="tn">02</span><span class="tt">Your Group<small>What a win looks like</small></span><span class="tp">08</span></div>
-      <div class="trow"><span class="tn">03</span><span class="tt">Leading Well<small>Preparing &amp; facilitating</small></span><span class="tp">11</span></div>
-      <div class="trow"><span class="tn">04</span><span class="tt">Shepherding Students<small>Care &amp; discipleship</small></span><span class="tp">14</span></div>
-      <div class="trow"><span class="tn">05</span><span class="tt">Decision Guide<small>Helping students take their next step</small></span><span class="tp">18</span></div>
-      <div class="trow"><span class="tn">06</span><span class="tt">Further Resources<small>Help along the way</small></span><span class="tp">22</span></div>
+      <div class="trow"><span class="tn">03</span><span class="tt">Leading Well<small>Preparing &amp; facilitating</small></span><span class="tp">13</span></div>
+      <div class="trow"><span class="tn">04</span><span class="tt">Shepherding Students<small>Care &amp; discipleship</small></span><span class="tp">16</span></div>
+      <div class="trow"><span class="tn">05</span><span class="tt">Decision Guide<small>Helping students take their next step</small></span><span class="tp">20</span></div>
+      <div class="trow"><span class="tn">06</span><span class="tt">Further Resources<small>Help along the way</small></span><span class="tp">24</span></div>
     </div>
     <div class="foot"><span class="sec">SE Students</span><span class="sec">Small Group Leaders</span></div>
   </section>
@@ -806,6 +827,58 @@
     <div class="foot"><span class="sec">Your Group</span><span class="pn">10</span></div>
   </section>
 
+<!-- · YOUR GROUP—LEADER EXPECTATIONS (mantras, from SC expectations doc, 2026-10-29) -->
+  <section class="page content xps" data-screen-label="Your Group—Expectations (Left)">
+    <div>
+      <div class="eyebrow">Small Group Leader Expectations</div>
+      <h2 class="disp">What We Ask of You</h2>
+      <div class="hr"></div><p class="lead" style="font-size:13.5px">Five expectations, one for each of our mantras&mdash;the pictures from the life of Christ that shape how we lead.</p>
+    </div>
+    <div class="rows"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="ic-branch" viewBox="0 0 64 64">
+      <path d="M13 53 C26 47 31 34 35 21 C37 15 41 10 51 9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M35 22 C41 15 49 15 53 20 C47 25 39 25 35 22 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 35 C22 31 21 22 26 17 C31 22 33 31 28 35 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 46 C28 41 37 42 41 47 C34 52 26 51 22 46 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol><symbol id="ic-wind" viewBox="0 0 64 64">
+      <path d="M8 24 H38 a7 7 0 1 0 -7 -7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 34 H47 a7 7 0 1 1 -7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 45 H31 a6 6 0 1 0 -6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol><symbol id="ic-roof" viewBox="0 0 64 64">
+      <path d="M15 53 V35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M49 35 V53" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11 55 H53" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9 37 L32 16 L55 37" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 35 L27 27 L32 24 L35 29 L39 30 L36 36 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M39 22 L46 20 L47 25 L40 27 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol><symbol id="ic-plow" viewBox="0 0 64 64">
+      <circle cx="14" cy="46" r="6.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 43 L33 39" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M33 39 C43 41 46 51 35 54 L24 49 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M33 39 L50 25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M36 41 L53 27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50 25 L53 27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6 57 C22 54 40 55 58 54" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol><symbol id="ic-jar" viewBox="0 0 64 64">
+      <g transform="rotate(34 30 36)">
+        <path d="M25 12 H37" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 12 C26 16 25 18 24 20 C19 23 16 29 16 37 C16 47 22 53 31 53 C40 53 46 47 46 37 C46 29 43 23 38 20 C37 18 36 16 36 12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 21 C31 24 32 24 38 21" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <path d="M45 24 C49 27 51 31 51 35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M53 39 C55 41 55 44 53 46 C51 44 51 41 53 39 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 47 C49 49 49 51 48 53 C47 51 47 49 48 47 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol></defs></svg><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-branch"/></svg></div><div><div class="xn">Be the Branch<span class="ref">John 15:1&ndash;17</span></div><div class="xt">Have a rich personal walk with Jesus.</div><ul><li>Attend a weekend service.</li><li>Be in a group of your own&mdash;Bible study, small group, etc.</li><li>Have, or be seeking, a personal mentor.</li><li>Be growing in your personal study and prayer disciplines.</li></ul></div></div><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-wind"/></svg></div><div><div class="xn">Catch the Wind<span class="ref">John 3:1&ndash;8</span></div><div class="xt">We raise the sails to catch the wind of the Holy Spirit. Where God is moving, we want to go.</div><ul><li><b>Build the boat well.</b> Come prepared to minister to your students, having spent time in the week&rsquo;s curriculum.</li><li><b>Work with the wind.</b> Ask questions. Talk no more than 20% of group time.</li><li><b>Know your crew.</b> Know how to push each student, when to give them their moment, and when to redirect.</li></ul></div></div></div>
+    <div class="foot"><span class="sec">Your Group</span><span class="pn">11</span></div>
+  </section>
+  <section class="page content xps" data-screen-label="Your Group—Expectations (Right)">
+    <div>
+      <div class="eyebrow">Small Group Leader Expectations</div>
+      <div style="height:59px"></div><div class="hr"></div>
+    </div>
+    <div class="rows"><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-roof"/></svg></div><div><div class="xn">Wreck the Roof<span class="ref">Luke 5:18&ndash;25</span></div><div class="xt">Heaven and hell are a reality. Lead like you believe it. We will do whatever it takes to bring one more student to Jesus.</div><ul><li>Create new ways to connect with your group&mdash;hang-outs, bringing things to group.</li><li>Lead your group to invite friends. Plan how you will celebrate a new student, and create a group identity.</li><li>Know where each student is spiritually. Anyone not baptized? Anyone struggling with faith?</li><li><b>Have a Timothy.</b> When asked, be able to say their name. Do for one what you wish you could do for everyone.</li></ul></div></div><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-plow"/></svg></div><div><div class="xn">Grip the Plow<span class="ref">Luke 9:57&ndash;62</span></div><div class="xt">Jesus recruited people by telling them how hard it would be, not how great it would be.</div><ul><li>Serve with HSM or MSM every week, including the leader meeting.</li><li>Have one touchpoint with a student outside of service each week&mdash;a text, a shared scripture, coffee, a game or recital.</li></ul></div></div><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-jar"/></svg></div><div><div class="xn">Empty the Jar<span class="ref">Luke 7:36&ndash;50</span></div><div class="xt">Sacrificial ministry looks different for everyone. In student ministry it usually looks like time and margin.</div><ul><li><b>Go to the big events:</b> Camp (HSC / MSC), Experience WKND (MSM overnight), Fall Retreat (HSM overnight).</li><li><b>Own a +1.</b> Step up and own one more responsibility: communion prep, set-up and tear-down, hosting, teaching, tech, contacting first-time guests.</li></ul></div></div></div>
+    <div class="foot"><span class="sec">Your Group</span><span class="pn">12</span></div>
+  </section>
+
 <!-- · DIV 03 LEADING WELL -->
   <section class="page divider gl" data-screen-label="Divider—Leading Well">
     <div class="ghost disp">03</div>
@@ -815,7 +888,7 @@
       <div class="sub">Preparing and facilitating&mdash;practical skills for every group night.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">11</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">13</span></div>
   </section>
 
 <!-- · YOUR ROLE—5 KEYS (ported) -->
@@ -841,7 +914,7 @@
       <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">04</span></div><div><div class="t">Don&rsquo;t read off the curriculum</div><div class="b">Know the topic ahead of time and ask in your own words. The less you look down, the more it feels like a conversation.</div></div></div>
       <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">05</span></div><div><div class="t">Follow up during the week</div><div class="b">Students need someone to walk with them, not talk at them. A relationship carried through the week can change a life.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">Leading Well</span><span class="pn">12</span></div>
+    <div class="foot"><span class="sec">Leading Well</span><span class="pn">14</span></div>
   </section>
 
 <!-- · YOUR ROLE—GETTING UNSTUCK (ported) -->
@@ -858,7 +931,7 @@
       <div class="row"><div class="ghn">04</div><div><div class="t">Get better questions</div><div class="b">A great question yields as much as a great answer. Practice them before group; write a few of your own.</div></div></div>
       <div class="row"><div class="ghn">05</div><div><div class="t">Get visual</div><div class="b">A big sticky pad and a few markers pull everyone in. Drawing or writing answers makes the lesson stick.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">Leading Well</span><span class="pn">13</span></div>
+    <div class="foot"><span class="sec">Leading Well</span><span class="pn">15</span></div>
   </section>
 
 <!-- · DIV 04 SHEPHERDING STUDENTS -->
@@ -870,7 +943,7 @@
       <div class="sub">Care and discipleship&mdash;meeting students where they are and helping them grow.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">14</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">16</span></div>
   </section>
 
 <!-- 21c · FOUR CHAIRS—NEEDS & QUESTIONS (flat-lay spread—left) -->
@@ -913,7 +986,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
 </p></div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">15</span></div>
+    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">17</span></div>
   </section>
 
 <!-- 21d · FOUR CHAIRS—NEEDS & QUESTIONS (flat-lay spread—right) -->
@@ -950,7 +1023,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <div class="cgroup"><div class="clbl">Questions</div><p>Have they successfully discipled someone into a disciple-maker? Are they secure in their walk with the Lord? Have they committed all of their life to fulfilling Jesus&rsquo; Great Commission?</p></div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">16</span></div>
+    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">18</span></div>
   </section>
 
 <!-- · MAKE DISCIPLES—IWTFC (ported) -->
@@ -968,7 +1041,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="row"><div class="k">F</div><div><div class="t">Feed&mdash;how do I feed myself?</div><div class="b">Make daily time with God a priority: prayer, worship, reading, journaling, or walking in His creation.</div></div></div>
       <div class="row"><div class="k">C</div><div><div class="t">Clean&mdash;what do I do when I sin?</div><div class="b">Walk students through daily repentance, confession, and a renewed commitment when sin creeps back in.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">17</span></div>
+    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">19</span></div>
   </section>
 
 <!-- · DIV 05 DECISION GUIDE -->
@@ -980,7 +1053,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="sub">Helping a student take their next step toward Jesus&mdash;and what to say in the moment.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">18</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">20</span></div>
   </section>
 
 <!-- 19b · BAPTISM (full spread—left) -->
@@ -1013,7 +1086,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <div class="gr">Acts 2:38</div><div class="gd">Confession leads to forgiveness of sins</div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">19</span></div>
+    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">21</span></div>
   </section>
 
 <!-- 19b2 · BAPTISM (full spread—right) -->
@@ -1045,7 +1118,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <li>Today is the day of salvation! Will you go now and be Christ&rsquo;s ambassador? He wants to use you to reach others! Who will you tell?</li>
       </ul>
     </div>
-    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">20</span></div>
+    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">22</span></div>
   </section>
 
 <!-- 19c · THE BRIDGE (flat-lay spread—right) -->
@@ -1083,7 +1156,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <div class="bdiag"><img src="assets/illos/bridge-d4.png" alt="Jesus bridges the gap between us and God"></div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">21</span></div>
+    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">23</span></div>
   </section>
 
 <!-- · DIV 06 FURTHER RESOURCES -->
@@ -1095,7 +1168,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="sub">Help along the way&mdash;guides, notes, and where to go deeper.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">22</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">24</span></div>
   </section>
 
 <!-- 21b · THE TOOLBOX—STOPLIGHT CONVERSATIONS GUIDE -->
@@ -1152,42 +1225,13 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         </div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Further Resources</span><span class="pn">23</span></div>
+    <div class="foot"><span class="sec">Further Resources</span><span class="pn">25</span></div>
   </section>
 
 <!-- · BLANK (spread alignment before notes) -->
   <section class="page" data-screen-label="Blank"></section>
 
       <!-- · NOTES -->
-  <section class="page content" data-screen-label="Notes">
-    <div>
-      <div class="eyebrow">Space to Think</div>
-      <h2 class="disp">Notes</h2>
-    </div>
-    <div class="rows" style="margin-top:14px">
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div>
-    </div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">24</span></div>
-  </section>
-
-  <!-- · NOTES (shares spread header) -->
-  <section class="page content" data-screen-label="Notes">
-    <div style="height:117px"></div>
-    <div class="rows" style="margin-top:14px">
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div>
-    </div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">25</span></div>
-  </section>
-
-  <!-- · NOTES (more space) -->
   <section class="page content" data-screen-label="Notes">
     <div>
       <div class="eyebrow">Space to Think</div>
@@ -1216,22 +1260,40 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot"><span class="sec">SE Students</span><span class="pn">27</span></div>
   </section>
 
-  <!-- · SKETCH (dot grid) -->
-  <section class="page content" data-screen-label="Sketch">
+  <!-- · NOTES (more space) -->
+  <section class="page content" data-screen-label="Notes">
     <div>
-      <div class="eyebrow">Space to Draw</div>
-      <h2 class="disp">Sketch</h2>
+      <div class="eyebrow">Space to Think</div>
+      <h2 class="disp">Notes</h2>
     </div>
-    <div class="dotgrid"></div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div>
+    </div>
     <div class="foot"><span class="sec">SE Students</span><span class="pn">28</span></div>
   </section>
 
-  <!-- · SKETCH (shares spread header) -->
-  <section class="page content" data-screen-label="Sketch">
+  <!-- · NOTES (shares spread header) -->
+  <section class="page content" data-screen-label="Notes">
     <div style="height:117px"></div>
-    <div class="dotgrid"></div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div>
+    </div>
     <div class="foot"><span class="sec">SE Students</span><span class="pn">29</span></div>
   </section>
+
+  <!-- · SKETCH (dot grid) -->
+  
+
+  <!-- · SKETCH (shares spread header) -->
+  
 
 <!-- 24 · BACK COVER -->
   <section class="page back gl span2" data-screen-label="Back cover">
