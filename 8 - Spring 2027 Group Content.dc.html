@@ -19,6 +19,17 @@
   @media (max-width:640px){
     .viewbar{top:auto!important;bottom:14px!important;left:50%!important;right:auto!important;transform:translateX(-50%)}
   }
+  /* long weeks: tighten the discussion page so nothing runs into the footer */
+  .disc.dense{padding-top:44px!important}
+  .disc.dense h2{font-size:28px!important}
+  .disc.dense > div:not(.tail){margin-top:12px!important}
+  .disc.dense [data-q]{font-size:11.5px!important;line-height:1.36!important}
+  .disc.dense [data-sub]{font-size:10.5px!important;margin-top:2px!important}
+  .disc.dense .qrow{padding:2px 0!important}
+  .disc.dense .tail{gap:10px!important;padding-top:6px!important}
+  .disc.dense .tail > div{padding:10px 16px!important}
+  .disc.dense .tail [data-t]{font-size:12px!important;line-height:1.4!important}
+  .disc.dense .tail [data-l]{margin-bottom:4px!important}
   @page{size:8in 8in;margin:0}
   @media print{
     body{background:#fff;padding:0}
@@ -453,26 +464,26 @@
         </section>
 
         <!-- RIGHT: THE DISCUSSION -->
-        <section class="pg" data-screen-label="Lesson—Discussion" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
+        <section class="pg disc {{ w.density }}" data-screen-label="Lesson—Discussion" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
           <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--fg3)">{{ w.label }} · Discussion</div>
           <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:1;margin:5px 0 0">Questions</h2>
 
           <div style="margin-top:20px">
             <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember)">Personal</div>
             <sc-for list="{{ w.personal }}" as="q" hint-placeholder-count="2">
-              <div style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div><div style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.t }}</div></div>
+              <div class="qrow" style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div><div data-q style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.t }}</div></div>
             </sc-for>
           </div>
 
           <div style="margin-top:16px">
             <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember)">Biblical</div>
             <sc-for list="{{ w.biblical }}" as="q" hint-placeholder-count="3">
-              <div style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0">
+              <div class="qrow" style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0">
                 <div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div>
                 <div>
-                  <div style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.q }}</div>
+                  <div data-q style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.q }}</div>
                   <sc-for list="{{ q.sub }}" as="sb" hint-placeholder-count="0">
-                    <div style="font-size:11.5px;color:var(--fg3);line-height:1.4;padding-left:14px;position:relative;margin-top:4px">—&nbsp;{{ sb }}</div>
+                    <div data-sub style="font-size:11.5px;color:var(--fg3);line-height:1.4;padding-left:14px;position:relative;margin-top:4px">—&nbsp;{{ sb }}</div>
                   </sc-for>
                 </div>
               </div>
@@ -482,68 +493,68 @@
           <div style="margin-top:16px">
             <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember)">Applicable</div>
             <sc-for list="{{ w.applicable }}" as="q" hint-placeholder-count="2">
-              <div style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div><div style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.t }}</div></div>
+              <div class="qrow" style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:4px 0"><div style="font-family:var(--font-mono);font-weight:700;font-size:12px;color:var(--ember)">{{ q.n }}</div><div data-q style="font-size:12.5px;color:var(--fg2);line-height:1.42">{{ q.t }}</div></div>
             </sc-for>
           </div>
 
-          <div style="margin-top:auto;display:flex;flex-direction:column;gap:16px;padding-top:16px">
+          <div class="tail" style="margin-top:auto;display:flex;flex-direction:column;gap:16px;padding-top:16px">
             <sc-if value="{{ prayerAccent }}" hint-placeholder-val="{{ true }}">
               <div style="background:var(--ember);border-radius:10px;padding:14px 18px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:rgba(255,254,249,.75);margin-bottom:7px">Prayer Prompt</div>
-                <div style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--slate)">“{{ w.prayer }}”</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:rgba(255,254,249,.75);margin-bottom:7px">Prayer Prompt</div>
+                <div data-t style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--slate)">“{{ w.prayer }}”</div>
               </div>
             </sc-if>
             <sc-if value="{{ prayerDark }}" hint-placeholder-val="{{ false }}">
               <div style="background:var(--pitch);border-radius:10px;padding:14px 18px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--fg3-d);margin-bottom:7px">Prayer Prompt</div>
-                <div style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--slate)">“{{ w.prayer }}”</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--fg3-d);margin-bottom:7px">Prayer Prompt</div>
+                <div data-t style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--slate)">“{{ w.prayer }}”</div>
               </div>
             </sc-if>
             <sc-if value="{{ prayerOutline }}" hint-placeholder-val="{{ false }}">
               <div style="background:transparent;border:1px solid var(--hairline);border-radius:10px;padding:13px 17px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--fg3);margin-bottom:7px">Prayer Prompt</div>
-                <div style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--fg1)">“{{ w.prayer }}”</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--fg3);margin-bottom:7px">Prayer Prompt</div>
+                <div data-t style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--fg1)">“{{ w.prayer }}”</div>
               </div>
             </sc-if>
             <sc-if value="{{ prayerTint }}" hint-placeholder-val="{{ false }}">
               <div style="background:color-mix(in srgb, var(--ember) 11%, var(--slate));border-radius:10px;padding:14px 18px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:7px">Prayer Prompt</div>
-                <div style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--fg1)">“{{ w.prayer }}”</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:7px">Prayer Prompt</div>
+                <div data-t style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--fg1)">“{{ w.prayer }}”</div>
               </div>
             </sc-if>
             <sc-if value="{{ prayerUnderline }}" hint-placeholder-val="{{ false }}">
               <div style="border-left:3px solid var(--ember);padding:2px 0 2px 16px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:5px">Prayer Prompt</div>
-                <div style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--fg2)">“{{ w.prayer }}”</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:5px">Prayer Prompt</div>
+                <div data-t style="font-family:var(--font-body);font-style:italic;font-size:13px;line-height:1.5;color:var(--fg2)">“{{ w.prayer }}”</div>
               </div>
             </sc-if>
             <sc-if value="{{ challengeTint }}" hint-placeholder-val="{{ true }}">
               <div style="background:color-mix(in srgb, var(--ember) 11%, var(--slate));border-radius:10px;padding:14px 18px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:5px">Personal Challenge</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:5px">Personal Challenge</div>
                 <div style="font-size:12.5px;line-height:1.5;color:var(--fg1)">{{ w.challenge }}</div>
               </div>
             </sc-if>
             <sc-if value="{{ challengeAccent }}" hint-placeholder-val="{{ false }}">
               <div style="background:var(--ember);border-radius:10px;padding:14px 18px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:rgba(255,254,249,.75);margin-bottom:5px">Personal Challenge</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:rgba(255,254,249,.75);margin-bottom:5px">Personal Challenge</div>
                 <div style="font-size:12.5px;line-height:1.5;color:var(--slate)">{{ w.challenge }}</div>
               </div>
             </sc-if>
             <sc-if value="{{ challengeDark }}" hint-placeholder-val="{{ false }}">
               <div style="background:var(--pitch);border-radius:10px;padding:14px 18px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--fg3-d);margin-bottom:5px">Personal Challenge</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--fg3-d);margin-bottom:5px">Personal Challenge</div>
                 <div style="font-size:12.5px;line-height:1.5;color:var(--slate)">{{ w.challenge }}</div>
               </div>
             </sc-if>
             <sc-if value="{{ challengeOutline }}" hint-placeholder-val="{{ false }}">
               <div style="background:transparent;border:1px solid var(--hairline);border-radius:10px;padding:13px 17px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--fg3);margin-bottom:5px">Personal Challenge</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;color:var(--fg3);margin-bottom:5px">Personal Challenge</div>
                 <div style="font-size:12.5px;line-height:1.5;color:var(--fg1)">{{ w.challenge }}</div>
               </div>
             </sc-if>
             <sc-if value="{{ challengeUnderline }}" hint-placeholder-val="{{ false }}">
               <div style="border-left:3px solid var(--ember);padding:2px 0 2px 16px">
-                <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:5px">Personal Challenge</div>
+                <div data-l style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:10.5px;font-weight:700;color:var(--ember);margin-bottom:5px">Personal Challenge</div>
                 <div style="font-size:12.5px;line-height:1.5;color:var(--fg2)">{{ w.challenge }}</div>
               </div>
             </sc-if>
@@ -684,12 +695,42 @@ class Component extends DCLogic {
         no: 'One', title: 'Spiritual Reality', short: 'Spiritual Reality',
         theme: 'How do you see the world?', length: '2 Weeks · MSM + HSM',
         art: null, accent: null,
-        synopsis: TBD,
+        synopsis: `How do you see the world? What's the point of following Jesus? What does God actually want from us? In a world full of competing voices, rules, and expectations, it's easy to lose sight of what matters most. In this series, students will explore the spiritual reality we find when we open God's Word. Just like VR changes what you see and experience, the Bible helps us see God's reality. And in the Bible, we see a call to believe in Jesus and love others as He commanded. Through reading the letters John wrote, we'll discover that following Jesus isn't just about knowing the right answers or following a list of rules. It's about knowing God, walking as Jesus walked, and allowing His love to change the way we treat others.
+
+Series anchor text: 1 John 3:23. Series goal: students will understand the spiritual reality that following Jesus means loving Him and loving others.`,
         weeks: [
-          { track:'MSM', t:`Love God`, p:TBD },
-          { track:'MSM', t:`Love Others`, p:TBD },
-          { track:'HSM', t:`1 John`, p:`1 John` },
-          { track:'HSM', t:`2 John`, p:`2 John` }
+          { track:'MSM', t:`Love God`, p:`1 John 2:3-6`,
+            k:`The spiritual reality is that following Jesus starts with knowing God and walking as Jesus walked.`,
+            c:`Choose to show God that you love and trust Him this week through one simple act of obedience.`,
+            pe:[`Who is someone you know really well? How did you get to know them?`,`Have you ever said you cared about something or someone but your actions didn't really show it? What happened?`],
+            bi:[`Read 1 John 2:3-6.`,`Reread verses 3-4. John connects knowing God with obeying His commands. Why do you think obedience is connected to knowing God?`,`Reread verses 5-6. John says that whoever claims to live in Jesus should walk as Jesus did. What do you think it means to walk as Jesus walked? What might that look like in everyday life?`],
+            ap:[`What is one area of your life where it's difficult for you to obey Jesus?`,`What's one thing you could do this week to walk more like Jesus at home, at school, or with your friends?`],
+            pr:`God, thank You for loving me and allowing me to know You. Help me not just to say I follow You, but to live like Jesus. Show me where I need to obey You and give me the courage to follow You.`,
+            ch:`Each day this week, ask yourself, "What is one way I can walk like Jesus today?" Choose one specific action and follow through on it.` },
+          { track:'MSM', t:`Love Others`, p:`1 John 4:7-12`,
+            k:`Because God first loved us, we are called to love others.`,
+            c:`Choose one person this week and intentionally show them the kind of love God has shown you.`,
+            pe:[`Who is someone who makes you feel genuinely loved? What do they do that makes you feel that way?`,`What kind of people do you get along with easily? Why is it easy to love certain people?`],
+            bi:[`Read 1 John 4:7-12.`,`Reread verses 7-8. John says that love comes from God and that knowing God changes how we love others. Why do you think our relationship with God should affect the way we treat people?`,`Reread verses 11-12. John says that because God loved us, we ought to love one another. Why do you think loving others is such an important part of following Jesus?`],
+            ap:[`Who is someone in your life who might need to feel the love of God? What makes you think that?`,`What is one practical way you could show that person the love of Jesus this week?`],
+            pr:`God, thank You for loving me first. Help me understand Your love more deeply so I can share it with others. Give me eyes to see people who need love and the courage to love them the way You have loved me.`,
+            ch:`Choose one person to intentionally love this week. Pray for them each day, and take at least one practical step to show them love without expecting anything in return.` },
+          { track:'HSM', t:`1 John`, p:`1 John (whole book)`,
+            k:`Reading God's Word in context helps us see the spiritual reality of what God is saying and how He calls us to live.`,
+            c:`Make time to read Scripture beyond a few verses and discover how the whole message shapes your understanding of God.`,
+            pe:[`When you read the Bible, do you usually read a few verses, a chapter, or more at a time? Why?`,`Have you ever misunderstood something because you only heard part of the story? What happened?`],
+            bi:[{ q:`Read the entire book of 1 John.`, sub:[`What words, ideas, or phrases stick out to you from this book?`,`What questions do you have about what you read?`] },`What themes or ideas did you notice repeated throughout the book? Why do you think John keeps coming back to them?`,`Throughout 1 John, John connects believing in Jesus, obeying God, and loving others. How do these three things relate to one another? Can someone claim to follow Jesus while completely ignoring the way they live or treat others?`],
+            ap:[`Which theme from 1 John challenged you the most: believing in Jesus, obeying God, loving others, or something else? Why?`,`How was reading the entire book different from reading a few verses at a time? Did seeing the whole message help you understand anything differently?`],
+            pr:`God, thank You for giving us Your Word. Help me slow down and understand what I'm reading instead of just rushing through it. Give me wisdom to see the bigger picture, understand what You are teaching me, and live it out.`,
+            ch:`Choose another book of the Bible and read it in one sitting this week. As you read, pay attention to repeated words, major themes, and what the author wants you to understand. Write down three things you noticed.` },
+          { track:'HSM', t:`2 & 3 John`, p:`2 John; 3 John`,
+            k:`God calls us to walk in truth and love, using His Word as spiritual reality to shape what we believe and how we live.`,
+            c:`Read Scripture with the goal of understanding it, then put its truth into practice in the way you live and treat others.`,
+            pe:[`Have you ever had to decide whether to believe something you heard? How did you figure out if you should believe it or not?`,`Have you ever found it difficult to stand by what you believe because of what other people thought? What made it difficult?`],
+            bi:[{ q:`Read the entire books of 2 John and 3 John.`, sub:[`What words, ideas, or phrases stick out to you from these books?`,`What questions do you have about what you read?`] },`Both letters emphasize truth and love. Reread 2 John 4-6. How does John connect walking in truth with loving one another? Why do you think Christians need both truth and love?`,`Reread 2 John 7-11. John warns his readers about deceivers and false teaching. Why is it important to know what God's Word teaches rather than simply believing everything we hear?`],
+            ap:[`Where do you need to grow in living out God's truth, showing love to others, or discerning what you believe?`,`What's one way you can use God's Word to guide a decision, relationship, or conversation you have this week?`],
+            pr:`God, thank You for giving me truth in Your Word. Help me recognize what is true, walk in Your ways, and love people well. Give me wisdom to know what to believe and courage to live out what You teach me.`,
+            ch:`Read another short book of the Bible in one sitting this week. Before you begin, ask God to help you understand His Word. After reading, write down the main message of the book, one thing you learned about God, and one way you can respond.` }
         ]
       },
       {
@@ -710,11 +751,34 @@ class Component extends DCLogic {
         no: 'Three', title: 'John 3:16', short: 'John 3:16',
         theme: 'Is it really that simple?', length: '3 Weeks · MSM + HSM together',
         art: null, accent: null,
-        synopsis: TBD,
+        synopsis: `John 3:16 is one of the most familiar verses in the Bible, but it raises some of the biggest questions about Christianity. If God loves the world, why is there so much suffering? If He sent His Son, how can we know Jesus really is who He claimed to be? And what does it actually mean to believe in Him? In this series, students will explore these questions honestly, using John 3:16 as the foundation for conversations about God's love, the identity of Jesus, and the meaning of saving faith. The goal isn't to pretend every question has an easy answer, but to help students understand the gospel more deeply and build a thoughtful, confident faith in Jesus.
+
+Series goal: students will learn to engage honestly with difficult questions about Christianity, understand the biblical foundations of their faith, and grow in confidence in Jesus.`,
         weeks: [
-          { t:`God Loves the World`, p:TBD },
-          { t:`He Sent His Son`, p:TBD },
-          { t:`Believe in Him`, p:TBD }
+          { t:`God Loves the World`, p:`John 11:1-44; Romans 8:18-25`,
+            k:`God doesn't promise a life without suffering, but He meets us in our pain and promises that suffering won't have the final word.`,
+            c:`Bring your honest questions and pain to God, and choose to walk alongside someone who is hurting rather than offering easy answers.`,
+            pe:[`When you hear the phrase "God loves the world," what does that make you think or feel?`,`Have you ever experienced something that made you question God's goodness or wonder why He would allow suffering? What questions did it raise for you?`],
+            bi:[`Read John 11:1-44.`,`Reread John 11:32-36. Jesus knows He is about to raise Lazarus from the dead, yet He still weeps with those who are grieving. What does this teach us about how Jesus responds to human pain?`,`Read Romans 8:18-25. Paul acknowledges that creation groans and that we experience suffering while waiting for redemption. What does this passage teach us about the brokenness of our world and the hope Christians have for the future?`],
+            ap:[`Is there a painful experience or unanswered question that makes it difficult for you to trust God? What would it look like to bring that honestly to Him?`,`How can you respond when a friend is suffering or questioning God's goodness without minimizing their pain or pretending to have every answer?`],
+            pr:`God, I don't always understand why suffering happens or why You allow painful things in our world. Help me bring my honest questions to You. Remind me of Your character, meet me in my pain, and help me be present with others who are hurting. Give me hope in the promise that You will ultimately make all things new.`,
+            ch:`Take 10 minutes this week to write down an honest question you have about suffering or God's goodness. Read John 11 or Romans 8 again, noting what the passage teaches you about God and what questions remain. If the question is weighing on you, bring it to a trusted leader or mature Christian.` },
+          { t:`He Sent His Son`, p:`John 3:16-18; 1 Corinthians 15:3-8`,
+            k:`God showed His love by sending His Son, and the resurrection of Jesus is central to the truth of the Christian faith.`,
+            c:`Take one question you have about Jesus or His resurrection and investigate it rather than avoiding it.`,
+            pe:[`John 3:16 says God gave His one and only Son because He loves the world. What do you think makes Jesus so important to the Christian faith?`,`What evidence or information would you want to examine before believing that someone had actually risen from the dead?`],
+            bi:[`Read John 3:16-18.`,`Reread John 3:16. Why is it significant that Christianity is built around what God has done by sending His Son, rather than simply giving people advice about how to live? If Jesus is central to God's plan to save the world, why does it matter whether the claims about Him are true?`,`Read 1 Corinthians 15:3-8. Paul describes Jesus' death, burial, resurrection, and appearances to witnesses. What claims does Paul make about what happened to Jesus? Why do you think the resurrection was so important to the message he preached?`],
+            ap:[`What question about Jesus' identity, the Bible's reliability, or the resurrection would you most like to have answered? Why is that question important to you?`,`How can you investigate questions about Christianity with both intellectual honesty and an openness to what the evidence may show?`],
+            pr:`God, thank You for showing Your love by sending Jesus. Help me understand who He is and why His resurrection matters. Give me courage to ask honest questions, wisdom to examine the evidence, and humility as I continue to learn. Help me build my faith on what is true.`,
+            ch:`Write down one question you have about the historical Jesus or His resurrection. Investigate it using the passages from this week and a trustworthy resource on Christian history or apologetics. Record one thing you learned and one question you still have.` },
+          { t:`Believe in Him`, p:`John 3:16-18; Ephesians 2:1-10`,
+            k:`We receive eternal life by God's grace through faith in Jesus, and genuine faith begins to shape how we live.`,
+            c:`Examine what you're trusting in for salvation, put your confidence in Jesus rather than your own performance, and talk with a trusted Christian leader about any questions you have.`,
+            pe:[`When you hear the phrase "believe in Jesus," what do you think it means? How would you explain it to a friend?`,`Have you ever wondered whether you're really a Christian or worried that you've messed up too much for God to accept you? What makes questions about salvation difficult to work through?`],
+            bi:[`Read John 3:16-18.`,`Reread John 3:16. Jesus says that whoever believes in Him will have eternal life. What do you think it means to believe in Jesus rather than simply believe that He existed? What is the difference between knowing facts about Jesus and personally trusting Him?`,`Read Ephesians 2:1-10. According to Paul, what has God done for us, and how do we receive salvation? If salvation is a gift of grace rather than something we earn, what should our confidence be based on?`],
+            ap:[`When you think about your relationship with God, are you more likely to trust what Jesus has done for you or judge your standing with God by how well you've behaved? What do these passages invite you to reconsider?`,`If a friend asked you, "How can I know if I'm actually saved?" how would you use John 3:16 and the other passages to help them understand grace, faith, and assurance?`],
+            pr:`God, thank You for loving me and sending Jesus so that I can have eternal life. Help me understand what it means to trust in Him. Keep me from trying to earn Your love through my performance, and help me find confidence in Your promises. Grow my faith so that the way I live reflects the trust I place in You.`,
+            ch:`Read John 3:16-18 and 1 John 5:11-13 again this week. Write down what these passages teach you about believing in Jesus and having eternal life. If you have questions or doubts about your salvation, bring them to a trusted Christian leader and work through them together.` }
         ]
       },
       {
@@ -723,8 +787,22 @@ class Component extends DCLogic {
         art: null, accent: null,
         synopsis: TBD,
         weeks: [
-          { t:`Anxiety & Depression`, p:`Psalm 77` },
-          { t:`Doubt & Fear`, p:`Psalm 13; Psalm 27` }
+          { t:`Anxiety & Depression`, p:`Psalm 77`,
+            k:`Intentionally remembering what God has done is the best way to push back the darkness of our circumstance.`,
+            c:`Be open about when things are hard and keep remembering the great things God can do.`,
+            pe:[`What's your ultimate "I had a bad day and want to feel better" routine? Do you have a favorite show to watch, activity to do, friend to call?`,`Anxiety and depression are big topics of conversation these days. When you hear these words, what comes to mind for you?`,`Are there hard things you've thought or emotions you've felt that you felt like you couldn't be honest about? What made it hard to share those?`],
+            bi:[{ q:`Read Psalm 77:4-9.`, sub:[`What parts of this scripture can you relate to? Have you ever felt or prayed something like this?`,`Why do you think a scripture like this might be included in the Bible?`] },{ q:`Now read Psalm 77:10-15.`, sub:[`What changed?`,`What things is the author remembering about God?`] }],
+            ap:[`Do you think knowing truth about God can actually affect us when we feel anxious or depressed? Why or why not?`,`How can we be grateful for what God has done, but also honest when things are really hard?`],
+            pr:`God, you've done great things. Help me remember the great things you've done for me.`,
+            ch:`This week, try to write down something you are grateful for every day. Spend time giving thanks to God for that thing.` },
+          { t:`Doubt & Fear`, p:`Psalm 13:1-4; Psalm 27:13-14`,
+            k:`Fears and doubts don't disqualify us from faith. They invite us to open our hearts more fully to God and others.`,
+            c:`Be honest about your doubt and fear with God and with your community.`,
+            pe:[`When you're figuring something out, are you more likely to ask for help or try to figure it out on your own first?`,`Have you ever had thoughts or questions about religion that you felt like you couldn't say out loud?`],
+            bi:[{ q:`Read Psalm 13:1-4.`, sub:[`What emotion does this sound like to you?`,`Have you ever wondered if God sees you or hears you?`] },{ q:`Now read Psalm 27:13-14.`, sub:[`What do you think they mean by "be brave and courageous, and wait for the Lord"?`] }],
+            ap:[`The writers of these passages are really honest. What's something about faith that you need to be really honest about?`,`When questions or fear about faith come up, what can we do to help encourage each other to "wait for the Lord"?`],
+            pr:`God, I don't have all the answers. Help me be brave and courageous and wait for you, even when it's hard.`,
+            ch:`This week, be brave and courageous. Share a fear or doubt you've been keeping to yourself with a trusted leader or friend.` }
         ]
       },
       {
@@ -800,6 +878,7 @@ If a generation is going to be freed from pornography and its influence, two thi
         accent: w.track ? TRACK[w.track].accent : (s.accent || BRAND_ACCENT),
         onAccent: w.track ? TRACK[w.track].on : '#fffef9',
         onAccentSoft: w.track ? TRACK[w.track].onSoft : 'rgba(255,254,249,.72)',
+        density: ([w.k,w.c,w.pr,w.ch].concat(w.pe,w.ap,w.bi.map((q)=>typeof q==='string'?q:q.q+' '+(q.sub||[]).join(' '))).join(' ').split(/\s+/).length > 280) ? 'dense' : '',
         title: w.t,
         passage: w.p,
         takeaway: w.k,
