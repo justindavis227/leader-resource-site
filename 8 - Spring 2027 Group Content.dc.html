@@ -386,6 +386,7 @@
       <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:44px;line-height:1;margin:8px 0 0">{{ s.title }}</h2>
       <div style="height:1px;background:var(--hairline);margin:16px 0 0"></div>
       <p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:14px 0 0;white-space:pre-line">{{ s.synopsis }}</p>
+      <sc-for list="{{ s.facts }}" as="f" hint-placeholder-count="0"><p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:6px 0 0"><b style="color:var(--fg1)">{{ f.k }}</b> {{ f.v }}</p></sc-for>
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);font-weight:600;margin:20px 0 4px">Series Outline</div>
       <div style="display:flex;flex-direction:column">
         <sc-for list="{{ s.weeks }}" as="w" hint-placeholder-count="4">
@@ -695,9 +696,9 @@ class Component extends DCLogic {
         no: 'One', title: 'Spiritual Reality', short: 'Spiritual Reality',
         theme: 'How do you see the world?', length: '2 Weeks · MSM + HSM',
         art: null, accent: null,
-        synopsis: `How do you see the world? What's the point of following Jesus? What does God actually want from us? In a world full of competing voices, rules, and expectations, it's easy to lose sight of what matters most. In this series, students will explore the spiritual reality we find when we open God's Word. Just like VR changes what you see and experience, the Bible helps us see God's reality. And in the Bible, we see a call to believe in Jesus and love others as He commanded. Through reading the letters John wrote, we'll discover that following Jesus isn't just about knowing the right answers or following a list of rules. It's about knowing God, walking as Jesus walked, and allowing His love to change the way we treat others.
-
-Series anchor text: 1 John 3:23. Series goal: students will understand the spiritual reality that following Jesus means loving Him and loving others.`,
+        synopsis: `How do you see the world? What's the point of following Jesus? What does God actually want from us? In a world full of competing voices, rules, and expectations, it's easy to lose sight of what matters most. In this series, students will explore the spiritual reality we find when we open God's Word. Just like VR changes what you see and experience, the Bible helps us see God's reality. And in the Bible, we see a call to believe in Jesus and love others as He commanded. Through reading the letters John wrote, we'll discover that following Jesus isn't just about knowing the right answers or following a list of rules—it's about knowing God, walking as Jesus walked, and allowing His love to change the way we treat others.`,
+        anchor: `1 John 3:23`,
+        goal: `Students will understand the spiritual reality that following Jesus means loving Him and loving others.`,
         weeks: [
           { track:'MSM', t:`Love God`, p:`1 John 2:3-6`,
             k:`The spiritual reality is that following Jesus starts with knowing God and walking as Jesus walked.`,
@@ -715,7 +716,7 @@ Series anchor text: 1 John 3:23. Series goal: students will understand the spiri
             ap:[`Who is someone in your life who might need to feel the love of God? What makes you think that?`,`What is one practical way you could show that person the love of Jesus this week?`],
             pr:`God, thank You for loving me first. Help me understand Your love more deeply so I can share it with others. Give me eyes to see people who need love and the courage to love them the way You have loved me.`,
             ch:`Choose one person to intentionally love this week. Pray for them each day, and take at least one practical step to show them love without expecting anything in return.` },
-          { track:'HSM', t:`1 John`, p:`1 John (whole book)`,
+          { track:'HSM', t:`1 John`, p:`1 John`,
             k:`Reading God's Word in context helps us see the spiritual reality of what God is saying and how He calls us to live.`,
             c:`Make time to read Scripture beyond a few verses and discover how the whole message shapes your understanding of God.`,
             pe:[`When you read the Bible, do you usually read a few verses, a chapter, or more at a time? Why?`,`Have you ever misunderstood something because you only heard part of the story? What happened?`],
@@ -751,9 +752,8 @@ Series anchor text: 1 John 3:23. Series goal: students will understand the spiri
         no: 'Three', title: 'John 3:16', short: 'John 3:16',
         theme: 'Is it really that simple?', length: '3 Weeks · MSM + HSM together',
         art: null, accent: null,
-        synopsis: `John 3:16 is one of the most familiar verses in the Bible, but it raises some of the biggest questions about Christianity. If God loves the world, why is there so much suffering? If He sent His Son, how can we know Jesus really is who He claimed to be? And what does it actually mean to believe in Him? In this series, students will explore these questions honestly, using John 3:16 as the foundation for conversations about God's love, the identity of Jesus, and the meaning of saving faith. The goal isn't to pretend every question has an easy answer, but to help students understand the gospel more deeply and build a thoughtful, confident faith in Jesus.
-
-Series goal: students will learn to engage honestly with difficult questions about Christianity, understand the biblical foundations of their faith, and grow in confidence in Jesus.`,
+        synopsis: `John 3:16 is one of the most familiar verses in the Bible, but it raises some of the biggest questions about Christianity. If God loves the world, why is there so much suffering? If He sent His Son, how can we know Jesus really is who He claimed to be? And what does it actually mean to believe in Him? In this series, students will explore these questions honestly, using John 3:16 as the foundation for conversations about God's love, the identity of Jesus, and the meaning of saving faith. The goal isn't to pretend every question has an easy answer, but to help students understand the gospel more deeply and build a thoughtful, confident faith in Jesus.`,
+        goal: `Students will learn to engage honestly with difficult questions about Christianity, understand the biblical foundations of their faith, and grow in confidence in Jesus.`,
         weeks: [
           { t:`God Loves the World`, p:`John 11:1-44; Romans 8:18-25`,
             k:`God doesn't promise a life without suffering, but He meets us in our pain and promises that suffering won't have the final word.`,
@@ -900,6 +900,7 @@ If a generation is going to be freed from pornography and its influence, two thi
         short: s.short,
         meta: s.theme + '  ·  ' + s.length,
         synopsis: s.synopsis,
+        facts: [s.anchor ? { k:'Series anchor text:', v:s.anchor } : null, s.goal ? { k:'Series goal:', v:s.goal } : null].filter(Boolean),
         dividerBg: s.art ? `#0d0d0d url('${s.art}') center/cover no-repeat` : 'var(--pitch)',
         scrim: s.art ? 'linear-gradient(to top,rgba(13,13,13,.92) 10%,rgba(13,13,13,.55) 40%,rgba(13,13,13,0) 75%)' : 'transparent',
         accentText: s.accent || '#ffffff',
