@@ -450,3 +450,8 @@ Format: YYYY-MM-DD | exact filename | one-line description | session: short-labe
 
 ## 2026-10-26 — Brand 2026 reskin (Cowork, branch brand-2026)
 All 24 pages: v2 tokens, NHG self-hosted, logos, art recolor, gradient devices, 22 PDFs regenerated. See SITE-MANIFEST.md → Brand 2026.
+
+2026-11-03 | 8 - Spring 2027 Group Content.dc.html | Series 2 Heart of Worship: replaced the old 6-week outline (Smashing Idols … Embrace Diversity) with Hunter's written weeks from Craft › CURRICULUM TEAM › Series 2 (Revelation 2, 4, 5, 7, 13, 22 + sub texts). Week titles, calls to action, series overview and Wk 5 Applicable Q2 are blank in Craft → [TBD]. Biblical Q1 uses sub:[] so the default "what sticks out" read prompts aren't added under Hunter's questions | session: heart-of-worship-2026-11-03
+2026-11-03 | 8 - Spring 2027 Group Content.dc.html | Series 6 Fueled: Lacey's 3 written weeks added from Craft (passages Mark 1:9-11, Mark 6:30-44, Mark 14:35-40); overview still blank → [TBD]. Series 4 Open: overview + series goal added from Craft | session: heart-of-worship-2026-11-03
+2026-11-03 | 8 - Spring 2027 Group Content.dc.html | Light copy cleanup only, same as earlier passes: curly → straight quotes, spaced hyphens → periods/em dash, quote marks dropped around prayer prompts, en dashes in verse ranges → hyphens, typos (Mark 12:28:34 → 12:28-34, "deathand", "out load", "get to know if you") | session: heart-of-worship-2026-11-03
+⚠ pdf/8 - Spring 2027 Group Content.dc.pdf not regenerated (renderer lives on the Mac) — rebuild before print
