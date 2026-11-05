@@ -385,7 +385,7 @@
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">Series Overview</div>
       <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:44px;line-height:1;margin:8px 0 0">{{ s.title }}</h2>
       <div style="height:1px;background:var(--hairline);margin:16px 0 0"></div>
-      <p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:14px 0 0;white-space:pre-line">{{ s.synopsis }}</p>
+      <p style="font-size:{{ s.synSize }};color:var(--fg2);line-height:{{ s.synLh }};margin:14px 0 0;white-space:pre-line">{{ s.synopsis }}</p>
       <sc-for list="{{ s.facts }}" as="f" hint-placeholder-count="0"><p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:6px 0 0"><b style="color:var(--fg1)">{{ f.k }}</b> {{ f.v }}</p></sc-for>
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);font-weight:600;margin:20px 0 4px">Series Outline</div>
       <div style="display:flex;flex-direction:column">
@@ -829,7 +829,7 @@ class Component extends DCLogic {
         no: 'Four', title: 'Open', short: 'Open',
         theme: 'A conversation on mental health', length: '2 Weeks',
         art: null, accent: null,
-        synopsis: `Does God actually hear me? Is He even real? If He is real, why does it seem like everyone I know is struggling? The mental health conversation is everywhere today. Sometimes it seems like all anyone is ever talking about.
+        synopsis: `Does God actually hear me? Is He even real? If He is real, why does it seem like everyone I know is struggling? The mental health conversation is everywhere today—sometimes, it seems like all anyone is ever talking about.
 
 It's easy to talk about mental health, but it's hard to be open about mental health and how it affects us. In this series, we'll search God's Word to find some people who open up about their struggles with anxiety, depression, doubt, and fear. The book of Psalms is full of people who were really, really honest about what they were going through. Each week, we'll use their honesty to challenge ourselves into opening up the conversation about the questions we actually have about God, the emotions we struggle with, and the hope we find when we bring things into the light.`,
         goal: `Students will engage conversations about how to look to God when things are hard and how to bring hard things into the light.`,
@@ -837,13 +837,13 @@ It's easy to talk about mental health, but it's hard to be open about mental hea
           { t:`Anxiety & Depression`, p:`Psalm 77`,
             k:`Intentionally remembering what God has done is the best way to push back the darkness of our circumstance.`,
             c:`Be open about when things are hard and keep remembering the great things God can do.`,
-            pe:[`What's your ultimate "I had a bad day and want to feel better" routine? Do you have a favorite show to watch, activity to do, friend to call?`,`Anxiety and depression are big topics of conversation these days. When you hear these words, what comes to mind for you?`,`Are there hard things you've thought or emotions you've felt that you felt like you couldn't be honest about? What made it hard to share those?`],
+            pe:[`What's your ultimate "I had a bad day and want to feel better" routine? Do you have a favorite show to watch, activity to do, friend to call?`,`Anxiety and depression are big topics of conversation these days. When you hear these words, what comes to mind for you?`,`Have you ever had an emotion or tough thought that you felt you couldn't be honest about? What made it hard to share those?`],
             bi:[{ q:`Read Psalm 77:4-9.`, sub:[`What parts of this scripture can you relate to? Have you ever felt or prayed something like this?`,`Why do you think a scripture like this might be included in the Bible?`] },{ q:`Now read Psalm 77:10-15.`, sub:[`What changed?`,`What things is the author remembering about God?`] }],
             ap:[`Do you think knowing truth about God can actually affect us when we feel anxious or depressed? Why or why not?`,`How can we be grateful for what God has done, but also honest when things are really hard?`],
-            pr:`God, you've done great things. Help me remember the great things you've done for me.`,
-            ch:`This week, try to write down something you are grateful for every day. Spend time giving thanks to God for that thing.` },
+            pr:`God, you've done great things—help me remember the great things you've done for me.`,
+            ch:`This week, write down something you are grateful for every day. Spend time giving thanks to God for that thing.` },
           { t:`Doubt & Fear`, p:`Psalm 13:1-4; Psalm 27:13-14`,
-            k:`Fears and doubts don't disqualify us from faith. They invite us to open our hearts more fully to God and others.`,
+            k:`Fears and doubts don't disqualify us from faith—they invite us to open our hearts more fully to God and others.`,
             c:`Be honest about your doubt and fear with God and with your community.`,
             pe:[`When you're figuring something out, are you more likely to ask for help or try to figure it out on your own first?`,`Have you ever had thoughts or questions about religion that you felt like you couldn't say out loud?`],
             bi:[{ q:`Read Psalm 13:1-4.`, sub:[`What emotion does this sound like to you?`,`Have you ever wondered if God sees you or hears you?`] },{ q:`Now read Psalm 27:13-14.`, sub:[`What do you think they mean by "be brave and courageous, and wait for the Lord"?`] }],
@@ -856,30 +856,34 @@ It's easy to talk about mental health, but it's hard to be open about mental hea
         no: 'Five', title: 'Porn Again?', short: 'Porn Again?',
         theme: 'Internal transformation + behavior modification = new creation', length: '2 Weeks',
         art: null, accent: null,
-        synopsis: `Jesus tells Nicodemus in John 3 that we must be "born again"—but the reality is we have students all across our culture whose most defining reality is not being born again but falling into porn again and again. We want to see the generation entrusted to our care break free from strongholds, walk in freedom, and see the power Jesus has to make them into a brand new creation.
+        synopsis: `Jesus tells Nicodemus in John 3 that we must be "BORN again," but the reality is we live in a time where the most defining reality is not being born again, but falling into porn again and again. We want to see this generation break free from strongholds, walk in freedom, and see the power Jesus has to make them into a brand new creation.
 
-We live in a pornified culture. Things that were obscene years ago are just normal nowadays, and the more saturated our culture becomes with pornography, the more it becomes a generational stronghold. The days of just needing to have a "boys talk" don't exist anymore. One of the fastest growing demographics among new pornography users is girls age 8-14. So we want to have an honest conversation about pornography and talk about it from a Biblical worldview and Christian perspective. Students are going to hear about it at some point, and we want them to hear what God has to say about it—not just a culture that is complacent at best and celebrating it at its worst.
+Our society is pornified. Things that were obscene years ago are just normal nowadays, and the more saturated our culture is becoming with pornography, the more it's becoming a generational stronghold. The days of just needing to have a "boys talk" don't exist anymore. One of the fastest growing demographics among new pornography users is girls age 8-14. So we want to have an honest conversation about pornography and talk about it from a Biblical worldview and Christian perspective. We know students are going to hear about it at some point, and we want them to hear what God has to say about it, not just a culture that is complacent at best but celebrating it at its worst.
 
-If a generation is going to be freed from pornography and its influence, two things need to coexist: INTERNAL TRANSFORMATION + BEHAVIOR MODIFICATION = NEW CREATION. Legalists can find themselves telling people to simply "stop it." Grace-filled churches can fall into merely preaching grace and prayer while real practical steps aren't encouraged. We want to be a church that walks in grace and truth—so we'll hold these two things in tension.`,
+If a generation is going to be freed from pornography and its influence on their life, two things need to coexist together. These are not opposing camps, but each is an essential piece to holistic change. Here's the equation: INTERNAL TRANSFORMATION + BEHAVIOR MODIFICATION = NEW CREATION.
+
+The church struggles to bring these two together. Legalists tell people to simply "Stop It." The belief is: change their behavior and it will change their addictive habits. The truth: ask any individual who tried that and they'll tell you it was only half the battle. The challenge is that our thoughts, desires, and soul aren't being transformed.
+
+Then there are "grace-filled" churches. They recognize we can't change our way into transformation, but often fall into a trap of merely preaching a passive grace with no real practical steps to fight the addiction. Our church loves students too much to leave them in forgiveness to fend for themselves. We long for grace to be backed up by the hard truths, alongside leaders willing to stand in the gap. This is where transformation begins.`,
         weeks: [
           { t:`Be Transformed`, p:`Romans 12:1-2; Psalm 51:10`,
-            k:`What things do I need to ask God to do to keep me from falling into porn again?`,
-            c:`Only the Creator can change the created. All I have to do is ask.`,
-            pe:[`If you could only ask one person you already know for help for the rest of this year, who would you choose and why would you choose them?`,`When was a time in your life that you realized you couldn't do something on your own? Was it easy or hard to ask for help?`],
+            k:`Only the Creator can change the created. All I have to do is ask.`,
+            c:`What things do I need to ask God to do to keep me from falling into porn again?`,
+            pe:[`If you could only ask for help from one person you already know for the rest of this year, who would you choose and why would you choose them?`,`When was a time in your life that you realized you couldn't do something on your own? Was it easy or hard to ask for help?`],
             bi:[{ q:`Read Romans 12:2 again as a group.`, sub:[`What words or phrases stand out to you? What questions do you have about this passage?`,`Who is the only one who can truly transform us?`,`How does Romans 12:2 say that transformation takes place?`] },
                 { q:`Read Psalm 51:10 again.`, sub:[`Who is David asking to do these two things?`,`What do you think happens if we try to do the work of changing our thinking, cleansing our desires, and aligning our spirits?`] }],
             ap:[`What happens in our fight against any sin, especially with pornography, if we don't ask God to do an inner transformation first?`],
-            pr:`God, today would you change my thinking, purify my desiring, and give me a loyal spirit so that I can be who you made me to be.`,
-            ch:`Pray this prayer every day over the next week and see what begins to change as you ask God to do what only He can do.` },
+            pr:`God, today would you change my thinking, purify my desires, and give me a loyal spirit so that I can be who you made me to be.`,
+            ch:`Write this prayer down to take with you. Each day this week, pray this prayer and make it your own along the way. See what begins to change as you ask God to do what only He can do.` },
           { t:`Do Not Conform`, p:`Romans 12:2; Psalm 51:10`,
             k:`Old habits break when new and better ones are formed.`,
             c:TBD,
             pe:[`What is an example from your life where it was easy to just go along with what everyone else around you was doing?`,`What are some practical things that you've been able to do to help you resist peer pressure?`,`What is the difference between passive and active verbs?`],
             bi:[{ q:`Read Romans 12:2.`, sub:[`What is the first command or active verb that is given to us to do?`] },
                 `What does it mean to "copy the behavior and customs" of something? What are some behaviors and customs of "this world"?`],
-            ap:[`If our command is to NOT live like this world, when it comes to sexual sin like pornography, what would it mean to NOT be like the rest of the world? Give some practical examples.`,`Read James 5:17. What does it suggest we do with sin? (Confess and ask for help.)`,`We want every student to have a battle plan to fight temptation, but a battle plan without battle buddies is insufficient. Who are the people in your life that you can invite to know what your battle plan looks like?`],
+            ap:[`If our command is to NOT live like this world, when it comes to sexual sin like pornography, what would it mean to NOT be like the rest of the world? Give some practical examples.`,`Read James 5:16. What does it suggest we do with sin? (Confess and ask for help.)`,`We want every student to have a battle plan to fight temptation, but a battle plan without battle buddies is insufficient. Who are the people in your life that you can invite to know what your battle plan looks like?`],
             pr:`God, today would you change my thinking, purify my desiring, and give me a loyal spirit so that I can be who you made me to be.`,
-            ch:`Complete your personal battle plan and share it with your parents, one friend, and a small group leader. What will you give up, and what will you replace it with instead?` }
+            ch:`Complete your personal battle plan and share it with your parents, a friend, and a small group leader. What will you give up, and what will you replace it with instead?` }
         ]
       },
       {
@@ -968,6 +972,8 @@ If a generation is going to be freed from pornography and its influence, two thi
         short: s.short,
         meta: s.theme + '  ·  ' + s.length,
         synopsis: s.synopsis,
+        synSize: (String(s.synopsis).split(/\s+/).length > 300) ? '11px' : '12.5px',
+        synLh: (String(s.synopsis).split(/\s+/).length > 300) ? '1.42' : '1.55',
         facts: [s.anchor ? { k:'Series anchor text:', v:s.anchor } : null, s.goal ? { k:'Series goal:', v:s.goal } : null].filter(Boolean),
         dividerBg: s.art ? `#0d0d0d url('${s.art}') center/cover no-repeat` : 'var(--pitch)',
         scrim: s.art ? 'linear-gradient(to top,rgba(13,13,13,.92) 10%,rgba(13,13,13,.55) 40%,rgba(13,13,13,0) 75%)' : 'transparent',
