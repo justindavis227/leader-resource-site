@@ -81,16 +81,16 @@
     <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:60px;line-height:1;margin:8px 0 0">Contents</h2>
     <div style="height:1px;background:var(--hairline);margin:20px 0 4px"></div>
     <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
-      <div style="display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;gap:18px;padding:20px 0;border-bottom:1px solid var(--hairline)">
+      <div style="display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;gap:18px;padding:13px 0;border-bottom:1px solid var(--hairline)">
         <div style="font-family:var(--font-mono);font-weight:700;font-size:16px;color:var(--ember)">00</div>
         <div>
           <div style="font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:23px;line-height:1;letter-spacing:-.01em;white-space:nowrap;color:var(--fg1)">Start Up</div>
-          <div style="font-family:var(--font-mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-top:6px">Guidelines, Safety &amp; Commitment</div>
+          <div style="font-size:12px;line-height:1.45;color:var(--fg3);margin-top:7px;max-width:470px">Before your first group kicks off, walk through these four essentials. They set the rhythm, keep students safe, and define the kind of leader we’re committing to be.</div>
         </div>
         <div style="font-family:var(--font-mono);font-weight:600;font-size:14px;color:var(--fg2)">1–6</div>
       </div>
       <sc-for list="{{ series }}" as="s" hint-placeholder-count="0">
-        <div style="display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;gap:18px;padding:20px 0;border-bottom:1px solid var(--hairline)">
+        <div style="display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;gap:18px;padding:13px 0;border-bottom:1px solid var(--hairline)">
           <div style="font-family:var(--font-mono);font-weight:700;font-size:16px;color:var(--ember)">{{ s.tnum }}</div>
           <div>
             <div style="font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:23px;line-height:1;letter-spacing:-.01em;white-space:nowrap;color:var(--fg1)">{{ s.title }}</div>
@@ -927,12 +927,12 @@ Through moments from Jesus' life in Mark, we'll discover that following Jesus is
     ];
 
     const TIPS = [
-      `Follow up during the week. Students need someone to walk with them, not talk at them—a relationship carried past group can change a life.`,
-      `Don't read off the curriculum. Know the passage ahead of time and ask in your own words; the less you look down, the more it feels like a real conversation.`,
-      `Get visual. A big sticky pad and a few markers pull everyone in—drawing or writing answers out makes the points stick.`,
+      `Talk less, ask more. Aim to talk no more than 20% of group time. Facilitate, don't teach: use more question marks than periods, and skip yes-or-no questions.`,
+      `Lead from your own worship. Your connection to Jesus matters more than what you offer in service to Him. Spend time in this week's passage for yourself before you prep it for your group.`,
+      `Know where each student stands. This series asks what saving faith really is. Anyone not baptized? Anyone struggling? Keep the Decision Guide and The Bridge handy for that next-step conversation.`,
       `Know your Stoplight. Conversations about mental health can move from green to yellow or red fast—review the Stoplight Guide on page 2 before group.`,
-      `Lead with grace and truth. Students who struggle here often carry shame; your calm, unshocked response tells them it's safe to bring it into the light.`,
-      `Involve every student. Ask a question for everyone to answer. Don't rush to fill the silence or answer the question. Ask questions of their questions.`
+      `Lead with grace and truth. Students who struggle here often carry shame; your calm, unshocked response tells them it's safe to bring it into the light. Pornography is a yellow light—mention it to a staff member for coaching.`,
+      `Model the way. Students don't need perfection; they need people who follow Jesus with their whole life. Share where your own identity, compassion, or prayer life has been fueled—or running on empty.`
     ];
 
     let p = 7;
@@ -978,8 +978,8 @@ Through moments from Jesus' life in Mark, we'll discover that following Jesus is
         short: s.short,
         meta: s.theme + '  ·  ' + s.length,
         synopsis: s.synopsis,
-        synSize: (String(s.synopsis).split(/\s+/).length > 300) ? '11px' : '12.5px',
-        synLh: (String(s.synopsis).split(/\s+/).length > 300) ? '1.42' : '1.55',
+        synSize: (String(s.synopsis).split(/\s+/).length > 300) ? '10.6px' : '12.5px',
+        synLh: (String(s.synopsis).split(/\s+/).length > 300) ? '1.36' : '1.55',
         facts: [s.anchor ? { k:'Series anchor text:', v:s.anchor } : null, s.goal ? { k:'Series goal:', v:s.goal } : null].filter(Boolean),
         dividerBg: s.art ? `#0d0d0d url('${s.art}') center/cover no-repeat` : 'var(--pitch)',
         scrim: s.art ? 'linear-gradient(to top,rgba(13,13,13,.92) 10%,rgba(13,13,13,.55) 40%,rgba(13,13,13,0) 75%)' : 'transparent',
