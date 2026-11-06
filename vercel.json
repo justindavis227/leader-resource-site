@@ -6,6 +6,11 @@
       "permanent": false
     },
     {
+      "source": "/decision-guide",
+      "destination": "/R11%20-%20Baptism%20Guide.html",
+      "permanent": false
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
