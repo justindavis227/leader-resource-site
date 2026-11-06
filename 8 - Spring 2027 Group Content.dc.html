@@ -385,9 +385,8 @@
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--ember)">Series Overview</div>
       <h2 style="font-family:var(--font-display);text-transform:uppercase;font-size:44px;line-height:1;margin:8px 0 0">{{ s.title }}</h2>
       <div style="height:1px;background:var(--hairline);margin:16px 0 0"></div>
-      <p style="font-size:{{ s.synSize }};color:var(--fg2);line-height:{{ s.synLh }};margin:14px 0 0;white-space:pre-line">{{ s.synopsis }}</p>
-    <sc-if value="{{ s.equation }}" hint-placeholder-val="{{ false }}"><div style="margin:10px 0 0;padding:9px 16px;border-left:4px solid var(--ember);background:rgba(224,27,47,.07);border-radius:0 8px 8px 0;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:.01em;line-height:1.2;color:var(--fg1)">{{ s.equation }}</div></sc-if>
-    <sc-if value="{{ s.synopsis2 }}" hint-placeholder-val="{{ false }}"><p style="font-size:{{ s.synSize }};color:var(--fg2);line-height:{{ s.synLh }};margin:10px 0 0;white-space:pre-line">{{ s.synopsis2 }}</p></sc-if>
+      <p style="font-size:{{ s.synSize }};color:var(--fg2);line-height:{{ s.synLh }};margin:14px 0 0;white-space:pre-line">{{ s.synopsis }}<sc-if value="{{ s.equation }}" hint-placeholder-val="{{ false }}"> <b style="color:var(--fg1);font-weight:700">{{ s.equation }}</b></sc-if></p>
+        <sc-if value="{{ s.synopsis2 }}" hint-placeholder-val="{{ false }}"><p style="font-size:{{ s.synSize }};color:var(--fg2);line-height:{{ s.synLh }};margin:1.45em 0 0;white-space:pre-line">{{ s.synopsis2 }}</p></sc-if>
       <sc-for list="{{ s.facts }}" as="f" hint-placeholder-count="0"><p style="font-size:12.5px;color:var(--fg2);line-height:1.55;margin:6px 0 0"><b style="color:var(--fg1)">{{ f.k }}</b> {{ f.v }}</p></sc-for>
       <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;font-size:10px;color:var(--fg3);font-weight:600;margin:20px 0 4px">Series Outline</div>
       <div style="display:flex;flex-direction:column">
@@ -866,7 +865,7 @@ It's easy to talk about mental health, but it's hard to be open about mental hea
 Our society is pornified. What was obscene a few years ago is normal now, and the more saturated our culture becomes, the more pornography becomes a generational stronghold. The days of a single "boys talk" are gone—one of the fastest-growing groups of new users is girls ages 8-14. Students are going to hear about pornography. We want them to hear what God has to say about it, not just a culture that is complacent at best and celebrating it at worst.
 
 If a generation is going to be freed from pornography, two things have to work together. They aren't opposing camps; each is essential to lasting change:`,
-        equation: `Internal Transformation + Behavior Modification = New Creation`,
+        equation: `INTERNAL TRANSFORMATION + BEHAVIOR MODIFICATION = NEW CREATION.`,
         synopsis2: `The church often struggles to hold these together. Legalists say, "Stop it," as if changing behavior will break an addiction. Ask anyone who has tried, and they'll tell you it's only half the battle—their thoughts, desires, and soul still haven't been transformed. "Grace-filled" churches recognize we can't change our way into transformation, but often stop at a passive grace with no practical steps to fight back.
 
 We love students too much to leave them in forgiveness to fend for themselves. We want grace backed by hard truth, alongside leaders willing to stand in the gap. This is where transformation begins.`,
@@ -983,8 +982,8 @@ Through moments from Jesus' life in Mark, we'll discover that following Jesus is
         short: s.short,
         meta: s.theme + '  ·  ' + s.length,
         synopsis: s.synopsis,
-        synSize: ((n)=> n > 300 ? '10.6px' : n > 250 ? '11.5px' : '12.5px')((String(s.synopsis)+' '+(s.synopsis2||'')).split(/\s+/).length),
-        synLh: ((n)=> n > 300 ? '1.36' : n > 250 ? '1.4' : '1.55')((String(s.synopsis)+' '+(s.synopsis2||'')).split(/\s+/).length),
+        synSize: ((n)=> n > 300 ? '10.6px' : n > 250 ? '12px' : '12.5px')((String(s.synopsis)+' '+(s.synopsis2||'')).split(/\s+/).length),
+        synLh: ((n)=> n > 300 ? '1.36' : n > 250 ? '1.45' : '1.55')((String(s.synopsis)+' '+(s.synopsis2||'')).split(/\s+/).length),
         equation: s.equation || '', synopsis2: s.synopsis2 || '',
         facts: [s.anchor ? { k:'Series anchor text:', v:s.anchor } : null, s.goal ? { k:'Series goal:', v:s.goal } : null].filter(Boolean),
         dividerBg: s.art ? `#0d0d0d url('${s.art}') center/cover no-repeat` : 'var(--pitch)',
