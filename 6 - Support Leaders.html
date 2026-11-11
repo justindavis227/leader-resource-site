@@ -738,9 +738,10 @@ section[data-spread="L:support-tie"] .rolb:last-child::after{display:none}
 /* page 12: no grey rail (the red line is the rail); bottom rule runs straight into the red curve */
 section[data-spread="R:support-tie"] .roleov::before{display:none}
 /* page 12: each team is its own rounded box; top rule matches page 11 */
-section[data-spread="R:support-tie"] .hr{visibility:hidden}
-section[data-spread="R:support-tie"] .sptop{position:absolute;left:71px;top:177px;width:636px;height:1px;background:var(--hairline)}
-section[data-spread="R:support-tie"] .roleov{margin-top:16px;gap:12px}
+section[data-spread="R:support-tie"] .hr{display:none}
+section[data-spread="R:support-tie"] .roleov{margin-top:6px;gap:12px}
+section[data-spread="R:support-tie"] .roleov .rolb .rail{z-index:2}
+section[data-spread="R:support-tie"] .roleov .rolb .rail i{left:5px;width:0;height:0;border-radius:0;background:none;transform:translateY(-50%);border-left:22px solid var(--sa,#e01b2f);border-top:11px solid transparent;border-bottom:11px solid transparent}
 section[data-spread="R:support-tie"] .roleov .rolb{padding:12px 18px 12px 0}
 section[data-spread="R:support-tie"] .roleov .rolb::before{display:none}
 section[data-spread="R:support-tie"] .roleov .rolb::after,section[data-spread="R:support-tie"] .roleov .rolb:last-child::after{content:'';position:absolute;left:24px;right:0;top:0;bottom:0;width:auto;height:auto;background:none;border:1px solid var(--hairline);border-radius:14px;pointer-events:none}
@@ -1058,8 +1059,7 @@ section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:14px}
           <ul><li>Pray intentionally for students, leaders, families, staff and the movement of God. Be available to pray with people when appropriate and connect significant care needs to ministry staff.</li></ul></div>
       </div>
     </div>
-    <div class="sptie" style="left:0;top:293px;width:73px;height:385px;border-right:4px solid var(--sa,#e01b2f);border-bottom:4px solid var(--sa,#e01b2f);border-bottom-right-radius:28px"></div>
-    <div class="sptop"></div>
+    <div class="sptie" style="left:0;top:283px;width:73px;height:395px;border-right:4px solid var(--sa,#e01b2f);border-bottom:4px solid var(--sa,#e01b2f);border-bottom-right-radius:28px"></div>
     <div class="foot"><span class="sec">Your Role</span><span class="pn">12</span></div>
   </section>
 
