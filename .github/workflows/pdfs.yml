@@ -19,15 +19,17 @@ on:
 permissions:
   contents: write
 
+# A newer push replaces a run still in progress. Nothing is lost: each run
+# rebuilds everything that changed since the last successful PDF commit.
 concurrency:
   group: rebuild-pdfs
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   pdfs:
     if: github.actor != 'github-actions[bot]'
-    runs-on: ubuntu-latest
-    timeout-minutes: 40
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,18 +39,23 @@ jobs:
         with:
           node-version: 20
 
+      # Chromium only, no system packages: the runner already has what Chrome needs,
+      # and the apt-get step behind "--with-deps" kept timing out on GitHub's mirrors.
+      # If the download fails, fall back to the Google Chrome preinstalled on the runner.
       - name: Install Playwright + Chromium
         run: |
           npm i --no-save --no-package-lock playwright@1.48.2
-          npx playwright install --with-deps chromium
+          npx playwright install chromium || echo "LRS_CHROME=$(command -v google-chrome || command -v google-chrome-stable)" >> "$GITHUB_ENV"
 
       - name: Work out which pages changed
         id: changed
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || ! git cat-file -e "${{ github.event.before }}" 2>/dev/null; then
+          # everything since the last time the robot committed PDFs
+          base=$(git log -1 --format=%H --author='github-actions\[bot\]' -- pdf/ || true)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ -z "$base" ]; then
             echo "mode=--all" >> "$GITHUB_OUTPUT"
           else
-            git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" > "$RUNNER_TEMP/changed.txt"
+            git diff --name-only "$base" HEAD > "$RUNNER_TEMP/changed.txt"
             cat "$RUNNER_TEMP/changed.txt"
             echo "mode=--changed $RUNNER_TEMP/changed.txt" >> "$GITHUB_OUTPUT"
           fi
@@ -56,7 +63,9 @@ jobs:
       - name: Render PDFs
         env:
           LRS_PDF_CACHE: ${{ runner.temp }}/lrs-pdf-cache
-        run: node tools/build-pdfs.mjs ${{ steps.changed.outputs.mode }}
+        run: |
+          echo "Chrome: $LRS_CHROME"
+          node tools/build-pdfs.mjs ${{ steps.changed.outputs.mode }}
 
       - name: Commit PDFs
         run: |
