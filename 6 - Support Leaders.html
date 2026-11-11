@@ -737,7 +737,14 @@ section[data-spread="L:support-tie"] .roleov::before{display:none}
 section[data-spread="L:support-tie"] .rolb:last-child::after{display:none}
 /* page 12: no grey rail (the red line is the rail); bottom rule runs straight into the red curve */
 section[data-spread="R:support-tie"] .roleov::before{display:none}
-section[data-spread="R:support-tie"] .rolb:last-child::after{left:-19px}
+/* page 12: each team is its own rounded box; top rule matches page 11 */
+section[data-spread="R:support-tie"] .hr{visibility:hidden}
+section[data-spread="R:support-tie"] .sptop{position:absolute;left:71px;top:177px;width:636px;height:1px;background:var(--hairline)}
+section[data-spread="R:support-tie"] .roleov{margin-top:16px;gap:12px}
+section[data-spread="R:support-tie"] .roleov .rolb{padding:12px 18px 12px 0}
+section[data-spread="R:support-tie"] .roleov .rolb::before{display:none}
+section[data-spread="R:support-tie"] .roleov .rolb::after,section[data-spread="R:support-tie"] .roleov .rolb:last-child::after{content:'';position:absolute;left:24px;right:0;top:0;bottom:0;width:auto;height:auto;background:none;border:1px solid var(--hairline);border-radius:14px;pointer-events:none}
+section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:14px}
 </style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
@@ -1047,11 +1054,12 @@ section[data-spread="R:support-tie"] .rolb:last-child::after{left:-19px}
           </ul></div>
         <div class="rolb"><div class="rail"><i></i></div><div><div class="rtier">Team</div><div class="rname">Security</div></div>
           <ul><li>Help maintain an attentive, welcoming environment through the assigned safety role, established procedures, and close communication with staff and designated security personnel.</li></ul></div>
-        <div class="rolb"><div class="rail"><i></i></div><div><div class="rtier">Team</div><div class="rname">Prayer<br>Team</div></div>
+        <div class="rolb"><div class="rail"><i></i></div><div><div class="rtier">Team</div><div class="rname">Prayer</div></div>
           <ul><li>Pray intentionally for students, leaders, families, staff and the movement of God. Be available to pray with people when appropriate and connect significant care needs to ministry staff.</li></ul></div>
       </div>
     </div>
-    <div class="sptie" style="left:0;top:287px;width:73px;height:391px;border-right:4px solid var(--sa,#e01b2f);border-bottom:4px solid var(--sa,#e01b2f);border-bottom-right-radius:28px"></div>
+    <div class="sptie" style="left:0;top:293px;width:73px;height:385px;border-right:4px solid var(--sa,#e01b2f);border-bottom:4px solid var(--sa,#e01b2f);border-bottom-right-radius:28px"></div>
+    <div class="sptop"></div>
     <div class="foot"><span class="sec">Your Role</span><span class="pn">12</span></div>
   </section>
 
