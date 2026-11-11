@@ -159,6 +159,25 @@
     return { text: t, count: edits.length };
   }
   function isDirty(b) { return b.kind === 'lit' ? litDirty(b) : b.el.innerHTML !== b.orig; }
+  function mergeOnto(disk) {
+    var edits = [], lost = [];
+    var lits = new Map();
+    S.blocks.forEach(function (b) {
+      if (!isDirty(b)) return;
+      if (b.kind === 'lit') { lits.set(b.lit, litVal(b)); return; }
+      var from = b.srcInner, i = disk.indexOf(from);
+      if (i < 0 || disk.indexOf(from, i + 1) >= 0) { lost.push(b.el.textContent.trim()); return; }
+      edits.push({ a: i, z: i + from.length, html: clean(b.el.innerHTML, b.srcInner) });
+    });
+    lits.forEach(function (v, l) {
+      var from = l.q + l.raw + l.q, i = disk.indexOf(from);
+      if (i < 0 || disk.indexOf(from, i + 1) >= 0) { lost.push(v); return; }
+      edits.push({ a: i + 1, z: i + 1 + l.raw.length, html: enc(v, l.q) });
+    });
+    edits.sort(function (x, y) { return y.a - x.a; });
+    var t = disk; edits.forEach(function (e) { t = t.slice(0, e.a) + e.html + t.slice(e.z); });
+    return { text: t, count: edits.length, lost: lost };
+  }
   function dirtyCount() { var c = 0; S.blocks.forEach(function (b) { if (isDirty(b)) c++; }); return c; }
 
   /* ---------- overflow warnings ---------- */
@@ -249,9 +268,15 @@
     try {
       await ensureDir();
       var disk = await readFile();
-      if (disk !== S.src) { toast('This file changed on your Mac since you started editing (maybe Claude saved a new version). Copy your edits somewhere, reload, and redo them so nothing gets overwritten.', 10000, true); return false; }
-      var out = serialize();
+      var out;
+      if (disk !== S.src) {
+        // the file changed underneath you (e.g. Claude saved a new version): carry your edits onto the new file
+        var mg = mergeOnto(disk);
+        if (mg.lost.length) { toast('This file changed on your Mac while you were editing, and ' + mg.lost.length + ' of your edits sit on text that also changed:<br>\u2022 ' + mg.lost.map(function (s) { return esc(s.slice(0, 60)); }).join('<br>\u2022 ') + '<br>Copy those somewhere, reload, and redo them.', 15000, true); return false; }
+        out = mg; out.merged = true;
+      } else out = serialize();
       await writeFile(out.text);
+      if (out.merged) { try { sessionStorage.setItem('lrs-reenter', '1'); } catch (x) {} toast('Saved ' + out.count + ' change' + (out.count > 1 ? 's' : '') + ', merged with the newer version on your Mac. Reloading\u2026', 3000); setTimeout(function () { location.reload(); }, 900); return true; }
       var nm = S.data ? (S.blocks.forEach(function (b) { b.el.removeAttribute('contenteditable'); }), buildLitMap(out.text)) : buildMap(out.text);
       S.blocks.forEach(function (b) { b.el.removeAttribute('data-lrs-block'); });
       S.src = out.text; S.blocks = nm.blocks;
@@ -758,7 +783,7 @@
     clearTimeout(tt); tt = setTimeout(function () { el.style.display = 'none'; }, ms || 3000);
   }
 
-  window.LRSEdit = { openSorter: openSorter, _dataModel: dataModel, _seriesText: seriesText, openSeries: openSeries, _units: units, _SO: function () { return SO; }, _buildOrdered: function (t) { return buildOrdered(t); }, _problems: function () { return problems(); }, _move: movePages, _fix: applyFix, enable: enable, disable: disable, save: save, _serialize: serialize, _parse: parse, _state: S, _check: checkOverflow };
+  window.LRSEdit = { _merge: mergeOnto, openSorter: openSorter, _dataModel: dataModel, _seriesText: seriesText, openSeries: openSeries, _units: units, _SO: function () { return SO; }, _buildOrdered: function (t) { return buildOrdered(t); }, _problems: function () { return problems(); }, _move: movePages, _fix: applyFix, enable: enable, disable: disable, save: save, _serialize: serialize, _parse: parse, _state: S, _check: checkOverflow };
   function boot() { render(); var re = false; try { re = sessionStorage.getItem('lrs-reenter') === '1'; sessionStorage.removeItem('lrs-reenter'); } catch (x) {}
     if (re) loadDir().then(function (h) { if (!h) return; return h.queryPermission({ mode: 'readwrite' }).then(function (p) { if (p === 'granted') { S.dir = h; enable(); } }); }); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
