@@ -368,7 +368,7 @@
       c.querySelectorAll('[contenteditable]').forEach(function (e) { e.removeAttribute('contenteditable'); });
       c.querySelectorAll('.lrs-ui').forEach(function (e) { e.remove(); });
       var dk = mode() === 'deck', W = dk ? 1920 : 768, H = dk ? 1080 : 768;
-      c.classList.remove('lrs-over'); c.style.cssText += ';display:block;visibility:visible;opacity:1;position:absolute;left:0;top:0;margin:0;width:' + W + 'px;height:' + H + 'px;transform:scale(' + (THW() / W) + ');transform-origin:0 0;pointer-events:none;box-shadow:none';
+      c.classList.remove('lrs-over'); c.style.cssText += (dk ? ';display:block;visibility:visible;opacity:1' : '') + ';position:absolute;left:0;top:0;margin:0;width:' + W + 'px;height:' + H + 'px;transform:scale(' + (THW() / W) + ');transform-origin:0 0;pointer-events:none;box-shadow:none';
       w.style.height = Math.round(THW() * H / W) + 'px';
       w.appendChild(c);
     } else { w.innerHTML = '<div class="nb">' + esc(it.label) + '</div>'; }
