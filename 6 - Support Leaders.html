@@ -732,6 +732,12 @@
 </style><style>/* support-leader tie line across the Role Overview spread */
 .page .sptie{position:absolute;z-index:0;pointer-events:none}
 section[data-spread="R:support-tie"] .rail i{background:var(--sa,#e01b2f)}
+/* page 11: grey rail stops at the Support Leader dot; the red line replaces the bottom rule */
+section[data-spread="L:support-tie"] .roleov::before{bottom:auto;height:calc(100% - 62.5px)}
+section[data-spread="L:support-tie"] .rolb:last-child::after{display:none}
+/* page 12: no grey rail (the red line is the rail); bottom rule runs straight into the red curve */
+section[data-spread="R:support-tie"] .roleov::before{display:none}
+section[data-spread="R:support-tie"] .rolb:last-child::after{left:-19px}
 </style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
