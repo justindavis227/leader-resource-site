@@ -8,7 +8,7 @@
   if (!LOCAL) return;
 
   var INLINE = /^(b|strong|i|em|u|s|small|span|a|br|sup|sub|mark|abbr|code|q|wbr)$/;
-  var SKIP_TAGS = /^(svg|script|style|img|canvas|video|iframe|template|noscript|button|input|select|textarea)$/;
+  var SKIP_TAGS = /^(svg|script|style|img|canvas|video|iframe|template|noscript|button|input|select|textarea|nav|helmet|head|link|meta)$/;
   var SKIP_CLASS = /(^|\s)(foot|pn|ghost|lrs-ui)(\s|$)/;
   var VOID = /^(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)$/;
   var ENT = { '’': '&rsquo;', '‘': '&lsquo;', '“': '&ldquo;', '”': '&rdquo;', '—': '&mdash;', '–': '&ndash;', '…': '&hellip;', '·': '&middot;', '©': '&copy;', '®': '&reg;', '™': '&trade;', ' ': '&nbsp;' };
@@ -84,9 +84,26 @@
     if (tg !== 'section' && inlineOnly(A, nd) && norm(A.text(nd))) { out.push(nd); return; }
     var ks = A.kids(nd); for (var i = 0; i < ks.length; i++) collect(A, ks[i], out);
   }
+  /* Three kinds of page on the site:
+     booklet = <section class="page"> pages (spreads, folios)
+     deck    = <section data-label> slides
+     doc     = everything else (R-pages, notes, the library hub): the whole body is one unit */
+  function mode() { if (document.querySelector('section.page')) return 'booklet'; if (document.querySelector('section[data-label]')) return 'deck'; return 'doc'; }
+  function liveUnits() {
+    var m = mode();
+    if (m === 'booklet') return Array.prototype.slice.call(document.querySelectorAll('section.page'));
+    if (m === 'deck') return Array.prototype.slice.call(document.querySelectorAll('section[data-label]'));
+    return [document.body];
+  }
   function srcSections(root) {
-    var out = [];
-    (function walk(nd) { nd.children.forEach(function (c) { if (c.tag === 'section' && /(^|\s)page(\s|$)/.test(c.cls)) out.push(c); else walk(c); }); })(root);
+    var m = mode(), out = [];
+    if (m === 'doc') {
+      var body = null; (function walk(nd) { nd.children.forEach(function (c) { if (body) return; if (c.tag === 'body') body = c; else walk(c); }); })(root);
+      return [body || root];
+    }
+    (function walk(nd) { nd.children.forEach(function (c) {
+      var hit = c.tag === 'section' && (m === 'booklet' ? /(^|\s)page(\s|$)/.test(c.cls) : /\sdata-label\s*=/.test(c.attrs || ''));
+      if (hit) out.push(c); else walk(c); }); })(root);
     return out;
   }
   var decEl = document.createElement('textarea');
@@ -96,7 +113,7 @@
   /* ---------- map live blocks to source blocks ---------- */
   function buildMap(text) {
     var root = parse(text), A = srcAdapter(text);
-    var ss = srcSections(root), ls = Array.prototype.slice.call(document.querySelectorAll('section.page'));
+    var ss = srcSections(root), ls = liveUnits();
     if (ss.length !== ls.length) throw new Error('Page count on screen (' + ls.length + ') doesn’t match the file (' + ss.length + '). Reload the page and try again.');
     var blocks = [], miss = 0;
     for (var p = 0; p < ls.length; p++) {
@@ -105,7 +122,7 @@
       var j = 0;
       for (var q = 0; q < lb.length; q++) {
         var lt = norm(lb[q].textContent), hit = -1;
-        for (var k = j; k < Math.min(sb.length, j + 4); k++) if (norm(A.text(sb[k])) === lt) { hit = k; break; }
+        for (var k = j; k < Math.min(sb.length, j + 40); k++) if (norm(A.text(sb[k])) === lt) { hit = k; break; }
         if (hit < 0) { miss++; lb[q].setAttribute('data-lrs-locked', ''); continue; }
         blocks.push({ el: lb[q], src: sb[hit], page: ls[p], orig: lb[q].innerHTML, srcInner: text.slice(sb[hit].innerStart, sb[hit].innerEnd) });
         j = hit + 1;
@@ -116,7 +133,7 @@
 
   /* ---------- clean the edited HTML before it goes back in the file ---------- */
   function clean(html, srcInner) {
-    var h = html.replace(/\s(contenteditable|spellcheck|data-lrs-[\w-]+)(="[^"]*")?/g, '');
+    var h = html.replace(/\s(contenteditable|spellcheck|data-lrs-[\w-]+|data-dc-[\w-]+)(="[^"]*")?/g, '');
     if (srcInner.indexOf('style=') < 0) { for (var r = 0; r < 4; r++) h = h.replace(/<span style="[^"]*">([\s\S]*?)<\/span>/g, '$1'); }
     h = h.replace(/<\/?font[^>]*>/g, '');
     if (!/<br\s*\/?>\s*$/.test(srcInner)) h = h.replace(/(<br\s*\/?>)+\s*$/, '');
@@ -137,7 +154,8 @@
   /* ---------- overflow warnings ---------- */
   function checkOverflow() {
     var bad = [];
-    document.querySelectorAll('section.page').forEach(function (sec) {
+    if (mode() !== 'booklet') { S.over = []; return []; } // decks animate builds off-canvas on purpose, so no overflow check there
+    liveUnits().forEach(function (sec) {
       var old = sec.querySelector(':scope > .lrs-ui.lrs-flag'); if (old) old.remove();
       sec.classList.remove('lrs-over');
       var sr = sec.getBoundingClientRect(); if (!sr.height) return;
@@ -228,12 +246,14 @@
   }
 
   /* ---------- editing behaviour ---------- */
-  document.addEventListener('keydown', function (e) {
+  window.addEventListener('keydown', function (e) {
     var inBlock = e.target && e.target.closest && e.target.closest('[data-lrs-block]');
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 's' && S.on) { e.preventDefault(); save(); return; }
+    if ((e.metaKey || e.ctrlKey) && e.key && e.key.toLowerCase() === 's' && S.on) { e.preventDefault(); save(); return; }
     if (inBlock && e.key === 'Enter') { e.preventDefault(); if (e.shiftKey) document.execCommand('insertLineBreak'); return; }
     if (inBlock && e.key === 'Escape') { inBlock.blur(); return; }
-    if (!inBlock && !e.metaKey && !e.ctrlKey && !e.altKey && e.key.toLowerCase() === 'e' && !/input|textarea|select/i.test(e.target.tagName || '')) { S.on ? disable() : enable(); }
+    if (inBlock) { e.stopPropagation(); return; } // keep slide decks from changing slides while typing
+    if (SO) { if (e.key === 'Escape') closeSorter(); e.stopPropagation(); return; }
+    if (!inBlock && !e.metaKey && !e.ctrlKey && !e.altKey && e.key && e.key.toLowerCase() === 'e' && !/input|textarea|select/i.test(e.target.tagName || '')) { S.on ? disable() : enable(); }
   }, true);
   document.addEventListener('paste', function (e) {
     if (!(e.target.closest && e.target.closest('[data-lrs-block]'))) return;
@@ -265,23 +285,25 @@
   var BLANK_HTML = '<section class="page" data-screen-label="Blank"></section>';
   function attr(nd, name) { var m = new RegExp('\\s' + name + '\\s*=\\s*"([^"]*)"').exec(nd.attrs || ''); return m ? m[1] : null; }
   function units(text) {
-    var root = parse(text), ss = srcSections(root), out = [];
+    var root = parse(text), ss = srcSections(root), out = [], dk = mode() === 'deck';
     ss.forEach(function (nd, k) {
-      var leadFrom = k ? ss[k - 1].end : nd.start, lead = text.slice(leadFrom, nd.start).trim();
-      var html = text.slice(nd.start, nd.end), label = decode(attr(nd, 'data-screen-label') || '');
+      var leadFrom = k ? ss[k - 1].end : nd.start, leadRaw = text.slice(leadFrom, nd.start), lead = leadRaw.trim();
+      var html = text.slice(nd.start, nd.end), label = decode(attr(nd, dk ? 'data-label' : 'data-screen-label') || '');
       var sp = attr(nd, 'data-spread'), m = /\((Left|Right)\)\s*$/.exec(label), spread = null;
       if (sp) { var pp = sp.split(':'); spread = { side: pp[0].toUpperCase().charAt(0), key: pp[1] || label }; }
       else if (m) spread = { side: m[1].charAt(0), key: label.replace(/\s*\((Left|Right)\)\s*$/, '') };
       var pnm = /<span class="pn">\s*(\d+)\s*<\/span>/.exec(html);
-      out.push({ k: k, start: nd.start, end: nd.end, lead: lead, html: html, label: label, spread: spread,
+      out.push({ k: k, leadRaw: leadRaw, start: nd.start, end: nd.end, lead: lead, html: html, label: label, spread: spread,
         divider: /(^|\s)divider(\s|$)/.test(nd.cls) || /^Divider/.test(label), pn: pnm ? pnm[1] : null });
     });
     return out;
   }
   var SO = null; // sorter state
+  function THW() { return mode() === 'deck' ? 240 : 150; }
   function openSorter() {
     if (!S.on) { toast('Turn on edit mode first.'); return; }
-    var us = units(S.src), live = Array.prototype.slice.call(document.querySelectorAll('section.page'));
+    if (mode() === 'doc') { toast('This page doesn\u2019t have separate pages to rearrange.'); return; }
+    var us = units(S.src), live = liveUnits();
     if (us.length !== live.length) { toast('Couldn’t line up the pages with the file. Reload and try again.', 6000, true); return; }
     var uid = 0;
     SO = { units: us, items: us.map(function (u, i) { return { id: ++uid, u: u, el: live[i], label: u.label, spread: u.spread, divider: u.divider }; }), uid: uid,
@@ -300,13 +322,16 @@
       c.querySelectorAll('[id]').forEach(function (e) { e.removeAttribute('id'); }); c.removeAttribute('id');
       c.querySelectorAll('[contenteditable]').forEach(function (e) { e.removeAttribute('contenteditable'); });
       c.querySelectorAll('.lrs-ui').forEach(function (e) { e.remove(); });
-      c.classList.remove('lrs-over'); c.style.cssText += ';position:absolute;left:0;top:0;margin:0;transform:scale(' + (150 / 768) + ');transform-origin:0 0;pointer-events:none;box-shadow:none';
+      var dk = mode() === 'deck', W = dk ? 1920 : 768, H = dk ? 1080 : 768;
+      c.classList.remove('lrs-over'); c.style.cssText += ';display:block;visibility:visible;opacity:1;position:absolute;left:0;top:0;margin:0;width:' + W + 'px;height:' + H + 'px;transform:scale(' + (THW() / W) + ');transform-origin:0 0;pointer-events:none;box-shadow:none';
+      w.style.height = Math.round(THW() * H / W) + 'px';
       w.appendChild(c);
     } else { w.innerHTML = '<div class="nb">' + esc(it.label) + '</div>'; }
     return w;
   }
   function problems() {
     var it = SO.items, P = [], n = it.length;
+    if (mode() === 'deck') return P;
     function add(i, msg, fix) { P.push({ i: i, msg: msg, fix: fix }); }
     if (SO.firstLabel === 'Cover' && it[0] && it[0].label !== 'Cover') add(0, 'The cover isn’t the first page', null);
     var hasBack = SO.lastLabel === 'Back cover';
@@ -335,7 +360,7 @@
   }
   function newItem(kind, from) {
     SO.uid++;
-    if (kind === 'blank') return { id: SO.uid, u: null, html: BLANK_HTML, label: 'Blank', el: null, isNew: true };
+    if (kind === 'blank') return { id: SO.uid, u: null, html: mode() === 'deck' ? '<section data-label="Blank"></section>' : BLANK_HTML, label: 'Blank', el: null, isNew: true };
     return { id: SO.uid, u: from.u, html: from.u ? from.u.html : from.html, lead: '', label: from.label + ' (copy)', el: from.el, spread: null, divider: from.divider, isNew: true, dupOf: from };
   }
   function paintSorter() {
@@ -345,8 +370,9 @@
     var fixable = P.filter(function (p) { return p.fix; }).length;
     ov.querySelector('.sw').innerHTML = P.length ? '<span class="wn">⚠ ' + P.length + ' layout issue' + (P.length > 1 ? 's' : '') + '</span>' + (fixable ? '<button data-s="fixall">Fix with blanks</button>' : '') : '<span class="ok">✓ Layout rules all pass</span>';
     var g = ov.querySelector('.sg'); g.innerHTML = '';
-    var it = SO.items, spreads = [[null, 0]];
-    for (var i = 1; i < it.length; i += 2) spreads.push([i, i + 1 < it.length ? i + 1 : null]);
+    var it = SO.items, spreads = [];
+    if (mode() === 'deck') it.forEach(function (_, i) { spreads.push([i]); });
+    else { spreads.push([null, 0]); for (var i = 1; i < it.length; i += 2) spreads.push([i, i + 1 < it.length ? i + 1 : null]); }
     spreads.forEach(function (pair) {
       var sp = document.createElement('div'); sp.className = 'sp';
       pair.forEach(function (i, side) {
@@ -356,7 +382,7 @@
         if (bad[i]) slot.classList.add('bad');
         if (x.isNew) slot.classList.add('new');
         slot.appendChild(thumb(x));
-        var folio = i === 0 ? '' : String(i).padStart(2, '0');
+        var folio = mode() === 'deck' ? String(i + 1) : (i === 0 ? '' : String(i).padStart(2, '0'));
         slot.insertAdjacentHTML('beforeend', '<div class="cap"><b>' + (folio || '—') + '</b> ' + esc(x.label) + '</div>' +
           '<div class="act"><button data-s="dup" title="Duplicate">⧉</button><button data-s="addblank" title="Insert a blank page before">+ Blank</button><button data-s="del" title="Delete page">✕</button></div>' +
           (bad[i] ? '<div class="pb">' + bad[i].map(function (p) { return esc(p.msg); }).join('<br>') + '</div>' : ''));
@@ -423,7 +449,9 @@
     var chunks = [], dn = 0, divNum = {};
     it.forEach(function (x, ni) {
       var src = x.u && !x.isNew ? us[x.u.k] : null;
-      var html = src ? src.html : (x.u ? us[x.u.k].html : x.html), lead = src ? src.lead : '';
+      var html = src ? src.html : (x.u ? us[x.u.k].html : x.html), gap = src ? src.leadRaw : '';
+      if (ni > 0 && !/\S|\n/.test(gap)) gap = (gap.trim() ? gap : '\n\n  ');
+      if (ni === 0) gap = gap.trim() ? gap.trim() + '\n  ' : '';
       if (renumber && /<span class="pn">\s*\d+\s*<\/span>/.test(html)) html = html.replace(/<span class="pn">\s*\d+\s*<\/span>/, '<span class="pn">' + fmt(ni) + '</span>');
       if (x.divider) divNum[ni] = dn + 1;
       if (x.divider && seq) { dn++; html = html.replace(/<div class="ghost disp">\d+<\/div>/, '<div class="ghost disp">' + String(dn).padStart(2, '0') + '</div>').replace(/SECTION \d+/, 'SECTION ' + String(dn).padStart(2, '0')); }
@@ -435,7 +463,7 @@
           return out;
         });
       }
-      chunks.push((lead ? lead + '\n  ' : '') + html);
+      chunks.push(gap + html);
     });
     // contents: keep rows in page order and renumber tn
     chunks = chunks.map(function (c) {
@@ -453,7 +481,7 @@
       });
     });
     var first = us[0].start, last = us[us.length - 1].end;
-    return { text: text.slice(0, first) + chunks.join('\n\n  ') + text.slice(last), renumber: renumber };
+    return { text: text.slice(0, first) + chunks.join('') + text.slice(last), renumber: renumber };
   }
   async function saveOrder() {
     try {
