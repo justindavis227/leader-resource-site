@@ -210,11 +210,11 @@
   }
   async function save() {
     if (!S.on) return;
-    var c = dirtyCount(); if (!c) { toast('No changes to save.'); return; }
+    var c = dirtyCount(); if (!c) { toast('No changes to save.'); return true; }
     try {
       await ensureDir();
       var disk = await readFile();
-      if (disk !== S.src) { toast('This file changed on your Mac since you started editing (maybe Claude saved a new version). Copy your edits somewhere, reload, and redo them so nothing gets overwritten.', 10000, true); return; }
+      if (disk !== S.src) { toast('This file changed on your Mac since you started editing (maybe Claude saved a new version). Copy your edits somewhere, reload, and redo them so nothing gets overwritten.', 10000, true); return false; }
       var out = serialize();
       await writeFile(out.text);
       var nm = buildMap(out.text);
@@ -223,7 +223,8 @@
       S.blocks.forEach(function (b) { b.el.setAttribute('data-lrs-block', ''); b.el.contentEditable = 'true'; });
       render(); checkOverflow(); render();
       toast('Saved ' + out.count + ' change' + (out.count > 1 ? 's' : '') + ' to “' + esc(S.fileName) + '.” Commit and push when you’re ready.', 5000);
-    } catch (e) { if (e && e.name === 'AbortError') return; toast('Couldn’t save: ' + esc(e.message || String(e)), 8000, true); }
+      return true;
+    } catch (e) { if (e && e.name === 'AbortError') return false; toast('Couldn’t save: ' + esc(e.message || String(e)), 8000, true); return false; }
   }
 
   /* ---------- editing behaviour ---------- */
@@ -258,6 +259,230 @@
     'html.lrs-editing section.page.lrs-over{outline:4px solid #e01b2f;outline-offset:-4px}' +
     '.lrs-ui.lrs-flag{position:absolute;top:8px;right:8px;z-index:50;background:#e01b2f;color:#fff;font:600 11px/1 -apple-system,system-ui,sans-serif;padding:6px 8px;border-radius:6px;letter-spacing:.02em;pointer-events:none}' +
     '@media print{#lrs-bar,#lrs-toast,.lrs-ui{display:none!important}}\n';
+  /* =====================================================================
+     PAGE SORTER (v1 step 2): drag pages, warnings, renumber on save
+     ===================================================================== */
+  var BLANK_HTML = '<section class="page" data-screen-label="Blank"></section>';
+  function attr(nd, name) { var m = new RegExp('\\s' + name + '\\s*=\\s*"([^"]*)"').exec(nd.attrs || ''); return m ? m[1] : null; }
+  function units(text) {
+    var root = parse(text), ss = srcSections(root), out = [];
+    ss.forEach(function (nd, k) {
+      var leadFrom = k ? ss[k - 1].end : nd.start, lead = text.slice(leadFrom, nd.start).trim();
+      var html = text.slice(nd.start, nd.end), label = decode(attr(nd, 'data-screen-label') || '');
+      var sp = attr(nd, 'data-spread'), m = /\((Left|Right)\)\s*$/.exec(label), spread = null;
+      if (sp) { var pp = sp.split(':'); spread = { side: pp[0].toUpperCase().charAt(0), key: pp[1] || label }; }
+      else if (m) spread = { side: m[1].charAt(0), key: label.replace(/\s*\((Left|Right)\)\s*$/, '') };
+      var pnm = /<span class="pn">\s*(\d+)\s*<\/span>/.exec(html);
+      out.push({ k: k, start: nd.start, end: nd.end, lead: lead, html: html, label: label, spread: spread,
+        divider: /(^|\s)divider(\s|$)/.test(nd.cls) || /^Divider/.test(label), pn: pnm ? pnm[1] : null });
+    });
+    return out;
+  }
+  var SO = null; // sorter state
+  function openSorter() {
+    if (!S.on) { toast('Turn on edit mode first.'); return; }
+    var us = units(S.src), live = Array.prototype.slice.call(document.querySelectorAll('section.page'));
+    if (us.length !== live.length) { toast('Couldn’t line up the pages with the file. Reload and try again.', 6000, true); return; }
+    var uid = 0;
+    SO = { units: us, items: us.map(function (u, i) { return { id: ++uid, u: u, el: live[i], label: u.label, spread: u.spread, divider: u.divider }; }), uid: uid,
+      firstLabel: us[0] && us[0].label, lastLabel: us[us.length - 1] && us[us.length - 1].label, deleted: [] };
+    var ov = document.createElement('div'); ov.id = 'lrs-sorter'; ov.className = 'lrs-ui';
+    ov.innerHTML = '<div class="sh"><div class="st1">Pages</div><div class="sw"></div><div class="sb"><button data-s="cancel">Cancel</button><button class="pri" data-s="save">Save order</button></div></div><div class="sg"></div>';
+    document.body.appendChild(ov); document.documentElement.classList.add('lrs-sorting');
+    ov.addEventListener('click', sorterClick);
+    paintSorter();
+  }
+  function closeSorter() { var ov = document.getElementById('lrs-sorter'); if (ov) ov.remove(); document.documentElement.classList.remove('lrs-sorting'); SO = null; }
+  function thumb(it) {
+    var w = document.createElement('div'); w.className = 'th';
+    if (it.el) {
+      var c = it.el.cloneNode(true);
+      c.querySelectorAll('[id]').forEach(function (e) { e.removeAttribute('id'); }); c.removeAttribute('id');
+      c.querySelectorAll('[contenteditable]').forEach(function (e) { e.removeAttribute('contenteditable'); });
+      c.querySelectorAll('.lrs-ui').forEach(function (e) { e.remove(); });
+      c.classList.remove('lrs-over'); c.style.cssText += ';position:absolute;left:0;top:0;margin:0;transform:scale(' + (150 / 768) + ');transform-origin:0 0;pointer-events:none;box-shadow:none';
+      w.appendChild(c);
+    } else { w.innerHTML = '<div class="nb">' + esc(it.label) + '</div>'; }
+    return w;
+  }
+  function problems() {
+    var it = SO.items, P = [], n = it.length;
+    function add(i, msg, fix) { P.push({ i: i, msg: msg, fix: fix }); }
+    if (SO.firstLabel === 'Cover' && it[0] && it[0].label !== 'Cover') add(0, 'The cover isn’t the first page', null);
+    var hasBack = SO.lastLabel === 'Back cover';
+    if (hasBack && it[n - 1] && it[n - 1].label !== 'Back cover') add(n - 1, 'The back cover isn’t the last page', null);
+    it.forEach(function (x, i) {
+      if (x.divider && i % 2 === 0) add(i, '“' + x.label.replace(/^Divider—/, '') + '” section starts on a right page', { t: 'blank', i: i });
+      if (x.spread && x.spread.side === 'L') {
+        var nx = it[i + 1];
+        if (!(nx && nx.spread && nx.spread.side === 'R' && nx.spread.key === x.spread.key)) add(i, '“' + x.spread.key + '” spread is split apart', { t: 'join', i: i });
+        else if (i % 2 === 0) add(i, '“' + x.spread.key + '” spread doesn’t open on a left page', { t: 'blank', i: i });
+      }
+    });
+    if (n % 4) add(n - 1, n + ' pages—a printed booklet needs a multiple of 4 (' + (n + 4 - n % 4) + ')', { t: 'pad' });
+    return P;
+  }
+  function applyFix(f) {
+    var it = SO.items;
+    if (f.t === 'blank') it.splice(f.i, 0, newItem('blank'));
+    else if (f.t === 'join') {
+      var L = it[f.i], ri = it.findIndex(function (x) { return x.spread && x.spread.side === 'R' && x.spread.key === L.spread.key; });
+      if (ri >= 0) { var R = it.splice(ri, 1)[0]; it.splice(it.indexOf(L) + 1, 0, R); }
+    } else if (f.t === 'pad') {
+      var need = (4 - it.length % 4) % 4, at = SO.lastLabel === 'Back cover' && it[it.length - 1].label === 'Back cover' ? it.length - 1 : it.length;
+      for (var q = 0; q < need; q++) it.splice(at, 0, newItem('blank'));
+    }
+  }
+  function newItem(kind, from) {
+    SO.uid++;
+    if (kind === 'blank') return { id: SO.uid, u: null, html: BLANK_HTML, label: 'Blank', el: null, isNew: true };
+    return { id: SO.uid, u: from.u, html: from.u ? from.u.html : from.html, lead: '', label: from.label + ' (copy)', el: from.el, spread: null, divider: from.divider, isNew: true, dupOf: from };
+  }
+  function paintSorter() {
+    var ov = document.getElementById('lrs-sorter'); if (!ov) return;
+    var P = problems(), bad = {}; P.forEach(function (p) { (bad[p.i] = bad[p.i] || []).push(p); });
+    ov.querySelector('.st1').textContent = 'Pages · ' + SO.items.length;
+    var fixable = P.filter(function (p) { return p.fix; }).length;
+    ov.querySelector('.sw').innerHTML = P.length ? '<span class="wn">⚠ ' + P.length + ' layout issue' + (P.length > 1 ? 's' : '') + '</span>' + (fixable ? '<button data-s="fixall">Fix with blanks</button>' : '') : '<span class="ok">✓ Layout rules all pass</span>';
+    var g = ov.querySelector('.sg'); g.innerHTML = '';
+    var it = SO.items, spreads = [[null, 0]];
+    for (var i = 1; i < it.length; i += 2) spreads.push([i, i + 1 < it.length ? i + 1 : null]);
+    spreads.forEach(function (pair) {
+      var sp = document.createElement('div'); sp.className = 'sp';
+      pair.forEach(function (i, side) {
+        var slot = document.createElement('div'); slot.className = 'slot';
+        if (i == null) { slot.classList.add('empty'); sp.appendChild(slot); return; }
+        var x = it[i]; slot.dataset.idx = i; slot.draggable = true;
+        if (bad[i]) slot.classList.add('bad');
+        if (x.isNew) slot.classList.add('new');
+        slot.appendChild(thumb(x));
+        var folio = i === 0 ? '' : String(i).padStart(2, '0');
+        slot.insertAdjacentHTML('beforeend', '<div class="cap"><b>' + (folio || '—') + '</b> ' + esc(x.label) + '</div>' +
+          '<div class="act"><button data-s="dup" title="Duplicate">⧉</button><button data-s="addblank" title="Insert a blank page before">+ Blank</button><button data-s="del" title="Delete page">✕</button></div>' +
+          (bad[i] ? '<div class="pb">' + bad[i].map(function (p) { return esc(p.msg); }).join('<br>') + '</div>' : ''));
+        sp.appendChild(slot);
+      });
+      g.appendChild(sp);
+    });
+    wireDrag(g);
+  }
+  function wireDrag(g) {
+    var dragId = null;
+    g.querySelectorAll('.slot[data-idx]').forEach(function (s) {
+      s.addEventListener('dragstart', function (e) { dragId = +s.dataset.idx; e.dataTransfer.effectAllowed = 'move'; try { e.dataTransfer.setData('text/plain', 'p'); } catch (x) {} s.classList.add('drag'); });
+      s.addEventListener('dragend', function () { s.classList.remove('drag'); });
+      s.addEventListener('dragover', function (e) {
+        e.preventDefault(); var r = s.getBoundingClientRect(), after = e.clientX > r.left + r.width / 2;
+        g.querySelectorAll('.dropL,.dropR').forEach(function (z) { z.classList.remove('dropL', 'dropR'); });
+        s.classList.add(after ? 'dropR' : 'dropL');
+      });
+      s.addEventListener('dragleave', function () { s.classList.remove('dropL', 'dropR'); });
+      s.addEventListener('drop', function (e) {
+        e.preventDefault(); if (dragId == null) return;
+        var r = s.getBoundingClientRect(), after = e.clientX > r.left + r.width / 2, target = +s.dataset.idx;
+        movePages(dragId, target, after); dragId = null; paintSorter();
+      });
+    });
+  }
+  function movePages(from, target, after) {
+    var it = SO.items, x = it[from], group = [x];
+    if (x.spread) {
+      var partner = it.find(function (y) { return y !== x && y.spread && y.spread.key === x.spread.key; });
+      if (partner) group = x.spread.side === 'L' ? [x, partner] : [partner, x];
+    }
+    var tItem = it[target]; if (group.indexOf(tItem) >= 0) return;
+    group.forEach(function (g) { it.splice(it.indexOf(g), 1); });
+    var ti = it.indexOf(tItem) + (after ? 1 : 0);
+    if (tItem.spread && tItem.spread.side === 'L' && after) ti++; // don't drop between a spread's two pages
+    if (tItem.spread && tItem.spread.side === 'R' && !after) ti--;
+    it.splice.apply(it, [Math.max(0, ti), 0].concat(group));
+  }
+  function sorterClick(e) {
+    var b = e.target.closest('[data-s]'); if (!b) return;
+    var a = b.getAttribute('data-s'), slot = b.closest('.slot'), i = slot ? +slot.dataset.idx : -1, it = SO && SO.items;
+    if (a === 'cancel') { closeSorter(); return; }
+    if (a === 'save') { saveOrder(); return; }
+    if (a === 'fixall') { for (var guard = 0; guard < 40; guard++) { var p = problems().filter(function (q) { return q.fix; })[0]; if (!p) break; applyFix(p.fix); } }
+    if (a === 'dup') it.splice(i + 1, 0, newItem('dup', it[i]));
+    if (a === 'addblank') it.splice(i, 0, newItem('blank'));
+    if (a === 'del') { var x = it.splice(i, 1)[0]; if (!x.isNew) SO.deleted.push(x.label); }
+    paintSorter();
+  }
+  function buildOrdered(text) {
+    // fresh units from the (saved) text, matched to sorter items by original index
+    var us = units(text), it = SO.items;
+    var oldFolio = {}; // folio string -> unit index (old order)
+    var pnMatch = 0, pnCount = 0, pad = 2;
+    us.forEach(function (u, k) { if (u.pn != null) { pnCount++; if (+u.pn === k) pnMatch++; if (u.pn.length === 1) pad = 1; oldFolio[+u.pn] = k; } });
+    var renumber = pnCount && pnMatch / pnCount >= 0.7;
+    var newIndexOfOld = {}; it.forEach(function (x, ni) { if (x.u && !x.isNew) newIndexOfOld[x.u.k] = ni; });
+    function mapPage(n) { var k = oldFolio[n]; if (k == null || newIndexOfOld[k] == null) return null; return renumber ? newIndexOfOld[k] : null; }
+    var fmt = function (n) { return pad === 2 ? String(n).padStart(2, '0') : String(n); };
+    // dividers sequential?
+    var divs = us.filter(function (u) { return u.divider; }), seq = divs.every(function (u, j) { var m = /<div class="ghost disp">(\d+)<\/div>/.exec(u.html); return m && +m[1] === j + 1; });
+    var chunks = [], dn = 0;
+    it.forEach(function (x, ni) {
+      var src = x.u && !x.isNew ? us[x.u.k] : null;
+      var html = src ? src.html : (x.u ? us[x.u.k].html : x.html), lead = src ? src.lead : '';
+      if (renumber && /<span class="pn">\s*\d+\s*<\/span>/.test(html)) html = html.replace(/<span class="pn">\s*\d+\s*<\/span>/, '<span class="pn">' + fmt(ni) + '</span>');
+      if (x.divider && seq) { dn++; html = html.replace(/<div class="ghost disp">\d+<\/div>/, '<div class="ghost disp">' + String(dn).padStart(2, '0') + '</div>').replace(/SECTION \d+/, 'SECTION ' + String(dn).padStart(2, '0')); }
+      if (renumber) {
+        html = html.replace(/(<span class="tp">)(\d+)(<\/span>)/g, function (m0, a, n, z) { var v = mapPage(+n); return v == null ? m0 : a + fmt(v) + z; });
+        html = html.replace(/\b(page|pages|p\.)(\s?)(\d+)(\s?[–-]\s?)?(\d+)?/gi, function (m0, w, sp, n1, dash, n2) {
+          var v1 = mapPage(+n1); if (v1 == null) return m0;
+          var out = w + sp + v1; if (dash && n2) { var v2 = mapPage(+n2); out += dash + (v2 == null ? n2 : v2); } else if (dash) out += dash;
+          return out;
+        });
+      }
+      chunks.push((lead ? lead + '\n  ' : '') + html);
+    });
+    // contents: keep rows in page order and renumber tn
+    chunks = chunks.map(function (c) {
+      if (!/class="page toc/.test(c)) return c;
+      return c.replace(/(<div class="rows">)([\s\S]*?)(<\/div>\s*<div class="foot)/, function (m0, a, rows, z) {
+        var re = /<div class="trow">[\s\S]*?<\/div>/g, slots = [], m;
+        while ((m = re.exec(rows))) slots.push({ a: m.index, z: re.lastIndex, r: m[0] });
+        if (!slots.length) return m0;
+        var srt = slots.map(function (w, j) { var mm = /<span class="tp">(\d+)<\/span>/.exec(w.r); return { r: w.r, tp: mm ? +mm[1] : -1, j: j }; });
+        srt.sort(function (p, q) { return p.tp === q.tp ? p.j - q.j : p.tp - q.tp; });
+        var cnt = srt.some(function (w) { return /<span class="tn">00<\/span>/.test(w.r); }) ? -1 : 0;
+        var outRows = srt.map(function (w) { cnt++; return w.r.replace(/<span class="tn">\d+<\/span>/, '<span class="tn">' + String(cnt).padStart(2, '0') + '</span>'); });
+        for (var q = slots.length - 1; q >= 0; q--) rows = rows.slice(0, slots[q].a) + outRows[q] + rows.slice(slots[q].z);
+        return a + rows + z;
+      });
+    });
+    var first = us[0].start, last = us[us.length - 1].end;
+    return { text: text.slice(0, first) + chunks.join('\n\n  ') + text.slice(last), renumber: renumber };
+  }
+  async function saveOrder() {
+    try {
+      if (SO.deleted.length && !confirm('Remove these pages from the booklet?\n\n• ' + SO.deleted.join('\n• ') + '\n\nThey stay in your git history if you ever need them back.')) return;
+      if (dirtyCount()) { var ok = await save(); if (!ok) return; }
+      await ensureDir();
+      var disk = await readFile();
+      if (disk !== S.src) { toast('This file changed on your Mac since you opened it. Reload and try again so nothing gets overwritten.', 9000, true); return; }
+      var out = buildOrdered(S.src);
+      await writeFile(out.text);
+      try { sessionStorage.setItem('lrs-reenter', '1'); } catch (x) {}
+      toast('Saved the new page order' + (out.renumber ? ' and renumbered pages, Contents and page references' : '') + '. Reloading…', 3000);
+      setTimeout(function () { location.reload(); }, 700);
+    } catch (e) { if (e && e.name === 'AbortError') return; toast('Couldn’t save the order: ' + esc(e.message || String(e)), 8000, true); }
+  }
+  css += '#lrs-sorter{position:fixed;inset:0;z-index:2147482990;background:#0d0d0e;color:#eee;display:flex;flex-direction:column;font:13px/1.35 -apple-system,BlinkMacSystemFont,system-ui,sans-serif}' +
+    '#lrs-sorter .sh{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid #222;flex-wrap:wrap}#lrs-sorter .st1{font-weight:700;font-size:16px}#lrs-sorter .sw{flex:1;display:flex;gap:10px;align-items:center}' +
+    '#lrs-sorter .wn{color:#ff8f99;font-weight:600}#lrs-sorter .ok{color:#7fd69a;font-weight:600}#lrs-sorter .sb{display:flex;gap:8px}' +
+    '#lrs-sorter button{font:inherit;border:0;border-radius:8px;padding:8px 12px;cursor:pointer;background:#2a2a2a;color:#fff}#lrs-sorter button:hover{background:#3a3a3a}#lrs-sorter button.pri{background:#e01b2f}' +
+    '#lrs-sorter .sg{flex:1;overflow:auto;padding:20px;display:flex;flex-wrap:wrap;gap:28px 22px;align-content:flex-start}' +
+    '#lrs-sorter .sp{display:flex;gap:0}#lrs-sorter .slot{width:150px;position:relative;cursor:grab}#lrs-sorter .slot.empty{cursor:default}' +
+    '#lrs-sorter .th{width:150px;height:150px;position:relative;overflow:hidden;background:#fff;outline:1px solid #333}' +
+    '#lrs-sorter .nb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px}' +
+    '#lrs-sorter .cap{margin-top:6px;font-size:11px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#lrs-sorter .cap b{color:#fff;margin-right:4px}' +
+    '#lrs-sorter .act{position:absolute;top:6px;left:6px;right:6px;display:none;gap:4px;justify-content:flex-end}#lrs-sorter .slot:hover .act{display:flex}' +
+    '#lrs-sorter .act button{padding:4px 7px;font-size:11px;background:rgba(17,17,17,.88)}' +
+    '#lrs-sorter .slot.bad .th{outline:3px solid #e01b2f}#lrs-sorter .pb{font-size:11px;color:#ff8f99;margin-top:3px;width:150px}' +
+    '#lrs-sorter .slot.new .th{outline:2px dashed #7fd69a}#lrs-sorter .slot.drag{opacity:.35}' +
+    '#lrs-sorter .slot.dropL .th{box-shadow:-5px 0 0 #e01b2f}#lrs-sorter .slot.dropR .th{box-shadow:5px 0 0 #e01b2f}' +
+    'html.lrs-sorting{overflow:hidden}html.lrs-sorting #lrs-bar,html.lrs-sorting #lrs-toast{display:none!important}\n';
   function render() {
     if (!S.ui) {
       var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
@@ -265,7 +490,7 @@
       S.ui.addEventListener('click', function (e) {
         var b = e.target.closest('[data-act]'); if (!b) return;
         var a = b.getAttribute('data-act');
-        if (a === 'edit') enable(); else if (a === 'done') disable(); else if (a === 'save') save();
+        if (a === 'edit') enable(); else if (a === 'done') disable(); else if (a === 'save') save(); else if (a === 'pages') openSorter();
         else if (a === 'next' && S.over && S.over.length) { S.oi = ((S.oi || 0) + 1) % S.over.length; S.over[S.oi].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
       });
     }
@@ -273,7 +498,7 @@
     var c = dirtyCount(), o = (S.over || []).length;
     S.ui.innerHTML = (o ? '<span class="st warn" data-act="next" title="Jump to the next overflowing page">⚠ ' + o + ' page' + (o > 1 ? 's' : '') + ' overflowing</span>' : '') +
       '<span class="st">' + (c ? c + ' unsaved change' + (c > 1 ? 's' : '') : 'No changes') + '</span>' +
-      '<button class="pri" data-act="save"' + (c ? '' : ' disabled') + ' title="Save (⌘S)">Save</button><button data-act="done" title="Leave edit mode (E)">Done</button>';
+      '<button data-act="pages" title="Rearrange pages">\u25a6 Pages</button><button class="pri" data-act="save"' + (c ? '' : ' disabled') + ' title="Save (⌘S)">Save</button><button data-act="done" title="Leave edit mode (E)">Done</button>';
   }
   var tt = 0;
   function toast(html, ms, err) {
@@ -283,6 +508,8 @@
     clearTimeout(tt); tt = setTimeout(function () { el.style.display = 'none'; }, ms || 3000);
   }
 
-  window.LRSEdit = { enable: enable, disable: disable, save: save, _serialize: serialize, _parse: parse, _state: S, _check: checkOverflow };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
+  window.LRSEdit = { openSorter: openSorter, _units: units, _SO: function () { return SO; }, _buildOrdered: function (t) { return buildOrdered(t); }, _problems: function () { return problems(); }, _move: movePages, _fix: applyFix, enable: enable, disable: disable, save: save, _serialize: serialize, _parse: parse, _state: S, _check: checkOverflow };
+  function boot() { render(); var re = false; try { re = sessionStorage.getItem('lrs-reenter') === '1'; sessionStorage.removeItem('lrs-reenter'); } catch (x) {}
+    if (re) loadDir().then(function (h) { if (!h) return; return h.queryPermission({ mode: 'readwrite' }).then(function (p) { if (p === 'granted') { S.dir = h; enable(); } }); }); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
