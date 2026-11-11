@@ -1,7 +1,6 @@
 /* LRS Fit: keeps a booklet the same size on screen no matter how far the browser is zoomed.
-   The booklet always fills the window width. It is scaled with CSS `zoom` (not a transform),
-   so the browser's own zoom and ours multiply out to the same on-screen size. That also keeps
-   Safari from enlarging small text when someone zooms out (its minimum font size never kicks in).
+   The booklet always fills the window width. It is scaled with a transform
+   sized from the window's CSS width, so browser zoom cancels out to the same on-screen size.
    It also sets the booklet in the brand face on screen, matching print. Print / PDF output is untouched. */
 (function () {
   'use strict';
@@ -14,7 +13,7 @@
   if (navigator.webdriver || location.hostname === 'lrs.local' || /(^|[#&])print\b/.test(location.hash)) return; // PDF renderer + print mode lay out at true size
 
   var st = document.createElement('style');
-  st.textContent = '@media print{#stack,.se-stage .book{zoom:1!important;width:auto!important}}';
+  st.textContent = '@media print{#stack,.se-stage .book{zoom:1!important;transform:none!important;width:auto!important;margin:0!important}#stage,.se-stage{height:auto!important}}';
   (document.head || document.documentElement).appendChild(st);
 
   function target() {
@@ -36,13 +35,18 @@
     var s = Math.max(0.05, (sw - 32) / t.base);
     busy = true;
     var e = t.el.style;
-    if (e.transform && e.transform !== 'none') e.transform = 'none';
+    // Scale with a transform, not CSS `zoom`: Safari enforces its minimum font size on zoomed text,
+    // which enlarged small type in narrow windows and pushed text into footers.
+    if (e.zoom) e.zoom = '';
     if (e.width !== t.base + 'px') e.width = t.base + 'px';
-    if (e.marginLeft !== 'auto') { e.marginLeft = 'auto'; e.marginRight = 'auto'; }
-    var z = String(Math.round(s * 10000) / 10000);
-    if (e.zoom !== z) e.zoom = z;
-    if (t.stage.style.height) t.stage.style.height = '';
-    last = z;
+    if (e.transformOrigin !== 'left top') e.transformOrigin = 'left top';
+    var tr = 'scale(' + (Math.round(s * 10000) / 10000) + ')';
+    if (e.transform !== tr) e.transform = tr;
+    var ml = Math.max(0, Math.round((sw - t.base * s) / 2)) + 'px';
+    if (e.marginLeft !== ml) { e.marginLeft = ml; e.marginRight = '0'; }
+    var h = Math.ceil(t.el.offsetHeight * s) + 'px';
+    if (t.stage.style.height !== h) t.stage.style.height = h;
+    last = tr;
     busy = false;
   }
 
