@@ -708,6 +708,9 @@
 .b3row .tip{border-left:3px solid var(--sa);padding:2px 0 2px 14px}
 .b3row .tip .tk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--sa);font-weight:700;margin-bottom:5px}
 .b3row .tip p{margin:0;font-size:13px;color:var(--fg2);line-height:1.45}
+</style><style>/* rhythm chips: one shape with the arrow built in, so no seam line between chip and arrow */
+.rwchip{width:100%!important;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 50%,calc(100% - 13px) 100%,0 100%)}
+.rwchip::after{display:none!important}
 </style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>

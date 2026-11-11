@@ -748,6 +748,9 @@ section[data-spread="R:support-tie"] .roleov .rolb{padding:12px 18px 12px 0}
 section[data-spread="R:support-tie"] .roleov .rolb::before{display:none}
 section[data-spread="R:support-tie"] .roleov .rolb::after,section[data-spread="R:support-tie"] .roleov .rolb:last-child::after{content:'';position:absolute;left:24px;right:0;top:0;bottom:0;width:auto;height:auto;background:none;border:1px solid var(--hairline);border-radius:14px;pointer-events:none}
 section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:14px}
+</style><style>/* rhythm chips: one shape with the arrow built in, so no seam line between chip and arrow */
+.rwchip{width:100%!important;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 50%,calc(100% - 13px) 100%,0 100%)}
+.rwchip::after{display:none!important}
 </style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>

@@ -318,7 +318,10 @@
     @page{size:8in 8in;margin:0}
   }
 </style>
-</head>
+<style>/* rhythm chips: one shape with the arrow built in, so no seam line between chip and arrow */
+.rwchip{width:100%!important;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 50%,calc(100% - 13px) 100%,0 100%)}
+.rwchip::after{display:none!important}
+</style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
