@@ -420,11 +420,12 @@
     var fmt = function (n) { return pad === 2 ? String(n).padStart(2, '0') : String(n); };
     // dividers sequential?
     var divs = us.filter(function (u) { return u.divider; }), seq = divs.every(function (u, j) { var m = /<div class="ghost disp">(\d+)<\/div>/.exec(u.html); return m && +m[1] === j + 1; });
-    var chunks = [], dn = 0;
+    var chunks = [], dn = 0, divNum = {};
     it.forEach(function (x, ni) {
       var src = x.u && !x.isNew ? us[x.u.k] : null;
       var html = src ? src.html : (x.u ? us[x.u.k].html : x.html), lead = src ? src.lead : '';
       if (renumber && /<span class="pn">\s*\d+\s*<\/span>/.test(html)) html = html.replace(/<span class="pn">\s*\d+\s*<\/span>/, '<span class="pn">' + fmt(ni) + '</span>');
+      if (x.divider) divNum[ni] = dn + 1;
       if (x.divider && seq) { dn++; html = html.replace(/<div class="ghost disp">\d+<\/div>/, '<div class="ghost disp">' + String(dn).padStart(2, '0') + '</div>').replace(/SECTION \d+/, 'SECTION ' + String(dn).padStart(2, '0')); }
       if (renumber) {
         html = html.replace(/(<span class="tp">)(\d+)(<\/span>)/g, function (m0, a, n, z) { var v = mapPage(+n); return v == null ? m0 : a + fmt(v) + z; });
@@ -445,8 +446,8 @@
         if (!slots.length) return m0;
         var srt = slots.map(function (w, j) { var mm = /<span class="tp">(\d+)<\/span>/.exec(w.r); return { r: w.r, tp: mm ? +mm[1] : -1, j: j }; });
         srt.sort(function (p, q) { return p.tp === q.tp ? p.j - q.j : p.tp - q.tp; });
-        var cnt = srt.some(function (w) { return /<span class="tn">00<\/span>/.test(w.r); }) ? -1 : 0;
-        var outRows = srt.map(function (w) { cnt++; return w.r.replace(/<span class="tn">\d+<\/span>/, '<span class="tn">' + String(cnt).padStart(2, '0') + '</span>'); });
+        // a row pointing at a section divider takes that section's number; any other row (e.g. Welcome) is 00
+        var outRows = srt.map(function (w) { var n = renumber && divNum[w.tp] != null ? divNum[w.tp] : (renumber ? 0 : null); return n == null ? w.r : w.r.replace(/<span class="tn">\d+<\/span>/, '<span class="tn">' + String(n).padStart(2, '0') + '</span>'); });
         for (var q = slots.length - 1; q >= 0; q--) rows = rows.slice(0, slots[q].a) + outRows[q] + rows.slice(slots[q].z);
         return a + rows + z;
       });
