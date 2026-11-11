@@ -635,7 +635,80 @@
   .evs span{font-size:13px;color:var(--fg2);display:flex;align-items:center;gap:8px}
   .evs span::before{content:'';width:15px;height:15px;border:1.5px solid var(--fg3);border-radius:3px}
 </style>
-</head>
+<style>/* from Team Leaders: mission + mantras, role overview, rhythms */
+.page.tlx{--sa:#e01b2f;--sa-ghost:#f3b7bd}
+.page.sintro::before{content:'';position:absolute;inset:0;background:url('assets/photos/cover-topography.jpg') center/cover;opacity:.09;pointer-events:none}
+.content h2 .hib{color:var(--sa);font-weight:inherit}
+/* mission + vision—"i"-line columns */
+  .mv{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin-top:18px}
+.mvcol{display:flex;flex-direction:column}
+.mvword{display:flex;justify-content:center;font-family:var(--font-display);font-size:40px;line-height:1;text-transform:uppercase}
+.mvword.lt{color:var(--sa)}
+.mvword.dk{color:var(--fg1)}
+.istem{position:relative;width:13px}
+.istem::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:4px;border-radius:2px;background:var(--sa);top:-18px;height:114px;z-index:0}
+.stem-r::before{display:none}
+.stem-r::after{content:'';position:absolute;left:calc(50% - 2px);top:-18px;height:466px;width:520px;border-left:4px solid var(--sa);border-bottom:4px solid var(--sa);border-bottom-left-radius:28px;z-index:0}
+.mvstack{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.mvbox{position:relative;z-index:1;height:62px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);text-transform:uppercase;font-size:25px;letter-spacing:.01em}
+.mvbox.lt{background:var(--sa);color:#fffef9}
+.mvbox.dk{background:var(--charcoal);color:var(--slate)}
+/* mantra arrow bars */
+  .marrows{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:4px}
+.mbar{display:flex;align-items:center;background:rgba(14,18,21,.07);border-radius:8px;height:46px;overflow:hidden}
+.mchipA{height:46px;display:flex;align-items:center;background:var(--sa);color:#fffef9;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:17px;letter-spacing:0;padding:0 34px 0 22px;clip-path:polygon(0 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,0 100%);flex:none}
+.mrefx{font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--fg1);margin-left:16px;text-transform:uppercase;white-space:nowrap}
+.mtxt{margin:9px 0 0 118px}
+.mtxt p{margin:0;font-size:13px;color:var(--fg2);line-height:1.6}
+.mtxt i{text-decoration:underline;text-underline-offset:2px}
+.rwchip{align-self:center;width:calc(100% - 13px);height:42px;display:flex;align-items:center;background:var(--sa);color:#fffef9;font-family:var(--font-display);text-transform:uppercase;font-size:19px;px;letter-spacing:.02em;padding:0 8px 0 14px;border-radius:8px 0 0 8px;position:relative}
+.rwchip::after{content:'';position:absolute;left:100%;top:0;width:13px;height:100%;background:var(--sa);clip-path:polygon(0 0,100% 50%,0 100%)}
+.marrow{position:relative;z-index:1}
+.mline6{position:absolute;left:0;top:126px;bottom:128px;width:100px;border-right:4px solid var(--sa);border-bottom:4px solid var(--sa);border-bottom-right-radius:28px;z-index:0;pointer-events:none}
+.mband .mval{font-size:12px;color:var(--fg3);font-style:italic;margin-top:3px}
+.mband .mval b{color:var(--sa);font-style:normal;font-weight:600}
+.mband.mq .mtxt{flex:1;margin:0}
+/* Luke 9 rhythms table */
+  .rhead{display:flex;align-items:stretch;gap:24px;border-bottom:1px solid var(--hairline);padding-bottom:16px}
+.rhead-l{flex:none}
+.rhead-r{border-left:3px solid var(--sa);padding-left:22px;display:flex;align-items:center;max-width:330px;text-wrap:balance}
+.rhead-r p{margin:0;font-size:13px;line-height:1.5;color:var(--fg2)}
+.rhy{flex:1;display:grid;grid-template-rows:repeat(5,1fr);margin-top:10px}
+.rhyrow{display:grid;grid-template-columns:168px 1fr 208px;gap:20px;align-items:center;border-top:1px solid var(--hairline);padding:6px 0}
+.rhyrow:first-child{border-top:none}
+.rhyrow:last-child{border-bottom:1px solid var(--hairline)}
+.rhyrow .rw{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:24px;line-height:.94;color:var(--fg1)}
+.rhyrow .rq{font-size:13px;color:var(--fg2);font-style:italic;line-height:1.5}
+.rhyrow .rq b{font-style:normal;font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--sa);letter-spacing:.05em;display:block;margin-top:5px}
+.rhyrow .rt{display:flex;flex-direction:column;gap:5px}
+.rhyrow .rt span{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--fg1);font-weight:600;padding-left:17px;position:relative}
+.rhyrow .rt span::before{content:'→';position:absolute;left:0;color:var(--sa)}
+/* role overview spine */
+  .roleov{flex:1;display:grid;grid-template-rows:repeat(4,1fr);position:relative;margin-top:2px}
+.roleov::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--hairline)}
+.rolb{position:relative;display:grid;grid-template-columns:16px 196px 1fr;gap:0 22px;align-items:center;padding:10px 0}
+.rolb::before{content:'';position:absolute;left:7px;right:0;top:0;height:1px;background:var(--hairline)}
+.rolb:last-child::after{content:'';position:absolute;left:7px;right:0;bottom:0;height:1px;background:var(--hairline)}
+.rolb .rail{position:relative;align-self:stretch}
+.rolb .rail i{position:absolute;left:7px;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:var(--sa)}
+.rolb .rtier{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--sa);font-weight:600;margin-bottom:7px}
+.rolb .rname{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:27px;line-height:.9;color:var(--fg1)}
+.rolb ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;align-content:center}
+.rolb li{font-size:13px;color:var(--fg2);line-height:1.4;padding-left:16px;position:relative}
+.rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--sa)}
+/* big three event stack */
+  .b3{flex:1;display:grid;grid-template-rows:repeat(3,1fr);margin-top:8px}
+.b3row{display:grid;grid-template-columns:315px 250px;gap:30px;justify-content:start;align-items:center;border-top:1px solid var(--hairline);padding:10px 0}
+.b3row:last-child{border-bottom:1px solid var(--hairline)}
+.b3row:first-child{border-top:none}
+/* title .hr serves as the top break line */
+  .b3row .bn{font-family:var(--font-display);font-weight:700;text-transform:none;font-size:30px;line-height:.98;letter-spacing:-.015em;white-space:nowrap;color:var(--fg1)}
+.b3row .bn .ref{display:block;margin-left:0;font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:.9;letter-spacing:normal;color:var(--sa);vertical-align:baseline;margin-bottom:1px}
+.b3row .bd{font-size:13px;color:var(--fg2);line-height:1.5;margin-top:8px}
+.b3row .tip{border-left:3px solid var(--sa);padding:2px 0 2px 14px}
+.b3row .tip .tk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--sa);font-weight:700;margin-bottom:5px}
+.b3row .tip p{margin:0;font-size:13px;color:var(--fg2);line-height:1.45}
+</style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
@@ -685,7 +758,7 @@
     <div class="eyebrow">What&rsquo;s Inside</div>
     <h2 class="disp">Contents</h2>
     <div class="hr"></div>
-    <div class="rows"><div class="trow"><span class="tn">01</span><span class="tt">The Mission<small>Why we exist</small></span><span class="tp">05</span></div><div class="trow"><span class="tn">02</span><span class="tt">Your Role<small>What we ask &amp; what a win looks like</small></span><span class="tp">09</span></div><div class="trow"><span class="tn">03</span><span class="tt">Leading Well in Groups<small>Before, during &amp; when it gets hard</small></span><span class="tp">13</span></div><div class="trow"><span class="tn">04</span><span class="tt">Shepherding Students Beyond Groups<small>Trust, follow-up &amp; discipleship</small></span><span class="tp">19</span></div><div class="trow"><span class="tn">05</span><span class="tt">Decision Guide<small>Helping students take their next step</small></span><span class="tp">26</span></div><div class="trow"><span class="tn">06</span><span class="tt">Safety &amp; Care<small>In person, online &amp; tough conversations</small></span><span class="tp">30</span></div></div>
+    <div class="rows"><div class="trow"><span class="tn">01</span><span class="tt">Mission + Mantras<small>Who we are &amp; what guides us</small></span><span class="tp">05</span></div><div class="trow"><span class="tn">02</span><span class="tt">Your Role<small>What we ask &amp; what a win looks like</small></span><span class="tp">11</span></div><div class="trow"><span class="tn">03</span><span class="tt">Big Three<small>Launch, Leader Night, Celebration &amp; Unleashed</small></span><span class="tp">17</span></div><div class="trow"><span class="tn">04</span><span class="tt">Leading Well in Groups<small>Before, during &amp; when it gets hard</small></span><span class="tp">21</span></div><div class="trow"><span class="tn">05</span><span class="tt">Shepherding Students Beyond Groups<small>Trust, follow-up &amp; discipleship</small></span><span class="tp">27</span></div><div class="trow"><span class="tn">06</span><span class="tt">Decision Guide<small>Helping students take their next step</small></span><span class="tp">34</span></div><div class="trow"><span class="tn">07</span><span class="tt">Safety &amp; Care<small>In person, online &amp; tough conversations</small></span><span class="tp">38</span></div></div>
     <div class="foot"><span class="sec">SE Students</span><span class="sec">Small Group Leaders</span></div>
   </section>
 
@@ -712,44 +785,120 @@
     <div class="foot"><span class="sec">Welcome</span><span class="pn">04</span></div>
   </section>
 
-  <section class="page divider gl" data-screen-label="Divider—The Mission">
+  <section class="page divider tlx" data-screen-label="Divider—Mission + Mantras">
     <div class="ghost disp">01</div>
     <div class="inner">
       <div class="secno">SECTION 01</div>
-      <h2 class="disp">The<br>Mission</h2>
-      <div class="sub">Why we exist&mdash;the one calling that gets everyone working toward the same goal.</div>
+      <h2 class="disp">Mission +<br>Mantras</h2>
+      <div class="sub">The GPS that keeps every ministry effort on course.</div>
       <div class="tab"></div>
     </div>
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">05</span></div>
   </section>
 
-  <section class="page content mission gl" data-screen-label="The Mission—Why We Exist">
+  <section class="page content tlx sintro" data-screen-label="Mission—Who We Are">
     <div>
-      <div class="eyebrow">The Mission</div>
-      <h2 class="disp">Why We Exist</h2>
+      <div class="eyebrow">Mission + Mantras</div>
+      <h2 class="disp">Who We Are</h2>
       <div class="hr"></div>
     </div>
     <div class="rows">
-      <div class="declare">
-        <div class="dl">Southeast Christian Church &middot; Mission</div>
-        <div class="dq">Connecting people to <em>Jesus</em><br>and to <em>one another</em>.</div>
-      </div>
-      <p class="lead">That means every effort, every prayer at Southeast works to fulfill it—Student Ministry included. Our mission is biblically rooted in both:</p>
-      <div class="scrow">
-        <div class="scripture">
-          <div class="sref" style="font-size: 15px">The Great Commandment</div>
-          <div class="scite" style="margin: 10px 0px 0px">Matthew 22:37&ndash;39</div>
-          <div class="sverse">&ldquo;Love the Lord your God with all your heart and with all your soul and with all your mind. &hellip; And a second is like it: love your neighbor as yourself.&rdquo;</div>
-        </div>
-        <div class="scripture">
-          <div class="sref" style="font-size: 15px">The Great Commission</div>
-          <div class="scite" style="margin: 10px 0px 0px">Matthew 28:19&ndash;20</div>
-          <div class="sverse">&ldquo;Go therefore and make disciples of all nations &hellip; and behold, I am with you always, to the end of the age.&rdquo;</div>
-        </div>
-      </div>
-      <p class="lead"><b>As a member of the Student Ministry team</b>—no matter your role, from leading a group to welcoming people at the door—this is what you’re signing up to do.</p>
+      <p class="lead" style="color:#080909">As members of the body of Christ, we seek Great Commission and Great Commandment living <span class="ref">(Matt. 22:37&ndash;40 &middot; Matt. 28:18&ndash;20).</span></p>
+      <p class="lead">As members of this local body of Christ called Southeast, we seek to live this way through connecting people to Jesus and one another, utilizing some metaphors based on the life of Christ to keep us focused.</p>
+      <p class="lead"><b>You, as a Group Leader in Student Ministry, are a culture carrier of our Mission and Mantras.</b> You should frequently use them as a GPS to keep our ministry efforts focused on accomplishing Great Commission and Great Commandment living.</p>
     </div>
-    <div class="foot"><span class="sec">The Mission</span><span class="pn">06</span></div>
+    <div class="foot"><span class="sec">Mission + Mantras</span><span class="pn">06</span></div>
+  </section>
+
+  <section class="page content tlx" data-screen-label="Mission + Vision Statements">
+    <div>
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="disp">Mission <span class="hib">+</span> Mantras</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="mv">
+      <div class="mvcol">
+        <div class="mvword lt"><span>M</span><span class="istem stem-l"></span><span>SSION</span></div>
+        <div class="mvstack">
+          <div class="mvbox lt">Connecting</div>
+          <div class="mvbox lt">People</div>
+          <div class="mvbox lt">To Jesus</div>
+          <div class="mvbox lt">And</div>
+          <div class="mvbox lt">One Another</div>
+        </div>
+      </div>
+      <div class="mvcol">
+        <div class="mvword dk"><span>V</span><span class="istem stem-r"></span><span>SION</span></div>
+        <div class="mvstack">
+          <div class="mvbox dk">To Unleash</div>
+          <div class="mvbox dk">The Full Force</div>
+          <div class="mvbox dk">Of the Church</div>
+          <div class="mvbox dk">To Love People</div>
+          <div class="mvbox dk">One at a Time</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Mission + Mantras</span><span class="pn">07</span></div>
+  </section>
+
+  <section class="page content tlx" data-screen-label="The Five Mantras">
+    <div class="mline6" style="width:99px;height:517px"></div>
+    <div>
+      <div class="eyebrow">Metaphors from the Life of Christ</div>
+    </div>
+    <div class="marrows">
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Be the Branch</div>
+          <div class="mrefx">( John 15:1&ndash;17 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We connect in community.</p>
+          <p>We value connection <i>to</i> Jesus over production <i>for</i> Jesus.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Catch the Wind</div>
+          <div class="mrefx">( John 3:1&ndash;8 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We connect the full force of the church with the Holy Spirit.</p>
+          <p>We value risk and adventure over safety and comfort.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Wreck the Roof</div>
+          <div class="mrefx">( Luke 5:18&ndash;25 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We will radically love people one at a time.</p>
+          <p>We value innovation over tradition.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Grip the Plow</div>
+          <div class="mrefx">( Luke 9:57&ndash;62 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We serve with intentional and focused effort.</p>
+          <p>We value personal engagement over attendance.</p>
+        </div>
+      </div>
+      <div class="marrow">
+        <div class="mbar">
+          <div class="mchipA">Empty the Jar</div>
+          <div class="mrefx">( Luke 7:36&ndash;50 )</div>
+        </div>
+        <div class="mtxt">
+          <p>We connect through sacrificial generosity.</p>
+          <p>We value expressive worship over religious rituals.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Mission + Mantras</span><span class="pn">08</span></div>
   </section>
 
   <section class="page content" data-screen-label="The Mission—Four Questions">
@@ -765,7 +914,7 @@
       <div class="row"><div class="k sm">03</div><div><div class="t">How am I connecting people to Jesus?</div><div class="b">As we are transformed, our purpose shifts. Jesus understood His mission&mdash;to seek and save the lost. He left the mission in the disciples&rsquo; hands. That mission is now yours to carry.</div></div></div>
       <div class="row"><div class="k sm">04</div><div><div class="t">How am I connecting people to one another?</div><div class="b">Neighborhoods, schools, workplaces and families need you to have vision for cultivating community. Belonging often opens the door of reception to Christ.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">The Mission</span><span class="pn">07</span></div>
+    <div class="foot"><span class="sec">The Mission</span><span class="pn">09</span></div>
   </section>
 
   <section class="page content" data-screen-label="The Mission—Now &amp; Next Values">
@@ -776,7 +925,7 @@
       <p class="lead">It&rsquo;s easy to focus on what&rsquo;s happening in a student&rsquo;s life <i>now</i> and forget to prepare them for what&rsquo;s <i>next</i>. These five values shape how we lead&mdash;and what we ask of you.</p>
     </div>
     <div class="rows"><div class="row"><div class="k sm">01</div><div><div class="t">Be equipped</div><div class="b">You&rsquo;re not on your own. We&rsquo;ll equip and empower you to shepherd students through training, huddles, and a team leader in your corner.<span class="ref">Ephesians 4:12</span></div></div></div><div class="row"><div class="k sm">02</div><div><div class="t">Partner with parents</div><div class="b">Parents are the biggest influence in a student&rsquo;s faith. Learn their names, keep them in the loop, and work with them, not around them.</div></div></div><div class="row"><div class="k sm">03</div><div><div class="t">Reach the lost</div><div class="b">Help your students see their friends the way Jesus does&mdash;and give them the courage to invite and share.</div></div></div><div class="row"><div class="k sm">04</div><div><div class="t">Next steps</div><div class="b">Help every student take their next step with Jesus and in life: baptism, a group, a serving role, a mission trip.</div></div></div><div class="row"><div class="k sm">05</div><div><div class="t">Intergenerational</div><div class="b">Students grow when adults of every age know them. Connect them to the wider church to serve, worship, and learn alongside other generations.</div></div></div></div>
-    <div class="foot"><span class="sec">The Mission</span><span class="pn">08</span></div>
+    <div class="foot"><span class="sec">The Mission</span><span class="pn">10</span></div>
   </section>
 
   <section class="page divider gl" data-screen-label="Divider—Your Role">
@@ -787,7 +936,97 @@
       <div class="sub">What we ask of you&mdash;and what a win looks like.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">09</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">11</span></div>
+  </section>
+
+  <section class="page content tlx" data-screen-label="Your Role—Role Overview">
+    <div>
+      <div class="eyebrow">Student Ministry</div>
+      <h2 class="disp">Role Overview</h2>
+    </div>
+    <div class="rows">
+      <div class="roleov">
+      <div class="rolb" style="width:643px;height:125px">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Staff</div></div>
+        <ul>
+          <li>Shepherding Team Leaders</li>
+          <li>Keeping the whole ministry on mission</li>
+          <li>Being examples to the flock<span class="ref">1 Peter 5:2&ndash;4</span></li>
+          <li>Equipping Team Leaders</li>
+        </ul>
+      </div>
+      <div class="rolb">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Team Leader</div></div>
+        <ul>
+          <li>Shepherding a team of leaders</li>
+          <li>Keeping your team focused on the mission</li>
+          <li>Setting the pace for your teams</li>
+          <li>Leading by example for your team<span class="ref">1 Cor. 11:1</span></li>
+        </ul>
+      </div>
+      <div class="rolb">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Leader</div></div>
+        <ul>
+          <li>Shepherding students</li>
+          <li>Initiating investment in a few</li>
+          <li>Living out your spiritual gifts in the context of<br>your team and the ministry in which you serve</li>
+        </ul>
+      </div>
+      <div class="rolb">
+        <div class="rail"><i></i></div>
+        <div class="rlab"><div class="rname">Support Leader</div></div>
+        <ul>
+          <li>Plugging new and unconnected students in</li>
+          <li>Supporting ministry efforts</li>
+          <li>Engaging students and families</li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Your Role</span><span class="pn">12</span></div>
+  </section>
+
+  <section class="page content tlx" data-screen-label="Your Role—Luke 9 Rhythms">
+    <div class="rhead">
+      <div class="rhead-l">
+        <div class="eyebrow">If Jesus Led a Small Group</div>
+        <h2 class="disp">Luke 9 Rhythms</h2>
+      </div>
+      <div class="rhead-r" style="flex:1;max-width:none">
+        <p>Five rhythms for leader culture, based on the Luke 9 ministry team&mdash;and where you live them as a Group Leader.</p>
+      </div>
+    </div>
+    <div class="rhy">
+      <div class="rhyrow">
+        <div class="rwchip">Community</div>
+        <div class="rq">&ldquo;Jesus called the twelve together&hellip;&rdquo;<b>Luke 9:1a</b></div>
+        <div class="rt"><span>Small Group</span><span>Huddles</span><span>Hangouts</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Equipping</div>
+        <div class="rq">&ldquo;He gave them power and authority&hellip;&rdquo;<b>Luke 9:1b</b></div>
+        <div class="rt"><span>Unleashed Leaders</span><span>Big 3</span><span>Trainings</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Mission</div>
+        <div class="rq">&ldquo;He sent them out&hellip;&rdquo;<b>Luke 9:2</b></div>
+        <div class="rt"><span>Your +1</span><span>School Engagement</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Care</div>
+        <div class="rq">&ldquo;They all ate and were satisfied&hellip;&rdquo;<b>Luke 9:17</b></div>
+        <div class="rt"><span>Your Team Leader</span><span>Follow-Up</span></div>
+      </div>
+      <div class="rhyrow">
+        <div class="rwchip">Retreat</div>
+        <div class="rq">&ldquo;Jesus was praying in private and his disciples were with him&hellip;&rdquo;<b>Luke 9:18</b></div>
+        <div class="rt"><span>Camps &amp; Retreats</span><span>Celebrations</span></div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Your Role</span><span class="pn">13</span></div>
   </section>
 
   <section class="page content" data-screen-label="Your Role—Three Wins">
@@ -802,7 +1041,7 @@
       <div class="row"><div class="k sm">02</div><div><div class="t">Connect to one another</div><div class="b">Did your students connect? Watch for the one sitting off to the side on their phone, and help the group pull them back in. Students just want simple relational connection.</div></div></div>
       <div class="row"><div class="k sm">03</div><div><div class="t">One at a time</div><div class="b">One meal, one conversation, one need, one prayer. Keep a listening ear open&mdash;listen for ways you can follow up during the week.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">Your Role</span><span class="pn">10</span></div>
+    <div class="foot"><span class="sec">Your Role</span><span class="pn">14</span></div>
   </section>
 
   <section class="page content xps" data-screen-label="Your Group—Expectations (Left)">
@@ -850,7 +1089,7 @@
       <div><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);font-weight:700">&nbsp;</div><div style="font-size:12px;color:var(--fg1);font-weight:700;margin-top:3px">On time</div><div style="font-size:11.5px;color:var(--fg2);line-height:1.4;margin-top:2px">30 minutes before service, every week.</div></div>
       <div><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);font-weight:700">&nbsp;</div><div style="font-size:12px;color:var(--fg1);font-weight:700;margin-top:3px">August to July</div><div style="font-size:11.5px;color:var(--fg2);line-height:1.4;margin-top:2px">Students thrive on consistency. Your co-leader covers you for sickness or travel.</div></div>
     </div>
-    <div class="foot"><span class="sec">Your Role</span><span class="pn">11</span></div>
+    <div class="foot"><span class="sec">Your Role</span><span class="pn">15</span></div>
   </section>
 
   <section class="page content xps" data-screen-label="Your Group—Expectations (Right)">
@@ -859,18 +1098,90 @@
       <div style="height:59px"></div><div class="hr"></div>
     </div>
     <div class="rows"><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-roof"/></svg></div><div><div class="xn">Wreck the Roof<span class="ref">Luke 5:18&ndash;25</span></div><div class="xt">We will radically love people one at a time. We value innovation over tradition.</div><ul><li>Create new ways to connect with your group&mdash;hang-outs, bringing things to group.</li><li>Lead your group to invite friends. Plan how you will celebrate a new student, and create a group identity.</li><li>Know where each student is spiritually. Anyone not baptized? Anyone struggling with faith?</li><li><b>Have a Timothy.</b> When asked, be able to say their name. Do for one what you wish you could do for everyone.</li></ul></div></div><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-plow"/></svg></div><div><div class="xn">Grip the Plow<span class="ref">Luke 9:57&ndash;62</span></div><div class="xt">We serve with intentional and focused effort. We value personal engagement over attendance.</div><ul><li>Serve with HSM or MSM every week, including the leader meeting.</li><li>Have one touchpoint with a student outside of service each week&mdash;a text, a shared scripture, coffee, a game or recital.</li></ul></div></div><div class="xp"><div class="xi"><svg viewBox="0 0 64 64"><use href="#ic-jar"/></svg></div><div><div class="xn">Empty the Jar<span class="ref">Luke 7:36&ndash;50</span></div><div class="xt">We connect through sacrificial generosity. We value expressive worship over religious rituals.</div><ul><li><b>Go to the big events:</b> Camp (HSC / MSC), Experience WKND (MSM overnight), Fall Retreat (HSM overnight).</li><li><b>Own a +1.</b> Step up and own one more responsibility: communion prep, set-up and tear-down, hosting, teaching, tech, contacting first-time guests.</li></ul></div></div></div>
-    <div class="foot"><span class="sec">Your Role</span><span class="pn">12</span></div>
+    <div class="foot"><span class="sec">Your Role</span><span class="pn">16</span></div>
   </section>
 
-  <section class="page divider gl" data-screen-label="Divider—Leading Well in Groups">
+  <section class="page divider tlx" data-screen-label="Divider—Big Three">
     <div class="ghost disp">03</div>
     <div class="inner">
       <div class="secno">SECTION 03</div>
+      <h2 class="disp">Big<br>Three</h2>
+      <div class="sub">MSM + HSM. Three times a year we gather all our Student Ministry leaders together.</div>
+      <div class="tab"></div>
+    </div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">17</span></div>
+  </section>
+
+  <section class="page content tlx sintro" data-screen-label="Big Three—Overview">
+    <div>
+      <div class="eyebrow">All Leaders &middot; Three Times a Year</div>
+      <h2 class="disp">The Big Three</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead"><b>These are high priority events for our ministry. We expect you to be fully present.</b></p>
+      <p class="lead">The Big Three are also a pivotal part of our onboarding process for new leaders. Connected to each one, we host an <b>Unleashed Leader Training</b> for all new and potential leaders to on-ramp into our ministry&mdash;with flexibility for onboarding when we aren&rsquo;t near one of those planned starting points.</p>
+      <p class="lead">Your participation at each of these keystone moments is vital. We believe these moments together as a Student Ministry are foundational to keeping us aligned. <b>Put these dates on your calendar every year&mdash;and bring someone with you!</b></p>
+    </div>
+    <div class="foot"><span class="sec">Big Three</span><span class="pn">18</span></div>
+  </section>
+
+  <section class="page content tlx" data-screen-label="Big Three—Events & Tips">
+    <div>
+      <div class="eyebrow">The Big Three</div>
+      <h2 class="disp">Events <span class="hib">+</span> Tips</h2>
+      <div class="hr"></div>
+    </div>
+    <div class="b3">
+      <div class="b3row">
+        <div>
+          <div class="bn"><span class="ref">August</span>Leader Launch</div>
+          <div class="bd">Vision cast + launch into the new school year.</div>
+        </div>
+        <div class="tip"><div class="tk">Tip</div><p>Lock in the date before summer. Know someone who&rsquo;d make a great leader? Invite them to serve at camp&mdash;camp is the best on-ramp into the fall.</p></div>
+      </div>
+      <div class="b3row">
+        <div>
+          <div class="bn"><span class="ref">January</span>Leader Night</div>
+          <div class="bd">Reset + halftime speech for second semester.</div>
+        </div>
+        <div class="tip"><div class="tk">Tip</div><p>Save the date in August, before the semester fills up. It&rsquo;s the reset you&rsquo;ll want for spring.</p></div>
+      </div>
+      <div class="b3row">
+        <div>
+          <div class="bn"><span class="ref">May</span>Leader Celebration</div>
+          <div class="bd">Celebrate all that God has done.</div>
+        </div>
+        <div class="tip"><div class="tk">Tip</div><p>Save the date in January. Bring someone who&rsquo;s thinking about serving&mdash;it&rsquo;s a great first look at our team before camp.</p></div>
+      </div>
+    </div>
+    <div class="foot"><span class="sec">Big Three</span><span class="pn">19</span></div>
+  </section>
+
+  <section class="page content tlx" data-screen-label="Unleashed Leaders—All Year">
+    <div>
+      <div class="eyebrow">Preceding Each of the Big Three</div>
+      <h2 class="disp">Unleashed Leaders <span class="hib">(All Year)</span></h2>
+      <div class="hr"></div>
+    </div>
+    <div class="rows">
+      <p class="lead"><b>Unleashed Leaders is a deep dive into our &ldquo;why&rdquo;</b>&mdash;a training we expect every new leader to go through.</p>
+      <p class="lead">It sets up new leaders to learn who we are as a Student Ministry. Whether someone joins to lead a group or serve at check-in, they need to know our primary aim is to make disciples. We look at the life of Christ and allow it to inform how we approach ministry.</p>
+      <p class="lead">Since Jesus himself continually raised the bar for his disciples, we inform those joining us about the cost of following Jesus up front, so later they aren&rsquo;t surprised by what we ask of them. In some ways it can appear we are talking people out of doing ministry. In actuality, we are just echoing Jesus&rsquo; call to make disciples&mdash;even some who heard it straight from Jesus&rsquo; mouth chose not to follow.</p>
+      <p class="lead">We know things happen&mdash;but being up front about the commitment pays dividends when leaders know what they are signing up for and stick it out. Know someone who should serve with us? <b>Unleashed Leaders is their front door</b>&mdash;invite them and point them to the next one. <b>We love the community of leaders God has blessed us with. We get to fulfill Jesus&rsquo; mission together!</b></p>
+    </div>
+    <div class="foot"><span class="sec">Big Three</span><span class="pn">20</span></div>
+  </section>
+
+  <section class="page divider gl" data-screen-label="Divider—Leading Well in Groups">
+    <div class="ghost disp">04</div>
+    <div class="inner">
+      <div class="secno">SECTION 04</div>
       <h2 class="disp">Leading Well<br>in Groups</h2>
       <div class="sub">Practical skills for every group night&mdash;before, during, and when it gets hard.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">13</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">21</span></div>
   </section>
 
   <section class="page content" data-screen-label="Leading Well—Before Group">
@@ -881,7 +1192,7 @@
       <p class="lead">Most group problems are solved before group starts.</p>
     </div>
     <div class="rows"><div class="row"><div class="k sm">01</div><div><div class="t">Sit with your students</div><div class="b">During large group, spread out through the room, not along the back wall. It protects the environment, builds shared memories, and keeps you close when a student needs you.</div></div></div><div class="row"><div class="k sm">02</div><div><div class="t">Split up the leaders</div><div class="b">Sit across the circle from your co-leader. You&rsquo;ll engage the whole group and cut down on side conversations.</div></div></div><div class="row"><div class="k sm">03</div><div><div class="t">Set group guidelines</div><div class="b">Let students help write them, then come back to them all semester. Start with these:<div style="margin-top:6px"><span style="display:inline-block;font-size:12px;color:var(--fg2);background:#fffdf5;border:1px solid var(--hairline);border-radius:999px;padding:4px 11px;margin:4px 6px 0 0">Respect one another</span><span style="display:inline-block;font-size:12px;color:var(--fg2);background:#fffdf5;border:1px solid var(--hairline);border-radius:999px;padding:4px 11px;margin:4px 6px 0 0">Stay with the group the whole time</span><span style="display:inline-block;font-size:12px;color:var(--fg2);background:#fffdf5;border:1px solid var(--hairline);border-radius:999px;padding:4px 11px;margin:4px 6px 0 0">What&rsquo;s shared here stays here</span><span style="display:inline-block;font-size:12px;color:var(--fg2);background:#fffdf5;border:1px solid var(--hairline);border-radius:999px;padding:4px 11px;margin:4px 6px 0 0">Don&rsquo;t interrupt</span><span style="display:inline-block;font-size:12px;color:var(--fg2);background:#fffdf5;border:1px solid var(--hairline);border-radius:999px;padding:4px 11px;margin:4px 6px 0 0">Put away distractions (like phones)</span></div></div></div></div></div>
-    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">14</span></div>
+    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">22</span></div>
   </section>
 
   <section class="page content" data-screen-label="Your Role—5 Keys">
@@ -904,9 +1215,9 @@
       <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">02</span></div><div><div class="t">Turn statements into questions</div><div class="b">Facilitate, don&rsquo;t teach. Use more question marks than periods, and skip yes-or-no questions.</div></div></div>
       <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">03</span></div><div><div class="t">Involve every student</div><div class="b">Don&rsquo;t fill the silence with your own answer. Ask &ldquo;What do you think?&rdquo; and give it room&mdash;a little awkward silence never hurt anybody.</div></div></div>
       <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">04</span></div><div><div class="t">Don&rsquo;t read off the curriculum</div><div class="b">Know the topic ahead of time and ask in your own words. The less you look down, the more it feels like a conversation.</div></div></div>
-      <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">05</span></div><div><div class="t">Follow up during the week</div><div class="b">Students need someone to walk with them, not talk at them. See <b>Follow Up</b> for how&mdash;page 21.</div></div></div>
+      <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">05</span></div><div><div class="t">Follow up during the week</div><div class="b">Students need someone to walk with them, not talk at them. See <b>Follow Up</b> for how&mdash;page 29.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">15</span></div>
+    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">23</span></div>
   </section>
 
   <section class="page content" data-screen-label="Your Role—Getting Unstuck">
@@ -922,7 +1233,7 @@
       <div class="row"><div class="ghn">04</div><div><div class="t">Get better questions</div><div class="b">A great question yields as much as a great answer. Practice them before group; write a few of your own.</div></div></div>
       <div class="row"><div class="ghn">05</div><div><div class="t">Get visual</div><div class="b">A big sticky pad and a few markers pull everyone in. Drawing or writing answers makes the lesson stick.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">16</span></div>
+    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">24</span></div>
   </section>
 
   <section class="page content" data-screen-label="Leading Well—Prayer in Groups">
@@ -933,7 +1244,7 @@
       <p class="lead">Your group may be the only place a student is prayed for all week.</p>
     </div>
     <div class="rows"><div class="row"><div class="k sm">01</div><div><div class="t">Ask for requests</div><div class="b">&ldquo;How can I pray for you?&rdquo; Then go further: what are you thankful for? Where have you seen God move?</div></div></div><div class="row"><div class="k sm">02</div><div><div class="t">Write them down</div><div class="b">What students share matters. It&rsquo;s okay to pull out paper&mdash;it helps you keep praying all week.</div></div></div><div class="row"><div class="k sm">03</div><div><div class="t">Set time aside</div><div class="b">Don&rsquo;t save prayer for the last minute. Rushed prayer tells students it isn&rsquo;t important.</div></div></div><div class="row"><div class="k sm">04</div><div><div class="t">Let students pray</div><div class="b">Ask who wants to pray for the group. If no one volunteers, happily take it yourself.</div></div></div><div class="row"><div class="k sm">05</div><div><div class="t">Tell them you&rsquo;re praying</div><div class="b">Remind students you pray for them during the week, and check in on the hard ones.</div></div></div></div>
-    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">17</span></div>
+    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">25</span></div>
   </section>
 
   <section class="page content" data-screen-label="Leading Well—Student Behavior">
@@ -941,26 +1252,26 @@
       <div class="eyebrow">Leading Well</div>
       <h2 class="disp">Student Behavior</h2>
       <div class="hr"></div>
-      <p class="lead">The goal is to keep every student in the room. Start with your group guidelines (page 14). When behavior keeps getting in the way, follow three strikes.</p>
+      <p class="lead">The goal is to keep every student in the room. Start with your group guidelines (page 22). When behavior keeps getting in the way, follow three strikes.</p>
     </div>
     <div class="rows">
       <div class="row" style="grid-template-columns:96px 1fr"><div><div style="font-family:var(--font-display);font-size:40px;line-height:.8;color:var(--ember)">01</div><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);margin-top:6px">Strike 1</div></div><div><div class="t">Both leaders talk with the student</div><div class="b">Have an intentional conversation: &ldquo;We&rsquo;re so glad you&rsquo;re here, and when you&rsquo;re here, you can&rsquo;t ______.&rdquo; Name the specific behavior with examples, and make sure the student understands.</div></div></div>
       <div class="row" style="grid-template-columns:96px 1fr"><div><div style="font-family:var(--font-display);font-size:40px;line-height:.8;color:var(--ember)">02</div><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);margin-top:6px">Strike 2</div></div><div><div class="t">Bring in your team leader</div><div class="b">A second conversation addresses the issue with the next level of leadership.</div></div></div>
       <div class="row" style="grid-template-columns:96px 1fr"><div><div style="font-family:var(--font-display);font-size:40px;line-height:.8;color:var(--ember)">03</div><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);margin-top:6px">Strike 3</div></div><div><div class="t">Bring in staff</div><div class="b">The student is told that if the issue isn&rsquo;t corrected, staff will call a meeting with their parents or guardians.</div></div></div>
     </div>
-    <div style="margin-top:auto;padding:12px 16px;border-left:4px solid var(--ember);background:#fffdf5;border-radius:0 8px 8px 0;font-size:12.5px;color:var(--fg2);line-height:1.45">Every campus has different layers of leadership. If your campus doesn&rsquo;t have a team leader in place, go to staff at Strike 2. A safety concern is never a strike&mdash;bring in staff right away (page 31).</div>
-    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">18</span></div>
+    <div style="margin-top:auto;padding:12px 16px;border-left:4px solid var(--ember);background:#fffdf5;border-radius:0 8px 8px 0;font-size:12.5px;color:var(--fg2);line-height:1.45">Every campus has different layers of leadership. If your campus doesn&rsquo;t have a team leader in place, go to staff at Strike 2. A safety concern is never a strike&mdash;bring in staff right away (page 39).</div>
+    <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">26</span></div>
   </section>
 
   <section class="page divider gl" data-screen-label="Divider—Shepherding Students Beyond Groups">
-    <div class="ghost disp">04</div>
+    <div class="ghost disp">05</div>
     <div class="inner">
-      <div class="secno">SECTION 04</div>
+      <div class="secno">SECTION 05</div>
       <h2 class="disp">Shepherding<br>Students Beyond<br>Groups</h2>
       <div class="sub">Care and discipleship outside of group night&mdash;earning trust, following up, and helping students grow.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">19</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">27</span></div>
   </section>
 
   <section class="page content" data-screen-label="Shepherding—Earning Trust">
@@ -971,7 +1282,7 @@
       <p class="lead">Students open up to leaders they trust. Five ways to earn it:</p>
     </div>
     <div class="rows"><div class="row"><div class="k sm">01</div><div><div class="t">Learn their name</div><div class="b">A name is the sweetest sound to a student. Learning it says they&rsquo;re known, loved, and important.</div></div></div><div class="row"><div class="k sm">02</div><div><div class="t">Be consistent</div><div class="b">When students can count on you being there, they learn they can count on you.</div></div></div><div class="row"><div class="k sm">03</div><div><div class="t">Show up when you don&rsquo;t have to</div><div class="b">Games, recitals, events. Time outside of programming builds the relationship in a more carefree setting.</div></div></div><div class="row"><div class="k sm">04</div><div><div class="t">Jump into teachable moments</div><div class="b">Everyday moments open doors to talk about Jesus. Step through them.</div></div></div><div class="row"><div class="k sm">05</div><div><div class="t">Speak truth in love</div><div class="b">Hard truths land best in a loving, non-threatening space.<span class="ref">Ephesians 4:15</span></div></div></div></div>
-    <div class="foot"><span class="sec">Shepherding Beyond Groups</span><span class="pn">20</span></div>
+    <div class="foot"><span class="sec">Shepherding Beyond Groups</span><span class="pn">28</span></div>
   </section>
 
   <section class="page content" data-screen-label="Shepherding—Follow Up">
@@ -981,8 +1292,8 @@
       <div class="hr"></div>
       <p class="lead">Shepherding students well means listening well in group&mdash;and following up after it.</p>
     </div>
-    <div class="rows"><div class="row"><div class="k sm">01</div><div><div class="t">Listen for the follow-up</div><div class="b">A test, a tryout, a hard week at home. When a student shares it in group, that&rsquo;s your next conversation.</div></div></div><div class="row"><div class="k sm">02</div><div><div class="t">Ask the next question</div><div class="b">&ldquo;How did it go?&rdquo; opens the door. &ldquo;What was the hardest part?&rdquo; keeps it open.</div></div></div><div class="row"><div class="k sm">03</div><div><div class="t">Check in during the week</div><div class="b">A text, a card, a quick call. Keep group texts plural and include your co-leader&mdash;see Digital Guardrails, page 33.</div></div></div><div class="row"><div class="k sm">04</div><div><div class="t">Close the loop</div><div class="b">If something is heavy, ask for updates and let them know you&rsquo;re still praying. If it&rsquo;s a yellow or red light, bring in staff&mdash;page 31.</div></div></div></div>
-    <div class="foot"><span class="sec">Shepherding Beyond Groups</span><span class="pn">21</span></div>
+    <div class="rows"><div class="row"><div class="k sm">01</div><div><div class="t">Listen for the follow-up</div><div class="b">A test, a tryout, a hard week at home. When a student shares it in group, that&rsquo;s your next conversation.</div></div></div><div class="row"><div class="k sm">02</div><div><div class="t">Ask the next question</div><div class="b">&ldquo;How did it go?&rdquo; opens the door. &ldquo;What was the hardest part?&rdquo; keeps it open.</div></div></div><div class="row"><div class="k sm">03</div><div><div class="t">Check in during the week</div><div class="b">A text, a card, a quick call. Keep group texts plural and include your co-leader&mdash;see Digital Guardrails, page 41.</div></div></div><div class="row"><div class="k sm">04</div><div><div class="t">Close the loop</div><div class="b">If something is heavy, ask for updates and let them know you&rsquo;re still praying. If it&rsquo;s a yellow or red light, bring in staff&mdash;page 39.</div></div></div></div>
+    <div class="foot"><span class="sec">Shepherding Beyond Groups</span><span class="pn">29</span></div>
   </section>
 
   <section class="page content" data-screen-label="Shepherding—Using Your Time">
@@ -998,7 +1309,7 @@
       <div style="background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:16px 18px"><div style="font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:24px;line-height:1;color:var(--fg1)">2 Hours</div><ul style="margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px"><li style="font-size:13px;color:var(--fg2);line-height:1.4;padding-left:15px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)"></span>Throw a small group party or hang-out</li><li style="font-size:13px;color:var(--fg2);line-height:1.4;padding-left:15px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)"></span>Plan a service project for your group</li><li style="font-size:13px;color:var(--fg2);line-height:1.4;padding-left:15px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)"></span>Show up for the big moments&mdash;a funeral, a graduation</li></ul></div>
       <div style="background:#fffdf5;border:1px solid var(--hairline);border-radius:10px;padding:16px 18px"><div style="font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:24px;line-height:1;color:var(--fg1)">4 Hours</div><ul style="margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px"><li style="font-size:13px;color:var(--fg2);line-height:1.4;padding-left:15px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)"></span>Volunteer at a school</li><li style="font-size:13px;color:var(--fg2);line-height:1.4;padding-left:15px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)"></span>Take an extra training&mdash;a book or a podcast</li><li style="font-size:13px;color:var(--fg2);line-height:1.4;padding-left:15px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ember)"></span>Serve alongside student staff</li></ul></div>
     </div>
-    <div class="foot"><span class="sec">Shepherding Beyond Groups</span><span class="pn">22</span></div>
+    <div class="foot"><span class="sec">Shepherding Beyond Groups</span><span class="pn">30</span></div>
   </section>
 
   <section class="page content cspread cspread-l" data-screen-label="Further Resources—Four Chairs (Needs &amp; Questions)">
@@ -1040,7 +1351,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
 </p></div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">23</span></div>
+    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">31</span></div>
   </section>
 
   <section class="page content cspread cspread-r" data-screen-label="Further Resources—Four Chairs (Chairs 3 &amp; 4)">
@@ -1076,7 +1387,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <div class="cgroup"><div class="clbl">Questions</div><p>Have they successfully discipled someone into a disciple-maker? Are they secure in their walk with the Lord? Have they committed all of their life to fulfilling Jesus&rsquo; Great Commission?</p></div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">24</span></div>
+    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">32</span></div>
   </section>
 
   <section class="page content" data-screen-label="Make Disciples—I.W.T.F.C.">
@@ -1093,18 +1404,18 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="row"><div class="k">F</div><div><div class="t">Feed&mdash;how do I feed myself?</div><div class="b">Make daily time with God a priority: prayer, worship, reading, journaling, or walking in His creation.</div></div></div>
       <div class="row"><div class="k">C</div><div><div class="t">Clean&mdash;what do I do when I sin?</div><div class="b">Walk students through daily repentance, confession, and a renewed commitment when sin creeps back in.</div></div></div>
     </div>
-    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">25</span></div>
+    <div class="foot"><span class="sec">Shepherding Students</span><span class="pn">33</span></div>
   </section>
 
   <section class="page divider gl" data-screen-label="Divider—Decision Guide">
-    <div class="ghost disp">05</div>
+    <div class="ghost disp">06</div>
     <div class="inner">
-      <div class="secno">SECTION 05</div>
+      <div class="secno">SECTION 06</div>
       <h2 class="disp">Decision<br>Guide</h2>
       <div class="sub">Helping a student take their next step toward Jesus&mdash;and what to say in the moment.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">26</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">34</span></div>
   </section>
 
   <section class="page content bspread bspread-l" data-screen-label="Further Resources—Baptism Guide (Left)">
@@ -1125,7 +1436,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       </ul>
     </div>
 
-    <div class="bsec"><span class="bk"></span><span class="bnc"><span>2.</span></span><div class="bar"><h3>Gospel Conversation <span class="to">( see The Bridge, page 29 )</span></h3></div></div>
+    <div class="bsec"><span class="bk"></span><span class="bnc"><span>2.</span></span><div class="bar"><h3>Gospel Conversation <span class="to">( see The Bridge, page 37 )</span></h3></div></div>
     <div class="bbody grow">
       <div class="gtab">
         <div class="gr">Genesis 1</div><div class="gd">God created us for relationship</div>
@@ -1136,7 +1447,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <div class="gr">Acts 2:38</div><div class="gd">Confession leads to forgiveness of sins</div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">27</span></div>
+    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">35</span></div>
   </section>
 
   <section class="page content bspread bspread-r" data-screen-label="Further Resources—Baptism Guide (Right)">
@@ -1167,7 +1478,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <li>Today is the day of salvation! Will you go now and be Christ&rsquo;s ambassador? He wants to use you to reach others! Who will you tell?</li>
       </ul>
     </div>
-    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">28</span></div>
+    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">36</span></div>
   </section>
 
   <section class="page content bspread bspread-r" data-screen-label="Further Resources—The Bridge">
@@ -1204,18 +1515,18 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <div class="bdiag"><img src="assets/illos/bridge-d4.png" alt="Jesus bridges the gap between us and God"></div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">29</span></div>
+    <div class="foot"><span class="sec">Decision Guide</span><span class="pn">37</span></div>
   </section>
 
   <section class="page divider gl" data-screen-label="Divider—Safety &amp; Care">
-    <div class="ghost disp">06</div>
+    <div class="ghost disp">07</div>
     <div class="inner">
-      <div class="secno">SECTION 06</div>
+      <div class="secno">SECTION 07</div>
       <h2 class="disp">Safety<br>&amp; Care</h2>
       <div class="sub">Keeping students and leaders safe&mdash;in person, online, and in tough conversations.</div>
       <div class="tab"></div>
     </div>
-    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">30</span></div>
+    <div class="foot dark"><span class="sec">SE Students</span><span class="pn">38</span></div>
   </section>
 
   <section class="page content toolbox" data-screen-label="The Toolbox—Conversations Guide">
@@ -1271,7 +1582,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         </div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Safety &amp; Care</span><span class="pn">31</span></div>
+    <div class="foot"><span class="sec">Safety &amp; Care</span><span class="pn">39</span></div>
   </section>
 
   <section class="page" data-screen-label="Guardrails—Interaction" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
@@ -1298,7 +1609,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
           <div style="display:grid;grid-template-columns:13px 1fr;gap:9px;padding:3px 0 3px 4px"><span style="color:var(--ember);font-weight:700;font-size:13.5px;line-height:1.45">•</span><span><b style="font-size:13.5px;color:var(--fg1)">Communicating digitally.</b> <span style="font-size:13.5px;color:var(--fg2);line-height:1.42">When texting or using social media with students, follow the <b style="color:var(--fg1)">Digital Communication Safety Guardrails</b> on the next page.</span></span></div>
         </div>
       </div>
-      <div class="foot"><span class="sec">Safety &amp; Care</span><span class="pn">32</span></div>
+      <div class="foot"><span class="sec">Safety &amp; Care</span><span class="pn">40</span></div>
     </section>
 
   <section class="page" data-screen-label="Guardrails—Digital" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:52px 60px 88px;display:flex;flex-direction:column">
@@ -1327,7 +1638,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
           <div style="font-size:13.5px;line-height:1.5;color:var(--fg2);margin-top:6px">Apps with a “self-destruct mode” can create dangers when adults use them to communicate with minors. To be above reproach, only communicate with students in ways that are traceable. Never delete a conversation with a student.</div>
         </div>
       </div>
-      <div class="foot"><span class="sec">Safety &amp; Care</span><span class="pn">33</span></div>
+      <div class="foot"><span class="sec">Safety &amp; Care</span><span class="pn">41</span></div>
     </section>
 
   <section class="page content" data-screen-label="Group Tools—Placeholder">
@@ -1343,7 +1654,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
         <div style="font-size:14px;color:var(--fg2);line-height:1.55;margin-top:10px">Group Manager · attendance tracking · roster and parent contacts.<br>Content to be added.</div>
       </div>
     </div>
-    <div class="foot"><span class="sec">Group Tools</span><span class="pn">34</span></div>
+    <div class="foot"><span class="sec">Group Tools</span><span class="pn">42</span></div>
   </section>
 
   <section class="page content" data-screen-label="Notes">
@@ -1358,7 +1669,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
       <div class="noteline"></div><div class="noteline"></div>
     </div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">35</span></div>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">43</span></div>
   </section>
 
   <section class="page content" data-screen-label="Notes">
@@ -1373,7 +1684,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
       <div class="noteline"></div><div class="noteline"></div>
     </div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">36</span></div>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">44</span></div>
   </section>
 
   <section class="page content" data-screen-label="Notes">
@@ -1388,7 +1699,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
       <div class="noteline"></div><div class="noteline"></div>
     </div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">37</span></div>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">45</span></div>
   </section>
 
   <section class="page content" data-screen-label="Notes">
@@ -1403,7 +1714,7 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
       <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
       <div class="noteline"></div><div class="noteline"></div>
     </div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">38</span></div>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">46</span></div>
   </section>
 
   <section class="page back gl span2" data-screen-label="Back cover">
@@ -1574,7 +1885,7 @@ function MissionTweaks() {
 
   return (
     <TweaksPanel>
-      <TweakSection label="Vision map labels \u00b7 p.7\u20138" />
+      <TweakSection label="Vision map labels \u00b7 p.9\u20138" />
       <TweakSelect label="Campus name" value={t.mapCampus} options={campusOpts}
                    onChange={(v) => setTweak('mapCampus', v)} />
       <div className="twk-row">
