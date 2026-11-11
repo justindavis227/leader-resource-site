@@ -661,6 +661,7 @@ class Component extends DCLogic {
         dividerBg: 'var(--pitch)', accentText: 'var(--ember)',
         illo: 'assets/icons/circle-one.png',
         synopsis: `We all want to be used to change the world. We don't want to spend our lives being time-wasters, or space-takers, or binge-watchers, or game-players. We want to be difference-makers. But it's easy to get caught up in the everyday stuff of life until the years slowly go by, and with each passing year the question gets louder: "Am I making any difference in this world?" Without a doubt, Jesus is the person who has made the biggest difference in all of history. So how did He do it? If we study His life in the Gospels, one particular phrase captures how Jesus had such an impact, and it's how He wants to use us: one at a time. Making a difference isn't measured by a viral post or a name on a building. It isn't a following or a fan base or a bank account. Want to make a difference? Focus on the one. That's the secret of the way of Jesus. One at a time.`,
+        tip: `Follow up during the week. Students need someone to walk with them, not talk at them\u2014a relationship carried past group can change a life.`,
         weeks: [
           { t:`The Vision of Our Church`, p:`Mark 5:21-43`,
             k:`Jesus loved people one at a time\u2014so should we.`,
@@ -718,6 +719,7 @@ class Component extends DCLogic {
         dividerBg: 'var(--fire)', accentText: 'var(--solar)',
         illo: 'assets/illos/volcano.png',
         synopsis: `Churchy Words is the series we bring back every so often to dive deeper with our students on important subjects in the Bible. The word "trinity" doesn't appear in the Bible, but it helps us capture the mystery of who God is as three persons. Similarly, the "Unholy Trinity" isn't in Scripture, but it names the counterfeit triad the New Testament describes as forces opposing the church. In this series we walk through the book of James to expose the three enemies that constantly war against the life God is forming in us: the flesh, the world, and the devil. James shows us that spiritual warfare isn't just "out there" in obvious darkness\u2014it shows up in our desires, our words, our pride, and the way we drift toward the values around us. The world pressures us from outside, the flesh pulls from inside, and the devil works to deceive, accuse, and divide. But James doesn't just diagnose the battle; he calls us to a faith that is active, surrendered, humble, and whole. Our prayer is that students would recognize the fight they're in, resist the lies they believe, and submit every part of their lives to Jesus\u2014knowing victory isn't found in trying harder, but in drawing near to God, who gives more grace.`,
+        tip: `Don't read off the curriculum. Know the passage ahead of time and ask in your own words; the less you look down, the more it feels like a real conversation.`,
         weeks: [
           { t:`The Flesh`, p:`James 1:13-15; Galatians 5:16-17`,
             k:`Our biggest enemy is often our own desires\u2014but the Spirit gives us power to win the fight.`,
@@ -763,6 +765,7 @@ class Component extends DCLogic {
 Bold Faith isn't only for Bible characters or "professional Christians." It's for every person willing to take a step towards Jesus—and we experience it as we come to know the trustworthy, faithful nature of God. We want students to nurture a bold faith that lasts beyond their current stage of life: students who follow Jesus NOW and in the NEXT season.
 
 One important connection for your students: bold faith doesn't have more power to save than childlike faith, but it helps us live a life of kingdom impact. Our goal is not to make students like Joshua but to connect them to Jesus, the author and perfecter of their faith.`,
+        tip: `Get visual. A big sticky pad and a few markers pull everyone in\u2014drawing or writing answers out makes the points stick.`,
         weeks: [
           { t:`All In`, p:`Joshua 1:1-18`,
             k:`A faith that trusts God completely is anything but boring.`,
@@ -804,6 +807,7 @@ One important connection for your students: bold faith doesn't have more power t
         dividerBg: 'var(--pitch)', accentText: '#e01b2f',
         illo: 'assets/illos/kite-anchor.png',
         synopsis: `Jesus was hated by many because of who was at his table—quite literally who he shared meals with. He was mocked for eating with "sinners and tax collectors" because he wasn't just content with it—he was passionate about reaching "those people." In Acts we see the Church beginning to be led by the Spirit of Christ to do this same thing. It wasn't natural for them but eventually the apostles began to see the joy of inviting people far from God to join them at the table. Today, the church is still on mission to bring people to the table—even people who hate God, hate us, and who sometimes we hate.`,
+        tip: `Involve every student. Ask a question for everyone to answer. Don't rush to fill the silence or answer the question. Ask questions of their questions.`,
         weeks: [
           { t:`People Who Hate God`, p:`Acts 8:4-13`,
             k:`God loved us while we were still far from Him\u2014so we can love people who are far from Him too.`,
@@ -849,7 +853,7 @@ One important connection for your students: bold faith doesn't have more power t
         biblical: w.bi.map((q, j) => ({ n: j + 1, q, sub: j === 0 ? READSUB : [], bb: j === w.bi.length - 1 ? 'none' : '1px solid var(--hairline)' }))
       }));
       return {
-        no: s.no.toUpperCase(),
+        no: (WORD[si] || s.no).toUpperCase(), // numbered by position, so reordering series renumbers them
         tnum: '0' + (si + 1),
         title: s.title,
         short: s.short,
@@ -859,12 +863,7 @@ One important connection for your students: bold faith doesn't have more power t
         accentText: s.accentText,
         accent: ['#e01b2f', '#e01b2f', '#e01b2f', '#e01b2f'][si],
         tipNo: '0' + (si + 2),
-        tip: [
-          `Follow up during the week. Students need someone to walk with them, not talk at them\u2014a relationship carried past group can change a life.`,
-          `Don't read off the curriculum. Know the passage ahead of time and ask in your own words; the less you look down, the more it feels like a real conversation.`,
-          `Get visual. A big sticky pad and a few markers pull everyone in\u2014drawing or writing answers out makes the points stick.`,
-          `Involve every student. Ask a question for everyone to answer. Don't rush to fill the silence or answer the question. Ask questions of their questions.`
-        ][si],
+        tip: s.tip,
         illo: s.illo,
         weeks
       };
@@ -921,5 +920,6 @@ One important connection for your students: bold faith doesn't have more power t
   }
 }
 </script>
+<script src="lrs-edit.js"></script>
 </body>
 </html>

@@ -88,10 +88,11 @@
      booklet = <section class="page"> pages (spreads, folios)
      deck    = <section data-label> slides
      doc     = everything else (R-pages, notes, the library hub): the whole body is one unit */
-  function mode() { if (document.querySelector('section.page')) return 'booklet'; if (document.querySelector('section[data-label]')) return 'deck'; return 'doc'; }
+  function mode() { if (S.data) return 'data'; if (document.querySelector('section.page')) return 'booklet'; if (document.querySelector('section[data-label]')) return 'deck'; return 'doc'; }
   function liveUnits() {
     var m = mode();
     if (m === 'booklet') return Array.prototype.slice.call(document.querySelectorAll('section.page'));
+    if (m === 'data') return Array.prototype.slice.call(document.querySelectorAll('section.pg, section.page'));
     if (m === 'deck') return Array.prototype.slice.call(document.querySelectorAll('section[data-label]'));
     return [document.body];
   }
@@ -115,7 +116,7 @@
     var root = parse(text), A = srcAdapter(text);
     var ss = srcSections(root), ls = liveUnits();
     if (ss.length !== ls.length) throw new Error('Page count on screen (' + ls.length + ') doesn’t match the file (' + ss.length + '). Reload the page and try again.');
-    var blocks = [], miss = 0;
+    var blocks = [], miss = 0, pend = [], usedSrc = new Set();
     for (var p = 0; p < ls.length; p++) {
       var sb = [], lb = [];
       collect(A, ss[p], sb); collect(liveAdapter, ls[p], lb);
@@ -123,11 +124,18 @@
       for (var q = 0; q < lb.length; q++) {
         var lt = norm(lb[q].textContent), hit = -1;
         for (var k = j; k < Math.min(sb.length, j + 40); k++) if (norm(A.text(sb[k])) === lt) { hit = k; break; }
-        if (hit < 0) { miss++; lb[q].setAttribute('data-lrs-locked', ''); continue; }
-        blocks.push({ el: lb[q], src: sb[hit], page: ls[p], orig: lb[q].innerHTML, srcInner: text.slice(sb[hit].innerStart, sb[hit].innerEnd) });
+        if (hit < 0) { pend.push({ el: lb[q], t: lt, sb: sb, page: ls[p] }); continue; }
+        usedSrc.add(sb[hit]); blocks.push({ el: lb[q], src: sb[hit], page: ls[p], orig: lb[q].innerHTML, srcInner: text.slice(sb[hit].innerStart, sb[hit].innerEnd) });
         j = hit + 1;
       }
     }
+    // second pass: anything the screen shows in a different order still matches if its text is unique in the file
+    pend.forEach(function (x) {
+      var c = x.sb.filter(function (s) { return !usedSrc.has(s) && norm(A.text(s)) === x.t; });
+      var twins = pend.filter(function (y) { return y.t === x.t; }).length;
+      if (c.length === 1 && twins === 1) { usedSrc.add(c[0]); blocks.push({ el: x.el, src: c[0], page: x.page, orig: x.el.innerHTML, srcInner: text.slice(c[0].innerStart, c[0].innerEnd) }); }
+      else { miss++; x.el.setAttribute('data-lrs-locked', ''); }
+    });
     return { blocks: blocks, miss: miss };
   }
 
@@ -142,6 +150,7 @@
     return h;
   }
   function serialize() {
+    if (S.data) return serializeLits();
     var edits = [];
     S.blocks.forEach(function (b) { if (b.el.innerHTML !== b.orig) edits.push({ a: b.src.innerStart, z: b.src.innerEnd, html: clean(b.el.innerHTML, b.srcInner) }); });
     edits.sort(function (x, y) { return y.a - x.a; });
@@ -149,23 +158,30 @@
     edits.forEach(function (e) { t = t.slice(0, e.a) + e.html + t.slice(e.z); });
     return { text: t, count: edits.length };
   }
-  function dirtyCount() { var c = 0; S.blocks.forEach(function (b) { if (b.el.innerHTML !== b.orig) c++; }); return c; }
+  function isDirty(b) { return b.kind === 'lit' ? litDirty(b) : b.el.innerHTML !== b.orig; }
+  function dirtyCount() { var c = 0; S.blocks.forEach(function (b) { if (isDirty(b)) c++; }); return c; }
 
   /* ---------- overflow warnings ---------- */
   function checkOverflow() {
     var bad = [];
-    if (mode() !== 'booklet') { S.over = []; return []; } // decks animate builds off-canvas on purpose, so no overflow check there
+    if (mode() !== 'booklet' && mode() !== 'data') { S.over = []; return []; } // decks animate builds off-canvas on purpose, so no overflow check there
     liveUnits().forEach(function (sec) {
       var old = sec.querySelector(':scope > .lrs-ui.lrs-flag'); if (old) old.remove();
       sec.classList.remove('lrs-over');
       var sr = sec.getBoundingClientRect(); if (!sr.height) return;
       var foot = sec.querySelector(':scope > .foot'), scale = sr.height / sec.offsetHeight, over = false, limit = sr.bottom - 12 * scale;
+      var absEls = [];
+      if (!foot) sec.querySelectorAll('*').forEach(function (e) { // template pages: footer text is absolutely positioned in the bottom margin
+        if (e.closest('.lrs-ui')) return; var cs = getComputedStyle(e); if (cs.position !== 'absolute') return;
+        var r = e.getBoundingClientRect(); if (r.height && r.top > sr.top + sr.height * 0.8 && /\S/.test(e.textContent)) { absEls.push(e); if (r.top < limit) limit = r.top; }
+      });
       if (foot) foot.querySelectorAll('span').forEach(function (s) { var fr = s.getBoundingClientRect(); if (fr.height && fr.top < limit) limit = fr.top; });
       var els = sec.querySelectorAll('[data-lrs-block], [data-lrs-locked]');
       for (var i = 0; i < els.length && !over; i++) {
         var r = els[i].getBoundingClientRect();
-        if (r.height && r.bottom > limit + 2 * scale && !(foot && foot.contains(els[i]))) over = true;
-        if (r.height && r.right > sr.right + 2 * scale) over = true;
+        var inAbs = absEls.some(function (x) { return x.contains(els[i]); });
+        if (!inAbs && r.height && r.bottom > limit + 2 * scale && !(foot && foot.contains(els[i]))) over = true;
+        if (!inAbs && r.height && r.right > sr.right + 2 * scale) over = true;
       }
       if (over) {
         bad.push(sec); sec.classList.add('lrs-over');
@@ -210,7 +226,8 @@
   async function enable(sourceText) {
     try {
       var text = sourceText != null ? sourceText : await readFile();
-      var m = buildMap(text);
+      S.data = /<sc-for\b/.test(text);
+      var m = S.data ? buildLitMap(text) : buildMap(text);
       S.src = text; S.blocks = m.blocks; S.on = true;
       S.blocks.forEach(function (b) { b.el.setAttribute('data-lrs-block', ''); b.el.contentEditable = 'true'; b.el.spellcheck = true; });
       document.documentElement.classList.add('lrs-editing');
@@ -220,7 +237,7 @@
   }
   function disable() {
     if (dirtyCount() && !confirm('You have unsaved changes. Discard them and leave edit mode?')) return;
-    S.blocks.forEach(function (b) { if (b.el.innerHTML !== b.orig) b.el.innerHTML = b.orig; b.el.removeAttribute('contenteditable'); b.el.removeAttribute('data-lrs-block'); });
+    S.blocks.forEach(function (b) { if (isDirty(b)) { if (b.kind === 'lit') b.el.innerText = b.orig; else b.el.innerHTML = b.orig; } b.el.removeAttribute('contenteditable'); b.el.removeAttribute('data-lrs-block'); });
     document.querySelectorAll('[data-lrs-locked]').forEach(function (e) { e.removeAttribute('data-lrs-locked'); });
     document.querySelectorAll('.lrs-ui.lrs-flag').forEach(function (e) { e.remove(); });
     document.querySelectorAll('.lrs-over').forEach(function (e) { e.classList.remove('lrs-over'); });
@@ -235,7 +252,7 @@
       if (disk !== S.src) { toast('This file changed on your Mac since you started editing (maybe Claude saved a new version). Copy your edits somewhere, reload, and redo them so nothing gets overwritten.', 10000, true); return false; }
       var out = serialize();
       await writeFile(out.text);
-      var nm = buildMap(out.text);
+      var nm = S.data ? (S.blocks.forEach(function (b) { b.el.removeAttribute('contenteditable'); }), buildLitMap(out.text)) : buildMap(out.text);
       S.blocks.forEach(function (b) { b.el.removeAttribute('data-lrs-block'); });
       S.src = out.text; S.blocks = nm.blocks;
       S.blocks.forEach(function (b) { b.el.setAttribute('data-lrs-block', ''); b.el.contentEditable = 'true'; });
@@ -249,19 +266,22 @@
   window.addEventListener('keydown', function (e) {
     var inBlock = e.target && e.target.closest && e.target.closest('[data-lrs-block]');
     if ((e.metaKey || e.ctrlKey) && e.key && e.key.toLowerCase() === 's' && S.on) { e.preventDefault(); save(); return; }
+    if (inBlock && S.data && (e.metaKey || e.ctrlKey) && /^[biu]$/i.test(e.key || '')) { e.preventDefault(); return; }
     if (inBlock && e.key === 'Enter') { e.preventDefault(); if (e.shiftKey) document.execCommand('insertLineBreak'); return; }
     if (inBlock && e.key === 'Escape') { inBlock.blur(); return; }
     if (inBlock) { e.stopPropagation(); return; } // keep slide decks from changing slides while typing
-    if (SO) { if (e.key === 'Escape') closeSorter(); e.stopPropagation(); return; }
+    if (SO || DM) { if (e.key === 'Escape') closeSorter(); e.stopPropagation(); return; }
     if (!inBlock && !e.metaKey && !e.ctrlKey && !e.altKey && e.key && e.key.toLowerCase() === 'e' && !/input|textarea|select/i.test(e.target.tagName || '')) { S.on ? disable() : enable(); }
   }, true);
+  document.addEventListener('click', function (e) { if (S.on && e.target.closest && e.target.closest('[data-lrs-block]') && e.target.closest('a')) e.preventDefault(); }, true);
   document.addEventListener('paste', function (e) {
     if (!(e.target.closest && e.target.closest('[data-lrs-block]'))) return;
     e.preventDefault(); var t = (e.clipboardData || window.clipboardData).getData('text/plain').replace(/\s*\n\s*/g, ' ');
     document.execCommand('insertText', false, t);
   }, true);
   document.addEventListener('input', function (e) {
-    if (!(e.target.closest && e.target.closest('[data-lrs-block]'))) return;
+    var blk = e.target.closest && e.target.closest('[data-lrs-block]'); if (!blk) return;
+    S.blocks.forEach(function (b) { if (b.el === blk && b.kind === 'lit') b.val = blk.innerText; });
     clearTimeout(S.timer); S.timer = setTimeout(function () { checkOverflow(); render(); }, 250); render();
   }, true);
   window.addEventListener('beforeunload', function (e) { if (S.on && dirtyCount()) { e.preventDefault(); e.returnValue = ''; } });
@@ -314,7 +334,7 @@
     ov.addEventListener('click', sorterClick);
     paintSorter();
   }
-  function closeSorter() { var ov = document.getElementById('lrs-sorter'); if (ov) ov.remove(); document.documentElement.classList.remove('lrs-sorting'); SO = null; }
+  function closeSorter() { DM = null; var ov = document.getElementById('lrs-sorter'); if (ov) ov.remove(); document.documentElement.classList.remove('lrs-sorting'); SO = null; }
   function thumb(it) {
     var w = document.createElement('div'); w.className = 'th';
     if (it.el) {
@@ -512,6 +532,207 @@
     '#lrs-sorter .slot.new .th{outline:2px dashed #7fd69a}#lrs-sorter .slot.drag{opacity:.35}' +
     '#lrs-sorter .slot.dropL .th{box-shadow:-5px 0 0 #e01b2f}#lrs-sorter .slot.dropR .th{box-shadow:5px 0 0 #e01b2f}' +
     'html.lrs-sorting{overflow:hidden}html.lrs-sorting #lrs-bar,html.lrs-sorting #lrs-toast{display:none!important}\n';
+  /* =====================================================================
+     DATA MODE (v1 step 4): pages built from a data list in the file
+     (Fall / Spring Group Content). Text on the page is traced back to the
+     string in the data list it came from, and saving rewrites that string.
+     ===================================================================== */
+  function dataRegions(text) {
+    var out = [], re = /<script\b[^>]*data-dc-script[^>]*>/g, m;
+    while ((m = re.exec(text))) { var a = re.lastIndex, z = text.indexOf('</script>', a); out.push([a, z < 0 ? text.length : z]); }
+    return out;
+  }
+  // JS string literals with exact offsets; skips comments, regexes and ${}-templates
+  function jsLiterals(text, a, z) {
+    var out = [], i = a, prev = '(';
+    while (i < z) {
+      var c = text[i];
+      if (c === '/' && text[i + 1] === '/') { var nl = text.indexOf('\n', i); i = nl < 0 ? z : nl; continue; }
+      if (c === '/' && text[i + 1] === '*') { var ce = text.indexOf('*/', i + 2); i = ce < 0 ? z : ce + 2; continue; }
+      if (c === '/' && /[(,=:\[!&|?{};+\-*%<>~^]/.test(prev)) { // regex literal
+        var j = i + 1, cls = false;
+        while (j < z && text[j] !== '\n') { var d = text[j]; if (d === '\\') { j += 2; continue; } if (d === '[') cls = true; else if (d === ']') cls = false; else if (d === '/' && !cls) break; j++; }
+        i = j + 1; while (/[a-z]/i.test(text[i] || '')) i++; prev = '/'; continue;
+      }
+      if (c === '\'' || c === '"' || c === '`') {
+        var s = i + 1, k = s, dyn = false, depth = 0;
+        while (k < z) {
+          var e = text[k];
+          if (e === '\\') { k += 2; continue; }
+          if (c === '`' && e === '$' && text[k + 1] === '{') { dyn = true; depth = 1; k += 2; while (k < z && depth) { if (text[k] === '{') depth++; else if (text[k] === '}') depth--; k++; } continue; }
+          if (e === c) break;
+          if (c !== '`' && e === '\n') break;
+          k++;
+        }
+        if (!dyn) out.push({ a: s, z: k, q: c, raw: text.slice(s, k) });
+        i = k + 1; prev = 'x'; continue;
+      }
+      if (!/\s/.test(c)) prev = c;
+      i++;
+    }
+    return out;
+  }
+  function unesc(raw) {
+    return raw.replace(/\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|\r?\n|.)/g, function (m, g) {
+      if (g[0] === 'u') return String.fromCodePoint(parseInt(g.replace(/[u{}]/g, ''), 16));
+      if (g[0] === 'x') return String.fromCharCode(parseInt(g.slice(1), 16));
+      return { n: '\n', t: '\t', r: '\r', '\n': '', '\r\n': '' }[g] != null ? { n: '\n', t: '\t', r: '\r', '\n': '', '\r\n': '' }[g] : g;
+    });
+  }
+  function enc(v, q) {
+    v = v.replace(/\\/g, '\\\\');
+    if (q === '`') return v.replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
+    return v.replace(new RegExp(q, 'g'), '\\' + q).replace(/\n/g, '\\n');
+  }
+  function buildLitMap(text) {
+    var lits = [];
+    dataRegions(text).forEach(function (r) { lits = lits.concat(jsLiterals(text, r[0], r[1])); });
+    var byText = {};
+    lits.forEach(function (l) { l.val = unesc(l.raw); var k = norm(l.val); if (k.length < 3 || !/[A-Za-z]/.test(k)) return; (byText[k] = byText[k] || []).push(l); });
+    var blocks = [], used = new Set();
+    function uniq(t) { var L = byText[t]; return L && L.length === 1 ? L[0] : null; }
+    (function walk(el) {
+      var tg = el.tagName.toLowerCase();
+      if (SKIP_TAGS.test(tg) || SKIP_CLASS.test(typeof el.className === 'string' ? el.className : '') || el.id === 'lrs-bar' || el.id === 'lrs-sorter') return;
+      var t = norm(el.textContent), lit = t && uniq(t);
+      if (lit && tg !== 'body') {
+        var deeper = Array.prototype.some.call(el.children, function (ch) { return norm(ch.textContent) === t; });
+        if (!deeper) { blocks.push({ kind: 'lit', el: el, lit: lit, orig: el.innerText }); return; }
+      }
+      Array.prototype.slice.call(el.children).forEach(walk);
+      Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+        if (n.nodeType !== 3) return; var tl = uniq(norm(n.data)); if (!tl || norm(el.textContent) === norm(n.data)) return;
+        var sp = document.createElement('span'); sp.className = 'lrs-wrap'; el.insertBefore(sp, n); sp.appendChild(n);
+        blocks.push({ kind: 'lit', el: sp, lit: tl, orig: sp.innerText });
+      });
+    })(document.body);
+    // static text typed straight into the page template (headings, Start Up copy): unique on screen + unique in the file
+    var root = parse(text), A = srcAdapter(text), body = null;
+    (function f(nd) { nd.children.forEach(function (c) { if (body) return; if (c.tag === 'body') body = c; else f(c); }); })(root);
+    var sb = [], lb = [], sc = {}, lc = {};
+    collect(A, body || root, sb); collect(liveAdapter, document.body, lb);
+    sb = sb.filter(function (s) { return text.slice(s.innerStart, s.innerEnd).indexOf('{{') < 0; });
+    sb.forEach(function (s) { var k = norm(A.text(s)); (sc[k] = sc[k] || []).push(s); });
+    var litEls = blocks.map(function (b) { return b.el; });
+    lb = lb.filter(function (el) { return !litEls.some(function (x) { return x === el || x.contains(el) || el.contains(x); }); });
+    lb.forEach(function (el) { var k = norm(el.textContent); lc[k] = (lc[k] || 0) + 1; });
+    lb.forEach(function (el) {
+      var k = norm(el.textContent), s = sc[k];
+      if (s && s.length === 1 && lc[k] === 1 && !byText[k]) blocks.push({ el: el, src: s[0], orig: el.innerHTML, srcInner: text.slice(s[0].innerStart, s[0].innerEnd) });
+    });
+    return { blocks: blocks, miss: 0 };
+  }
+  function litVal(b) { var v = (b.val != null ? b.val : b.el.innerText); return v.replace(/\n+$/, ''); }
+  function litDirty(b) { return norm(litVal(b)) !== norm(b.orig); }
+  function serializeLits() {
+    var by = new Map();
+    S.blocks.forEach(function (b) { if (b.kind === 'lit' && litDirty(b)) by.set(b.lit, litVal(b)); });
+    var edits = []; by.forEach(function (v, l) { edits.push({ a: l.a, z: l.z, html: enc(v, l.q) }); });
+    S.blocks.forEach(function (b) { if (b.kind !== 'lit' && b.el.innerHTML !== b.orig) edits.push({ a: b.src.innerStart, z: b.src.innerEnd, html: clean(b.el.innerHTML, b.srcInner) }); });
+    edits.sort(function (x, y) { return y.a - x.a; });
+    var t = S.src; edits.forEach(function (e) { t = t.slice(0, e.a) + e.html + t.slice(e.z); });
+    return { text: t, count: edits.length };
+  }
+
+  /* ---------- series / week order for data pages ---------- */
+  function scanTo(text, i, z, stopChars) { // walk JS from i, skipping strings/comments, until a char in stopChars at depth 0
+    var depth = 0;
+    while (i < z) {
+      var c = text[i];
+      if (c === '/' && text[i + 1] === '/') { i = text.indexOf('\n', i); if (i < 0) return z; continue; }
+      if (c === '/' && text[i + 1] === '*') { i = text.indexOf('*/', i) + 2; continue; }
+      if (c === '\'' || c === '"' || c === '`') { var k = i + 1; while (k < z && text[k] !== c) { if (text[k] === '\\') k++; k++; } i = k + 1; continue; }
+      if (depth === 0 && stopChars.indexOf(c) >= 0) return i;
+      if (c === '[' || c === '{' || c === '(') depth++; else if (c === ']' || c === '}' || c === ')') depth--;
+      i++;
+    }
+    return z;
+  }
+  function arrayItems(text, open) { // open = index of '['
+    var items = [], i = open + 1, end;
+    while (true) {
+      while (/[\s,]/.test(text[i])) i++;
+      while (text.startsWith('//', i)) { i = text.indexOf('\n', i) + 1; while (/[\s,]/.test(text[i])) i++; }
+      if (text[i] === ']') { end = i; break; }
+      var e = scanTo(text, i, text.length, ',]'); var ee = e; while (/\s/.test(text[ee - 1])) ee--;
+      items.push({ a: i, z: ee }); i = e; if (text[e] === ']') { end = e; break; }
+    }
+    return { items: items, end: end };
+  }
+  function firstLit(text, a, z, key) {
+    var m = new RegExp('\\b' + key + '\\s*:\\s*([`\'"])').exec(text.slice(a, z)); if (!m) return '';
+    var s = a + m.index + m[0].length, k = s; while (k < z && text[k] !== m[1]) { if (text[k] === '\\') k++; k++; } return unesc(text.slice(s, k));
+  }
+  function dataModel(text) {
+    var r = dataRegions(text)[0]; if (!r) return null;
+    var m = /const\s+raw\s*=\s*\[/.exec(text.slice(r[0], r[1])); if (!m) return null;
+    var open = r[0] + m.index + m[0].length - 1, arr = arrayItems(text, open);
+    return arr.items.map(function (it) {
+      var seg = text.slice(it.a, it.z), wm = /\bweeks\s*:\s*\[/.exec(seg), weeks = [];
+      if (wm) { var wo = it.a + wm.index + wm[0].length - 1; weeks = arrayItems(text, wo).items.map(function (w) { return { a: w.a, z: w.z, t: firstLit(text, w.a, w.z, 't'), track: firstLit(text, w.a, w.z, 'track') }; }); }
+      return { a: it.a, z: it.z, title: firstLit(text, it.a, it.z, 'title') || '(untitled)', weeks: weeks };
+    });
+  }
+  function permuteSlots(text, slots, order) { // slots: [{a,z}] in file order; order: new list of slot indexes
+    var out = text, pieces = order.map(function (k) { return text.slice(slots[k].a, slots[k].z); });
+    for (var i = slots.length - 1; i >= 0; i--) out = out.slice(0, slots[i].a) + pieces[i] + out.slice(slots[i].z);
+    return out;
+  }
+  var DM = null;
+  function openSeries() {
+    var model = dataModel(S.src);
+    if (!model) { toast('Couldn’t find the series list in this file.', 6000, true); return; }
+    DM = { model: model, order: model.map(function (_, i) { return i; }), weeks: model.map(function (s) { return s.weeks.map(function (_, i) { return i; }); }) };
+    var ov = document.createElement('div'); ov.id = 'lrs-sorter'; ov.className = 'lrs-ui lrs-series';
+    ov.innerHTML = '<div class="sh"><div class="st1">Series &amp; weeks</div><div class="sw"><span class="ok">Use the arrows to reorder. Page numbers, Contents and tips follow automatically.</span></div><div class="sb"><button data-d="cancel">Cancel</button><button class="pri" data-d="save">Save order</button></div></div><div class="sl"></div>';
+    document.body.appendChild(ov); document.documentElement.classList.add('lrs-sorting');
+    ov.addEventListener('click', seriesClick); paintSeries();
+  }
+  function paintSeries() {
+    var box = document.querySelector('#lrs-sorter .sl'); if (!box) return;
+    box.innerHTML = DM.order.map(function (si, pos) {
+      var s = DM.model[si];
+      return '<div class="srow"><div class="shd"><b>' + (pos + 1) + '</b><span>' + esc(s.title) + '</span><span class="sar"><button data-d="up" data-p="' + pos + '"' + (pos ? '' : ' disabled') + '>↑</button><button data-d="dn" data-p="' + pos + '"' + (pos < DM.order.length - 1 ? '' : ' disabled') + '>↓</button></span></div>' +
+        '<div class="wks">' + DM.weeks[si].map(function (wi, wp) { var w = s.weeks[wi]; return '<div class="wrow"><span>' + (w.track ? esc(w.track) + ' · ' : '') + esc(w.t || ('Week ' + (wi + 1))) + '</span><span class="sar"><button data-d="wup" data-s="' + si + '" data-p="' + wp + '"' + (wp ? '' : ' disabled') + '>↑</button><button data-d="wdn" data-s="' + si + '" data-p="' + wp + '"' + (wp < DM.weeks[si].length - 1 ? '' : ' disabled') + '>↓</button></span></div>'; }).join('') + '</div></div>';
+    }).join('');
+  }
+  function swap(a, i, j) { var t = a[i]; a[i] = a[j]; a[j] = t; }
+  function seriesClick(e) {
+    var b = e.target.closest('[data-d]'); if (!b || b.disabled) return;
+    var d = b.getAttribute('data-d'), p = +b.getAttribute('data-p'), si = +b.getAttribute('data-s');
+    if (d === 'cancel') { closeSorter(); DM = null; return; }
+    if (d === 'save') { saveSeries(); return; }
+    if (d === 'up') swap(DM.order, p, p - 1); if (d === 'dn') swap(DM.order, p, p + 1);
+    if (d === 'wup') swap(DM.weeks[si], p, p - 1); if (d === 'wdn') swap(DM.weeks[si], p, p + 1);
+    paintSeries();
+  }
+  function seriesText(src, order, weeks) {
+    var model = dataModel(src), t = src;
+    // weeks inside each series first (later series first so offsets stay valid), then the series themselves
+    for (var si = model.length - 1; si >= 0; si--) {
+      var ord = weeks[si]; if (ord.every(function (v, i) { return v === i; })) continue;
+      t = permuteSlots(t, model[si].weeks, ord);
+    }
+    model = dataModel(t);
+    if (!order.every(function (v, i) { return v === i; })) t = permuteSlots(t, model, order);
+    return t;
+  }
+  async function saveSeries() {
+    try {
+      if (dirtyCount()) { var ok = await save(); if (!ok) return; }
+      await ensureDir(); var disk = await readFile();
+      if (disk !== S.src) { toast('This file changed on your Mac since you opened it. Reload and try again.', 9000, true); return; }
+      var t = seriesText(S.src, DM.order, DM.weeks);
+      if (t === S.src) { toast('Nothing moved.'); return; }
+      await writeFile(t);
+      try { sessionStorage.setItem('lrs-reenter', '1'); } catch (x) {}
+      toast('Saved the new order. Reloading…', 3000); setTimeout(function () { location.reload(); }, 700);
+    } catch (e) { if (e && e.name === 'AbortError') return; toast('Couldn’t save the order: ' + esc(e.message || String(e)), 8000, true); }
+  }
+  css += '#lrs-sorter.lrs-series .sl{flex:1;overflow:auto;padding:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-content:start}' +
+    '#lrs-sorter .srow{background:#17171a;border:1px solid #2a2a2e;border-radius:12px;padding:12px}#lrs-sorter .shd{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600}#lrs-sorter .shd b{color:#e01b2f}' +
+    '#lrs-sorter .sar{margin-left:auto;display:flex;gap:4px}#lrs-sorter .sar button{padding:4px 9px}#lrs-sorter .sar button:disabled{opacity:.3;cursor:default}' +
+    '#lrs-sorter .wks{margin-top:10px;display:flex;flex-direction:column;gap:4px}#lrs-sorter .wrow{display:flex;align-items:center;gap:8px;padding:6px 8px;background:#202024;border-radius:8px;font-size:13px;color:#ccc}\n';
   function render() {
     if (!S.ui) {
       var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
@@ -519,7 +740,7 @@
       S.ui.addEventListener('click', function (e) {
         var b = e.target.closest('[data-act]'); if (!b) return;
         var a = b.getAttribute('data-act');
-        if (a === 'edit') enable(); else if (a === 'done') disable(); else if (a === 'save') save(); else if (a === 'pages') openSorter();
+        if (a === 'edit') enable(); else if (a === 'done') disable(); else if (a === 'save') save(); else if (a === 'pages') { if (S.data) openSeries(); else openSorter(); }
         else if (a === 'next' && S.over && S.over.length) { S.oi = ((S.oi || 0) + 1) % S.over.length; S.over[S.oi].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
       });
     }
@@ -527,7 +748,7 @@
     var c = dirtyCount(), o = (S.over || []).length;
     S.ui.innerHTML = (o ? '<span class="st warn" data-act="next" title="Jump to the next overflowing page">⚠ ' + o + ' page' + (o > 1 ? 's' : '') + ' overflowing</span>' : '') +
       '<span class="st">' + (c ? c + ' unsaved change' + (c > 1 ? 's' : '') : 'No changes') + '</span>' +
-      '<button data-act="pages" title="Rearrange pages">\u25a6 Pages</button><button class="pri" data-act="save"' + (c ? '' : ' disabled') + ' title="Save (⌘S)">Save</button><button data-act="done" title="Leave edit mode (E)">Done</button>';
+      '<button data-act="pages" title="Rearrange pages">' + (S.data ? '\u25a6 Series' : '\u25a6 Pages') + '</button><button class="pri" data-act="save"' + (c ? '' : ' disabled') + ' title="Save (⌘S)">Save</button><button data-act="done" title="Leave edit mode (E)">Done</button>';
   }
   var tt = 0;
   function toast(html, ms, err) {
@@ -537,7 +758,7 @@
     clearTimeout(tt); tt = setTimeout(function () { el.style.display = 'none'; }, ms || 3000);
   }
 
-  window.LRSEdit = { openSorter: openSorter, _units: units, _SO: function () { return SO; }, _buildOrdered: function (t) { return buildOrdered(t); }, _problems: function () { return problems(); }, _move: movePages, _fix: applyFix, enable: enable, disable: disable, save: save, _serialize: serialize, _parse: parse, _state: S, _check: checkOverflow };
+  window.LRSEdit = { openSorter: openSorter, _dataModel: dataModel, _seriesText: seriesText, openSeries: openSeries, _units: units, _SO: function () { return SO; }, _buildOrdered: function (t) { return buildOrdered(t); }, _problems: function () { return problems(); }, _move: movePages, _fix: applyFix, enable: enable, disable: disable, save: save, _serialize: serialize, _parse: parse, _state: S, _check: checkOverflow };
   function boot() { render(); var re = false; try { re = sessionStorage.getItem('lrs-reenter') === '1'; sessionStorage.removeItem('lrs-reenter'); } catch (x) {}
     if (re) loadDir().then(function (h) { if (!h) return; return h.queryPermission({ mode: 'readwrite' }).then(function (p) { if (p === 'granted') { S.dir = h; enable(); } }); }); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
