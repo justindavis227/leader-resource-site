@@ -777,9 +777,12 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
 .rolepg .goal{margin-top:16px;background:var(--pitch,#0d0d0d);color:#fffef9;border-radius:12px;padding:16px 22px;font-size:15.5px;line-height:1.4}
 .rolepg .goal span{color:var(--ember);margin-bottom:6px}
 </style><style>/* Heart Behind Support closing line as a message bubble, right side, tail pointing up */
-.hsbubble{position:relative;margin:auto 0 22px auto;max-width:88%;background:var(--ember);color:#fffef9;font-size:13.5px;line-height:1.42;padding:13px 20px;border-radius:16px 0 16px 16px}
+.hsbubble{position:relative;margin:auto 4px 4px auto;max-width:88%;background:var(--ember);color:#fffef9;font-size:13.5px;line-height:1.42;padding:13px 20px;border-radius:16px 0 16px 16px}
 .hsbubble b{font-weight:600}
-.hsbubble::after{content:'';position:absolute;right:0;bottom:calc(100% - 1px);border-right:14px solid var(--ember);border-top:11px solid transparent}
+/* white gap + thin red outline that also wraps the tail */
+.hsbubble{box-shadow:0 0 0 2.5px #fffef9,0 0 0 4px var(--ember)}
+.hsbubble::after{content:'';position:absolute;right:-4px;bottom:calc(100% - 1px);width:25px;height:21px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='25' height='21' viewBox='0 0 25 21'><polygon points='3.7,17.5 25,0.76 25,17.5' fill='%23e01b2f'/><polygon points='2.95,20 23.5,3.86 23.5,20' fill='%23fffef9'/><polygon points='7,21 21,9 21,21' fill='%23e01b2f'/></svg>") no-repeat}
+section[data-screen-label="Divider—Further Resources"] .sub{max-width:600px}
 </style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
@@ -1018,7 +1021,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
       <div class="row"><div class="k sm">03</div><div><div class="t">Shared work, growing church <span class="hsref">Acts 6:1&ndash;7</span></div><div class="b">When needs outgrew the apostles, the early church chose faithful, Spirit-filled people to serve so the Word could keep going out&mdash;and the number of disciples grew. Support isn&rsquo;t secondary. It&rsquo;s how the mission multiplies.</div></div></div>
       <div class="row"><div class="k sm">04</div><div><div class="t">Every part matters <span class="hsref">1 Corinthians 12:12&ndash;31</span></div><div class="b">&ldquo;Now you are the body of Christ, and each one of you is a part of it.&rdquo; No part gets all the attention, and no part can say it isn&rsquo;t needed. The person leading a group and the person running check-in both help students take a step closer to Jesus.</div></div></div>
     </div>
-    <p class="hsbubble"><b>You may never teach a lesson or lead a small group. But the way you serve can shape whether a student feels comfortable enough to stay, connected enough to return and supported enough to take a next step&mdash;and it frees every leader to focus on discipleship.</b></p>
+    <p class="hsbubble"><b>You may never be on stage or lead a group, but the way you serve can shape whether a student feels comfortable enough to stay and connected enough to return. You free up every leader to focus on disciple-making.</b></p>
     <div class="foot"><span class="sec">The Mission</span><span class="pn">10</span></div>
   </section>
 
@@ -1296,7 +1299,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
     <div class="rows">
       <p class="lead"><b>These are high priority events for our ministry. We expect you to be fully present.</b></p>
       <p class="lead">The Big Three are also a pivotal part of our onboarding process for new leaders. Connected to each one, we host an <b>Unleashed Leader Training</b> for all new and potential leaders to on-ramp into our ministry&mdash;with flexibility for onboarding when we aren&rsquo;t near one of those planned starting points.</p>
-      <p class="lead">Your participation at each of these keystone moments is vital. We believe these moments together as a Student Ministry are foundational to keeping us aligned. <b>Put these dates on your calendar every year&mdash;and bring someone with you!</b></p>
+      <p class="lead">Your participation at each of these keystone moments is vital. We believe these moments together as a Student Ministry are foundational to keeping us aligned. <b>Put these dates on your calendar every year&mdash;and use them to recruit your friends to serve!</b></p>
     </div>
     <div class="foot"><span class="sec">Big Three</span><span class="pn">26</span></div>
   </section>
@@ -1343,7 +1346,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
       <p class="lead"><b>Unleashed Leaders is a deep dive into our &ldquo;why&rdquo;</b>&mdash;a training we expect every new leader to go through.</p>
       <p class="lead">It sets up new leaders to learn who we are as a Student Ministry. Whether someone joins to lead a group or serve at check-in, they need to know our primary aim is to make disciples. We look at the life of Christ and allow it to inform how we approach ministry.</p>
       <p class="lead">Since Jesus himself continually raised the bar for his disciples, we inform those joining us about the cost of following Jesus up front, so later they aren&rsquo;t surprised by what we ask of them. In some ways it can appear we are talking people out of doing ministry. In actuality, we are just echoing Jesus&rsquo; call to make disciples&mdash;even some who heard it straight from Jesus&rsquo; mouth chose not to follow.</p>
-      <p class="lead">We know things happen&mdash;but being up front about the commitment pays dividends when leaders know what they are signing up for and stick it out. Know someone who should serve with us? <b>Unleashed Leaders is their front door</b>&mdash;invite them and point them to the next one. <b>We love the community of leaders God has blessed us with. We get to fulfill Jesus&rsquo; mission together!</b></p>
+      <p class="lead">We know things happen&mdash;but being up front about the commitment pays dividends when leaders know what they are signing up for and stick it out. Know someone who should serve with us? Unleashed Leaders is their front door&mdash;invite them and point them to the next one. <b>We love the community of leaders God has blessed us with. We get to fulfill Jesus&rsquo; mission together!</b></p>
     </div>
     <div class="foot"><span class="sec">Big Three</span><span class="pn">28</span></div>
   </section>
@@ -1353,7 +1356,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
     <div class="inner">
       <div class="secno">SECTION 05</div>
       <h2 class="disp">Further<br>Resources</h2>
-      <div class="sub">Help along the way. You don&rsquo;t need to know everything&mdash;just when to ask, where to go, and how to hand off a need.</div>
+      <div class="sub">Help along the way. You don&rsquo;t need to know everything&mdash;just who to ask, where to go, and how to hand off a need.</div>
       <div class="tab"></div>
     </div>
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">29</span></div>
@@ -1449,11 +1452,15 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">34</span></div>
   </section>
 
-  <section class="page vision" data-screen-label="Closing—One Student at a Time">
-    <div class="vk">One Student at a Time</div>
-    <div class="vbig"><span class="lt">One welcome.</span><span class="lt">One conversation.</span><span class="hi">One prayer.</span></div>
-    <p class="lead" style="max-width:560px;margin-top:34px">A student&rsquo;s story can change through one conversation, one welcome, one moment of feeling safe, one invitation into community, or one prayer. The moments that feel small to us may be the moments God uses in a big way.</p>
-    <p class="lead" style="max-width:560px"><b>Thank you for helping connect students to Jesus and to one another.</b></p>
+  <section class="page content" data-screen-label="Notes">
+    <div>
+      <div class="eyebrow">Space to Think</div>
+      <h2 class="disp">Notes</h2>
+    </div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+    </div>
     <div class="foot"><span class="sec">SE Students</span><span class="pn">35</span></div>
   </section>
 
@@ -1467,18 +1474,6 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
       <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
     </div>
     <div class="foot"><span class="sec">SE Students</span><span class="pn">36</span></div>
-  </section>
-
-  <section class="page content" data-screen-label="Notes">
-    <div>
-      <div class="eyebrow">Space to Think</div>
-      <h2 class="disp">Notes</h2>
-    </div>
-    <div class="rows" style="margin-top:14px">
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
-    </div>
-    <div class="foot"><span class="sec">SE Students</span><span class="pn">37</span></div>
   </section>
 
   <section class="page" data-screen-label="Blank"></section>
