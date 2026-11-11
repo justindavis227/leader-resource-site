@@ -1,0 +1,69 @@
+# Rebuilds the downloadable PDFs whenever a page changes on main,
+# then commits them back so Vercel serves PDFs that match the pages.
+name: Rebuild PDFs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'colors_and_type.css'
+      - 'support.js'
+      - 'deck-stage.js'
+      - 'campus-map.js'
+      - 'assets/**'
+      - 'tools/**'
+      - '.github/workflows/pdfs.yml'
+  workflow_dispatch: {}   # "Run workflow" button in GitHub rebuilds every PDF
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild-pdfs
+  cancel-in-progress: false
+
+jobs:
+  pdfs:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright + Chromium
+        run: |
+          npm i --no-save --no-package-lock playwright@1.48.2
+          npx playwright install --with-deps chromium
+
+      - name: Work out which pages changed
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || ! git cat-file -e "${{ github.event.before }}" 2>/dev/null; then
+            echo "mode=--all" >> "$GITHUB_OUTPUT"
+          else
+            git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" > "$RUNNER_TEMP/changed.txt"
+            cat "$RUNNER_TEMP/changed.txt"
+            echo "mode=--changed $RUNNER_TEMP/changed.txt" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Render PDFs
+        env:
+          LRS_PDF_CACHE: ${{ runner.temp }}/lrs-pdf-cache
+        run: node tools/build-pdfs.mjs ${{ steps.changed.outputs.mode }}
+
+      - name: Commit PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pdf/
+          if git diff --cached --quiet; then echo "PDFs already up to date"; exit 0; fi
+          git commit -m "Rebuild PDFs"
+          git pull --rebase origin main
+          git push
