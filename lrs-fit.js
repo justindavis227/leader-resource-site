@@ -2,10 +2,15 @@
    The booklet always fills the window width. It is scaled with CSS `zoom` (not a transform),
    so the browser's own zoom and ours multiply out to the same on-screen size. That also keeps
    Safari from enlarging small text when someone zooms out (its minimum font size never kicks in).
-   Print / PDF output is untouched. */
+   It also sets the booklet in the brand face on screen, matching print. Print / PDF output is untouched. */
 (function () {
   'use strict';
   if (window.__lrsFit) return; window.__lrsFit = true;
+  // Booklets are print pieces: on screen they use the brand face throughout, exactly like the PDF build,
+  // so text wraps the same on screen as on paper (the system font is wider and pushed text into footers).
+  var ft = document.createElement('style');
+  ft.textContent = ':root{--font-body:var(--font-print)!important;--font-mono:var(--font-print)!important}';
+  (document.head || document.documentElement).appendChild(ft);
   if (navigator.webdriver || location.hostname === 'lrs.local' || /(^|[#&])print\b/.test(location.hash)) return; // PDF renderer + print mode lay out at true size
 
   var st = document.createElement('style');
