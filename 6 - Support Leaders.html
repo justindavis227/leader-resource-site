@@ -743,13 +743,13 @@ section[data-spread="R:support-tie"] .roleov{margin-top:6px;gap:12px}
 section[data-spread="R:support-tie"] .roleov .rolb .rail{z-index:2}
 section[data-spread="R:support-tie"] .roleov .rolb .rail i{left:4px;width:32px;height:28px;border:0;border-radius:0;transform:translateY(-50%);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'%3E%3Cpolygon points='3.5,3.5 28.5,14 3.5,24.5' fill='%23e01b2f' stroke='%23e01b2f' stroke-width='6' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain}
 section[data-spread="R:support-tie"] .roleov .rolb > div:nth-child(2){padding-left:16px}
-section[data-spread="R:support-tie"] .roleov .rolb{grid-template-columns:16px 246px 1fr}
+section[data-spread="R:support-tie"] .roleov .rolb{grid-template-columns:16px 214px 1fr;column-gap:20px}
 /* page 12 team names as red arrow chips (same style as the mantra chips) */
-section[data-spread="R:support-tie"] .roleov .rolb .rname{display:inline-flex;align-items:center;height:42px;white-space:nowrap;background:var(--sa,#e01b2f);color:#fffef9;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:16px;line-height:1;letter-spacing:0;padding:0 32px 0 28px;border-radius:0;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);position:relative;z-index:3}
+section[data-spread="R:support-tie"] .roleov .rolb .rname{display:inline-flex;align-items:center;height:42px;white-space:nowrap;background:var(--sa,#e01b2f);color:#fffef9;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:16px;line-height:1;letter-spacing:0;padding:0 32px 0 32px;border-radius:0;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);position:relative;z-index:3}
 /* chip grows straight out of the red line; triangles retired */
 section[data-spread="R:support-tie"] .roleov .rolb .rail i{display:none}
-section[data-spread="R:support-tie"] .roleov .rolb > div:nth-child(2){padding-left:0!important;margin-left:-29px}
-section[data-spread="R:support-tie"] .roleov .rolb .rtier{padding-left:44px}
+section[data-spread="R:support-tie"] .roleov .rolb > div:nth-child(2){padding-left:0!important;margin-left:-33px}
+section[data-spread="R:support-tie"] .roleov .rolb .rtier{padding-left:48px}
 section[data-spread="R:support-tie"] .roleov .rolb{padding:12px 18px 12px 0}
 section[data-spread="R:support-tie"] .roleov .rolb::before{display:none}
 section[data-spread="R:support-tie"] .roleov .rolb::after,section[data-spread="R:support-tie"] .roleov .rolb:last-child::after{content:'';position:absolute;left:24px;right:0;top:0;bottom:0;width:auto;height:auto;background:none;border:1px solid var(--hairline);border-radius:14px;pointer-events:none}
@@ -764,6 +764,15 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
 section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rk{font-size:30px}
 section[data-screen-label="Further Resources—Weekly Quick Check"] .cks li{font-size:13px;text-wrap:pretty}
 section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh:last-child{border:1px solid var(--hairline);border-radius:14px;padding:18px 20px;grid-template-columns:132px 1fr;gap:16px}
+</style><style>/* role pages (Check-In through Prayer): bullets indented a little from the goal line */
+.rolepg .bul{padding-left:18px}
+</style><style>/* small wins: spoken lines as a red speech bubble; Security's (not a spoken line) as the dark callout */
+.win:not(.dark){display:block;background:none;border:0;border-radius:0;padding:0 0 10px}
+.win:not(.dark) .wk{display:block;margin:0 0 8px 2px}
+.win:not(.dark) .wq{display:inline-block;position:relative;background:var(--ember);color:#fffef9;font-style:normal;font-weight:600;padding:14px 20px;border-radius:16px 16px 16px 4px}
+.win:not(.dark) .wq::after{content:'';position:absolute;left:0;bottom:-10px;border-left:14px solid var(--ember);border-bottom:10px solid transparent}
+.win.dark{background:var(--pitch,#0d0d0d);border:0;border-radius:12px;padding:18px 24px}
+.win.dark .wq{color:#fffef9;font-style:normal}
 </style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
@@ -1076,7 +1085,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
           <ul><li>Pray intentionally for students, leaders, families, staff and the movement of God. Be available to pray with people when appropriate and connect significant care needs to ministry staff.</li></ul></div>
       </div>
     </div>
-    <div class="sptie" style="left:0;top:276px;width:73px;height:402px;border-right:4px solid var(--sa,#e01b2f);border-bottom:4px solid var(--sa,#e01b2f);border-bottom-right-radius:28px"></div>
+    <div class="sptie" style="left:0;top:295px;width:73px;height:383px;border-right:4px solid var(--sa,#e01b2f);border-bottom:4px solid var(--sa,#e01b2f);border-bottom-right-radius:28px"></div>
     <div class="foot"><span class="sec">Your Role</span><span class="pn">12</span></div>
   </section>
 
@@ -1147,7 +1156,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
       <li>Communicate concerns promptly and discreetly to designated security personnel and/or ministry staff.</li>
       <li>During an emergency, follow the approved emergency plan and the direction of authorized responders.</li>
     </ul>
-    <div class="win"><span class="wk">A small win</span><span class="wq">A concern is recognized early, shared quickly and handled by the right people.</span></div>
+    <div class="win dark"><span class="wk">A small win</span><span class="wq">A concern is recognized early, shared quickly and handled by the right people.</span></div>
     <div class="foot"><span class="sec">Serving Well · Security</span><span class="pn">16</span></div>
   </section>
 
