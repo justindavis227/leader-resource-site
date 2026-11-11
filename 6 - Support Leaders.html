@@ -729,6 +729,9 @@
 .b3row .tip{border-left:3px solid var(--sa);padding:2px 0 2px 14px}
 .b3row .tip .tk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--sa);font-weight:700;margin-bottom:5px}
 .b3row .tip p{margin:0;font-size:13px;color:var(--fg2);line-height:1.45}
+</style><style>/* support-leader tie line across the Role Overview spread */
+.page .sptie{position:absolute;z-index:0;pointer-events:none}
+section[data-spread="R:support-tie"] .rail i{background:var(--sa,#e01b2f)}
 </style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
@@ -755,7 +758,7 @@
     <img class="cph" src="assets/photos/harvest-together.jpg" alt="Two people working side by side in a harvest field">
     <div class="cgrad"></div>
     <div class="ctop">
-      <span class="ctag">&ldquo;EACH ONE SHOULD USE WHATEVER GIFT HE HAS RECEIVED TO SERVE OTHERS.&rdquo;&mdash;<b style="font-weight:700;font-style:normal;color:inherit">1 PETER 4:10</b></span>
+      <span class="ctag">&ldquo;EACH ONE SHOULD USE WHATEVER GIFT HE HAS RECEIVED TO SERVE OTHERS.&rdquo;<br><b style="font-weight:700;font-style:normal;color:inherit;white-space:nowrap">&mdash;1 PETER 4:10</b></span>
     </div>
     <div class="cbody">
       <div class="rule"></div>
@@ -779,8 +782,7 @@
     <div class="hr"></div>
     <div class="rows">
       <div class="trow"><span class="tn">01</span><span class="tt">Mission + Mantras<small>Who we are &amp; what guides us</small></span><span class="tp">03</span></div>
-      <div class="trow"><span class="tn">02</span><span class="tt">Support Leader<small>What Support Leaders make possible</small></span><span class="tp">09</span></div>
-      <div class="trow"><span class="tn">00</span><span class="tt">Welcome<small>You belong in this mission</small></span><span class="tp">10</span></div><div class="trow"><span class="tn">03</span><span class="tt">Serving Well<small>Behind the scenes, every week</small></span><span class="tp">19</span></div>
+      <div class="trow"><span class="tn">02</span><span class="tt">Support Leader<small>What Support Leaders make possible</small></span><span class="tp">09</span></div><div class="trow"><span class="tn">03</span><span class="tt">Serving Well<small>Behind the scenes, every week</small></span><span class="tp">19</span></div>
       <div class="trow"><span class="tn">04</span><span class="tt">The Team<small>Who you serve alongside</small></span><span class="tp">26</span></div>
       <div class="trow"><span class="tn">05</span><span class="tt">Big Three<small>Launch, Leader Night, Celebration &amp; Unleashed</small></span><span class="tp">28</span></div>
       <div class="trow"><span class="tn">06</span><span class="tt">Further Resources<small>Help along the way</small></span><span class="tp">32</span></div>
@@ -972,7 +974,7 @@
     <div class="foot"><span class="sec">The Mission</span><span class="pn">10</span></div>
   </section>
 
-  <section class="page content tlx" data-screen-label="Your Role—Role Overview">
+  <section class="page content tlx" data-screen-label="Your Role—Role Overview" data-spread="L:support-tie">
     <div>
       <div class="eyebrow">Student Ministry</div>
       <h2 class="disp">Role Overview</h2>
@@ -1019,10 +1021,11 @@
       </div>
       </div>
     </div>
+    <div class="sptie" style="left:69px;top:615px;right:0;height:64px;border-left:4px solid var(--sa);border-bottom:4px solid var(--sa);border-bottom-left-radius:28px"></div>
     <div class="foot"><span class="sec">Your Role</span><span class="pn">11</span></div>
   </section>
 
-  <section class="page content roleovr" data-screen-label="Your Role—Where Support Leaders Serve">
+  <section class="page content roleovr" data-screen-label="Your Role—Where Support Leaders Serve" data-spread="R:support-tie">
     <div>
       <div class="eyebrow">Student ministry</div>
       <h2 class="disp">Support Teams</h2>
@@ -1042,6 +1045,7 @@
           <ul><li>Pray intentionally for students, leaders, families, staff and the movement of God. Be available to pray with people when appropriate and connect significant care needs to ministry staff.</li></ul></div>
       </div>
     </div>
+    <div class="sptie" style="left:0;top:287px;width:73px;height:391px;border-right:4px solid var(--sa,#e01b2f);border-bottom:4px solid var(--sa,#e01b2f);border-bottom-right-radius:28px"></div>
     <div class="foot"><span class="sec">Your Role</span><span class="pn">12</span></div>
   </section>
 
