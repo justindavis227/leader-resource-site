@@ -1017,8 +1017,9 @@ Through moments from Jesus' life in Mark, we'll discover that following Jesus is
 
     const coverImg = COVER_ART ? `url('${COVER_ART}')` : `url('assets/textures/gradient-texture.jpg')`;
     return {
-      coverBg: `#0d0d0d ${coverImg} center/cover no-repeat`,
-      backBg: `#0d0d0d ${coverImg} center/cover no-repeat`,
+      // wraparound cover photo: one image across back (left half) + front (right half)
+      coverBg: COVER_ART ? `#0d0d0d ${coverImg} center/cover no-repeat` : `#0d0d0d url('assets/photos/covers/spring.jpg') right center/200% 100% no-repeat`,
+      backBg: COVER_ART ? `#0d0d0d ${coverImg} center/cover no-repeat` : `#0d0d0d url('assets/photos/covers/spring.jpg') left center/200% 100% no-repeat`,
       coverScrim: 'linear-gradient(to top,rgba(13,13,13,.78) 6%,rgba(13,13,13,.25) 38%,rgba(13,13,13,0) 60%)',
       coverList: raw.map((x) => x.short).join(' · '),
       series,

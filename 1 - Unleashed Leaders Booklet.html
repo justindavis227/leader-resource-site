@@ -721,7 +721,11 @@
     .stage{height:auto!important}
   }
 </style>
-</head>
+
+<style>/* wraparound cover photo: one image across back + front */
+.cover.span2 .cph{width:200%;max-width:none;left:auto;right:0}
+.back.span2 .cph{width:200%;max-width:none;right:auto;left:0}
+</style></head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
@@ -745,8 +749,8 @@
 <div class="stack" id="stack">
 
   <!-- 1 · COVER -->
-  <section class="page cover" data-screen-label="Cover">
-    <img class="cph" src="assets/photos/harvest-cover.jpg" alt="Harvest field at dusk">
+  <section class="page cover span2" data-screen-label="Cover">
+    <img class="cph" src="assets/photos/covers/unleashed.jpg" alt="A leader teaching from the stage to a room of students">
     <div class="cgrad"></div>
     <div class="cbody">
       <div class="rule"></div>
@@ -754,7 +758,6 @@
       <span class="csub">New Leader Training · Southeast Students</span>
       <span class="yr">2026–2027</span>
     </div>
-    <div class="chz"></div>
   </section>
 
   <!-- 1b · INSIDE FRONT COVER · COPYRIGHT -->
@@ -1675,14 +1678,13 @@ In Student Ministry we encounter students in every chair. Our aim as disciple-ma
   </section>
 
   <!-- 24 · BACK COVER -->
-  <section class="page back" data-screen-label="Back cover">
-    <img class="cph" src="assets/photos/harvest.jpg" alt="Harvest field">
+  <section class="page back span2" data-screen-label="Back cover">
+    <img class="cph" src="assets/photos/covers/unleashed.jpg" alt="A leader teaching from the stage to a room of students (continues from front cover)">
     <div class="cgrad"></div>
     <div class="wm">
       <img src="assets/logos/se-students-primary-white.png" alt="Southeast Students">
       <div class="tl">Connecting people to Jesus &amp; one another</div>
     </div>
-    <div class="chz"></div>
   </section>
 
   <!--MORE-->
