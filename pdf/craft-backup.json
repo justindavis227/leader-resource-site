@@ -6,14 +6,114 @@
   },
   "files": {
     "1 - Unleashed Leaders Booklet": {
-      "blockId": "8125c588-4f0b-f748-7001-a044ce471ae1",
-      "sha": "702e2ebffc74717f03c1c67156c7037d816dc65cf4344cb785af3ad31867ef34",
+      "blockId": "c09439a3-e0b5-30a3-1d1f-8a98aadec802",
+      "sha": "93a58e7deff4bb46ec52af3b4a3abbc8ef85e0de6f676cbc040381031adba260",
       "fileName": "Unleashed Leaders Booklet.pdf"
     },
     "5 - Fall 2026 Group Content.dc": {
-      "blockId": "326bcc62-3b47-9a51-11ea-1eb17170bb5e",
-      "sha": "3ffbdb3213fd8fd4fcaa203be329a8b5d531f30f7813cbfc241c9dac745d2cae",
+      "blockId": "e97a4937-21ef-c6c3-7d1f-7e961a6eb7d3",
+      "sha": "67169f1e69e4038e8b60c972af1acf0b76a6eebad27ecbf2e67bc5da1ace5c17",
       "fileName": "Fall 2026 Group Content.pdf"
+    },
+    "8 - Spring 2027 Group Content.dc": {
+      "blockId": "14c0434d-d192-5f02-eadb-959faaa6125c",
+      "sha": "39db9a927624b5f03dd992783de00e9072ea756eae82016c880e3eecbd28604c",
+      "fileName": "Spring 2027 Group Content.pdf"
+    },
+    "3 - Team Leaders": {
+      "blockId": "fff7e615-47a8-31b4-f867-5271c0906d8c",
+      "sha": "d3f0901a31fcf300bd4de4c04480e934b31d60b23dd6c89e6a5d907cc774a50b",
+      "fileName": "Team Leaders.pdf"
+    },
+    "4 - Leader Huddles.dc": {
+      "blockId": "61aa3ee7-1dd8-98a8-a674-84aa2a719148",
+      "sha": "d0a2acb88a3f9a01ff09fb2c1039561e675c2d9d35515b4378aca9053f9263d7",
+      "fileName": "Leader Huddles.pdf"
+    },
+    "2 - Group Leaders": {
+      "blockId": "bdf23f94-f6b0-9b30-6ccf-afb8b3796f35",
+      "sha": "97f5e8a30a12b9b999afc577dd7715911aff2d10dd3cad4e2b1a7bc19e8154fd",
+      "fileName": "Group Leaders.pdf"
+    },
+    "6 - Support Leaders": {
+      "blockId": "064c864b-810c-4443-015a-440376b221cc",
+      "sha": "850ab4ac6fd74845f0e1b355811e63235f41eaa56661c7ef736d15d9a1df89eb",
+      "fileName": "Support Leaders.pdf"
+    },
+    "7 - Student Leadership": {
+      "blockId": "9055148d-0fd5-b80d-a00b-b1a694c3c09d",
+      "sha": "deb0b2023fabad52bfb3ce7ce7d0bac74b44410e55fdcf16d976973fa7b43581",
+      "fileName": "Student Leadership.pdf"
+    },
+    "R10 - Leader Commitment": {
+      "blockId": "c5d3adf4-92f9-3931-f333-79ff90c0e842",
+      "sha": "ed39e4753360fcee445baff50f3fdb78e2bc39429f0b6e60ece7ed026b28b4b0",
+      "fileName": "Leader Commitment.pdf"
+    },
+    "R9 - Unleashed Leaders One Pager": {
+      "blockId": "568fc77f-f400-3fd2-a46b-e2a0f9274b23",
+      "sha": "5859e3e7c3273bde2c489961945c44a201b7229f96004e603617939658bdbb2f",
+      "fileName": "Unleashed Leaders One Pager.pdf"
+    },
+    "R12 - 4 Chair Inventory": {
+      "blockId": "4d31c274-b95d-90d7-3054-060129cfd7b7",
+      "sha": "02c51d49c37e58470a7ab08fded3caf43f7abd335f408f5535d6d45defff31dc",
+      "fileName": "4 Chair Inventory.pdf"
+    },
+    "R1 - Spiritual Disciplines Evaluation": {
+      "blockId": "0670f284-5d84-b2d0-b579-49f8f9d9c851",
+      "sha": "19edc0098cd95e6e3b524f552dee22703fcee23a4cd716fc415ebb5ae73f63f0",
+      "fileName": "Spiritual Disciplines Evaluation.pdf"
+    },
+    "R2 - Fruit of the Spirit Assessment": {
+      "blockId": "f55d5539-6d63-7e6b-c483-e08b81b7c642",
+      "sha": "bb49bf8409d5dc3d6c28eb4328d6debda3b853ca3e1ca28cfd0257029fbf0f41",
+      "fileName": "Fruit of the Spirit Assessment.pdf"
+    },
+    "R7 - Semester Planning (Fall)": {
+      "blockId": "676a1ebf-52a0-ef7c-20f3-f96ec3c77873",
+      "sha": "7254896e13848a3858372b092e927f58d411edb6b2b2caaeb6e1f8c96823d12e",
+      "fileName": "Semester Planning (Fall).pdf"
+    },
+    "R3 - Ministry Team Evaluation (Fall)": {
+      "blockId": "0be168c5-a045-8964-3b11-3ce948d80579",
+      "sha": "463b00cf4672b3909b84e395c542c4798d9872bf45814fc075d1ff549cbaf483",
+      "fileName": "Ministry Team Evaluation (Fall).pdf"
+    },
+    "R8 - Semester Planning (Spring)": {
+      "blockId": "bfd351ff-2cd9-2893-2b58-228954779947",
+      "sha": "95166be66308ae711359a45168f57e5ab46bd399532af3c16fea150cce000051",
+      "fileName": "Semester Planning (Spring).pdf"
+    },
+    "R4 - Ministry Team Evaluation (Spring)": {
+      "blockId": "84f4e6d9-aa1d-a849-680d-de15beef245b",
+      "sha": "dd290073c53d91710664667941a1199f62f778b03ede6a820783dcd711c7c893",
+      "fileName": "Ministry Team Evaluation (Spring).pdf"
+    },
+    "R5 - Solitary Retreat (Eremos Place)": {
+      "blockId": "a22d2a36-364c-98a5-c6bd-6e503b6f3594",
+      "sha": "3e7a908cd8a65c3963a5f84fc1d5e4921b83e3fd04c5b53308efef19ab91c152",
+      "fileName": "Solitary Retreat (Eremos Place).pdf"
+    },
+    "R6 - Discipleship Map": {
+      "blockId": "84648149-2cad-ee39-ac95-a2e2f5b4f654",
+      "sha": "3e019a78017da954b5b0bfd780c1551f0ee640ff58e8ed0e9467afe7aa73ee50",
+      "fileName": "Discipleship Map.pdf"
+    },
+    "R11 - Baptism Guide": {
+      "blockId": "2bb75d82-fa3f-0a38-d504-dbe8082f7138",
+      "sha": "bf6724631c8ed6a663623472d4227b811b48260c15e9604563b28e11e0b3fc1b",
+      "fileName": "Baptism Guide.pdf"
+    },
+    "R13 - 5 Phases": {
+      "blockId": "c45c9994-296b-b280-7a7d-c5c050e0d8a5",
+      "sha": "900355daf978d1fe5590b20aaf9df13e9208ed55f22249e6a4a4d48f94432060",
+      "fileName": "5 Phases.pdf"
+    },
+    "P1n - Unleashed Leaders Training Notes": {
+      "blockId": "8764c7d9-9cc2-844a-0733-35c3bb8a1484",
+      "sha": "e46299f5db33ede066f6e8a512008b88d8e89df8b443bd4f70278b2bfc24bcaa",
+      "fileName": "Unleashed Leaders Training Notes.pdf"
     }
   },
   "stamp": "5d922489-acbd-44d2-d5df-5dda7eb47124"
