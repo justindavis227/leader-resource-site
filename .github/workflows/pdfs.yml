@@ -67,6 +67,15 @@ jobs:
           echo "Chrome: $LRS_CHROME"
           node tools/build-pdfs.mjs ${{ steps.changed.outputs.mode }}
 
+      # Mirror the PDFs to the Craft backup page (Leader Resource Site — PDF Backup).
+      # Never blocks the PDFs: if Craft is down or the secret is missing, this step is skipped/ignored.
+      - name: Back up PDFs to Craft
+        continue-on-error: true
+        env:
+          CRAFT_API_URL: ${{ secrets.CRAFT_API_URL }}
+          CRAFT_API_KEY: ${{ secrets.CRAFT_API_KEY }}
+        run: node tools/craft-backup.mjs
+
       - name: Commit PDFs
         run: |
           git config user.name "github-actions[bot]"
