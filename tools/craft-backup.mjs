@@ -84,20 +84,20 @@ async function main() {
   const blocks = page.content || [];
   const onPage = new Set(blocks.map((b) => b.id));
 
-  // page skeleton: a "last updated" line and one heading per section
+  // page skeleton (Justin's layout): section headings in caps with page breaks, "Last updated" caption at the bottom.
+  // Only missing pieces are recreated; anything already on the page is left exactly as he styled it.
   if (!state.stamp || !onPage.has(state.stamp)) {
-    const r = await api('POST', '/blocks', { json: { markdown: 'Last updated: (pending)', position: { pageId: PAGE, position: 'start' } } });
+    const r = await api('POST', '/blocks', { json: { markdown: '<caption>**Last updated: **(pending)</caption>', position: { pageId: PAGE, position: 'end' } } });
     state.stamp = r.items[0].id;
   }
-  let anchor = state.stamp;
   for (const [, label] of SECTIONS) {
     if (!items.some((it) => SECTIONS[it.section][1] === label)) continue;
     if (!state.headings[label] || !onPage.has(state.headings[label])) {
-      const r = await api('POST', '/blocks', { json: { markdown: `## ${label}`, position: { siblingId: anchor, position: 'after' } } });
+      const r = await api('POST', '/blocks', { json: { markdown: `## ${label.toUpperCase()}`, position: { siblingId: state.stamp, position: 'before' } } });
       state.headings[label] = r.items[0].id;
     }
-    anchor = state.headings[label];
   }
+  let anchor;
 
   // stray copies (same file name, not the block we track) get removed so nothing piles up
   const ours = new Set(items.map((it) => it.fileName));
@@ -116,6 +116,7 @@ async function main() {
     if (present) await api('DELETE', '/blocks', { json: { blockIds: [prev.blockId] } });
     const r = await api('POST', '/upload' + q({ position: 'after', siblingId: anchor, fileName: it.fileName }),
       { body: uploadable(it.file), headers: { 'Content-Type': 'application/pdf' } });
+    try { await api('PUT', '/blocks', { json: { blocks: [{ id: r.blockId, blockLayout: 'card' }] } }); } catch (e) { console.log('    (card layout not applied)', e.message.slice(0, 80)); }
     state.files[it.key] = { blockId: r.blockId, sha: sha(it.file), fileName: it.fileName };
     anchor = r.blockId;
     console.log('  ✓', SECTIONS[it.section][1], '›', it.fileName);
@@ -125,9 +126,7 @@ async function main() {
   for (const k of Object.keys(state.files)) if (!items.some((it) => it.key === k)) delete state.files[k];
 
   const when = new Date().toLocaleString('en-US', { timeZone: 'America/Kentucky/Louisville', dateStyle: 'medium', timeStyle: 'short' });
-  const commit = (process.env.GITHUB_SHA || '').slice(0, 7);
-  await api('PUT', '/blocks', { json: { blocks: [{ id: state.stamp, markdown:
-    `Last updated: **${when}**${commit ? ` · commit ${commit}` : ''} · ${items.length} PDFs. Emergency copy of leader-resources.vercel.app; updates itself on every push.` }] } });
+  await api('PUT', '/blocks', { json: { blocks: [{ id: state.stamp, markdown: `<caption>**Last updated: **${when}</caption>`, color: '#9ea4aa', colorDark: '#6f7478' }] } });
   fs.writeFileSync(STATE, JSON.stringify(state, null, 2) + '\n');
   console.log('Craft backup up to date');
 }
