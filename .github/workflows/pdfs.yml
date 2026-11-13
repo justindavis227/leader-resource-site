@@ -74,7 +74,9 @@ jobs:
         env:
           CRAFT_API_URL: ${{ secrets.CRAFT_API_URL }}
           CRAFT_API_KEY: ${{ secrets.CRAFT_API_KEY }}
-        run: node tools/craft-backup.mjs
+        run: |
+          pip install --quiet --break-system-packages pikepdf pillow || pip install --quiet pikepdf pillow
+          node tools/craft-backup.mjs
 
       - name: Commit PDFs
         run: |

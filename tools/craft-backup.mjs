@@ -11,6 +11,8 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
+import os from 'os';
+import { execFileSync } from 'child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LIB = path.join(ROOT, '0 - Resource Library.dc.html');
@@ -40,6 +42,20 @@ items.sort((a, b) => a.section - b.section);   // stable: keeps Library order in
 
 const state = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : { headings: {}, files: {} };
 const sha = (f) => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+
+
+// Craft caps uploads at 5 MB. Bigger booklets (full-res cover photos) get a lighter copy for the backup:
+// images re-encoded smaller, text and layout untouched. The site's own PDFs are never modified.
+const LIMIT = 4.8e6;
+function uploadable(file) {
+  if (fs.statSync(file).size <= LIMIT) return fs.readFileSync(file);
+  const tmp = path.join(os.tmpdir(), 'craft-' + path.basename(file));
+  for (const [px, qual] of [['2000', '78'], ['1500', '70'], ['1100', '62']]) {
+    execFileSync('python3', [path.join(ROOT, 'tools', 'shrink-pdf.py'), file, tmp, px, qual], { stdio: 'inherit' });
+    if (fs.statSync(tmp).size <= LIMIT) { console.log(`    (lighter copy: ${(fs.statSync(file).size / 1e6).toFixed(1)} → ${(fs.statSync(tmp).size / 1e6).toFixed(1)} MB)`); return fs.readFileSync(tmp); }
+  }
+  throw new Error(`${path.basename(file)} is still over 5 MB after shrinking`);
+}
 
 // ---- Craft API (shared rate limit: 50 req / 10 s per IP), so pace and retry
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -99,7 +115,7 @@ async function main() {
     if (present && !changed.has(it.key)) { anchor = prev.blockId; continue; }
     if (present) await api('DELETE', '/blocks', { json: { blockIds: [prev.blockId] } });
     const r = await api('POST', '/upload' + q({ position: 'after', siblingId: anchor, fileName: it.fileName }),
-      { body: fs.readFileSync(it.file), headers: { 'Content-Type': 'application/pdf' } });
+      { body: uploadable(it.file), headers: { 'Content-Type': 'application/pdf' } });
     state.files[it.key] = { blockId: r.blockId, sha: sha(it.file), fileName: it.fileName };
     anchor = r.blockId;
     console.log('  ✓', SECTIONS[it.section][1], '›', it.fileName);
