@@ -1,0 +1,20 @@
+{
+  "headings": {
+    "Booklets": "5a1c08db-a24a-d105-74fd-3b78a4547337",
+    "Resources": "95b826fd-d1c4-7875-95a4-30d43425e6aa",
+    "Presentations": "153eb9dc-ebe6-c815-68e3-cce5175c545c"
+  },
+  "files": {
+    "1 - Unleashed Leaders Booklet": {
+      "blockId": "8125c588-4f0b-f748-7001-a044ce471ae1",
+      "sha": "702e2ebffc74717f03c1c67156c7037d816dc65cf4344cb785af3ad31867ef34",
+      "fileName": "Unleashed Leaders Booklet.pdf"
+    },
+    "5 - Fall 2026 Group Content.dc": {
+      "blockId": "326bcc62-3b47-9a51-11ea-1eb17170bb5e",
+      "sha": "3ffbdb3213fd8fd4fcaa203be329a8b5d531f30f7813cbfc241c9dac745d2cae",
+      "fileName": "Fall 2026 Group Content.pdf"
+    }
+  },
+  "stamp": "5d922489-acbd-44d2-d5df-5dda7eb47124"
+}
