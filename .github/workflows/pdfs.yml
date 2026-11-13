@@ -12,6 +12,7 @@ on:
       - 'deck-stage.js'
       - 'campus-map.js'
       - 'assets/**'
+      - '!assets/craft/**'   # Craft page banner only; no PDF depends on it
       - 'tools/**'
       - '.github/workflows/pdfs.yml'
   workflow_dispatch: {}   # "Run workflow" button in GitHub rebuilds every PDF

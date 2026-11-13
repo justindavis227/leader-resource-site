@@ -21,7 +21,7 @@ const targets = [...new Set([...lib.matchAll(/href="pdf\/([^"]+)\.pdf"/g)].map((
   .filter((t) => fs.existsSync(path.join(ROOT, t.html)));
 
 // files every page depends on: if one of these changes, rebuild everything
-const SHARED = [/^colors_and_type\.css$/, /^support\.js$/, /^deck-stage\.js$/, /^campus-map\.js$/, /^assets\//, /^tools\//, /^\.github\/workflows\//];
+const SHARED = [/^colors_and_type\.css$/, /^support\.js$/, /^deck-stage\.js$/, /^campus-map\.js$/, /^assets\/(?!craft\/)/, /^tools\//, /^\.github\/workflows\//];
 
 const args = process.argv.slice(2);
 let todo;
