@@ -113,8 +113,8 @@
   /* 5 keys—key-shaped number icon (solid-chip fob, matches mantra glyphs) */
   .keyrows .row{grid-template-columns:78px 1fr}
   .keyico{position:relative;width:76px;height:42px;margin-top:1px}
-  .keyico svg{width:76px;height:42px;color:var(--ember);fill:none;stroke-width:2.7;overflow:visible;display:block}
-  .keyico .kn{position:absolute;top:0;left:3px;width:34px;height:42px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:13.5px;color:#fff;letter-spacing:0}
+  .keyico svg{width:34px;height:42px;color:var(--ember);overflow:visible;display:block}
+  .keyico .kn{position:absolute;top:15px;left:0;width:34px;height:27px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:15px;color:#fff;letter-spacing:0}
 
   /* role overview—Your Role hierarchy spine */
   .roleovr .rows{display:flex;flex-direction:column;margin-top:2px}
@@ -1046,19 +1046,16 @@ section[data-screen-label="Your Role—Luke 9 Rhythms"] .rt span em{font-style:n
     </div>
     <div class="rows keyrows">
       <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-        <symbol id="ic-key" viewBox="0 0 78 42">
-          <rect x="4" y="6" width="32" height="30" rx="10" fill="currentColor" stroke="none"/>
-          <path d="M36 21 H72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M52 21 V30" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M62 21 V27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M72 21 V33" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        <symbol id="ic-lock" viewBox="30 15 190 235">
+          <path d="M79 104 V68 a46 46 0 0 1 92 0 V104" fill="none" stroke="currentColor" stroke-width="13"/>
+          <rect x="30" y="98" width="190" height="152" rx="16" fill="currentColor" stroke="none"/>
         </symbol>
       </defs></svg>
-      <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">01</span></div><div><div class="t">Create an environment for discussion</div><div class="b">Sit in a circle, on the same level. Everyone can see each other&mdash;and everyone feels free to share.</div></div></div>
-      <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">02</span></div><div><div class="t">Turn statements into questions</div><div class="b">Facilitate, don&rsquo;t teach. Use more question marks than periods, and skip yes-or-no questions.</div></div></div>
-      <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">03</span></div><div><div class="t">Involve every student</div><div class="b">Don&rsquo;t fill the silence with your own answer. Ask &ldquo;What do you think?&rdquo; and give it room&mdash;a little awkward silence never hurt anybody.</div></div></div>
-      <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">04</span></div><div><div class="t">Don&rsquo;t read off the curriculum</div><div class="b">Know the topic ahead of time and ask in your own words. The less you look down, the more it feels like a conversation.</div></div></div>
-      <div class="row"><div class="keyico"><svg viewBox="0 0 78 42"><use href="#ic-key"/></svg><span class="kn">05</span></div><div><div class="t">Follow up during the week</div><div class="b">Students need someone to walk with them, not talk at them. See <b>Follow Up</b> for how&mdash;page 21.</div></div></div>
+      <div class="row"><div class="keyico"><svg viewBox="0 0 190 235"><use href="#ic-lock"/></svg><span class="kn">1</span></div><div><div class="t">Create an environment for discussion</div><div class="b">Sit in a circle, on the same level. Everyone can see each other&mdash;and everyone feels free to share.</div></div></div>
+      <div class="row"><div class="keyico"><svg viewBox="0 0 190 235"><use href="#ic-lock"/></svg><span class="kn">2</span></div><div><div class="t">Turn statements into questions</div><div class="b">Facilitate, don&rsquo;t teach. Use more question marks than periods, and skip yes-or-no questions.</div></div></div>
+      <div class="row"><div class="keyico"><svg viewBox="0 0 190 235"><use href="#ic-lock"/></svg><span class="kn">3</span></div><div><div class="t">Involve every student</div><div class="b">Don&rsquo;t fill the silence with your own answer. Ask &ldquo;What do you think?&rdquo; and give it room&mdash;a little awkward silence never hurt anybody.</div></div></div>
+      <div class="row"><div class="keyico"><svg viewBox="0 0 190 235"><use href="#ic-lock"/></svg><span class="kn">4</span></div><div><div class="t">Don&rsquo;t read off the curriculum</div><div class="b">Know the topic ahead of time and ask in your own words. The less you look down, the more it feels like a conversation.</div></div></div>
+      <div class="row"><div class="keyico"><svg viewBox="0 0 190 235"><use href="#ic-lock"/></svg><span class="kn">5</span></div><div><div class="t">Follow up during the week</div><div class="b">Students need someone to walk with them, not talk at them. See <b>Follow Up</b> for how&mdash;page 21.</div></div></div>
     </div>
     <div class="foot"><span class="sec">Leading Well in Groups</span><span class="pn">15</span></div>
   </section>
@@ -1066,7 +1063,7 @@ section[data-screen-label="Your Role—Luke 9 Rhythms"] .rt span em{font-style:n
   <section class="page content" data-screen-label="Your Role—Getting Unstuck">
     <div>
       <div class="eyebrow">When a Group Stalls</div>
-      <h2 class="disp">5 Tips for Getting Unstuck</h2>
+      <h2 class="disp">5 Tips for<br>Getting Unstuck</h2>
       <div class="hr"></div>
     </div>
     <div class="rows ghlist">
