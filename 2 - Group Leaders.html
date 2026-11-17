@@ -427,23 +427,25 @@
   .bspread{--bblue:#e01b2f;--bblue-dk:#b0121f}
 
   /* header banner—main block + circle-bite parens + end cap */
-  .bbanner{display:flex;align-items:stretch;height:84px;margin-bottom:17px;flex:none}
-  .bbanner .bmain{flex:1;min-width:0;background:radial-gradient(circle 45px at calc(100% + 34px) 50%, transparent 44.5px, var(--bblue) 45px);border-radius:16px 0 0 16px;display:flex;align-items:center;padding:0 46px 0 30px}
+  .bbanner{display:flex;align-items:stretch;height:84px;margin-bottom:17px;flex:none;background:var(--bblue);border-radius:16px}
+  .bbanner .bmain{flex:1;min-width:0;display:flex;align-items:center;padding:0 46px 0 30px}
   .bbanner h2{font-family:var(--font-display);color:#fff;font-size:52px;line-height:.9;letter-spacing:.012em;margin:0;text-transform:uppercase;white-space:nowrap}
-  .bbanner .bgap{flex:none;width:68px;display:flex;align-items:center;justify-content:center}
-  .bbanner .bgap img{width:56px;height:56px;object-fit:contain;display:block}
-  .bbanner .bcap{flex:none;width:58px;background:radial-gradient(circle 45px at -34px 50%, transparent 44.5px, var(--bblue) 45px);border-radius:0 16px 16px 0}
+  .bbanner .bgap{flex:none;width:68px;display:flex;align-items:center;justify-content:center;position:relative}
+  .bbanner .bgap::before{content:'';position:absolute;left:50%;top:50%;width:94px;height:94px;margin:-47px 0 0 -47px;border-radius:50%;background:#fff}
+  .bbanner .bgap img{width:56px;height:56px;object-fit:contain;display:block;position:relative}
+  .bbanner .bcap{flex:none;width:58px}
 
   .bspread .purpose{font-size:13.5px;color:var(--fg1);line-height:1.5;margin:0 2px 20px 83px}
   .bspread .purpose b{color:var(--bblue-dk);font-weight:700}
   .bspread .purpose i{font-style:italic}
 
   /* number device (block + circle bites) + section bar */
-  .bsec{display:flex;align-items:stretch;height:50px;flex:none}
-  .bk{flex:none;width:33px;background:var(--bblue);border-radius:12px 0 0 12px}
-  .bnc{flex:none;width:50px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle 25px at 50% 50%, #fff 24.4px, var(--bblue) 25px)}
-  .bnc span{font-family:var(--font-display);font-weight:700;color:var(--bblue);font-size:26px;line-height:1}
-  .bar{flex:1;min-width:0;background:var(--bblue);border-radius:0 9px 9px 0;display:flex;align-items:center;padding:0 20px 0 24px}
+  .bsec{display:flex;align-items:stretch;height:50px;flex:none;background:var(--bblue);border-radius:12px 9px 9px 12px}
+  .bk{flex:none;width:33px}
+  .bnc{flex:none;width:50px;display:flex;align-items:center;justify-content:center;position:relative}
+  .bnc::before{content:'';position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:#fff}
+  .bnc span{font-family:var(--font-display);font-weight:700;color:var(--bblue);font-size:26px;line-height:1;position:relative}
+  .bar{flex:1;min-width:0;display:flex;align-items:center;padding:0 20px 0 24px}
   .bar h3{font-family:var(--font-display);color:#fff;font-size:22px;letter-spacing:.02em;margin:0;text-transform:uppercase;display:flex;align-items:baseline;gap:7px;white-space:nowrap}
   .bar h3 .to{font-family:var(--font-body);font-style:italic;font-weight:600;font-size:14px;letter-spacing:.01em}
 
@@ -1607,15 +1609,16 @@ in the power of the Holy Spirit? Are they learning to feed themselves?
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">40</span></div>
   </section>
 
-  <section class="page content" data-screen-label="The Mission—Now &amp; Next Values">
+  <section class="page content" data-screen-label="Notes">
     <div>
-      <div class="eyebrow">The Mission</div>
-      <h2 class="disp">Now &amp; Next Values</h2>
-      <div class="hr"></div>
-      <p class="lead">It&rsquo;s easy to focus on what&rsquo;s happening in a student&rsquo;s life <i>now</i> and forget to prepare them for what&rsquo;s <i>next</i>. These five values shape how we lead&mdash;and what we ask of you.</p>
+      <div class="eyebrow">Space to Think</div>
+      <h2 class="disp">Notes</h2>
     </div>
-    <div class="rows"><div class="row"><div class="k sm">01</div><div><div class="t">Be equipped</div><div class="b">You&rsquo;re not on your own. We&rsquo;ll equip and empower you to shepherd students through training, huddles, and a team leader in your corner.<span class="ref">Ephesians 4:12</span></div></div></div><div class="row"><div class="k sm">02</div><div><div class="t">Partner with parents</div><div class="b">Parents are the biggest influence in a student&rsquo;s faith. Learn their names, keep them in the loop, and work with them, not around them.</div></div></div><div class="row"><div class="k sm">03</div><div><div class="t">Reach the lost</div><div class="b">Help your students see their friends the way Jesus does&mdash;and give them the courage to invite and share.</div></div></div><div class="row"><div class="k sm">04</div><div><div class="t">Next steps</div><div class="b">Help every student take their next step with Jesus and in life: baptism, a group, a serving role, a mission trip.</div></div></div><div class="row"><div class="k sm">05</div><div><div class="t">Intergenerational</div><div class="b">Students grow when adults of every age know them. Connect them to the wider church to serve, worship, and learn alongside other generations.</div></div></div></div>
-    <div class="foot"><span class="sec">Further Resources</span><span class="pn">41</span></div>
+    <div class="rows" style="margin-top:14px">
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+      <div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div><div class="noteline"></div>
+    </div>
+    <div class="foot"><span class="sec">SE Students</span><span class="pn">41</span></div>
   </section>
 
   <section class="page content" data-screen-label="Notes">
