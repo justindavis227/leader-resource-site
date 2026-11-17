@@ -814,6 +814,16 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
 <style>/* p7 rhythm chips bold, matching the p6 mantra chips */
 .rwchip{font-weight:700!important}
 </style>
+<style>/* p33 course-correcting route: numbered stops on a zig-zag path, pin at the start, flag at the end */
+.slroute .rows .row{grid-template-columns:74px 1fr;padding:12px 0}
+.slroute .route{position:relative;align-self:stretch;margin:-12px 0}
+.slroute .rline{position:absolute;inset:0;width:74px;height:100%;overflow:visible}
+.slroute .rline path{fill:none;stroke:var(--sa,#e01b2f);stroke-width:2.5;stroke-dasharray:5 5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.slroute .rdot{position:absolute;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:var(--sa,#e01b2f);color:#fff;font-family:var(--font-display);font-weight:700;font-size:16px;line-height:30px;text-align:center;box-shadow:0 0 0 4px #fff}
+.slroute .rmark{position:absolute;margin-left:-12px;line-height:0}
+.slroute .rmark svg{width:24px;height:auto;display:block}
+.slroute .rmk-end{margin-left:-4px}
+</style>
 </head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
@@ -1453,7 +1463,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">32</span></div>
   </section>
 
-  <section class="slnobreak page content" data-screen-label="The Mission—Four Questions">
+  <section class="slroute slnobreak page content" data-screen-label="The Mission—Four Questions">
     <div>
       <div class="eyebrow">The Mission</div>
       <h2 class="disp">Course correcting Questions</h2>
@@ -1461,10 +1471,10 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
       <p class="lead">Four questions for every leader to realign with our mission:</p>
     </div>
     <div class="rows">
-      <div class="row"><div class="k slbig">01</div><div><div class="t">How am I connecting to Jesus?</div><div class="b">Your relationship with Jesus matters more than the task you complete. Serve from time with Him, not as a substitute for time with Him.</div></div></div>
-      <div class="row"><div class="k slbig">02</div><div><div class="t">How am I connecting to one another?</div><div class="b">Ministry is a team effort. Know the people you serve with, encourage them, and build relationships that extend beyond your assignment.</div></div></div>
-      <div class="row"><div class="k slbig">03</div><div><div class="t">How am I connecting people to Jesus?</div><div class="b">A warm welcome, a calm response or an offered prayer can help remove an obstacle between a student and their next step toward Jesus.</div></div></div>
-      <div class="row"><div class="k slbig">04</div><div><div class="t">How am I connecting people to one another?</div><div class="b">Belonging often opens the door to deeper connection. Notice the student who is standing alone and help them find a person, a group, or a place to belong.</div></div></div>
+      <div class="row"><div class="route"><svg class="rline" viewBox="0 0 74 100" preserveAspectRatio="none" aria-hidden="true"><path d="M18 18 L18 50 M18 50 C18 75 37 75 37 100"/></svg><span class="rmark" style="left:18px;top:4px"><svg class="rpin" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 31 C12 31 2 18 2 11 a10 10 0 0 1 20 0 c0 7 -10 20 -10 20Z" style="fill:var(--sa,#e01b2f)"/><circle cx="12" cy="11" r="4" fill="#fff"/></svg></span><span class="rdot" style="left:18px">1</span></div><div><div class="t">How am I connecting to Jesus?</div><div class="b">Your relationship with Jesus matters more than the task you complete. Serve from time with Him, not as a substitute for time with Him.</div></div></div>
+      <div class="row"><div class="route"><svg class="rline" viewBox="0 0 74 100" preserveAspectRatio="none" aria-hidden="true"><path d="M37 0 C37 25 56 25 56 50 M56 50 C56 75 37 75 37 100"/></svg><span class="rdot" style="left:56px">2</span></div><div><div class="t">How am I connecting to one another?</div><div class="b">Ministry is a team effort. Know the people you serve with, encourage them, and build relationships that extend beyond your assignment.</div></div></div>
+      <div class="row"><div class="route"><svg class="rline" viewBox="0 0 74 100" preserveAspectRatio="none" aria-hidden="true"><path d="M37 0 C37 25 18 25 18 50 M18 50 C18 75 37 75 37 100"/></svg><span class="rdot" style="left:18px">3</span></div><div><div class="t">How am I connecting people to Jesus?</div><div class="b">A warm welcome, a calm response or an offered prayer can help remove an obstacle between a student and their next step toward Jesus.</div></div></div>
+      <div class="row"><div class="route"><svg class="rline" viewBox="0 0 74 100" preserveAspectRatio="none" aria-hidden="true"><path d="M37 0 C37 25 56 25 56 50 M56 50 L56 82"/></svg><span class="rmark rmk-end" style="left:61px;bottom:-2px"><svg class="rflag" viewBox="0 0 24 30" aria-hidden="true"><rect x="3" y="2" width="3" height="27" rx="1.5" style="fill:var(--sa,#e01b2f)"/><path d="M6 3 H22 L18 9 L22 15 H6Z" style="fill:var(--sa,#e01b2f)"/></svg></span><span class="rdot" style="left:56px">4</span></div><div><div class="t">How am I connecting people to one another?</div><div class="b">Belonging often opens the door to deeper connection. Notice the student who is standing alone and help them find a person, a group, or a place to belong.</div></div></div>
     </div>
     <div class="foot"><span class="sec">The Mission</span><span class="pn">33</span></div>
   </section>
