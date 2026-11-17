@@ -792,7 +792,13 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .brk::before
 section[data-screen-label="Further Resources—Weekly Quick Check"] .brk i{position:absolute;left:0;top:calc(50% - 12px);width:16px;height:24px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='24' viewBox='0 0 16 24'><path d='M9,0 C9,8 6,12 1,12 C6,12 9,16 9,24' fill='none' stroke='%23e01b2f' stroke-width='2'/></svg>") no-repeat}
 section[data-screen-label="Further Resources—Weekly Quick Check"] .brk::before{left:8px;right:0;top:0;bottom:calc(50% + 12px);border-left-width:2px;border-top-width:2px;border-top-left-radius:7px}
 section[data-screen-label="Further Resources—Weekly Quick Check"] .brk::after{left:8px;right:0;bottom:0;top:calc(50% + 12px);border-left-width:2px;border-bottom-width:2px;border-bottom-left-radius:7px}
-</style></head>
+</style><style>/* page 12: each team's box starts at its arrow tip, so the arrow points into it and the boxes stagger with the chips */
+section[data-spread="R:support-tie"] .roleov .rolb{grid-template-columns:16px auto 1fr;column-gap:12px;padding:0}
+section[data-spread="R:support-tie"] .roleov .rolb::after,section[data-spread="R:support-tie"] .roleov .rolb:last-child::after{display:none!important}
+section[data-spread="R:support-tie"] .roleov .rolb ul{align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:8px;border:1px solid var(--hairline);border-radius:14px;padding:14px 20px}
+section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:12px}
+</style>
+</head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
 <nav id="libnav" style="position:fixed;top:14px;left:16px;z-index:9999;display:flex;gap:3px;background:var(--pitch,var(--black));padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(14,18,21,.3);font-family:var(--font-mono,ui-monospace,monospace)">
