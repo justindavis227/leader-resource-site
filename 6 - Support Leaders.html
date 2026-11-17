@@ -798,6 +798,15 @@ section[data-spread="R:support-tie"] .roleov .rolb::after,section[data-spread="R
 section[data-spread="R:support-tie"] .roleov .rolb ul{align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:8px;border:1px solid var(--hairline);border-radius:14px;padding:14px 20px}
 section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:12px}
 </style>
+<style>/* big markers + no row dividers (title rule stays) */
+.slnobreak .rows .row{border-bottom:none!important;border-top:none!important}
+.slnobreak .rows .row::before,.slnobreak .rows .row::after{display:none!important}
+.slnobreak .rows .row{grid-template-columns:64px 1fr}
+.slbig{font-family:var(--font-display)!important;font-weight:700!important;font-size:40px!important;line-height:.85!important;color:var(--sa,#e01b2f)!important;letter-spacing:-.02em!important;padding-top:0!important}
+.slarrow{font-size:38px!important;line-height:.75!important}
+.slheart{padding-top:0!important}
+.slheart svg{width:44px;height:41px;display:block}
+</style>
 </head>
 <body>
 <style>@media print{#libnav{display:none!important}}</style>
@@ -1023,17 +1032,17 @@ section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:12px}
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">09</span></div>
   </section>
 
-  <section class="page content" data-screen-label="The Mission—The Heart Behind Support">
+  <section class="slnobreak page content" data-screen-label="The Mission—The Heart Behind Support">
     <div>
       <div class="eyebrow">The Mission</div>
       <h2 class="disp">The Heart Behind <span style="color:var(--sa,#e01b2f)">Support</span></h2>
       <div class="hr"></div>
     </div>
     <div class="rows hsrows">
-      <div class="row"><div class="k sm">01</div><div><div class="t">Jesus&rsquo; ministry didn&rsquo;t work without those around Him <span class="hsref">Luke 8:1&ndash;3</span></div><div class="b">As Jesus went from town to town, a group of women traveled with Him, &ldquo;helping to support them out of their own means.&rdquo; His ministry moved forward because people supported Him.</div></div></div>
-      <div class="row"><div class="k sm">02</div><div><div class="t">Jesus is our model <span class="hsref">Mark 10:42&ndash;45</span></div><div class="b">The world measures greatness by who is in charge. Jesus flipped it: whoever wants to be great must serve. He came not to be served, but to serve and give His life.</div></div></div>
-      <div class="row"><div class="k sm">03</div><div><div class="t">Shared work, growing church <span class="hsref">Acts 6:1&ndash;7</span></div><div class="b">When needs outgrew the apostles, the early church chose faithful, Spirit-filled people to serve so the Word could keep going out&mdash;and the number of disciples grew. Support isn&rsquo;t secondary. It&rsquo;s how the mission multiplies.</div></div></div>
-      <div class="row"><div class="k sm">04</div><div><div class="t">Every part matters <span class="hsref">1 Corinthians 12:12&ndash;31</span></div><div class="b">&ldquo;Now you are the body of Christ, and each one of you is a part of it.&rdquo; No part gets all the attention, and no part can say it isn&rsquo;t needed. The person leading a group and the person running check-in both help students take a step closer to Jesus.</div></div></div>
+      <div class="row"><div class="k slheart"><svg viewBox="0 0 100 92" aria-hidden="true"><path d="M50 90 C50 90 4 62 4 30 C4 14 16 3 30 3 C40 3 47 9 50 15 C53 9 60 3 70 3 C84 3 96 14 96 30 C96 62 50 90 50 90Z" style="fill:var(--sa,#e01b2f)"/><text x="50" y="52" text-anchor="middle" style="font-family:var(--font-mono);font-weight:700;font-size:30px;fill:#fff">1</text></svg></div><div><div class="t">Jesus&rsquo; ministry didn&rsquo;t work without those around Him <span class="hsref">Luke 8:1&ndash;3</span></div><div class="b">As Jesus went from town to town, a group of women traveled with Him, &ldquo;helping to support them out of their own means.&rdquo; His ministry moved forward because people supported Him.</div></div></div>
+      <div class="row"><div class="k slheart"><svg viewBox="0 0 100 92" aria-hidden="true"><path d="M50 90 C50 90 4 62 4 30 C4 14 16 3 30 3 C40 3 47 9 50 15 C53 9 60 3 70 3 C84 3 96 14 96 30 C96 62 50 90 50 90Z" style="fill:var(--sa,#e01b2f)"/><text x="50" y="52" text-anchor="middle" style="font-family:var(--font-mono);font-weight:700;font-size:30px;fill:#fff">2</text></svg></div><div><div class="t">Jesus is our model <span class="hsref">Mark 10:42&ndash;45</span></div><div class="b">The world measures greatness by who is in charge. Jesus flipped it: whoever wants to be great must serve. He came not to be served, but to serve and give His life.</div></div></div>
+      <div class="row"><div class="k slheart"><svg viewBox="0 0 100 92" aria-hidden="true"><path d="M50 90 C50 90 4 62 4 30 C4 14 16 3 30 3 C40 3 47 9 50 15 C53 9 60 3 70 3 C84 3 96 14 96 30 C96 62 50 90 50 90Z" style="fill:var(--sa,#e01b2f)"/><text x="50" y="52" text-anchor="middle" style="font-family:var(--font-mono);font-weight:700;font-size:30px;fill:#fff">3</text></svg></div><div><div class="t">Shared work, growing church <span class="hsref">Acts 6:1&ndash;7</span></div><div class="b">When needs outgrew the apostles, the early church chose faithful, Spirit-filled people to serve so the Word could keep going out&mdash;and the number of disciples grew. Support isn&rsquo;t secondary. It&rsquo;s how the mission multiplies.</div></div></div>
+      <div class="row"><div class="k slheart"><svg viewBox="0 0 100 92" aria-hidden="true"><path d="M50 90 C50 90 4 62 4 30 C4 14 16 3 30 3 C40 3 47 9 50 15 C53 9 60 3 70 3 C84 3 96 14 96 30 C96 62 50 90 50 90Z" style="fill:var(--sa,#e01b2f)"/><text x="50" y="52" text-anchor="middle" style="font-family:var(--font-mono);font-weight:700;font-size:30px;fill:#fff">4</text></svg></div><div><div class="t">Every part matters <span class="hsref">1 Corinthians 12:12&ndash;31</span></div><div class="b">&ldquo;Now you are the body of Christ, and each one of you is a part of it.&rdquo; No part gets all the attention, and no part can say it isn&rsquo;t needed. The person leading a group and the person running check-in both help students take a step closer to Jesus.</div></div></div>
     </div>
     <p class="hsbubble"><b>You may never be on stage or lead a group, but the way you serve can shape whether a student feels comfortable enough to stay and connected enough to return. You free up every leader to focus on disciple-making.</b></p>
     <div class="foot"><span class="sec">The Mission</span><span class="pn">10</span></div>
@@ -1218,35 +1227,35 @@ section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:12px}
     <div class="foot dark"><span class="sec">SE Students</span><span class="pn">19</span></div>
   </section>
 
-  <section class="page content" data-screen-label="Serving Well—What We Ask">
+  <section class="slnobreak page content" data-screen-label="Serving Well—What We Ask">
     <div>
       <div class="eyebrow">Every Support Leader</div>
       <h2 class="disp">What We Ask</h2>
       <div class="hr"></div>
     </div>
     <div class="rows tight">
-      <div class="row"><div class="k sm">01</div><div><div class="t">Be faithful.</div><div class="b">Honor your serving commitment and communicate early when you cannot serve.</div></div></div>
-      <div class="row"><div class="k sm">02</div><div><div class="t">Be available.</div><div class="b">Arrive at your ministries designated time knowing your assignment. </div></div></div>
-      <div class="row"><div class="k sm">03</div><div><div class="t">Be present.</div><div class="b">Look up, engage people, and stay attentive instead of waiting for someone to tell you what to do. Put your phone away except for ministry use.</div></div></div>
-      <div class="row"><div class="k sm">04</div><div><div class="t">Be a teammate.</div><div class="b">Support your team, other leaders and staff. No task is beneath you.</div></div></div>
-      <div class="row"><div class="k sm">05</div><div><div class="t">Model the way.</div><div class="b">Represent Jesus through your words, attitude, relationships, and choices.</div></div></div>
-      <div class="row"><div class="k sm">06</div><div><div class="t">Protect students.</div><div class="b">Follow all student-safety policies, keep interactions visible, and promptly share concerns with ministry staff.</div></div></div>
-      <div class="row"><div class="k sm">07</div><div><div class="t">Be teachable.</div><div class="b">Ask for help and receive coaching. You are not expected to have every answer or solve every situation yourself.</div></div></div>
+      <div class="row"><div class="k slbig">01</div><div><div class="t">Be faithful.</div><div class="b">Honor your serving commitment and communicate early when you cannot serve.</div></div></div>
+      <div class="row"><div class="k slbig">02</div><div><div class="t">Be available.</div><div class="b">Arrive at your ministries designated time knowing your assignment. </div></div></div>
+      <div class="row"><div class="k slbig">03</div><div><div class="t">Be present.</div><div class="b">Look up, engage people, and stay attentive instead of waiting for someone to tell you what to do. Put your phone away except for ministry use.</div></div></div>
+      <div class="row"><div class="k slbig">04</div><div><div class="t">Be a teammate.</div><div class="b">Support your team, other leaders and staff. No task is beneath you.</div></div></div>
+      <div class="row"><div class="k slbig">05</div><div><div class="t">Model the way.</div><div class="b">Represent Jesus through your words, attitude, relationships, and choices.</div></div></div>
+      <div class="row"><div class="k slbig">06</div><div><div class="t">Protect students.</div><div class="b">Follow all student-safety policies, keep interactions visible, and promptly share concerns with ministry staff.</div></div></div>
+      <div class="row"><div class="k slbig">07</div><div><div class="t">Be teachable.</div><div class="b">Ask for help and receive coaching. You are not expected to have every answer or solve every situation yourself.</div></div></div>
     </div>
     <div class="foot"><span class="sec">Serving Well</span><span class="pn">20</span></div>
   </section>
 
-  <section class="page content" data-screen-label="Serving Well—When the Unexpected Happens">
+  <section class="slnobreak page content" data-screen-label="Serving Well—When the Unexpected Happens">
     <div>
       <div class="eyebrow">Supporting Well</div>
       <h2 class="disp">When the Unexpected Happens</h2>
       <div class="hr"></div>
     </div>
     <div class="rows tight">
-      <div class="row"><div class="k sm">→ </div><div><div class="t">A student cannot find their group.</div><div class="b">Stay with the student and connect them to the Team Leader or Staff who can help.</div></div></div>
-      <div class="row"><div class="k sm">→ </div><div><div class="t">A parent has a question you cannot answer.</div><div class="b">Thank them for asking and introduce them to who is responsible for that decision.</div></div></div>
-      <div class="row"><div class="k sm">→ </div><div><div class="t">A student shares something concerning.</div><div class="b">Listen without making promises of secrecy. Bring in the appropriate Team Leader or Staff member promptly. Follow established safety and reporting procedures.</div></div></div>
-      <div class="row"><div class="k sm">→ </div><div><div class="t">Something seems unsafe.</div><div class="b">Follow your campus&rsquo;s safety communication and emergency procedures right away. You do not need to determine whether a concern is serious enough on your own.</div></div></div>
+      <div class="row"><div class="k slbig slarrow">→</div><div><div class="t">A student cannot find their group.</div><div class="b">Stay with the student and connect them to the Team Leader or Staff who can help.</div></div></div>
+      <div class="row"><div class="k slbig slarrow">→</div><div><div class="t">A parent has a question you cannot answer.</div><div class="b">Thank them for asking and introduce them to who is responsible for that decision.</div></div></div>
+      <div class="row"><div class="k slbig slarrow">→</div><div><div class="t">A student shares something concerning.</div><div class="b">Listen without making promises of secrecy. Bring in the appropriate Team Leader or Staff member promptly. Follow established safety and reporting procedures.</div></div></div>
+      <div class="row"><div class="k slbig slarrow">→</div><div><div class="t">Something seems unsafe.</div><div class="b">Follow your campus&rsquo;s safety communication and emergency procedures right away. You do not need to determine whether a concern is serious enough on your own.</div></div></div>
     </div>
     <div class="callout">
       <span class="ck">Remember</span>
@@ -1271,19 +1280,19 @@ section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:12px}
     <div class="foot"><span class="sec">Serving Well</span><span class="pn">22</span></div>
   </section>
 
-  <section class="page content" data-screen-label="Serving Well—What You Can Expect">
+  <section class="slnobreak page content" data-screen-label="Serving Well—What You Can Expect">
     <div>
       <div class="eyebrow">From Your Staff Team</div>
       <h2 class="disp">What You Can Expect</h2>
       <div class="hr"></div>
     </div>
     <div class="rows tight">
-      <div class="row"><div class="k sm">01</div><div><div class="t">A clear assignment.</div><div class="b">We&rsquo;ll help you understand your role and connect you to the right team before you serve.</div></div></div>
-      <div class="row"><div class="k sm">02</div><div><div class="t">Training for your role.</div><div class="b">Role-specific training and ministry updates, so you&rsquo;re never guessing what&rsquo;s expected.</div></div></div>
-      <div class="row"><div class="k sm">03</div><div><div class="t">Early communication.</div><div class="b">Schedule changes, special events, and needs shared ahead of time&mdash;not at the door.</div></div></div>
-      <div class="row"><div class="k sm">04</div><div><div class="t">Someone to go to.</div><div class="b">You&rsquo;ll know exactly where to bring a question or concern, and we&rsquo;ll follow up.</div></div></div>
-      <div class="row"><div class="k sm">05</div><div><div class="t">Prayer and care.</div><div class="b">We pray for you by name and care about how you&rsquo;re doing, not just what you&rsquo;re doing.</div></div></div>
-      <div class="row"><div class="k sm">06</div><div><div class="t">Celebration.</div><div class="b">We&rsquo;ll share the stories and wins your serving helped make possible.</div></div></div>
+      <div class="row"><div class="k slbig">01</div><div><div class="t">A clear assignment.</div><div class="b">We&rsquo;ll help you understand your role and connect you to the right team before you serve.</div></div></div>
+      <div class="row"><div class="k slbig">02</div><div><div class="t">Training for your role.</div><div class="b">Role-specific training and ministry updates, so you&rsquo;re never guessing what&rsquo;s expected.</div></div></div>
+      <div class="row"><div class="k slbig">03</div><div><div class="t">Early communication.</div><div class="b">Schedule changes, special events, and needs shared ahead of time&mdash;not at the door.</div></div></div>
+      <div class="row"><div class="k slbig">04</div><div><div class="t">Someone to go to.</div><div class="b">You&rsquo;ll know exactly where to bring a question or concern, and we&rsquo;ll follow up.</div></div></div>
+      <div class="row"><div class="k slbig">05</div><div><div class="t">Prayer and care.</div><div class="b">We pray for you by name and care about how you&rsquo;re doing, not just what you&rsquo;re doing.</div></div></div>
+      <div class="row"><div class="k slbig">06</div><div><div class="t">Celebration.</div><div class="b">We&rsquo;ll share the stories and wins your serving helped make possible.</div></div></div>
     </div>
     <div class="scripture" style="margin-top:auto">
       <div class="sref">Haven&rsquo;t gotten what you need?</div>
@@ -1437,7 +1446,7 @@ section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:12px}
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">32</span></div>
   </section>
 
-  <section class="page content" data-screen-label="The Mission—Four Questions">
+  <section class="slnobreak page content" data-screen-label="The Mission—Four Questions">
     <div>
       <div class="eyebrow">The Mission</div>
       <h2 class="disp">Course correcting Questions</h2>
@@ -1445,25 +1454,25 @@ section[data-spread="R:support-tie"] .roleov .rolb:first-child ul{gap:12px}
       <p class="lead">Four questions for every leader to realign with our mission:</p>
     </div>
     <div class="rows">
-      <div class="row"><div class="k sm">01</div><div><div class="t">How am I connecting to Jesus?</div><div class="b">Your relationship with Jesus matters more than the task you complete. Serve from time with Him, not as a substitute for time with Him.</div></div></div>
-      <div class="row"><div class="k sm">02</div><div><div class="t">How am I connecting to one another?</div><div class="b">Ministry is a team effort. Know the people you serve with, encourage them, and build relationships that extend beyond your assignment.</div></div></div>
-      <div class="row"><div class="k sm">03</div><div><div class="t">How am I connecting people to Jesus?</div><div class="b">A warm welcome, a calm response or an offered prayer can help remove an obstacle between a student and their next step toward Jesus.</div></div></div>
-      <div class="row"><div class="k sm">04</div><div><div class="t">How am I connecting people to one another?</div><div class="b">Belonging often opens the door to deeper connection. Notice the student who is standing alone and help them find a person, a group, or a place to belong.</div></div></div>
+      <div class="row"><div class="k slbig">01</div><div><div class="t">How am I connecting to Jesus?</div><div class="b">Your relationship with Jesus matters more than the task you complete. Serve from time with Him, not as a substitute for time with Him.</div></div></div>
+      <div class="row"><div class="k slbig">02</div><div><div class="t">How am I connecting to one another?</div><div class="b">Ministry is a team effort. Know the people you serve with, encourage them, and build relationships that extend beyond your assignment.</div></div></div>
+      <div class="row"><div class="k slbig">03</div><div><div class="t">How am I connecting people to Jesus?</div><div class="b">A warm welcome, a calm response or an offered prayer can help remove an obstacle between a student and their next step toward Jesus.</div></div></div>
+      <div class="row"><div class="k slbig">04</div><div><div class="t">How am I connecting people to one another?</div><div class="b">Belonging often opens the door to deeper connection. Notice the student who is standing alone and help them find a person, a group, or a place to belong.</div></div></div>
     </div>
     <div class="foot"><span class="sec">The Mission</span><span class="pn">33</span></div>
   </section>
 
-  <section class="page content" data-screen-label="Further Resources—Questions You May Have">
+  <section class="slnobreak page content" data-screen-label="Further Resources—Questions You May Have">
     <div>
       <div class="eyebrow">FAQ's</div>
       <h2 class="disp">Questions You May Have</h2>
       <div class="hr"></div>
     </div>
     <div class="rows">
-      <div class="row"><div class="k sm">Q</div><div><div class="t">What if I can&rsquo;t serve one week?</div><div class="b">Communicate as early as possible using your campus&rsquo;s approved scheduling process. Do not assume your spot is covered until you have followed that process.</div></div></div>
-      <div class="row"><div class="k sm">Q</div><div><div class="t">What if I don&rsquo;t know the answer?</div><div class="b">It&rsquo;s okay to say, &ldquo;That&rsquo;s a great question. Let me connect you with someone who can help.&rdquo;</div></div></div>
-      <div class="row"><div class="k sm">Q</div><div><div class="t">What if a student wants to talk about following Jesus or baptism?</div><div class="b">Celebrate their question and connect them with a Group Leader or ministry staff member who can walk through their next steps. Pray with them when appropriate.</div></div></div>
-      <div class="row"><div class="k sm">Q</div><div><div class="t">What if I notice a concern but I&rsquo;m not sure how serious it is?</div><div class="b">Tell your designated staff or security contact promptly. It is better to communicate a concern than to carry it alone.</div></div></div>
+      <div class="row"><div class="k slbig">Q</div><div><div class="t">What if I can&rsquo;t serve one week?</div><div class="b">Communicate as early as possible using your campus&rsquo;s approved scheduling process. Do not assume your spot is covered until you have followed that process.</div></div></div>
+      <div class="row"><div class="k slbig">Q</div><div><div class="t">What if I don&rsquo;t know the answer?</div><div class="b">It&rsquo;s okay to say, &ldquo;That&rsquo;s a great question. Let me connect you with someone who can help.&rdquo;</div></div></div>
+      <div class="row"><div class="k slbig">Q</div><div><div class="t">What if a student wants to talk about following Jesus or baptism?</div><div class="b">Celebrate their question and connect them with a Group Leader or ministry staff member who can walk through their next steps. Pray with them when appropriate.</div></div></div>
+      <div class="row"><div class="k slbig">Q</div><div><div class="t">What if I notice a concern but I&rsquo;m not sure how serious it is?</div><div class="b">Tell your designated staff or security contact promptly. It is better to communicate a concern than to carry it alone.</div></div></div>
     </div>
     <div class="foot"><span class="sec">Further Resources</span><span class="pn">34</span></div>
   </section>
