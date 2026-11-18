@@ -718,10 +718,10 @@
 .rolb li{font-size:13px;color:var(--fg2);line-height:1.4;padding-left:16px;position:relative}
 .rolb li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--sa)}
 /* big three event stack */
-  .b3{flex:1;display:grid;grid-template-rows:repeat(3,1fr);margin-top:8px}
-.b3row{display:grid;grid-template-columns:315px 250px;gap:30px;justify-content:start;align-items:center;border-top:1px solid var(--hairline);padding:10px 0}
-.b3row:last-child{border-bottom:1px solid var(--hairline)}
-.b3row:first-child{border-top:none}
+  .b3{flex:1;display:grid;grid-template-rows:repeat(3,1fr);margin-top:0;gap:14px}
+.b3row{display:grid;grid-template-columns:300px 250px;gap:30px;justify-content:start;align-items:center;border:1px solid var(--hairline);border-radius:12px;padding:10px 26px}
+
+
 /* title .hr serves as the top break line */
   .b3row .bn{font-family:var(--font-display);font-weight:700;text-transform:none;font-size:30px;line-height:.98;letter-spacing:-.015em;white-space:nowrap;color:var(--fg1)}
 .b3row .bn .ref{display:block;margin-left:0;font-family:var(--font-display);text-transform:uppercase;font-size:34px;line-height:.9;letter-spacing:normal;color:var(--sa);vertical-align:baseline;margin-bottom:1px}
@@ -862,7 +862,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
 
   <section class="page copyright" data-screen-label="Copyright">
     <div class="copyblock">
-      <p>&copy; 2026 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
+      <p>&copy; 2027 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
       <p>For permissions contact: Justin Davis at <a href="mailto:jdavis@secc.org">jdavis@secc.org</a></p>
     </div>
   </section>
@@ -1078,7 +1078,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
         <ul>
           <li>Shepherding Team Leaders</li>
           <li>Keeping the whole ministry on mission</li>
-          <li>Being examples to the flock<span class="ref">1 Peter 5:2&ndash;4</span></li>
+          <li>Being examples to the flock <span class="ref">( 1 Peter 5:2&ndash;4 )</span></li>
           <li>Equipping Team Leaders</li>
         </ul>
       </div>
@@ -1089,7 +1089,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
           <li>Shepherding a team of leaders</li>
           <li>Keeping your team focused on the mission</li>
           <li>Setting the pace for your teams</li>
-          <li>Leading by example for your team<span class="ref">1 Cor. 11:1</span></li>
+          <li>Leading by example for your team <span class="ref">( 1 Cor. 11:1 )</span></li>
         </ul>
       </div>
       <div class="rolb">
@@ -1097,7 +1097,7 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
         <div class="rlab"><div class="rname">Leader</div></div>
         <ul>
           <li>Shepherding students</li>
-          <li>Initiating investment in a few</li>
+          <li>Initiating investment in a few <span class="ref">( 1 Thess. 2:8 )</span></li>
           <li>Living out your spiritual gifts in the context of<br>your team and the ministry in which you serve</li>
         </ul>
       </div>
@@ -1350,7 +1350,6 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
     <div>
       <div class="eyebrow">The Big Three</div>
       <h2 class="disp">Events <span class="hib">+</span> Tips</h2>
-      <div class="hr"></div>
     </div>
     <div class="b3">
       <div class="b3row">
@@ -1411,7 +1410,12 @@ section[data-screen-label="Further Resources—Weekly Quick Check"] .rhythm .rh,
         <h2 class="disp">A Simple Conversation Guide</h2>
         <div class="hr"></div>
       </div>
-      <div class="stoplight"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div style="display:flex;gap:22px;align-items:flex-start;flex:none">
+        <a href="https://courses.secc.org/stoplight/#/" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;margin-top:4px">
+          <span style="background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:6px;display:block"><img src="assets/qr-stoplight.svg" alt="Scan to open the Stoplight course" style="width:72px;height:72px;display:block"></span><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.09em;font-size:8px;color:var(--fg3);text-align:center;line-height:1.35;max-width:84px">Scan for the<br>full course</span>
+        </a>
+        <div class="stoplight"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      </div>
     </div>
     <div class="lanes">
       <div class="lane green">

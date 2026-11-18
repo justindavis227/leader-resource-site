@@ -70,10 +70,9 @@
 
   <div class="spread" style="display:flex;flex-direction: {{ sdir }};gap: {{ sgap }}px;align-items:center;--ember:var(--x-violet)">
   <!-- ============ COPYRIGHT ============ -->
-  <section class="pg" data-screen-label="Copyright" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:56px 64px 92px;display:flex;flex-direction:column;justify-content:flex-end">
-    <p style="font-size:14px;color:var(--fg2);line-height:1.65;margin:0;max-width:560px">© 2026 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
-    <p style="font-size:14px;color:var(--fg2);line-height:1.65;margin:16px 0 0;max-width:560px">For permissions contact: Justin Davis at <a href="mailto:jdavis@secc.org" style="color:var(--x-violet)">jdavis@secc.org</a></p>
-    <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">All Rights Reserved</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">Southeast Students</span></div>
+  <section class="pg" data-screen-label="Copyright" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:0 64px 96px;display:flex;flex-direction:column;justify-content:flex-end">
+    <p style="font-size:14px;color:var(--fg2);line-height:1.65;margin:0;max-width:560px">&copy; 2027 Southeast Students. All Rights Reserved.<br>No portion of this book may be reproduced in any form<br>without permission from the publisher, except as permitted by U.S. copyright law.</p>
+    <p style="font-size:14px;color:var(--fg2);line-height:1.65;margin:0;max-width:560px;margin-top:18px">For permissions contact: Justin Davis at <a style="color:var(--fg2);text-decoration:none" href="mailto:jdavis@secc.org">jdavis@secc.org</a></p>
   </section>
 
   <section class="pg" data-screen-label="Contents" style="width:768px;height:768px;background:var(--slate);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--fg1);padding:56px 64px 92px;display:flex;flex-direction:column">
@@ -401,7 +400,7 @@
         <div style="font-family:var(--font-display);font-weight:700;font-size:38px;color:var(--red);line-height:.8;white-space:nowrap">{{ s.tipNo }}</div>
         <div style="width:1px;align-self:stretch;background:rgba(255,254,249,.16)"></div>
         <div style="flex:1;font-size:12.5px;color:var(--fg2-d);line-height:1.5">{{ s.tip }}<span style="display:inline-block;font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;color:#ff7b84;background:rgba(224,27,47,.24);padding:2px 8px;border-radius:999px;margin-left:8px;white-space:nowrap;vertical-align:middle">#leadertip</span></div>
-        <sc-if value="{{ s.tipQr }}" hint-placeholder-val="{{ false }}"><span style="background:#fff;border-radius:6px;padding:4px;display:block;flex:none"><img src="{{ s.tipQr }}" alt="Scan to open the Decision Guide" style="width:58px;height:58px;display:block"></span></sc-if>
+        <sc-if value="{{ s.tipQr }}" hint-placeholder-val="{{ false }}"><a href="https://leader-resources.vercel.app/decision-guide" target="_blank" rel="noopener" style="background:#fff;border-radius:6px;padding:4px;display:block;flex:none"><img src="{{ s.tipQr }}" alt="Scan to open the Decision Guide" style="width:58px;height:58px;display:block"></a></sc-if>
       </div>
       <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:22px 56px"><span style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)">{{ s.short }}</span><span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--fg2);letter-spacing:.04em">{{ s.overviewPage }}</span></div>
     </section>
