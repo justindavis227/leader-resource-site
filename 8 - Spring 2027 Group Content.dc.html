@@ -620,11 +620,11 @@
   <section class="pg" data-screen-label="Back Cover" style="width:768px;height:768px;background:var(--pitch);position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(14,18,21,.20);color:var(--slate)">
     <div style="position:absolute;inset:0;background: {{ backBg }}"></div>
     <div style="position:absolute;inset:0;background: {{ coverScrim }}"></div>
-    <div style="position:absolute;left:0;right:0;bottom:74px;display:flex;flex-direction:column;align-items:center">
-      <img src="assets/logos/se-students-primary-white.png" alt="Southeast Students" style="height:30px;width:auto;opacity:.92">
+    <div style="position:absolute;left:0;right:0;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:14px">
+      <img src="assets/logos/se-students-primary-white.png" alt="Southeast Students" style="height:54px;width:auto;opacity:.96">
+      <div style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:rgba(255,254,249,.8)">One At a Time</div>
     </div>
-    
-  </section>
+    </section>
 
 </div>
 </div>
@@ -1016,8 +1016,8 @@ Through moments from Jesus' life in Mark, we'll discover that following Jesus is
     const coverImg = COVER_ART ? `url('${COVER_ART}')` : `url('assets/textures/gradient-texture.jpg')`;
     return {
       // wraparound cover photo: one image across back (left half) + front (right half)
-      coverBg: COVER_ART ? `#0d0d0d ${coverImg} center/cover no-repeat` : `#0d0d0d url('assets/photos/covers/spring.jpg') right center/200% 100% no-repeat`,
-      backBg: COVER_ART ? `#0d0d0d ${coverImg} center/cover no-repeat` : `#0d0d0d url('assets/photos/covers/spring.jpg') left center/200% 100% no-repeat`,
+      coverBg: COVER_ART ? `#0d0d0d ${coverImg} center/cover no-repeat` : `#0d0d0d url('assets/photos/covers/spring-v2.jpg') right center/200% 100% no-repeat`,
+      backBg: COVER_ART ? `#0d0d0d ${coverImg} center/cover no-repeat` : `#0d0d0d url('assets/photos/covers/spring-v2.jpg') left center/200% 100% no-repeat`,
       coverScrim: 'linear-gradient(to top,rgba(13,13,13,.78) 6%,rgba(13,13,13,.25) 38%,rgba(13,13,13,0) 60%)',
       coverList: raw.map((x) => x.short).join(' · '),
       series,
