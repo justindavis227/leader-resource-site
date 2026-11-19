@@ -13,7 +13,7 @@
   a{color:var(--fire)} a:hover{color:var(--ember)}
 
   .rpage{width:816px;height:1056px;background:var(--slate);position:relative;overflow:hidden;
-         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:var(--fire);--sa-ghost:#efb3ae}
+         box-shadow:0 18px 60px rgba(14,18,21,.22);color:var(--fg1);--sa:var(--fire);--sa-ghost:#efeff0}
 
   .hero{background:var(--pitch);padding:46px 64px 0;position:relative}
   .hero .eyebrow{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sa)}
@@ -45,7 +45,7 @@
   .fmx .fname{font-family:var(--font-display);text-transform:uppercase;font-size:14px;color:var(--fg1);display:flex;align-items:center;
               height:34px;border-bottom:1px solid var(--hairline);white-space:nowrap}
   .fmx .cell{height:34px;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:center}
-  .fmx .cell .box{width:22px;height:22px;border:1.4px solid var(--hairline);border-radius:5px;background:#fffdf6}
+  .fmx .cell .box{width:22px;height:22px;border:1.4px solid #b9bcc0;border-radius:5px;background:#f3f3f4}
 
   /* five-people frequency grid */
   .sec3{margin-top:24px;padding-top:4px}
@@ -56,7 +56,9 @@
   .frq th,.frq td{border:1px solid var(--hairline);text-align:center}
   .frq thead th{font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:10px;color:var(--fg1);padding:9px 4px}
   .frq tbody th{text-align:left;font-family:var(--font-display);text-transform:uppercase;font-size:14px;color:var(--fg1);padding:0 12px;height:38px;line-height:1.05}
-  .frq tbody td{height:38px;background:#fffdf6}
+  .frq tbody td{height:38px;background:#fff}
+.frq thead th:not([style]){background:#0d0d0d;color:#fff;border-color:#0d0d0d}
+.frq tbody th{background:#f3f3f4}
 
   .rfoot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:20px 64px}
   .rfoot .sec{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:var(--fg3)}
@@ -87,7 +89,7 @@
 </template>
   <div class="rpage">
     <div class="hero">
-      <div class="eyebrow">Southeast Students &middot; Further Resource</div>
+      <div class="eyebrow">Further Resource</div>
       <h1>Fruit of the Spirit<br>Assessment</h1>
       <p>The fruit of the Spirit is the evidence of a life walking with Jesus. Rate yourself honestly, then invite someone who knows you well to do the same. Growth begins where the two views meet.</p>
       <div class="hz"></div>

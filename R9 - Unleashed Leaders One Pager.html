@@ -26,10 +26,10 @@
   /* answer toolbar — matches the booklet view toolbar */
   .toolbar{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:3px;background:var(--pitch);padding:4px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.5);border:1px solid rgba(255,254,249,.18)}
   .toolbar button{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;color:var(--fg2-d);background:transparent;border:none;padding:8px 15px;border-radius:999px;cursor:pointer}
-  .toolbar #btnAnswers.on{background:var(--solar);color:var(--on-solar)}
+  .toolbar #btnAnswers.on{background:var(--red);color:#fff}
 
   /* ===== fieldset boxes ===== */
-  .stage{flex:1;display:flex;flex-direction:column;gap:24px;padding:34px 60px 84px}
+  .rstage{flex:1;display:flex;flex-direction:column;gap:24px;padding:34px 60px 84px}
   .blk{display:inline-block;min-width:106px;border-bottom:1.7px solid #b3ad99;text-align:center;line-height:1.15;vertical-align:baseline;margin:0 4px;padding:0 6px}
   .blk.sm{min-width:78px}
   .blk.lg{min-width:158px}
@@ -63,7 +63,7 @@
   /* ===== back page · who sits + challenges ===== */
   .chstage{flex:1;display:flex;flex-direction:column;gap:22px;padding:44px 60px 84px}
   .chbox-lbl{position:absolute;top:-16px;left:24px}
-  .wsbox{position:relative;background:linear-gradient(180deg,rgba(235,100,36,.20),rgba(235,100,36,.07));border:3px solid var(--ember);border-radius:16px;padding:30px 30px 24px;flex:none}
+  .wsbox{position:relative;background:#f3f3f4;border:3px solid var(--ember);border-radius:16px;padding:30px 30px 24px;flex:none}
   .wsbox .chbox-lbl span{background:var(--ember);color:var(--slate);border-color:var(--ember)}
   .wschairs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:end}
   .wschair{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;min-width:0}
@@ -79,11 +79,11 @@
   .wsverse{position:relative;overflow:hidden;background:var(--pitch);border-radius:16px;padding:30px 40px;flex:none;min-height:150px;display:flex;flex-direction:column;justify-content:center}
   .wsverse .wsbg{position:absolute;inset:0;background:url('assets/photos/field-house.jpg') center 66%/cover;z-index:0}
   .wsverse .wsscrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,11,13,.92) 0%,rgba(9,11,13,.82) 50%,rgba(9,11,13,.60) 100%);z-index:1}
-  .wsverse .vghost{position:absolute;top:-96px;right:18px;font-family:var(--font-display);font-size:300px;line-height:1;color:rgba(235,100,36,.14);pointer-events:none;user-select:none;z-index:2}
+  .wsverse .vghost{position:absolute;top:-96px;right:18px;font-family:var(--font-display);font-size:300px;line-height:1;color:rgba(224,27,47,.14);pointer-events:none;user-select:none;z-index:2}
   .wsverse .vbar{width:54px;height:5px;background:var(--ember);margin-bottom:16px;position:relative;z-index:3}
-  .wsverse .vk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:var(--solar);margin-bottom:12px;position:relative;z-index:3}
+  .wsverse .vk{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:var(--red);margin-bottom:12px;position:relative;z-index:3}
   .wsverse .vq{font-family:var(--font-body);font-weight:300;font-size:30px;line-height:1.18;letter-spacing:-.02em;color:var(--slate);margin:0;max-width:580px;position:relative;z-index:3}
-  .wsverse .vq em{color:var(--solar);font-style:italic}
+  .wsverse .vq em{color:var(--red);font-style:italic}
   .wsverse .vref{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:rgba(255,254,249,.7);margin-top:14px;position:relative;z-index:3}
 
   /* challenges */
@@ -140,13 +140,13 @@
 <!-- ============ FRONT · MISSION / VISION / MODEL ============ -->
 <div class="rpage" id="front">
   <div class="hero">
-    <div class="eyebrow">Southeast Students &middot; Recap</div>
+    <div class="eyebrow">Recap</div>
     <h1>Unleashed<br>Leaders Review</h1>
     <p>Fill in the blank to recap how we reach the next generation&mdash;Jesus&rsquo; mission, our mission and model, the four chairs, and the challenge that moves people from one to the next.</p>
     <div class="hz"></div>
   </div>
 
-  <div class="stage">
+  <div class="rstage">
     <div class="tbsec">
       <div class="tbsec-lbl"><span>Jesus&rsquo; Mission</span></div>
       <div class="tbline"><span class="ref">Luke 19:10</span><span class="arr">&rarr;</span>To <span class="blk"><span class="ans">seek</span></span> and <span class="blk"><span class="ans">save</span></span> the lost.</div>
