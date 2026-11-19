@@ -227,14 +227,23 @@
   }
   function loadDir() { return idb(function (st, res) { var g = st.get('dir'); g.onsuccess = function () { res(g.result || null); }; g.onerror = function () { res(null); }; }); }
   function saveDir(h) { return idb(function (st, res) { st.put(h, 'dir'); res(true); }); }
+  function withT(p, ms, fb) { return Promise.race([Promise.resolve(p).catch(function () { return fb; }), new Promise(function (r) { setTimeout(function () { r(fb); }, ms); })]); }
   async function ensureDir() {
     if (!window.showDirectoryPicker) throw new Error('This browser can’t save files directly. Open the booklet in Google Chrome.');
+    if (S.pickNow) { // fresh click after a stalled permission check: open the folder picker straight away, while the click still counts
+      S.pickNow = false;
+      toast('Choose your <b>leader-resource-site</b> folder so edits can save.', 6000);
+      var h0 = await window.showDirectoryPicker({ id: 'lrs', mode: 'readwrite' });
+      try { await h0.getFileHandle(S.fileName); } catch (e) { throw new Error('That folder doesn’t contain “' + S.fileName + '.” Pick the leader-resource-site folder.'); }
+      S.dir = h0; saveDir(h0); return h0;
+    }
     if (!S.dir) S.dir = await loadDir();
     if (S.dir) {
-      var p = 'denied';
-      try { p = await S.dir.queryPermission({ mode: 'readwrite' }); if (p !== 'granted') p = await S.dir.requestPermission({ mode: 'readwrite' }); } catch (e) { p = 'denied'; }
-      if (p === 'granted') { try { await S.dir.getFileHandle(S.fileName); return S.dir; } catch (e) { S.dir = null; } }
-      else S.dir = null;
+      var p = await withT(S.dir.queryPermission({ mode: 'readwrite' }), 2000, 'stalled');
+      if (p === 'prompt' || p === 'denied') p = await withT(S.dir.requestPermission({ mode: 'readwrite' }), 20000, 'stalled');
+      if (p === 'granted') { var ok = await withT(S.dir.getFileHandle(S.fileName).then(function () { return true; }), 3000, false); if (ok) return S.dir; }
+      S.dir = null;
+      if (p === 'stalled' || p === 'granted') { S.pickNow = true; var e1 = new Error('Chrome didn’t answer the folder check. Click <b>Edit text</b> once more and pick the <b>leader-resource-site</b> folder.'); e1.soft = true; throw e1; }
     }
     toast('Choose your <b>leader-resource-site</b> folder so edits can save. You only do this once.', 6000);
     var h = await window.showDirectoryPicker({ id: 'lrs', mode: 'readwrite' });
@@ -258,6 +267,7 @@
       toast(S.blocks.length + ' text blocks ready to edit' + (m.miss ? ' · ' + m.miss + ' locked (couldn’t match the file)' : '') + (S.over.length ? ' · ' + S.over.length + ' page' + (S.over.length > 1 ? 's' : '') + ' already overflowing' : ''), 4000);
     } catch (e) {
       if (e && e.name === 'AbortError') { toast('No folder chosen, so edit mode stayed off. Click Edit text again and pick the leader-resource-site folder.', 6000); return; }
+      if (e && e.soft) { toast(e.message, 12000); return; }
       toast('Edit mode couldn\u2019t start: ' + esc((e && (e.name + ': ' + e.message)) || String(e)), 12000, true); console.error('[lrs-edit]', e);
     }
   }
