@@ -6,6 +6,8 @@
   'use strict';
   var LOCAL = location.protocol === 'file:';
   if (!LOCAL) return;
+  var FRAMED = false; try { FRAMED = window.self !== window.top; } catch (e) { FRAMED = true; }
+  if (FRAMED) return; // hub previews: no edit button inside the little cover thumbnails
 
   var INLINE = /^(b|strong|i|em|u|s|small|span|a|br|sup|sub|mark|abbr|code|q|wbr)$/;
   var SKIP_TAGS = /^(svg|script|style|img|canvas|video|iframe|template|noscript|button|input|select|textarea|nav|helmet|head|link|meta)$/;

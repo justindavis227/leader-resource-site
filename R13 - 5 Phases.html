@@ -32,7 +32,7 @@
 </head>
 <body>
 <style>@media print{#libnav{display:none!important}}html.is-embedded #libnav{display:none!important}html.is-embedded body{padding:0!important}</style>
-<script>(function(){var fe=window.frameElement;if(fe&&(fe.getAttribute('aria-hidden')==='true'||fe.hasAttribute('data-fit')))document.documentElement.className+=' is-embedded';})();</script>
+<script>(function(){var fe=null,top=false;try{fe=window.frameElement;}catch(e){}try{top=window.self!==window.top;}catch(e){top=true;}if((fe&&(fe.getAttribute('aria-hidden')==='true'||fe.hasAttribute('data-fit')))||(!fe&&top))document.documentElement.className+=' is-embedded';})();</script>
 <script>
 (function(){
   if(/(^|[#&])print($|&|=)/.test(location.hash)||/[?&]print(=|&|$)/.test(location.search)){
