@@ -37,12 +37,13 @@
   .body{padding:20px 60px 0;display:flex;flex-direction:column;flex:1;gap:4px}
 
   /* number device (block + circle bites) + section bar */
-  .bsec{display:flex;align-items:stretch;height:44px;flex:none;margin-top:8px}
+  .bsec{display:flex;align-items:stretch;height:44px;flex:none;margin-top:8px;background:var(--bc,var(--bblue));border-radius:11px 9px 9px 11px}
   .bsec:first-child{margin-top:0}
-  .bk{flex:none;width:36px;background:radial-gradient(circle 25px at calc(100% + 18px) 50%, transparent 24.6px, var(--bblue) 25px);border-radius:11px 0 0 11px}
-  .bnc{flex:none;width:38px;display:flex;align-items:center;justify-content:center}
-  .bnc span{font-family:var(--font-display);font-weight:700;color:var(--bblue);font-size:26px;line-height:1}
-  .bar{flex:1;min-width:0;background:radial-gradient(circle 25px at -18px 50%, transparent 24.6px, var(--bblue) 25px);border-radius:0 9px 9px 0;display:flex;align-items:center;padding:0 20px 0 22px}
+  .bk{flex:none;width:30px}
+  .bnc{flex:none;width:44px;display:flex;align-items:center;justify-content:center;position:relative}
+.bnc::before{content:'';position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff}
+  .bnc span{font-family:var(--font-display);font-weight:700;color:var(--bc,var(--bblue));font-size:24px;line-height:1;position:relative}
+  .bar{flex:1;min-width:0;display:flex;align-items:center;padding:0 20px 0 22px}
   .bar h3{font-family:var(--font-display);font-weight:700;color:#fff;font-size:20px;letter-spacing:.02em;margin:0;text-transform:uppercase;display:flex;align-items:baseline;gap:7px;white-space:nowrap}
   .bar h3 .to{font-family:var(--font-body);font-style:italic;font-weight:600;font-size:13px;letter-spacing:.01em;color:rgba(255,255,255,.92);align-self:center}
 
@@ -134,8 +135,8 @@
   </div>
 
   <div class="body">
-    <div class="bsec"><span class="bk"></span><span class="bnc"><span>1.</span></span><div class="bar"><h3>Starting Questions</h3></div></div>
-    <div class="bbody">
+    <div class="bsec" style="--bc:#472ca7"><span class="bk"></span><span class="bnc"><span>1.</span></span><div class="bar"><h3>Starting Questions</h3></div></div>
+    <div class="bbody" style="--bblue:#472ca7;--bblue-dk:#472ca7">
       <ul>
         <li>Tell me about your journey with Jesus so far.</li>
         <li>Why do you want to get baptized?</li>
@@ -144,8 +145,8 @@
       </ul>
     </div>
 
-    <div class="bsec"><span class="bk"></span><span class="bnc"><span>2.</span></span><div class="bar"><h3>Gospel Conversation <span class="to">( Turn over )</span></h3></div></div>
-    <div class="bbody">
+    <div class="bsec" style="--bc:#de0178"><span class="bk"></span><span class="bnc"><span>2.</span></span><div class="bar"><h3>Gospel Conversation <span class="to">( Turn over )</span></h3></div></div>
+    <div class="bbody" style="--bblue:#de0178;--bblue-dk:#de0178">
       <div class="gtab">
         <div class="gr">Genesis 1</div><div class="gd">God created us for relationship</div>
         <div class="gr">Genesis 3</div><div class="gd">Sin breaks that relationship</div>
@@ -156,8 +157,8 @@
       </div>
     </div>
 
-    <div class="bsec"><span class="bk"></span><span class="bnc"><span>3.</span></span><div class="bar"><h3>What Is Baptism?</h3></div></div>
-    <div class="bbody">
+    <div class="bsec" style="--bc:#ff172c"><span class="bk"></span><span class="bnc"><span>3.</span></span><div class="bar"><h3>What Is Baptism?</h3></div></div>
+    <div class="bbody" style="--bblue:#ff172c;--bblue-dk:#ff172c">
       <ul>
         <li>Ask the student to read <b>Romans 6:1&ndash;7</b> aloud.</li>
         <li>Baptism is a symbol:</li>
@@ -171,8 +172,8 @@
       </ul>
     </div>
 
-    <div class="bsec"><span class="bk"></span><span class="bnc"><span>4.</span></span><div class="bar"><h3>Now What?</h3></div></div>
-    <div class="bbody">
+    <div class="bsec" style="--bc:#f98e2f"><span class="bk"></span><span class="bnc"><span>4.</span></span><div class="bar"><h3>Now What?</h3></div></div>
+    <div class="bbody" style="--bblue:#f98e2f;--bblue-dk:#f98e2f">
       <ul>
         <li>Read <b>2 Corinthians 5:17 to 6:2</b>.</li>
         <li>Today is the day of salvation! Will you go now and be Christ&rsquo;s ambassador? He wants to use you to reach others! Who will you tell?</li>
