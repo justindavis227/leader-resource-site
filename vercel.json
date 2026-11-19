@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/0%20-%20Resource%20Library.dc.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/0 - Resource Library.dc.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/shot-list",
       "destination": "https://claude.ai/artifact/CB4483vLcvV9spQghdfqvy",
       "permanent": false
