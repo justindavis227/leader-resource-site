@@ -214,12 +214,15 @@
   /* ---------- folder access (Chrome File System Access API) ---------- */
   function idb(fn) {
     return new Promise(function (res) {
+      var done = false, fin = function (v) { if (!done) { done = true; res(v); } };
+      setTimeout(function () { fin(null); }, 1500); // never hang: a managed Chrome can stall IndexedDB on file:// pages
       try {
         var rq = indexedDB.open('lrs-edit', 1);
+        rq.onblocked = function () { fin(null); };
         rq.onupgradeneeded = function () { rq.result.createObjectStore('kv'); };
-        rq.onsuccess = function () { var tx = rq.result.transaction('kv', 'readwrite'); fn(tx.objectStore('kv'), res); };
-        rq.onerror = function () { res(null); };
-      } catch (e) { res(null); }
+        rq.onsuccess = function () { try { var tx = rq.result.transaction('kv', 'readwrite'); fn(tx.objectStore('kv'), fin); } catch (e) { fin(null); } };
+        rq.onerror = function () { fin(null); };
+      } catch (e) { fin(null); }
     });
   }
   function loadDir() { return idb(function (st, res) { var g = st.get('dir'); g.onsuccess = function () { res(g.result || null); }; g.onerror = function () { res(null); }; }); }
@@ -228,8 +231,8 @@
     if (!window.showDirectoryPicker) throw new Error('This browser can’t save files directly. Open the booklet in Google Chrome.');
     if (!S.dir) S.dir = await loadDir();
     if (S.dir) {
-      var p = await S.dir.queryPermission({ mode: 'readwrite' });
-      if (p !== 'granted') p = await S.dir.requestPermission({ mode: 'readwrite' });
+      var p = 'denied';
+      try { p = await S.dir.queryPermission({ mode: 'readwrite' }); if (p !== 'granted') p = await S.dir.requestPermission({ mode: 'readwrite' }); } catch (e) { p = 'denied'; }
       if (p === 'granted') { try { await S.dir.getFileHandle(S.fileName); return S.dir; } catch (e) { S.dir = null; } }
       else S.dir = null;
     }
@@ -243,6 +246,7 @@
 
   /* ---------- turning edit mode on/off ---------- */
   async function enable(sourceText) {
+    if (sourceText == null) toast('Opening the editor\u2026', 8000);
     try {
       var text = sourceText != null ? sourceText : await readFile();
       S.data = /<sc-for\b/.test(text);
@@ -252,7 +256,10 @@
       document.documentElement.classList.add('lrs-editing');
       checkOverflow(); render();
       toast(S.blocks.length + ' text blocks ready to edit' + (m.miss ? ' · ' + m.miss + ' locked (couldn’t match the file)' : '') + (S.over.length ? ' · ' + S.over.length + ' page' + (S.over.length > 1 ? 's' : '') + ' already overflowing' : ''), 4000);
-    } catch (e) { if (e && e.name === 'AbortError') return; toast(esc(e.message || String(e)), 7000, true); }
+    } catch (e) {
+      if (e && e.name === 'AbortError') { toast('No folder chosen, so edit mode stayed off. Click Edit text again and pick the leader-resource-site folder.', 6000); return; }
+      toast('Edit mode couldn\u2019t start: ' + esc((e && (e.name + ': ' + e.message)) || String(e)), 12000, true); console.error('[lrs-edit]', e);
+    }
   }
   function disable() {
     if (dirtyCount() && !confirm('You have unsaved changes. Discard them and leave edit mode?')) return;
